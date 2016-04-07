@@ -87,7 +87,8 @@ def deploy():
             if os.path.exists(dst):
                 shutil.rmtree(dst)
             shutil.copytree(src, dst)
-    sh("git commit -m 'docs update'")
+    sh('git add .')
+    sh('git commit -m "docs update"')
     sh("git push origin gh-pages")
     sh("git checkout master")
 
