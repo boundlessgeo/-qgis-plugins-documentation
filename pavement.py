@@ -82,10 +82,11 @@ def deploy():
             if os.path.isdir(os.path.join(tmpDir, name))]
     for folder in subfolders:
         src = os.path.join(tmpDir, folder, 'docs', 'build', 'html')
-        dst = os.path.join(cwd,  folder.split("-")[1])
-        if os.path.exists(dst):
-            shutil.rmtree(dst)
-        shutil.copytree(src, dst)
+        if os.path.exists(src):
+            dst = os.path.join(cwd,  folder.split("-")[1])
+            if os.path.exists(dst):
+                shutil.rmtree(dst)
+            shutil.copytree(src, dst)
     sh("git commit -m 'docs update'")
     sh("git push origin gh-pages")
     sh("git checkout master")
