@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : OpenGeo Suite QGIS plugin : Configuration</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="../_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="../_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="top" title="OpenGeo Suite QGIS plugin 1.0 documentation" href="../index.html" />
+      <link rel="next" title="Caveats and known issues" href="../caveats/index.html" />
+      <link rel="prev" title="Editing/viewing layer metadata" href="../metadata/index.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('../_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('../_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('../_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="../_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="/" rel="home" id="logo"><img src="../_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+                            				<ul id="menu-main" class="menu">
+                                				<li><a href="/">Plugins</a></li>
+                                				<li><a href="/static/docs/">Documentation</a></li>
+                                				<li><a href="/static/docs/quickstart.html">Tutorials</a></li>
+                                				<li><a href="https://github.com/boundlessgeo/suite-qgis-plugin/issues" target="_blank">Support</a></li>
+                            				</ul>
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="../search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>OpenGeo Suite QGIS plugin</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="http://boundlessgeo.com/">Home</a> &raquo;
+  <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
+  <a href="../index.html">OpenGeo Suite QGIS plugin</a>
+  
+     &raquo; <a href="">Configuration</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="configuration">
+<span id="config"></span><h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<p>In the OpenGeo menu, along with the entry that starts OpenGeo Explorer, you will find an entry that opens the OpenGeo Explorer configuration dialog called <em class="guilabel">OpenGeo Explorer settings</em>.</p>
+<div class="figure">
+<img alt="../_images/plugin_menu.png" src="../_images/plugin_menu.png" />
+<p class="caption">OpenGeo Explorer menu</p>
+</div>
+<div class="figure">
+<img alt="../_images/config.png" src="../_images/config.png" />
+</div>
+<p>The properties that can be configured are described in detail below.</p>
+<div class="section" id="use-single-tab-ui">
+<h2>Use single tab UI<a class="headerlink" href="#use-single-tab-ui" title="Permalink to this headline">¶</a></h2>
+<p>By default, OpenGeo Explorer shows all categories (GeoServer Catalogs, PostGIS Databases, and QGIS Project) in a single panel as branches in a tree. If you enable the multi-tab user interface, each category is put in a separate tab, with a tree of elements belonging to the corresponding category, as shown in the next figure.</p>
+<div class="figure">
+<img alt="../_images/multi-tab.png" src="../_images/multi-tab.png" />
+<p class="caption">Multi-tab interface</p>
+</div>
+<p>Subcategories (such as layers or workspaces, in the case of a GeoServer catalog) can be accessed using the buttons on the lower part of the panel.</p>
+<p>All other functionality is identical, though drag and drop functionality is limited to elements within the same category.</p>
+<p>QGIS will need to be restarted for this change to take effect.</p>
+</div>
+<div class="section" id="show-description-panel">
+<h2>Show description panel<a class="headerlink" href="#show-description-panel" title="Permalink to this headline">¶</a></h2>
+<p>This option will toggle whether the Description panel at the bottom (or side) of the plugin interface is shown. By default, this is checked.</p>
+</div>
+<div class="section" id="ask-confirmation-before-deleting">
+<h2>Ask confirmation before deleting<a class="headerlink" href="#ask-confirmation-before-deleting" title="Permalink to this headline">¶</a></h2>
+<p>It is possible to make changes to the various connected servers and databases, including making deletions. When this option is checked, a dialog will show asking for confirmation before any deletions will happen.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">It is highly recommended to keep this box enabled to prevent unintended loss of data.</p>
+</div>
+</div>
+<div class="section" id="keep-a-list-of-previous-geoserver-connections">
+<span id="gs-connections"></span><h2>Keep a list of previous GeoServer connections<a class="headerlink" href="#keep-a-list-of-previous-geoserver-connections" title="Permalink to this headline">¶</a></h2>
+<p>Enabling this option will cause all connection information will be preserved between QGIS sessions.</p>
+<p>Subsequent launching of QGIS and OpenGeo Explorer will show the Catalogs item populated with previous connections.</p>
+<p>While the connection information is stored, catalog data is fetched only on request. Unpopulated catalogs are shown with a gray icon; Refresh the catalog item to populate it.</p>
+<div class="figure">
+<img alt="../_images/gray_catalog.png" src="../_images/gray_catalog.png" />
+<p class="caption">Previous saved connections shown in gray</p>
+</div>
+<p>If the catalog uses basic authentication, the password will not be stored. You will be prompted to enter it when you reconnect to the catalog. If the <em>Configurations</em> tab is used, connection data (wheter password or certificate-based) will be stored in the encrypted QGIS auth database. You will be prompted to enter the master password in case you haven&#8217;t used the auth database in the current QGIS session.</p>
+<p>To know more about how to use authentication configurations in QGIS, see the <a class="reference external" href="./auth.html">Authentication configurations</a> section</p>
+<p>To delete a catalog from the list of previous connections, use the <em class="guilabel">Remove</em> option of the catalog item in the Explorer tree.</p>
+</div>
+<div class="section" id="always-use-rest-api-for-uploads">
+<h2>Always use REST API for uploads<a class="headerlink" href="#always-use-rest-api-for-uploads" title="Permalink to this headline">¶</a></h2>
+<p>This option currently has no effect. All uploads are done using the REST API.</p>
+</div>
+<div class="section" id="delete-style-when-deleting-layer">
+<h2>Delete style when deleting layer<a class="headerlink" href="#delete-style-when-deleting-layer" title="Permalink to this headline">¶</a></h2>
+<p>Layers in GeoServer must have a default style associated with it. It is possible to delete the layer without deleting the style though, to save the style for use with other layers.</p>
+<p>When enabled, this option will delete the default style associated with the layer when the layer is deleted through OpenGeo Explorer, and when that style is not used by any other layer.</p>
+</div>
+<div class="section" id="delete-resource-when-deleting-layer">
+<h2>Delete resource when deleting layer<a class="headerlink" href="#delete-resource-when-deleting-layer" title="Permalink to this headline">¶</a></h2>
+<p>When this option is checked, the resource that is part of a layer will also be deleted from its corresponding store if the layer is deleted.</p>
+</div>
+<div class="section" id="overwrite-layers-when-uploading-group">
+<h2>Overwrite layers when uploading group<a class="headerlink" href="#overwrite-layers-when-uploading-group" title="Permalink to this headline">¶</a></h2>
+<p>When this option is enabled, OpenGeo Explorer will overwrite layers in the GeoServer catalog on upload, if a layer with the same name exists.</p>
+<p>When this option is not enabled, if a layer with the same name already exists in GeoServer, it will be used, and the corresponding QGIS layer will not be uploaded.</p>
+</div>
+<div class="section" id="pre-upload-processing-hooks">
+<h2>Pre-upload processing hooks<a class="headerlink" href="#pre-upload-processing-hooks" title="Permalink to this headline">¶</a></h2>
+<p>If you need to process your data before it is uploaded, you can set up a pre-upload hook that will be run on any layer before it is sent to GeoServer. Instead of the original layer, the result of that hook will be uploaded.</p>
+<p>Pre-upload hooks are defined separately for raster and vector layers. In both cases, they are defined as the path to a processing model (<tt class="docutils literal"><span class="pre">.model</span></tt>) or script (<tt class="docutils literal"><span class="pre">.py</span></tt>) file. The algorithm defined by that hook file will be loaded and executed to obtain the final layer to upload.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Please refer to the <a class="reference external" href="http://docs.qgis.org/latest/en/docs/user_manual/processing/index.html">Processing chapter in the QGIS manual</a> to learn more about the creation of processing models and scripts.</p>
+</div>
+<p>For raster layers, the hook algorithm must have both input and output be of type raster layer. For vector layers, both input and output must be of type vector layer. If the selected model does not exist or does not have the required characteristics, it will be ignored, and the original layer will be uploaded without any preprocessing.</p>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="../metadata/index.html" title="previous chapter">Editing/viewing layer metadata</a></div>
+          <div class="right"><strong>Next</strong>: <a href="../caveats/index.html" title="next chapter">Caveats and known issues</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2013, OpenGeo
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">Configuration</a><ul>
+<li><a class="reference internal" href="#use-single-tab-ui">Use single tab UI</a></li>
+<li><a class="reference internal" href="#show-description-panel">Show description panel</a></li>
+<li><a class="reference internal" href="#ask-confirmation-before-deleting">Ask confirmation before deleting</a></li>
+<li><a class="reference internal" href="#keep-a-list-of-previous-geoserver-connections">Keep a list of previous GeoServer connections</a></li>
+<li><a class="reference internal" href="#always-use-rest-api-for-uploads">Always use REST API for uploads</a></li>
+<li><a class="reference internal" href="#delete-style-when-deleting-layer">Delete style when deleting layer</a></li>
+<li><a class="reference internal" href="#delete-resource-when-deleting-layer">Delete resource when deleting layer</a></li>
+<li><a class="reference internal" href="#overwrite-layers-when-uploading-group">Overwrite layers when uploading group</a></li>
+<li><a class="reference internal" href="#pre-upload-processing-hooks">Pre-upload processing hooks</a></li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="../metadata/index.html" title="previous chapter">Editing/viewing layer metadata</a></p>
+          <p><b>Next:</b> <a href="../caveats/index.html" title="next chapter">Caveats and known issues</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="../_sources/config/index.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="../genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="../caveats/index.html" title="Caveats and known issues"
+       accesskey="N">next</a>|</li>
+  <li>
+    <a href="../metadata/index.html" title="Editing/viewing layer metadata"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">&copy; Copyright 2013, OpenGeo</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="../_static/dropdown.js"></script>-->
+
+  </body>
+</html>

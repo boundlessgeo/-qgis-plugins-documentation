@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Writing Lessons &mdash; QGIS Lessons Plugin 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="QGIS Lessons Plugin 1.0 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">QGIS Lessons Plugin 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="id1">
+<h1>Writing Lessons<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Instructions to write new lessons are described in this document.</p>
+<p>The recommended procedure for adding new lessons is as follows:</p>
+<ol class="arabic simple">
+<li>First, create a new plugin. This plugin will be responsible for registering the lessons, so they will appear when the lessons list is shown.</li>
+<li>For each lesson, create a separate folder with the structure shown below:</li>
+</ol>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">`__init__.py`</span></tt></li>
+<li>[html files describing the lesson and each step in it]</li>
+<li>[data used for this lessons]</li>
+<li><tt class="docutils literal"><span class="pre">`project.qgs`</span></tt></li>
+</ul>
+<p>All these elements are explained in a later section in this document.</p>
+<ol class="arabic simple" start="3">
+<li>In the init method of your plugin, register your plugin adding the following snippet</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre>    try:
+    from lessons import addLessonModule
+    addLessonModule(lesson_module)
+except:
+    pass
+</pre></div>
+</div>
+<p>Replace <em>lesson_module</em> with the reference to your lesson module (which you should have imported), and add as many entries as module you have created in your set of lessons.</p>
+<p>An example of a plugin that adds a collection of lessons can be found in the <tt class="docutils literal"><span class="pre">`lessonscollectionplugin`</span></tt> folder of this repository. Use is as a template for you own collections. If using it, you do not have to manually call the <tt class="docutils literal"><span class="pre">`addLessonModule`</span></tt> method. The plugin will automatically discover all available lessons. The only thing you have to do is to add your lessons under the <tt class="docutils literal"><span class="pre">`lessons`</span></tt> subfolder, each of them in its corresponding subfolder, as described above.</p>
+<div class="section" id="creating-a-lesson">
+<h2>Creating a lesson<a class="headerlink" href="#creating-a-lesson" title="Permalink to this headline">¶</a></h2>
+<p>If you have created a folder for each lesson as described above, the steps of the lesson and the content of each step should be defined in the <tt class="docutils literal"><span class="pre">`__init__.py`</span></tt> file.</p>
+<p>Create a <tt class="docutils literal"><span class="pre">`Lesson`</span></tt> object, specifying its name, the group it belongs to (lessons can be grouped) and a detailed description.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">lesson</span> <span class="o">=</span> <span class="n">Lesson</span> <span class="p">(</span><span class="s">&quot;Interpolating from a points layer&quot;</span><span class="p">,</span> <span class="s">&quot;Analysis lessons&quot;</span>
+                                <span class="s">&quot;this lessons shows how to use the interpolation capabilities of QGIS&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Instead of a string with the description, you can pass the name of an HTML file containing a richer description. For instance:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">lesson</span> <span class="o">=</span> <span class="n">Lesson</span> <span class="p">(</span><span class="s">&quot;Interpolating from a points layer&quot;</span><span class="p">,</span> <span class="s">&quot;Analysis lessons&quot;</span>
+                                <span class="s">&quot;lesson.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>There is no need to add the full path to the file, as long as the file is in the same folder as the <tt class="docutils literal"><span class="pre">`__init__.py`</span></tt> file. The full path will be correctly resolved at runtime.</p>
+<p>If your lesson requires loading data into QGIS, you can prepare a project with that data. Name the project <a href="#id2"><span class="problematic" id="id3">``</span></a>project.qgs```and put it in the lesson folder as well, as indicated. This will cause the lesson to automatically have a first step that loads the data before starting with the rest of step. If you want your data to be loaded from a different project in another folder, or to load it not at the beginning of the lesson, you will have to manually add that step.</p>
+<p>Now you can add steps to your lesson using the <tt class="docutils literal"><span class="pre">`addStep`</span></tt> method, which has the following signature:</p>
+<div class="highlight-python"><div class="highlight"><pre>addStep(self, name, description, function=None, prestep=None, endsignal=None,
+        endsignalcheck=None, endcheck=lambda:True, steptype=1):
+</pre></div>
+</div>
+<p>Here is a description of its arguments:</p>
+<ul class="simple">
+<li><strong>name</strong>: the name of the step, to be shown in the lesson explorer when running the lesson.</li>
+<li><strong>description</strong>: a longer description of the step. As in the case of the leson description, it can be a string containing the description, or a string containing the name of an HTML file with the description itself.</li>
+<li><strong>function</strong>: The function that execute this step. Even in the case of steps that are supposed to be performed manually by the user, a function can be supplied which performs the same action. In this case, the <em>Run step</em> button will be available, so the user can have the step automatically executed, instead of having to do it manually. If the step is a manual step and there is no function to perform the task, None can be passed</li>
+<li><strong>prestep</strong>: a function to be executed before starting the step, for preparing the necessary context. Should be None if no preparation is needed</li>
+<li><strong>endsignal</strong>: a signal that indicates that the step has been finished. If not None, the plugin will listen to the passed signal, and when it is emitted, it will automatically move to the next step.</li>
+<li><strong>endsignalcheck</strong>: In case it is needed to check that the <em>endsignal</em> signal should actually cause moving to the next step, pass a function to do the checking using this parameters. Should be used if the signal might be emmited in cases that do not represent the end of the step. Should be None if no check has to be performed.</li>
+<li><strong>endcheck</strong>: a function to check that the step has been correctly executed. This function will be run when the lesson moves to the next step. If should return true if the user has correctly performed the task for this step, or false otherwise. In this last case, the plugin will show a warning message and won&#8217;t let the user move to the next step until the step is correctly completed.</li>
+<li><strong>steptype</strong>: <tt class="docutils literal"><span class="pre">`Step.MANUALSTEP`</span></tt> if the step is to be performed manuallyl by the user, or <tt class="docutils literal"><span class="pre">`Step.AUTOMATEDSTEP`</span></tt> if it&#8217;s an automated one. In this last case, the step will not be shown in the list of them in the lesson explorer, and it is required to pass a function using the <tt class="docutils literal"><span class="pre">`function`</span></tt> argument.</li>
+</ul>
+</div>
+<div class="section" id="convenience-methods-and-utils">
+<h2>Convenience methods and utils<a class="headerlink" href="#convenience-methods-and-utils" title="Permalink to this headline">¶</a></h2>
+<p>To make it easier to create new lessons, you will find some convenience methods in the <tt class="docutils literal"><span class="pre">`Lesson`</span></tt> class and functions for performing common tasks in the lessons.utils module.</p>
+<p>The addMenuClickStep() method in the <a href="#id4"><span class="problematic" id="id5">``</span></a><a href="#id6"><span class="problematic" id="id7">`</span></a>Lesson```class will add step that involves clicking on a menu item. Its only argument is the name of the menu to click. This method will add a step that unfold the specified menu and highlights the corresponding menu item, and that will automatically move to the next step once that menu item is clicked.</p>
+</div>
+<div class="section" id="capturing-qgis-interaction-to-create-a-lesson">
+<h2>Capturing QGIS interaction to create a lesson<a class="headerlink" href="#capturing-qgis-interaction-to-create-a-lesson" title="Permalink to this headline">¶</a></h2>
+<p>The help files associated with a lesson contain text and usually screenshots. These have to be created manually, by creating the corresponding html and image files.</p>
+<p>An additional plugin is included in this repository, in the <tt class="docutils literal"><span class="pre">`lessonscreator`</span></tt> folder, aimed at users that plan to create their own lessons. It simplifies both writing text and creating screenshots, by capturing actions performed in QGIS. That is, the user performs the steps in the lesson to create, and the plugin tries to automatically create the corresponding lesson files.</p>
+<p>To create a new lesson, select the <em>Plugins/Lessons/Cature lesson steps</em> menu. Select a folder to store the lessons data.</p>
+<p>From that moment, the plugin will be listening to your actions and documenting them according to the following ideas:</p>
+<ul>
+<li><p class="first">Whenever the focus changes to a new window, a screenshot of the window will be taken. An entry in the html file describing the current step will be added, which will include the screenshot.</p>
+</li>
+<li><p class="first">Whenever the focus changes between two elements (but both of them having the same parent window/dialog), and the one that receives the focus is an input widget (text box, dropdown list, etc), a screenshot of the new element that receives the focus will be taken. The element that receives the focus will be highlighted in the screenshot using a red dashed rectangle, as shown in the image below</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/rectangle.png" src="_images/rectangle.png" />
+</div>
+<p>The image will be added to the html corresponding to the current step, along with a text entry in the form &#8220;Click on [widget_name]&#8221;</p>
+</div></blockquote>
+</li>
+<li><p class="first">When edit widgets lose focus or are modified, the plugin will try to capture the user action. For instance, for a dropdown list, when the current value is changed, the text &#8220;Select [new_value_text] in the [dropdown_name] dropdown list&#8221; is added. In the case of text boxes, the text &#8220;Enter [text] in the [textbox_name] textbox&#8221; is added.</p>
+</li>
+<li><p class="first">When a menu item is clicked, the text &#8220;Select the [menu_text] menu&#8221; will be added.</p>
+</li>
+</ul>
+<p>All texts snippets and screenshots are added to the html file that describes the current step. A lesson might contain several steps. To start a new step and add text and screenshots to another file, press CTRL-W at anytime, and a new step will be started.</p>
+<p>When you have captured all elements of you lesson, select the <em>Plugins/Lessons/Stop capturing lesson steps</em> menu.</p>
+<p>In the folder that you selected, you will find all html files and image files. You will also find a <tt class="docutils literal"><span class="pre">`___init.py___`</span></tt> file that describe the lesson. The folder as it is generated can be added to your lessons plugin (created based on the <tt class="docutils literal"><span class="pre">`lessonscollectionplugin`</span></tt> template) and will be recognised as a valid lesson.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Writing Lessons</a><ul>
+<li><a class="reference internal" href="#creating-a-lesson">Creating a lesson</a></li>
+<li><a class="reference internal" href="#convenience-methods-and-utils">Convenience methods and utils</a></li>
+<li><a class="reference internal" href="#capturing-qgis-interaction-to-create-a-lesson">Capturing QGIS interaction to create a lesson</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/writing_lessons.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">QGIS Lessons Plugin 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Victor Olaya.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

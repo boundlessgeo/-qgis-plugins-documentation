@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : GeoServer QGIS plugin : Usage</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="top" title="GeoServer QGIS plugin 1.0 documentation" href="index.html" />
+      <link rel="next" title="Available commands and actions" href="actions.html" />
+      <link rel="prev" title="GeoServer QGIS plugin" href="index.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="/" rel="home" id="logo"><img src="_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>GeoServer QGIS plugin</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="http://boundlessgeo.com/">Home</a> &raquo;
+  <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
+  <a href="index.html">GeoServer QGIS plugin</a>
+  
+     &raquo; <a href="">Usage</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<p>The GeoServer explorer is launched from the <em>Web/GeoServer</em> menu and it looks like this.</p>
+<div class="figure align-center">
+<img alt="_images/explorer.png" src="_images/explorer.png" />
+</div>
+<p>The <em>Catalogs</em> item contains the catalogs that you are connected to, and with which you can interact from the explorer. It is empty when you start the explorer, and you can add as many connections as you want to it.</p>
+<p>GeoServer catalogs are defined using the <em>New catalog...</em> option in the <em>Catalogs</em> item. A catalog is defined using the following dialog:</p>
+<img alt="_images/add_catalog.png" class="align-center" src="_images/add_catalog.png" />
+<p>Basic authentication is supported, as well as certificate-based authentication, if your version of QGIS is recent enough. Select the corresponding tab (in case both basic and certificates authentication are available) and enter the required parameters. The active tab in the window will define the type of authentication to use, even if the other tab has data in its text boxes.</p>
+<p>In the lower part of the GeoServer Explorer window you will see a panel which shows the description of the currently selected item. When the explorer window is docked, the description panel is found on its lower the lower part. If you undock the window, it will be placed on the right&#8211;hand side of it, to make better use of the available space. The image below shows the undocked configuration.</p>
+<div class="figure align-center">
+<img alt="_images/undocked.png" src="_images/undocked.png" />
+</div>
+<p>The description panel shows information about the currently selected element, but also contains links to actions that affect or are related to the current element. As an example, below you can see the description panel corresponding to a GeoServer layer element.</p>
+<div class="figure align-center">
+<img alt="_images/description_panel.png" src="_images/description_panel.png" />
+</div>
+<p>Use the hyperlinks to perform the corresponding actions based on the current element.</p>
+<p>The description panel can also show tables where parameters can be edited. The one shown below corresponds to the <em>Settings</em> element of a GeoServer catalog.</p>
+<div class="figure align-center">
+<img alt="_images/description_table.png" src="_images/description_table.png" />
+</div>
+<p>Most of the functionality of the explorer is accessed through context menus, right&#8211;clicking on the elements that for the Explorer tree. Also, when you select an element in the tree, buttons in the toolbar in the upper part of the explorer window are updated to show the available actions for that element. These actions correspond to the ones shown in the context menu when you right&#8211;click on the element, so you have different ways of accesing the same funcionality. As it was explained before, the <em>Description</em> panel is also interactive.</p>
+<p>For a more complete reference, a detailed description of all the available actions for each type of element in the Explorer tree is available at the <a class="reference internal" href="actions.html#actions"><em>Available commands and actions</em></a> section.</p>
+<div class="section" id="configuration">
+<span id="id1"></span><h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Along with the menu entry that starts the Explorer, you will find an entry that opens the configuration window, which looks as shown next.</p>
+<div class="figure align-center">
+<img alt="_images/config.png" src="_images/config.png" />
+</div>
+<p>Use the parameters in this dialog to configure the Explorer to your particular needs. The properties that can be configured are described in detail below.</p>
+</div>
+<div class="section" id="keeping-a-list-of-previous-geoserver-connections">
+<h2>Keeping a list of previous GeoServer connections<a class="headerlink" href="#keeping-a-list-of-previous-geoserver-connections" title="Permalink to this headline">¶</a></h2>
+<p>If you enable this option, whenever you connect to a catalog, the information that defines that connections is kept between sessions. Next time that you start QGIS and the GeoServer Explorer, you will see the catalogs item populated with all the previous connections, as shown in the next picture.</p>
+<div class="figure align-center">
+<img alt="_images/gray_catalog.png" src="_images/gray_catalog.png" />
+</div>
+<p>Retrieving information from each connection might take a long time and cause QGIS to take too long to start up. For this reason, catalog data is fetch on request and not automatically when starting the GeoServer Explorer. You should refresh the catalog item to populate it. Unpopulated catalogs are shown with a gray icon.</p>
+<p>If the catalog uses basic authentication and username and password are introduced using the basic authentication tab, the password is not stored. You will be prompted to enter it when you reconnect to the catalog. If the <a href="#id2"><span class="problematic" id="id3">*</span></a>Configurations&#8221; tab is used, connection data (wheter password or certificate-based) will be stored in the encrypted QGIS auth database. You will be prompted to enter the master password in case you haven&#8217;t used the auth database in the current QGIS session.</p>
+<p>To delete a catalog from the list of previous connections, use the <em>Remove</em> option of the catalog item in the Explorer tree.</p>
+</div>
+<div class="section" id="using-the-geoserver-importer-api">
+<h2>Using the GeoServer Importer API<a class="headerlink" href="#using-the-geoserver-importer-api" title="Permalink to this headline">¶</a></h2>
+<p>By default, layers are uploaded to a GeoServer catalog using the GeoServer REST API. As an alternative, the importer API can be used to provide a better and more responsive upload, especially in the case of large uploads with multiple layers or when large layers are being uploaded. MAke sure that you have manually installed the importer API on your GeoServer before setting this configuration parameter.</p>
+</div>
+<div class="section" id="pre-upload-processing-hooks">
+<h2>Pre-upload Processing hooks<a class="headerlink" href="#pre-upload-processing-hooks" title="Permalink to this headline">¶</a></h2>
+<p>If you need to preprocess you data before it is uploaded, you can set up a pre-upload hook that will be run on any layer before it is sent to GeoServer. Instead of the original layer, the result of that hook will be uploaded.</p>
+<p>Pre-upload hooks are defined separately for raster and vector layers. In both cases, they are defined as the path to a Processing model (.model) or script (.py) file. The algorithm defined by that hook file will be loaded and executed to obtain the final layer to upload. Creation of Processing models and scripts is not covered in this text. Please refer to the <a class="reference external" href="http://qgis.org/es/docs/user_manual/processing/index.html">Processing chapter in the QGIS manual</a>  to know more about it.</p>
+<p>In the case of raster layers, the hook algorithm must have a single input of type raster layer and a single output, also of type raster layer. In the case of vector layers, both input and output must be of type vector layer. If the selected model does not exist or does not have the required characteristics, it will just be ignored, and the original layer will be uploaded without any preprocessing.</p>
+</div>
+<div class="section" id="other-parameters">
+<h2>Other parameters<a class="headerlink" href="#other-parameters" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><em>Delete style when deleting layer</em>. If a GeoServer layer is deleted and is the only layer using a given style, the style will be also deleted if this parameters is checked</li>
+<li><em>Delete resource when deleting layer</em>. If this parameter is checked, the resource that is part of a layer will also be deleted from its corresponding store if the layer is deleted.</li>
+<li><em>Overwrite layers when uploading group</em>. When uploading a group, if this option is not enabled, the Explorer will try to reuse layers that already exist in the catalog. If a layer with the same name already exist, it will be used for the group, and the corresponding QGIS layer will not be uploaded. Check it if you want all layers to be imported, overwriting layers with the same name that might exist in the catalog.</li>
+</ul>
+</div>
+<div class="section" id="version-support-and-limitations">
+<h2>Version support and limitations<a class="headerlink" href="#version-support-and-limitations" title="Permalink to this headline">¶</a></h2>
+<p>The current version of the plugin is targeted at GeoServer 2.3.x. or newer If you are using an older version, you might encounter some problems, and some elements might not be correctly configured due to differences in the way they are handled by GeoServer or in changes in the REST API that the plugin uses to communicate with GeoServer. Although most things should work fine if connecting to a GeoServer 2.2.x catalog, the following are some of the incompatibilities that have been detected.</p>
+<ul class="simple">
+<li>Empty groups. Layers belonging to a group are not found, since the group definition has a different structure</li>
+<li>Styles belonging to a given namespace are not found. Only styles with no namespace are reported if using GeoServer 2.2.x</li>
+</ul>
+<p>To check the version of your catalog, just select the catalog in the tree and look at the description tab.</p>
+<div class="figure align-center">
+<img alt="_images/about.png" src="_images/about.png" />
+</div>
+<p>If you do not see information like that, it is likely that your catalog uses a GeoServer version that doesn&#8217;t support that operation. In this case, you might find some issues when working with the catalog through the plugin.</p>
+<p>When connecting to a catalog, the explorer tries to check the version. If it cannot detect the version or it cannot confirm it is the target version, it will ask you before adding the catalog.</p>
+<div class="figure align-center">
+<img alt="_images/version_warning.png" src="_images/version_warning.png" />
+</div>
+<p>Even if you are using the correct version of GeoServer, some limitations still exists. Below is a list of know limitations and issues than might appear.</p>
+<ul>
+<li><p class="first">CRS. GeoServer might encounter problems when a custom CRS is used in QGIS. The CRS definition that works correctly when rendering the layer in QGIS might not work when importing the layer into GeoServer. Usually this results in a layer that is published but doesn&#8217;t have a CRS set and is not enabled. You can correct that manually, selecting the layer in the Explorer tree and modifying its CRS.</p>
+<p>Notice that layers are imported using the SRS defined in the original data source (i.e., the <tt class="docutils literal"><span class="pre">prj</span></tt> file if using a shapefile). Setting a different CRS using the <em>Set Layer CRS</em> option in the QGIS TOC will not have any effect when importing the layer into GeoServer, unless you save the layer with that CRS and the CRS definition is stored along with the layer data.</p>
+</li>
+<li><p class="first">Layer names. The GeoServer Explorer uses the GeoServer REST API to get the list of layers in a catalog. The REST API describes layers without workspace, that meaning that if you have two layers with the same name and in different workspaces (for instance, <tt class="docutils literal"><span class="pre">ws1:mylayer</span></tt> and <tt class="docutils literal"><span class="pre">ws2:mylayer</span></tt>), they will be shown as just one (<tt class="docutils literal"><span class="pre">mylayer</span></tt> in this case).</p>
+<p>When this happens, the situation is ambiguous and GeoServer Explorer cannot differentiate between layers with the same name but belonging to different workspaces. The layer, as described by the REST API, is added to the Explorer tree, but it only represents one of the several layers that share the same name. To indicate this, the layer is shown with a warning icon, and a warning message is displayed in the layer description.</p>
+<div class="figure align-center">
+<img alt="_images/duplicated_layer.png" src="_images/duplicated_layer.png" />
+</div>
+</li>
+</ul>
+<p>Another important limitation is due to the different versions of the SLD standard that QGIS and GeoServer support. Read the following section to know more about it.</p>
+</div>
+<div class="section" id="styling-limitations">
+<h2>Styling limitations<a class="headerlink" href="#styling-limitations" title="Permalink to this headline">¶</a></h2>
+<p>The GeoServer explorer allows to edit the style of a GeoServer layer directly from the QGIS interface. It can convert a style defined in QGIS into a style to be uploaded to a GeoServer catalog, and use GeoServer styles for QGIS layers. This bidirectional conversion is, however, limited. This is mainly caused due to the different versions of the SLD standard that are supported by QGIS and GeoServer, and also to some limitations in both GeoServer and QGIS. SLD is used as the common format used by the GeoServer Explorer for describing styles in both QGIS and GeoServer layer, but some incompatibilities exist. To increase compatibility between them, specific routines have been added to the GeoServer explorer. However, in some cases, a style defined in QGIS might not be compatible with the elements supported by GeoServer, and publishing a layer will be done with a modified style, or even using a default one instead if that is not possible.</p>
+<p>This problem exist even when using the most recent version of GeoServer, but older versions of GeoServer might show more incompatibilities and not validate a large part of the SLD produced by the GeoServer Explorer.</p>
+<p>As a rule of thumb, basic styling for vector layers should work without problems in both direction, but more complex symbology might be partially or even completely incompatible, leading to differences between in, for example, the style that you define in QGIS and the style that the GeoServer layer will have. Raster layers have a more limited support</p>
+<p>The following is a list of known limitations in SLD handling:</p>
+<ul class="simple">
+<li>Raster layers<ul>
+<li>Raster styling is supported only from QGIS to GeoServer. That means that a raster style can be created using the QGIS UI and uploaded to GeoServer, but a raster style from a GeoServer cannot be used for a QGIS layer. When a GeoServer layer is added to the current QGIS project using the GeoServer Explorer, it will use its symbology only if it is a vector layer, but will ignore it in the case of a raster layer and the default QGIS style will be used.</li>
+<li>Only <em>Singleband Gray</em> and <em>Singleband pseudocolor</em> renderers are supported. In this last case, the <em>Exact</em> color interpolation is not supported, but <em>Linear</em> and <em>Discrete</em> modes are supported.</li>
+</ul>
+</li>
+<li>Vector layers<ul>
+<li>When converting from a GeoServer style to a QGIS style, the style is always defined as a <em>Rule-based</em> style. That means that, even if the style is created using another type, such as <em>Graduated</em>, when it is uploaded to a GeoServer catalog and then edited again from QGIS, it will not appear as a <em>Graduated</em> style. This is due to how QGIS handles SLD styles, always interpreting them as symbology of type <em>Rule-based</em></li>
+<li>Basic labeling is supported, but not all labeling will be exported from QGIS to SLD and uploaded to GeoServer. In particular, advanced data-dependent labelling is not supported.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="index.html" title="previous chapter">GeoServer QGIS plugin</a></div>
+          <div class="right"><strong>Next</strong>: <a href="actions.html" title="next chapter">Available commands and actions</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2015, Boundless
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">Usage</a><ul>
+<li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#keeping-a-list-of-previous-geoserver-connections">Keeping a list of previous GeoServer connections</a></li>
+<li><a class="reference internal" href="#using-the-geoserver-importer-api">Using the GeoServer Importer API</a></li>
+<li><a class="reference internal" href="#pre-upload-processing-hooks">Pre-upload Processing hooks</a></li>
+<li><a class="reference internal" href="#other-parameters">Other parameters</a></li>
+<li><a class="reference internal" href="#version-support-and-limitations">Version support and limitations</a></li>
+<li><a class="reference internal" href="#styling-limitations">Styling limitations</a></li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="index.html" title="previous chapter">GeoServer QGIS plugin</a></p>
+          <p><b>Next:</b> <a href="actions.html" title="next chapter">Available commands and actions</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="_sources/intro.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="actions.html" title="Available commands and actions"
+       accesskey="N">next</a>|</li>
+  <li>
+    <a href="index.html" title="GeoServer QGIS plugin"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">&copy; Copyright 2015, Boundless</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="_static/dropdown.js"></script>-->
+
+  </body>
+</html>

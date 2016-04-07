@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : Web App Builder plugin : Mapping French schools</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="../../_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="../../_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="top" title="Web App Builder plugin 1.0 documentation" href="../../index.html" />
+      <link rel="up" title="Tutorials" href="../index.html" />
+      <link rel="next" title="Mapping Paris bakeries" href="../bakeries/index.html" />
+      <link rel="prev" title="Tutorials" href="../index.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('../../_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('../../_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('../../_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('../../_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('../../_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('../../_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="../../_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="/" rel="home" id="logo"><img src="../../_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="../../search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>Web App Builder plugin</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="http://boundlessgeo.com/">Home</a> &raquo;
+  <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
+  <a href="../../index.html">Web App Builder plugin</a>
+     &raquo; <a href="../index.html" accesskey="U">Tutorials</a>
+  
+     &raquo; <a href="">Mapping French schools</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="mapping-french-schools">
+<span id="qgis-webappbuilder-tutorials-schools"></span><h1>Mapping French schools<a class="headerlink" href="#mapping-french-schools" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial shows how to create a web app using a layer with data for schools in France. By allowing the user to select features in that layer and then create graphs and statistics, the distribution of names can be analyzed, which turns this app into an interesting tool to analyze the story of the French education system.</p>
+<p>This app was inspired by a similar work published in <a class="reference external" href="http://www.lemonde.fr/les-decodeurs/article/2015/04/18/de-jules-ferry-a-pierre-perret-l-etonnant-palmares-des-noms-d-ecoles-de-colleges-et-de-lycees-en-france_4613091_4355770.html">an article in La Monde</a>.</p>
+<div class="section" id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference download internal" href="../../_downloads/schools.zip"><tt class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">the</span> <span class="pre">data</span> <span class="pre">for</span> <span class="pre">this</span> <span class="pre">tutorial</span></tt></a>.</p>
+<p>The layer contained in this archive is a collection of schools, based on the original data from the article linked above. This was converted to a shapefile, with attribute field names translated into English. Some entries were removed to reduce the size of the file.</p>
+<p>Also, only schools in metropolitan France are considered to simplify handling projections, as the original data had coordinates using several CRSs in the same file.</p>
+</div>
+<div class="section" id="preparing-the-application-in-qgis">
+<h2>Preparing the application in QGIS<a class="headerlink" href="#preparing-the-application-in-qgis" title="Permalink to this headline">¶</a></h2>
+<p>The first step in building a web app using the Web App Builder is to set up our project in QGIS.</p>
+<ol class="arabic">
+<li><p class="first">Open the QGIS project included in the exercise data.</p>
+<div class="figure">
+<img alt="../../_images/qgisproject1.png" src="../../_images/qgisproject1.png" />
+<p class="caption">Schools QGIS project</p>
+</div>
+<p>The project contains one layer with a rather basic styling. We don&#8217;t need to add more complex styling, as our web app is more about the data analysis than the map itself, so we will leave it as is.</p>
+</li>
+<li><p class="first">If you&#8217;d like, zoom into any place you would like to use as your initial extent. When the web app is loaded, it will be focused on that area.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="configuring-the-application">
+<h2>Configuring the application<a class="headerlink" href="#configuring-the-application" title="Permalink to this headline">¶</a></h2>
+<p>Start the Web App Builder by selecting <em class="menuselection">Plugins ‣ Boundless ‣ Web App Builder</em>. This will bring up the interface used to configure our web app. There are several tabs, each one used to define a particular set of parameters. We will go through each of them and describe their meaning.</p>
+<ol class="arabic">
+<li><p class="first">In the <em class="guilabel">Description</em> tab, fill out the form with the following:</p>
+<ol class="arabic">
+<li><p class="first">Enter <tt class="kbd docutils literal"><span class="pre">Mapping</span> <span class="pre">French</span> <span class="pre">School</span> <span class="pre">Names</span></tt> in the <em class="guilabel">App Title</em> box.</p>
+</li>
+<li><p class="first">Leave the <em class="guilabel">Logo image</em> box empty.</p>
+</li>
+<li><p class="first">Select the <em class="guilabel">basic</em> theme.</p>
+<div class="figure">
+<img alt="../../_images/descriptiontab1.png" src="../../_images/descriptiontab1.png" />
+<p class="caption">Description tab</p>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">In the <em class="guilabel">QGIS Layers</em> tab, fill out the form with the following:</p>
+<ol class="arabic">
+<li><p class="first">We only have one layer, so make sure that the <em class="guilabel">schools</em> layer is checked.</p>
+</li>
+<li><p class="first">Click on the <em class="guilabel">Edit</em> link to edit the content of the popup for the layer.</p>
+</li>
+<li><p class="first">Enter <tt class="kbd docutils literal"><span class="pre">[NAME]</span></tt> in the text box to display the name in the popup when the feature is clicked on the map.</p>
+<div class="figure">
+<img alt="../../_images/popupeditor.png" src="../../_images/popupeditor.png" />
+<p class="caption">Popup editor</p>
+</div>
+</li>
+<li><p class="first">Click <em class="guilabel">OK</em> to close the dialog.</p>
+</li>
+<li><p class="first">Check the <em class="guilabel">Allow selection on this layer</em> box. This is important, since we want the user to be able to select schools, and then create their own custom charts based on that selection.</p>
+</li>
+<li><p class="first">Check the <em class="guilabel">Cluster points</em> box. Since the number of features is large in the schools layers, clustering will ensure that the web app has good performance when rendering at a large scale. The default clustering distance is fine, so there is no need to modify it.</p>
+</li>
+</ol>
+<div class="figure">
+<img alt="../../_images/qgislayerstab1.png" src="../../_images/qgislayerstab1.png" />
+<p class="caption">Layers tab</p>
+</div>
+</li>
+<li><p class="first">In the <em class="guilabel">Other Layers</em> tab, select the <em class="guilabel">MapQuest aerial</em> layer as the base layer to use. Leave all others unselected.</p>
+<div class="figure">
+<img alt="../../_images/otherlayerstab1.png" src="../../_images/otherlayerstab1.png" />
+<p class="caption">Other Layers tab</p>
+</div>
+</li>
+<li><p class="first">In the <em class="guilabel">Controls</em> tab:</p>
+<ol class="arabic simple">
+<li>For our web app, we will leave the default three controls activated (Scale Bar, Zoom, Layers) and add the following:<ul>
+<li>Selection</li>
+<li>Attributes table</li>
+<li>Charts</li>
+<li>Query</li>
+<li>About panel</li>
+</ul>
+</li>
+</ol>
+<div class="figure">
+<img alt="../../_images/controlstab1.png" src="../../_images/controlstab1.png" />
+<p class="caption">Controls tab</p>
+</div>
+<ol class="arabic">
+<li><p class="first">Right-click <em class="guilabel">Charts</em> and select <em class="guilabel">Configure</em>.</p>
+</li>
+<li><p class="first">Here&#8217;s where we define how to produce the charts when the user makes a selection in the layer. We want to count the number of schools with the same name, so in the <em class="guilabel">Display mode</em> list, select <em class="guilabel">Count by category</em>.</p>
+</li>
+<li><p class="first">Categories are defined by school names, so the <em class="guilabel">NAME</em> field has to be selected in the <em class="guilabel">Category field</em> list.</p>
+</li>
+<li><p class="first">Enter <tt class="kbd docutils literal"><span class="pre">Count</span> <span class="pre">By</span> <span class="pre">Name</span></tt> in the <em class="guilabel">Chart Name</em> box, and click <em class="guilabel">Add/modify</em> to add it to the list of charts that will be available in the web app.</p>
+<div class="figure">
+<img alt="../../_images/charttool.png" src="../../_images/charttool.png" />
+<p class="caption">Chart tool</p>
+</div>
+</li>
+<li><p class="first">Click <em class="guilabel">OK</em> to finish configuring the Chart tool.</p>
+</li>
+<li><p class="first">Right-click <em class="guilabel">About panel</em> and select <em class="guilabel">Configure</em>.</p>
+</li>
+<li><p class="first">Click the <em class="guilabel">Edit</em> link to open the text editor.</p>
+</li>
+<li><p class="first">The content of the panel is defined using HTML. Enter the following in the text editor:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;h1&gt;</span>Analysis of school names in France<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;p&gt;</span>This web app replicates the work described in
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://www.lemonde.fr/les-decodeurs/article/2015/04/18/de-jules-ferry-a-pierre-perret-l-etonnant-palmares-des-noms-d-ecoles-de-colleges-et-de-lycees-en-france_4613091_4355770.html&quot;</span><span class="nt">&gt;</span>Le Monde<span class="nt">&lt;/a&gt;</span>.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>It allows for analyzing the naming of schools in France, findinf out the most common ones
+and studying their distribution across the country.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>Select points by dragging while pressing the Shift key to define a rectangle.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>You can also use the <span class="nt">&lt;i&gt;</span>Query<span class="nt">&lt;/i&gt;</span> tool to select based on attributes.<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../../_images/aboutpaneleditor.png" src="../../_images/aboutpaneleditor.png" />
+<p class="caption">About panel editor</p>
+</div>
+</li>
+<li><p class="first">Click <em class="guilabel">OK</em> to close the text dialog.</p>
+</li>
+<li><p class="first">Leave all other parameters as-is, and click <em class="guilabel">OK</em> to close the About panel parameters dialog.</p>
+<div class="figure">
+<img alt="../../_images/aboutpanel1.png" src="../../_images/aboutpanel1.png" />
+<p class="caption">About panel parameters</p>
+</div>
+</li>
+<li><p class="first">Right-click <em class="guilabel">Layers</em> and select <em class="guilabel">Configure</em>.</p>
+</li>
+<li><p class="first">Check the <em class="guilabel">showDownload</em> check box. That will give the user the option to download the schools layer as a GeoJSON file.</p>
+</li>
+<li><p class="first">Check the <em class="guilabel">shownZoomTo</em> check box. This will give the user the option to fit the extent of the view to the layer extent.</p>
+</li>
+<li><p class="first">Leave all other parameters as-is, and click <em class="guilabel">OK</em> to close the dialog.</p>
+<div class="figure">
+<img alt="../../_images/layerslist1.png" src="../../_images/layerslist1.png" />
+<p class="caption">Layers list parameters</p>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There is no need to edit any of the parameters in either the <em class="guilabel">Deploy</em> or <em class="guilabel">Settings</em> tabs.</p>
+</div>
+</div>
+<div class="section" id="creating-the-application">
+<h2>Creating the application<a class="headerlink" href="#creating-the-application" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Save the application configuration by clicking the <em class="guilabel">Save</em> (disk) icon at the bottom of the dialog.</p>
+</li>
+<li><p class="first">With the configuration defined, we can now create it by clicking the <em class="guilabel">Create App</em> button at the bottom of the Web App Builder dialog.</p>
+</li>
+<li><p class="first">Select the directory where you want to store the web app.</p>
+</li>
+<li><p class="first">The app will be created and saved in this directory. When finished, a dialog will display.</p>
+<div class="figure">
+<img alt="../../_images/deployed2.png" src="../../_images/deployed2.png" />
+<p class="caption">App successfully deployed</p>
+</div>
+</li>
+<li><p class="first">Click <em class="guilabel">Yes</em> to see the deployed app.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="customizing-the-application-code">
+<h2>Customizing the application code<a class="headerlink" href="#customizing-the-application-code" title="Permalink to this headline">¶</a></h2>
+<p>The code of the application is now in the selected directory and the web app is fully functional. The generated code can be edited to suit our needs. We will do one small modification.</p>
+<ol class="arabic">
+<li><p class="first">In a text editor, open <tt class="file docutils literal"><span class="pre">resources/tools.js</span></tt> from the directory where you stored the web app.</p>
+</li>
+<li><p class="first">Scroll down to around line 650, where you will see:</p>
+<div class="highlight-python"><div class="highlight"><pre>for (i = 0; i &lt; sorted.length; i++) {
+    columns[0].push(sorted[i][0]);
+    columns[1].push(sorted[i][1]);
+}
+</pre></div>
+</div>
+<p>The code takes all the count values and uses them for the chart bars. That might not be a good idea, since there might be too many of them, and in most cases would just be equal to 1 (since most names might just appear at a single school). It is more interesting to focus on those names that appear in several schools, meaning to focus on the categories that have larger count values.</p>
+</li>
+<li><p class="first">Replace the above code with the following:</p>
+<div class="highlight-python"><div class="highlight"><pre>for (i = 0; i &lt; Math.min(sorted.length, 30); i++) {
+    columns[0].push(sorted[i][0]);
+    columns[1].push(sorted[i][1]);
+}
+</pre></div>
+</div>
+<p>This will generate more informative charts.</p>
+</li>
+<li><p class="first">Save and close the file.</p>
+</li>
+<li><p class="first">Refresh the app in the browser.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="final-result">
+<h2>Final result<a class="headerlink" href="#final-result" title="Permalink to this headline">¶</a></h2>
+<p>If not already open, launch the app by opening <tt class="file docutils literal"><span class="pre">index.html</span></tt> file inside the directory where you created your web app.</p>
+<div class="figure">
+<img alt="../../_images/schoolsapp1.png" src="../../_images/schoolsapp1.png" />
+<p class="caption">Deployed app</p>
+</div>
+</div>
+<div class="section" id="using-the-application">
+<h2>Using the application<a class="headerlink" href="#using-the-application" title="Permalink to this headline">¶</a></h2>
+<p>Here are some ways you can test the application&#8217;s functionality:</p>
+<div class="section" id="querying">
+<h3>Querying<a class="headerlink" href="#querying" title="Permalink to this headline">¶</a></h3>
+<p>French departments (<em>departements</em>) are usually referred to by a number. Paris for instance, is referred to as number 75. Postal codes on the department always start with the department number, so we can select all schools in Paris by selecting those ones in the form 75XXX.</p>
+<ol class="arabic">
+<li><p class="first">Open the Query tool and enter this in the filter field:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">floor</span><span class="p">(</span><span class="n">POSTCODE</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span> <span class="o">==</span> <span class="mi">75</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Click <em class="guilabel">New selection</em>. The Paris schools will be highlighted. Unlike the unselected schools in the schools layer, selected ones are not clustered.</p>
+<div class="figure">
+<img alt="../../_images/paris.png" src="../../_images/paris.png" />
+<p class="caption">Schools in Paris</p>
+</div>
+</li>
+<li><p class="first">Now close the Query tool and open the <em class="guilabel">Count by Name</em> chart:</p>
+<div class="figure">
+<img alt="../../_images/parischart.png" src="../../_images/parischart.png" />
+<p class="caption">Schools in Paris, charted</p>
+</div>
+</li>
+<li><p class="first">To see the attributes associated with each school, close the Chart panel and open the Attributes table:</p>
+<div class="figure">
+<img alt="../../_images/attributes.png" src="../../_images/attributes.png" />
+<p class="caption">Attributes</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="group-selection">
+<h3>Group selection<a class="headerlink" href="#group-selection" title="Permalink to this headline">¶</a></h3>
+<p>Here is a more complex example. Let&#8217;s select all public schools in the Ile-de-France region, which includes Paris. The department numbers in the region are 75, 77, 78, 91, 92, 93, 94, and 95.</p>
+<ol class="arabic">
+<li><p class="first">Enter the following expression in the Query tool and click <em class="guilabel">New selection</em>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">floor</span><span class="p">(</span><span class="n">POSTCODE</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">75</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="mi">78</span><span class="p">,</span><span class="mi">91</span><span class="p">,</span><span class="mi">92</span><span class="p">,</span><span class="mi">93</span><span class="p">,</span><span class="mi">94</span><span class="p">,</span><span class="mi">95</span><span class="p">)</span> <span class="ow">and</span> <span class="n">PUBLIC</span> <span class="o">==</span> <span class="s">&quot;PU&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Open the Chart tool and you will see something like this:</p>
+<div class="figure">
+<img alt="../../_images/ilefrance.png" src="../../_images/ilefrance.png" />
+<p class="caption">Schools in Ile-de-France</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="selection-filtering-by-name">
+<h3>Selection/filtering by name<a class="headerlink" href="#selection-filtering-by-name" title="Permalink to this headline">¶</a></h3>
+<p>You can also show <em>only</em> the location of schools with a given name using a trick.</p>
+<p>The selected features are in a separate layer which is not shown in the Layers list. That means that if you turn off visibility for the schools layers the layer with selected elements will still be in the map.</p>
+<ol class="arabic">
+<li><p class="first">Enter the following in the query box and click <em class="guilabel">New selection</em>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">NAME</span> <span class="o">==</span> <span class="s">&quot;JULES FERRY&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the Layers list, uncheck the Schools layer. You should now see something like this:</p>
+<div class="figure">
+<img alt="../../_images/julesferry.png" src="../../_images/julesferry.png" />
+<p class="caption">Schools named &#8220;Jules Ferry&#8221;</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="../index.html" title="previous chapter">Tutorials</a></div>
+          <div class="right"><strong>Next</strong>: <a href="../bakeries/index.html" title="next chapter">Mapping Paris bakeries</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2016, Boundless
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">Mapping French schools</a><ul>
+<li><a class="reference internal" href="#data">Data</a></li>
+<li><a class="reference internal" href="#preparing-the-application-in-qgis">Preparing the application in QGIS</a></li>
+<li><a class="reference internal" href="#configuring-the-application">Configuring the application</a></li>
+<li><a class="reference internal" href="#creating-the-application">Creating the application</a></li>
+<li><a class="reference internal" href="#customizing-the-application-code">Customizing the application code</a></li>
+<li><a class="reference internal" href="#final-result">Final result</a></li>
+<li><a class="reference internal" href="#using-the-application">Using the application</a><ul>
+<li><a class="reference internal" href="#querying">Querying</a></li>
+<li><a class="reference internal" href="#group-selection">Group selection</a></li>
+<li><a class="reference internal" href="#selection-filtering-by-name">Selection/filtering by name</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="../index.html" title="previous chapter">Tutorials</a></p>
+          <p><b>Next:</b> <a href="../bakeries/index.html" title="next chapter">Mapping Paris bakeries</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="../../_sources/tutorials/schools/index.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="../../genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="../bakeries/index.html" title="Mapping Paris bakeries"
+       accesskey="N">next</a>|</li>
+  <li>
+    <a href="../index.html" title="Tutorials"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">&copy; Copyright 2016, Boundless</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="../../_static/dropdown.js"></script>-->
+
+  </body>
+</html>
