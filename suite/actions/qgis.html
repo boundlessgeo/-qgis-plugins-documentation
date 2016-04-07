@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : OpenGeo Suite QGIS plugin : QGIS Project actions</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="../_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="../_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="top" title="OpenGeo Suite QGIS plugin 1.0 documentation" href="../index.html" />
+      <link rel="up" title="Available actions" href="index.html" />
+      <link rel="next" title="Editing/viewing layer metadata" href="../metadata/index.html" />
+      <link rel="prev" title="PostGIS Connections actions" href="postgis.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('../_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('../_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('../_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="../_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="/" rel="home" id="logo"><img src="../_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+                            				<ul id="menu-main" class="menu">
+                                				<li><a href="/">Plugins</a></li>
+                                				<li><a href="/static/docs/">Documentation</a></li>
+                                				<li><a href="/static/docs/quickstart.html">Tutorials</a></li>
+                                				<li><a href="https://github.com/boundlessgeo/suite-qgis-plugin/issues" target="_blank">Support</a></li>
+                            				</ul>
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="../search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>OpenGeo Suite QGIS plugin</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="http://boundlessgeo.com/">Home</a> &raquo;
+  <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
+  <a href="../index.html">OpenGeo Suite QGIS plugin</a>
+     &raquo; <a href="index.html" accesskey="U">Available actions</a>
+  
+     &raquo; <a href="">QGIS Project actions</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="qgis-project-actions">
+<span id="actions-qgis"></span><h1>QGIS Project actions<a class="headerlink" href="#qgis-project-actions" title="Permalink to this headline">¶</a></h1>
+<p>The following actions are available for items in the QGIS Project branch.</p>
+<div class="section" id="qgis-project">
+<h2>QGIS Project<a class="headerlink" href="#qgis-project" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="non-responsive docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head stub">Action</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><th class="stub">Refresh</th>
+<td>Updates the contents of the entire QGIS Project tree.</td>
+</tr>
+<tr class="row-odd"><th class="stub">Publish</th>
+<td><p class="first">Publishes all the layers in the project. The publish operation is configured through the following dialog:</p>
+<img alt="../_images/publish_project.png" src="../_images/publish_project.png" />
+<p>All layers will be published to the selected workspace. If there are groups in the QGIS project, they will also be created. Groups are not overwritten when publishing a project. If a group with the same name exists in the catalog, a warning message will be shown and the group will not be uploaded.</p>
+<p class="last">If you want to create a group containing all the published layers, enter its name in the <em class="guilabel">Global group name</em> textbox. Otherwise, leave it empty and the global group will not be created.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="qgis-layers">
+<h2>QGIS Layers<a class="headerlink" href="#qgis-layers" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="non-responsive docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head stub">Action</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><th class="stub">Refresh</th>
+<td>Updates the contents of the list of QGIS layers in the tree.</td>
+</tr>
+<tr class="row-odd"><th class="stub">Publish</th>
+<td><p class="first">Publishes the layer to a GeoServer catalog. It creates a store and resource and a layer based on it. If the layer is a vector layer, the corresponding styling defined in QGIS or that layer will be published and used for the layer. The catalog and workspace are selected in a dialog like the one shown below</p>
+<img alt="../_images/publish_layer.png" src="../_images/publish_layer.png" />
+<p>The plugin code will take care of converting your data to a suitable format to be uploaded to GeoServer. If the current format of the layer is not supported, an intermediate Shapefile or TIFF file will be created.</p>
+<p>The name of the layer in QGIS will be used as name for the layer. If elements exist with those names, they will be overwritten.</p>
+<p>If you try the QGIS layer is based on a PostGIS connection, a PostGIS datastore will be created. If a PostGIS datastore with the same name and connection parameters already exist, no new datastore is created, and the featuretype will be directly created under it.</p>
+<p class="last">In the case of raster layers, since QGIS does not support SLD styling of raster layers, a default style is used.</p>
+</td>
+</tr>
+<tr class="row-even"><th class="stub">Create store from layer</th>
+<td>Similar to <em class="guilabel">Publish</em>, except it does not publish a layer or use the styling.</td>
+</tr>
+<tr class="row-odd"><th class="stub">Edit/view layer metadata</th>
+<td>Opens the metadata editor/viewer. More information about the metadata interface is provided in the <a class="reference internal" href="../metadata/index.html#metadata"><em>Editing/viewing layer metadata</em></a> section.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="qgis-groups">
+<h2>QGIS Groups<a class="headerlink" href="#qgis-groups" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="non-responsive docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head stub">Action</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><th class="stub">Refresh</th>
+<td>Updates the contents of the list of QGIS groups in the tree.</td>
+</tr>
+<tr class="row-odd"><th class="stub">Publish</th>
+<td><p class="first">Publishes the selected group as a layer group. If layers with the names of the layers in the group already exist in the destination catalog, they will be used and the data from the corresponding QGIS layers will not be used (depending on whether <em class="guilabel">Overwrite layers when uploading group</em> was checked or not in the <a class="reference internal" href="../config/index.html#config"><em>Configuration</em></a>.</p>
+<p>The command will first ask you to select a catalog. Then it will check the layers in the selected catalog, to see if there are missing layers. If so, the layer publish dialog will be shown, containing the layers that have to be published before the group can be created, so you can specify the destination workspace for each of them.</p>
+<img alt="../_images/publish_layers_single_catalog.png" class="last" src="../_images/publish_layers_single_catalog.png" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="qgis-styles">
+<h2>QGIS Styles<a class="headerlink" href="#qgis-styles" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="non-responsive docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head stub">Action</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><th class="stub">Refresh</th>
+<td>Updates the contents of the list of QGIS styles in the tree.</td>
+</tr>
+<tr class="row-odd"><th class="stub">Publish</th>
+<td><p class="first">Publishes the selected style. The operation is defined in the dialog shown below.</p>
+<img alt="../_images/publish_style.png" src="../_images/publish_style.png" />
+<p class="last">If no name is entered in the textbox, the name of the layer will be used as style name. Otherwise, the specified name will be used.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="postgis.html" title="previous chapter">PostGIS Connections actions</a></div>
+          <div class="right"><strong>Next</strong>: <a href="../metadata/index.html" title="next chapter">Editing/viewing layer metadata</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2013, OpenGeo
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">QGIS Project actions</a><ul>
+<li><a class="reference internal" href="#qgis-project">QGIS Project</a></li>
+<li><a class="reference internal" href="#qgis-layers">QGIS Layers</a></li>
+<li><a class="reference internal" href="#qgis-groups">QGIS Groups</a></li>
+<li><a class="reference internal" href="#qgis-styles">QGIS Styles</a></li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="postgis.html" title="previous chapter">PostGIS Connections actions</a></p>
+          <p><b>Next:</b> <a href="../metadata/index.html" title="next chapter">Editing/viewing layer metadata</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="../_sources/actions/qgis.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="../genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="../metadata/index.html" title="Editing/viewing layer metadata"
+       accesskey="N">next</a>|</li>
+  <li>
+    <a href="postgis.html" title="PostGIS Connections actions"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">&copy; Copyright 2013, OpenGeo</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="../_static/dropdown.js"></script>-->
+
+  </body>
+</html>

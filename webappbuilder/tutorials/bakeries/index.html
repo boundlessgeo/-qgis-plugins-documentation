@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : Web App Builder plugin : Mapping Paris bakeries</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="../../_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="../../_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="top" title="Web App Builder plugin 1.0 documentation" href="../../index.html" />
+      <link rel="up" title="Tutorials" href="../index.html" />
+      <link rel="next" title="Mapping songs about Madrid" href="../songs/index.html" />
+      <link rel="prev" title="Mapping French schools" href="../schools/index.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('../../_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('../../_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('../../_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('../../_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('../../_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('../../_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="../../_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="/" rel="home" id="logo"><img src="../../_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="../../search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>Web App Builder plugin</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="http://boundlessgeo.com/">Home</a> &raquo;
+  <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
+  <a href="../../index.html">Web App Builder plugin</a>
+     &raquo; <a href="../index.html" accesskey="U">Tutorials</a>
+  
+     &raquo; <a href="">Mapping Paris bakeries</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="mapping-paris-bakeries">
+<span id="qgis-webappbuilder-tutorials-bakeries"></span><h1>Mapping Paris bakeries<a class="headerlink" href="#mapping-paris-bakeries" title="Permalink to this headline">¶</a></h1>
+<p>This example shows how to create a web app using a storytelling approach. In this case, we will create a wep app to explore a selection of the best bakeries in Paris.</p>
+<div class="section" id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference download internal" href="../../_downloads/bakeries.zip"><tt class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">the</span> <span class="pre">data</span> <span class="pre">for</span> <span class="pre">this</span> <span class="pre">tutorial</span></tt></a>.</p>
+<p>This archive contains a single point shapefile, consisting of the locations of bakeries in Paris.</p>
+</div>
+<div class="section" id="preparing-the-application-in-qgis">
+<h2>Preparing the application in QGIS<a class="headerlink" href="#preparing-the-application-in-qgis" title="Permalink to this headline">¶</a></h2>
+<p>First, we have to set up our data layers in QGIS. The tutorial data contains a QGIS project. Open it and you will see that it has a single layer.</p>
+<p>If you open the attributes table for this layer, you will see that the layer has several fields with information about each bakery, and a field named <em class="guilabel">Text</em> with a HTML-formatted text which includes that information. We will be using this field for showing the description of each bakery.</p>
+<div class="figure">
+<img alt="../../_images/attributetable.png" src="../../_images/attributetable.png" />
+<p class="caption">Attribute table</p>
+</div>
+</div>
+<div class="section" id="configuring-the-application">
+<h2>Configuring the application<a class="headerlink" href="#configuring-the-application" title="Permalink to this headline">¶</a></h2>
+<p>Start the Web App Builder by selecting <em class="menuselection">Plugins ‣ Boundless ‣ Web App Builder</em>. This will bring up the interface used to configure our web app. There are several tabs, each one used to define a particular set of parameters. We will go through each of them and describe their meaning.</p>
+<ol class="arabic">
+<li><p class="first">In the <em class="guilabel">Description</em> tab, fill out the form with the following:</p>
+<ol class="arabic simple">
+<li>Enter <tt class="kbd docutils literal"><span class="pre">Paris</span> <span class="pre">bakeries</span></tt> in the title box.</li>
+<li>Select the <em class="guilabel">fullscreen</em> theme.</li>
+</ol>
+<div class="figure">
+<img alt="../../_images/descriptiontab.png" src="../../_images/descriptiontab.png" />
+<p class="caption">Description tab</p>
+</div>
+</li>
+<li><p class="first">In the <em class="guilabel">QGIS Layers</em> tab, fill out the form with the following:</p>
+<ol class="arabic simple">
+<li>Make sure the <em class="guilabel">bakeries</em> layer is checked.</li>
+<li>Uncheck the <em class="guilabel">Allow selection on this layer</em> check box, since we do not want to let the user interact with the layer.</li>
+</ol>
+<div class="figure">
+<img alt="../../_images/qgislayerstab.png" src="../../_images/qgislayerstab.png" />
+<p class="caption">QGIS Layers tab</p>
+</div>
+</li>
+<li><p class="first">In the <em class="guilabel">Other Layers</em> tab, select the <em class="guilabel">OSM Mapnik</em> layer.</p>
+<div class="figure">
+<img alt="../../_images/otherlayerstab.png" src="../../_images/otherlayerstab.png" />
+<p class="caption">Other Layers tab</p>
+</div>
+</li>
+<li><p class="first">In the <em class="guilabel">Controls</em> tab:</p>
+<ol class="arabic simple">
+<li>disable all selected controls and select the <em class="guilabel">Bookmarks</em> tool.</li>
+</ol>
+<div class="figure">
+<img alt="../../_images/controlstab.png" src="../../_images/controlstab.png" />
+<p class="caption">Controls tab</p>
+</div>
+<ol class="arabic">
+<li><p class="first">Right-click the <em class="guilabel">Bookmarks</em> tool and select <em class="guilabel">Configure</em>. This will be the central part of our web app, since the main storytelling functionality will be based on it.</p>
+</li>
+<li><p class="first">You will see the following dialog:</p>
+<div class="figure">
+<img alt="../../_images/bookmarks.png" src="../../_images/bookmarks.png" />
+<p class="caption">Bookmarks dialog</p>
+</div>
+</li>
+<li><p class="first">Bookmarks can be taken from a collection of QGIS bookmarks or from a layer. In this case, we will take bookmarks from a layer, generating one bookmark for each bakery location. Click the <em class="guilabel">Add from layer</em> button.</p>
+</li>
+<li><p class="first">In the <em class="guilabel">Layer</em> field, select <em class="guilabel">bakeries</em>. In the <em class="guilabel">Name</em> field, select <em class="guilabel">Name</em>. In the <em class="guilabel">Description</em> field, selection <em class="guilabel">Text</em>. The content of these two fields will be used to create the content of the panel that will describe each of the bookmarks. The name will be shown as a header title, and the description text will be shown below in a normal paragraph.</p>
+<div class="figure">
+<img alt="../../_images/bookmarksfromlayer.png" src="../../_images/bookmarksfromlayer.png" />
+<p class="caption">Creating bookmarks from layer</p>
+</div>
+</li>
+<li><p class="first">Click <em class="guilabel">OK</em>. The bookmarks will be added to the list of defined bookmarks for the web app.</p>
+<div class="figure">
+<img alt="../../_images/bookmarksadded.png" src="../../_images/bookmarksadded.png" />
+<p class="caption">Bookmarks added</p>
+</div>
+</li>
+<li><p class="first">If you select any of the bookmarks in the list, you will see its description text in the lower panel.</p>
+<div class="figure">
+<img alt="../../_images/bookmarksselected.png" src="../../_images/bookmarksselected.png" />
+<p class="caption">Viewing the contents of a bookmark</p>
+</div>
+</li>
+<li><p class="first">Click the <em class="guilabel">Configuration</em> tab.</p>
+</li>
+<li><p class="first">Check the <em class="guilabel">Show in story panel</em> box, as we want to display bookmark descriptions in a panel.</p>
+</li>
+<li><p class="first">In the <em class="guilabel">Intro title</em> box, type <tt class="kbd docutils literal"><span class="pre">Paris</span> <span class="pre">Bakeries</span></tt>.</p>
+</li>
+<li><p class="first">In the <em class="guilabel">Intro description</em> box, type <tt class="kbd docutils literal"><span class="pre">Explore</span> <span class="pre">the</span> <span class="pre">best</span> <span class="pre">bakeries</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">capital</span> <span class="pre">of</span> <span class="pre">France.</span></tt>. These will be used to create the content of the panel when the web app is started, before moving to the first bookmark.</p>
+</li>
+<li><p class="first">Change the <em class="guilabel">Animation type</em> to <em class="guilabel">Pan to</em>.</p>
+<div class="figure">
+<img alt="../../_images/bookmarksconfiguration.png" src="../../_images/bookmarksconfiguration.png" />
+<p class="caption">Bookmarks configuration</p>
+</div>
+</li>
+<li><p class="first">Click <em class="guilabel">OK</em>.</p>
+</li>
+</ol>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There is no need to edit any of the parameters in either the <em class="guilabel">Deploy</em> or <em class="guilabel">Settings</em> tabs.</p>
+</div>
+</div>
+<div class="section" id="creating-the-application">
+<h2>Creating the application<a class="headerlink" href="#creating-the-application" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Save the application configuration by clicking the <em class="guilabel">Save</em> (disk) icon at the bottom of the dialog.</p>
+</li>
+<li><p class="first">With the configuration defined, we can now create it by clicking the <em class="guilabel">Create App</em> button at the bottom of the Web App Builder dialog.</p>
+</li>
+<li><p class="first">Select the directory where you want to store the web app.</p>
+</li>
+<li><p class="first">The app will be created and saved in this directory. When finished, a dialog will display.</p>
+<div class="figure">
+<img alt="../../_images/deployed.png" src="../../_images/deployed.png" />
+<p class="caption">App successfully deployed</p>
+</div>
+</li>
+<li><p class="first">Click <em class="guilabel">Yes</em> to see the deployed app.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="improving-the-application">
+<h2>Improving the application<a class="headerlink" href="#improving-the-application" title="Permalink to this headline">¶</a></h2>
+<p>If not already open, launch the app by opening <tt class="file docutils literal"><span class="pre">index.html</span></tt> file inside the directory where you created your web app.</p>
+<p>The application is now created but when you move through the story points, you will notice that the zoom level effect is set too high. This is because the layer that used for creating the bookmarks is a point layer, so the extent covered by each bookmark is just the point itself, not a real bounding box. That causes the app to zoom to the maximum zoom level.</p>
+<p>As a way to solve this, you can use a different layer for computing the extents of the bookmarks. We will generate one here.</p>
+<ol class="arabic">
+<li><p class="first">Back in QGIS, close the Web App Builder and open the <em class="guilabel">Processing toolbox</em> (<em class="menuselection">Processing ‣ Toolbox</em>).</p>
+</li>
+<li><p class="first">Find the <em class="guilabel">Fixed distance buffer</em> algorithm (<em class="menuselection">Geoalgorithms ‣ Vector ‣ Geometry operations</em>) and double-click it to open its parameters dialog.</p>
+<div class="figure">
+<img alt="../../_images/processingtoolboxbuffer.png" src="../../_images/processingtoolboxbuffer.png" />
+<p class="caption">Fixed distance buffer process in the Processing toolbox</p>
+</div>
+</li>
+<li><p class="first">In the <em class="guilabel">Input layer</em>, make sure that <em class="guilabel">bakeries</em> is selected.</p>
+</li>
+<li><p class="first">In the <em class="guilabel">distance</em> field, enter <tt class="kbd docutils literal"><span class="pre">0.005</span></tt>.</p>
+<div class="figure">
+<img alt="../../_images/bufferdialog.png" src="../../_images/bufferdialog.png" />
+<p class="caption">Fixed distance buffer parameters</p>
+</div>
+</li>
+<li><p class="first">Click <em class="guilabel">Run</em> to compute a buffer around each bakery point. The result will be displayed as a new layer in QGIS.</p>
+<div class="figure">
+<img alt="../../_images/bufferresult.png" src="../../_images/bufferresult.png" />
+<p class="caption">Buffer result</p>
+</div>
+</li>
+<li><p class="first">Now reopen the Web App Builder. Since you have already created a web app based on this same QGIS project, you will see the following message dialog:</p>
+<div class="figure">
+<img alt="../../_images/messagedialog.png" src="../../_images/messagedialog.png" />
+<p class="caption">Recovering the application definition</p>
+</div>
+</li>
+<li><p class="first">Click <em class="guilabel">Yes</em> to recover the configuration parameters that you used when you first generated the web app.</p>
+</li>
+<li><p class="first">Go to the <em class="guilabel">Controls</em> tab and configure the Bookmarks tool again.</p>
+</li>
+<li><p class="first">Click <em class="guilabel">Remove all</em> to remove all existing bookmarks.</p>
+</li>
+<li><p class="first">Recreate the bookmarks in the same way as before, except this time when creating bookmarks from a layer, use the Buffer layer instead of the bakeries layer. It will have the same attributes table as the original bakeries layer, so you can select the same fields for the Title and Description.</p>
+<div class="figure">
+<img alt="../../_images/bookmarksfromlayerbuffer.png" src="../../_images/bookmarksfromlayerbuffer.png" />
+<p class="caption">Bookmarks from Buffer layer</p>
+</div>
+</li>
+<li><p class="first">Click <em class="guilabel">OK</em> twice, then recreate the web app by clicking the <em class="guilabel">Create app</em> button.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="final-result">
+<h2>Final result<a class="headerlink" href="#final-result" title="Permalink to this headline">¶</a></h2>
+<p>Open the app and navigate through the story points. You will see that each point zooms to a more sensible area.</p>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="../schools/index.html" title="previous chapter">Mapping French schools</a></div>
+          <div class="right"><strong>Next</strong>: <a href="../songs/index.html" title="next chapter">Mapping songs about Madrid</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2016, Boundless
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">Mapping Paris bakeries</a><ul>
+<li><a class="reference internal" href="#data">Data</a></li>
+<li><a class="reference internal" href="#preparing-the-application-in-qgis">Preparing the application in QGIS</a></li>
+<li><a class="reference internal" href="#configuring-the-application">Configuring the application</a></li>
+<li><a class="reference internal" href="#creating-the-application">Creating the application</a></li>
+<li><a class="reference internal" href="#improving-the-application">Improving the application</a></li>
+<li><a class="reference internal" href="#final-result">Final result</a></li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="../schools/index.html" title="previous chapter">Mapping French schools</a></p>
+          <p><b>Next:</b> <a href="../songs/index.html" title="next chapter">Mapping songs about Madrid</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="../../_sources/tutorials/bakeries/index.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="../../genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="../songs/index.html" title="Mapping songs about Madrid"
+       accesskey="N">next</a>|</li>
+  <li>
+    <a href="../schools/index.html" title="Mapping French schools"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">&copy; Copyright 2016, Boundless</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="../../_static/dropdown.js"></script>-->
+
+  </body>
+</html>

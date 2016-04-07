@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>MIL-STD-2525 &mdash; MIL-STD-2525 QGIS Plugin 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="MIL-STD-2525 QGIS Plugin 1.0 documentation" href="index.html" />
+    <link rel="prev" title="Welcome to MIL-STD-2525 QGIS Plugin’s documentation!" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to MIL-STD-2525 QGIS Plugin’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">MIL-STD-2525 QGIS Plugin 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="mil-std-2525">
+<h1>MIL-STD-2525<a class="headerlink" href="#mil-std-2525" title="Permalink to this headline">¶</a></h1>
+<p>Support for MIL-STD-2525 in QGIS</p>
+<p>This plugin adds two new capabilities to QGIS:</p>
+<ul class="simple">
+<li>Custom renderer for rendering a layer with SIDC codes in one of its attributes</li>
+<li>Custom editor widget, for entering SIDC codes in the corresponding field with an icon preview.</li>
+</ul>
+<div class="section" id="custom-renderer">
+<h2>Custom Renderer<a class="headerlink" href="#custom-renderer" title="Permalink to this headline">¶</a></h2>
+<p>The symbology window should contain a new renderer named &#8220;MIL-STD-2525&#8221;.</p>
+<img alt="_images/rendererEntry.png" src="_images/rendererEntry.png" />
+<p>It has two configuration parameters: size and field</p>
+<img alt="_images/symbologyDialog.png" src="_images/symbologyDialog.png" />
+<p>In the field combo box, select the attribute from the layer that contains the SIDC codes to be used for setting the markers</p>
+<p>In the size text box, enter the rendering size of the markers in pixels.</p>
+<p>Once the renderer is active, layer features are rendered using the codes in the selected attribute.</p>
+<img alt="_images/renderedLayer.png" src="_images/renderedLayer.png" />
+<p>For features with an invalid code in the selected field, a default marker with a question mark is shown.</p>
+</div>
+<div class="section" id="custom-editor-widget">
+<h2>Custom editor widget<a class="headerlink" href="#custom-editor-widget" title="Permalink to this headline">¶</a></h2>
+<p>To set the editor widget, open the properties of the layer that contains SIDC code in one of its attributes and go to the &#8220;Fields&#8221; group.</p>
+<p>For the attribute that contain SIDC codes (in the image above, the attribute called &#8220;SDIC&#8221;), click on the button in the &#8220;Edit widget&#8221; column. A new dialog will open. Select the &#8220;SIDC code editor&#8221; option and click OK. Close the properties window.</p>
+<p>If you now open the attributes table of the layer and put it in edit mode, the SIDC field will have a text box to enter the code and a button.</p>
+<img alt="_images/customWidget.png" src="_images/customWidget.png" />
+<p>Clicking on the button will show the preview dialog, that you can use to enter a code and preview the corresponding icon</p>
+<img alt="_images/markerPreview.png" src="_images/markerPreview.png" />
+</div>
+</div>
+<div class="section" id="further-info">
+<h1>Further info<a class="headerlink" href="#further-info" title="Permalink to this headline">¶</a></h1>
+<p>Here&#8217;s some extra info to continue developing/testing this plugin:</p>
+<p>A generator of markers from SIDC codes can be found here:</p>
+<p><a class="reference external" href="http://spatialillusions.com/unitgenerator.html">http://spatialillusions.com/unitgenerator.html</a></p>
+<p>This tool is useful for checking that markers are correctly rendered and the SDIC codes are being correctly interpreted.</p>
+<p>&#8212;</p>
+<p>Markers single parts, from which full markers are created, are taken from this project:</p>
+<p><a class="reference external" href="https://github.com/Esri/joint-military-symbology-xml">https://github.com/Esri/joint-military-symbology-xml</a></p>
+<p>Additional info about the icons themselves and the coding of markers can be found there as well.</p>
+</div>
+<div class="section" id="current-status">
+<h1>Current status<a class="headerlink" href="#current-status" title="Permalink to this headline">¶</a></h1>
+<p>Both renderer and custom widget are implemented.</p>
+<p>The renderer raises an exception when it is deselected in the properties windows. Work can  be resumed after closing the error dialog, and it does not charsh QGIS.</p>
+<p>The error is related to the rendered object being garbage collected by QGIS, and is likely to be a SIP issue.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">MIL-STD-2525</a><ul>
+<li><a class="reference internal" href="#custom-renderer">Custom Renderer</a></li>
+<li><a class="reference internal" href="#custom-editor-widget">Custom editor widget</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#further-info">Further info</a></li>
+<li><a class="reference internal" href="#current-status">Current status</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to MIL-STD-2525 QGIS Plugin&#8217;s documentation!</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/intro.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to MIL-STD-2525 QGIS Plugin’s documentation!"
+             >previous</a> |</li>
+        <li><a href="index.html">MIL-STD-2525 QGIS Plugin 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Victor Olaya.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : Web App Builder plugin : Mapping songs about Madrid</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="../../_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="../../_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="top" title="Web App Builder plugin 1.0 documentation" href="../../index.html" />
+      <link rel="up" title="Tutorials" href="../index.html" />
+      <link rel="next" title="Mapping fire events" href="../fires/index.html" />
+      <link rel="prev" title="Mapping Paris bakeries" href="../bakeries/index.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('../../_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('../../_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('../../_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('../../_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('../../_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('../../_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="../../_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="/" rel="home" id="logo"><img src="../../_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="../../search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>Web App Builder plugin</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="http://boundlessgeo.com/">Home</a> &raquo;
+  <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
+  <a href="../../index.html">Web App Builder plugin</a>
+     &raquo; <a href="../index.html" accesskey="U">Tutorials</a>
+  
+     &raquo; <a href="">Mapping songs about Madrid</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="mapping-songs-about-madrid">
+<span id="qgis-webappbuilder-tutorials-songs"></span><h1>Mapping songs about Madrid<a class="headerlink" href="#mapping-songs-about-madrid" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial shows how to create a web app that explores songs related to the city of Madrid in Spain. For each song, an entry is added to a map, which contains information abut the lyrics and the author. A popup is shown when hovering over each song point, with an embeded video for the song. This app is inspired by a similar work published in <a class="reference external" href="http://www.huffingtonpost.es/2015/05/15/canciones-madrid-mapa_n_7214408.html">this article in the Huffington Post</a>.</p>
+<div class="section" id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference download internal" href="../../_downloads/songs.zip"><tt class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">the</span> <span class="pre">data</span> <span class="pre">for</span> <span class="pre">this</span> <span class="pre">tutorial</span></tt></a>.</p>
+<p>This archive contains a point shapefile with song information, along with an icon that we will use to render song locations on the map.</p>
+</div>
+<div class="section" id="preparing-the-application-in-qgis">
+<h2>Preparing the application in QGIS<a class="headerlink" href="#preparing-the-application-in-qgis" title="Permalink to this headline">¶</a></h2>
+<p>First, we have to set up our data layers in QGIS.</p>
+<ol class="arabic">
+<li><p class="first">Add the vector layer to a QGIS project.</p>
+<div class="figure">
+<img alt="../../_images/defaultlayer.png" src="../../_images/defaultlayer.png" />
+<p class="caption">Layer with default style</p>
+</div>
+</li>
+<li><p class="first">Improve the default styling by replacing the default symbol with the SVG marker included in the data. (<tt class="file docutils literal"><span class="pre">note.svg</span></tt>). This can be done in the Layer Properties interface (found by right-clicking the layer name and going to <em class="guilabel">Properties</em>.)</p>
+<div class="figure">
+<img alt="../../_images/style.png" src="../../_images/style.png" />
+<p class="caption">Adding styling</p>
+</div>
+<div class="figure">
+<img alt="../../_images/styledlayer.png" src="../../_images/styledlayer.png" />
+<p class="caption">Layer with SVG marker</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="configuring-the-application">
+<h2>Configuring the application<a class="headerlink" href="#configuring-the-application" title="Permalink to this headline">¶</a></h2>
+<p>Start the Web App Builder by selecting <em class="menuselection">Plugins ‣ Boundless ‣ Web App Builder</em>. This will bring up the interface used to configure our web app. There are several tabs, each one used to define a particular set of parameters. We will go through each of them and describe their meaning.</p>
+<ol class="arabic">
+<li><p class="first">In the <em class="guilabel">Description</em> tab, fill out the form with the following:</p>
+<ol class="arabic">
+<li><p class="first">Enter <tt class="kbd docutils literal"><span class="pre">Mapping</span> <span class="pre">Madrid</span> <span class="pre">songs</span></tt> in the title box.</p>
+</li>
+<li><p class="first">Select the <em class="guilabel">fullscreen</em> theme.</p>
+<div class="figure">
+<img alt="../../_images/descriptiontab2.png" src="../../_images/descriptiontab2.png" />
+<p class="caption">Description tab</p>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">In the <em class="guilabel">QGIS Layers</em> tab, fill out the form with the following:</p>
+<ol class="arabic">
+<li><p class="first">Make sure that the <em class="guilabel">Songs</em> layer is checked.</p>
+</li>
+<li><p class="first">Click the <em class="guilabel">Edit</em> link to edit the content of the popup for the layer.</p>
+</li>
+<li><p class="first">Enter the following in the text box to define the content of the popup:</p>
+<div class="highlight-python"><div class="highlight"><pre>[Video]
+
+&lt;p&gt;&lt;i&gt;[Lyrics]&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;[Song], &lt;b&gt;[Author]&lt;/b&gt;
+</pre></div>
+</div>
+<p>This popup will display the embeded video as well as lyrics, song, and author information.</p>
+<div class="figure">
+<img alt="../../_images/popup.png" src="../../_images/popup.png" />
+<p class="caption">Feature popup</p>
+</div>
+</li>
+<li><p class="first">Click <em class="guilabel">OK</em>.</p>
+<div class="figure">
+<img alt="../../_images/qgislayerstab2.png" src="../../_images/qgislayerstab2.png" />
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">In the <em class="guilabel">Other Layers</em> tab, select the <em class="guilabel">Stamen toner lite</em> layer.</p>
+<div class="figure">
+<img alt="../../_images/otherlayerstab2.png" src="../../_images/otherlayerstab2.png" />
+<p class="caption">Other Layers tab</p>
+</div>
+</li>
+<li><p class="first">In the <em class="guilabel">Controls</em> tab, disable (unselect) all controls.</p>
+<div class="figure">
+<img alt="../../_images/controlstab2.png" src="../../_images/controlstab2.png" />
+<p class="caption">Controls tab</p>
+</div>
+</li>
+<li><p class="first">In the <em class="guilabel">Settings</em> tab, check the <em class="guilabel">Show popups on hover</em> parameter, so popups are shown when passing the mouse over the points without having to click on them.</p>
+<div class="figure">
+<img alt="../../_images/settingstab.png" src="../../_images/settingstab.png" />
+<p class="caption">Settings tab</p>
+</div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There is no need to edit any of the parameters in the <em class="guilabel">Deploy</em> tab.</p>
+</div>
+</div>
+<div class="section" id="creating-the-application">
+<h2>Creating the application<a class="headerlink" href="#creating-the-application" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Save the application configuration by clicking the <em class="guilabel">Save</em> (disk) icon at the bottom of the dialog.</p>
+</li>
+<li><p class="first">With the configuration defined, we can now create it by clicking the <em class="guilabel">Create App</em> button at the bottom of the Web App Builder dialog.</p>
+</li>
+<li><p class="first">Select the directory where you want to store the web app.</p>
+</li>
+<li><p class="first">The app will be created and saved in this directory. When finished, a dialog will display.</p>
+<div class="figure">
+<img alt="../../_images/deployed3.png" src="../../_images/deployed3.png" />
+<p class="caption">App successfully deployed</p>
+</div>
+</li>
+<li><p class="first">Click <em class="guilabel">Yes</em> to see the deployed app.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="final-result">
+<h2>Final result<a class="headerlink" href="#final-result" title="Permalink to this headline">¶</a></h2>
+<p>If not already open, launch the app by opening <tt class="file docutils literal"><span class="pre">index.html</span></tt> file inside the directory where you created your web app.</p>
+<div class="figure">
+<img alt="../../_images/app1.png" src="../../_images/app1.png" />
+<p class="caption">Deployed app</p>
+</div>
+<p>To see the application in action, hover over any of the points on the map.</p>
+<div class="figure">
+<img alt="../../_images/apphover.png" src="../../_images/apphover.png" />
+<p class="caption">Hovering over a point</p>
+</div>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="../bakeries/index.html" title="previous chapter">Mapping Paris bakeries</a></div>
+          <div class="right"><strong>Next</strong>: <a href="../fires/index.html" title="next chapter">Mapping fire events</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2016, Boundless
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">Mapping songs about Madrid</a><ul>
+<li><a class="reference internal" href="#data">Data</a></li>
+<li><a class="reference internal" href="#preparing-the-application-in-qgis">Preparing the application in QGIS</a></li>
+<li><a class="reference internal" href="#configuring-the-application">Configuring the application</a></li>
+<li><a class="reference internal" href="#creating-the-application">Creating the application</a></li>
+<li><a class="reference internal" href="#final-result">Final result</a></li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="../bakeries/index.html" title="previous chapter">Mapping Paris bakeries</a></p>
+          <p><b>Next:</b> <a href="../fires/index.html" title="next chapter">Mapping fire events</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="../../_sources/tutorials/songs/index.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="../../genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="../fires/index.html" title="Mapping fire events"
+       accesskey="N">next</a>|</li>
+  <li>
+    <a href="../bakeries/index.html" title="Mapping Paris bakeries"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">&copy; Copyright 2016, Boundless</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="../../_static/dropdown.js"></script>-->
+
+  </body>
+</html>
