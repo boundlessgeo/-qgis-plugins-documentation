@@ -81,8 +81,8 @@ def deploy():
     subfolders = [name for name in os.listdir(tmpDir)
             if os.path.isdir(os.path.join(tmpDir, name))]
     for folder in subfolders:
-        src = os.path.join(tmpDir, folder, 'docs', 'build')
-        dst = os.path.join(cwd,  folder)
+        src = os.path.join(tmpDir, folder, 'docs', 'build', 'html')
+        dst = os.path.join(cwd,  folder.split("-")[1])
         if os.path.exists(dst):
             shutil.rmtree(dst)
         shutil.copytree(src, dst)
