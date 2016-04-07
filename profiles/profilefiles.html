@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : QGIS Profiles Plugin : Profile files</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="top" title="QGIS Profiles Plugin 1.0 documentation" href="index.html" />
+      <link rel="prev" title="Welcome to QGIS Profiles Plugin’s documentation!" href="index.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="/" rel="home" id="logo"><img src="_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>QGIS Profiles Plugin</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="http://boundlessgeo.com/">Home</a> &raquo;
+  <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
+  <a href="index.html">QGIS Profiles Plugin</a>
+  
+     &raquo; <a href="">Profile files</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="profile-files">
+<h1>Profile files<a class="headerlink" href="#profile-files" title="Permalink to this headline">¶</a></h1>
+<p>A profile file contain all the elements needed to configure the QGIS interface according to a profile.</p>
+<p>It&#8217;s stored as a JSON file, with the following elements:</p>
+<ul class="simple">
+<li>panels: The names of panels to show, with their QT object names. These panels will be made visible. All other panels not listed here will be hidden. If not present, panels won&#8217;t be altered.</li>
+<li>menus: Dict of menus to display. Menus are referred with their full path (including names of all parent menus) used as keys of the dict. Values are the name of the menu entry, to allow renaming of the menu item. If not present, menus won&#8217;t be altered.</li>
+<li>buttons: Buttons to be displayed in the toolbar. Grouped by toolbars and referenced using their QT object name. If not present, toolbars won&#8217;t be altered.</li>
+<li>plugins: names of plugins to activate. If a plugin is not installed, installation should be proposed to the user when changing. If plugins to activate add menu entries to the menu bar, those menu entries should be added to the <em>menus</em> list, otherwise they wont be shown. This is configured like this to alow having a plugin enabled, but only have certain menus from it available, or even no menus at all (so the plugin is only available for other plugins or to be used programatically)</li>
+</ul>
+<p>For each json file in the <tt class="docutils literal"><span class="pre">userprofiles</span></tt> folder, a Profile object is created and registered, and a menu entry corresponding to that profile will be added to the <em>Profiles</em> menu. If your profile requires more than what the json file allows to configure, you can add a python file with code to be run when applying the profile.</p>
+<p>To do that, just add a python file with the same name as the json file that contains the profile description, and add a function called <tt class="docutils literal"><span class="pre">apply</span></tt> to it. That function will be run when the profile is applied.</p>
+<p>Profiles files (both json and python files) must be saved into the <tt class="docutils literal"><span class="pre">userprofiles</span></tt> folder, in order to be used by the profiles plugin.</p>
+</div>
+<div class="section" id="example">
+<h1>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h1>
+<p>In the <tt class="docutils literal"><span class="pre">userprofiles</span></tt> folder you will find examples of profiles. Here we will use one of them, the <em>image analysis</em> profile, to explain what it does and how that is implemented in the profiles files.</p>
+<p>To activate the profile, you will find it under the <em>Settings/Profiles</em> menu.</p>
+<img alt="_images/menu.png" class="align-center" src="_images/menu.png" />
+<p>The profile features a minimal set of menus and buttons, and focuses on providing tools for working with image data.</p>
+<p>Only the map navigation toolbar is shown.</p>
+<img alt="_images/toolbar.png" class="align-center" src="_images/toolbar.png" />
+<p>All panels are hidden, except for the layers list panel, to allow more space for the QGIS map canvas.</p>
+<p>A menu named <em>Image analysis</em> is added, containing the tools from the OTB provider in Processing.</p>
+<img alt="_images/otb.png" class="align-center" src="_images/otb.png" />
+<p>The Processing plugin itself is active, but its menus are hidden.</p>
+<p>The Planet Labs catalog plugin is also added to the profile, but its menu (usually under the <em>Raster</em> menu) is also hidden. Instead, a menu entry under the <em>Layer/Add Layer</em> menu is added, for a better integration.</p>
+<img alt="_images/planet.png" class="align-center" src="_images/planet.png" />
+<p>This changes are made using a python file as part of the profile, with the following code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">addProviderAsMenus</span><span class="p">(</span><span class="n">providerName</span><span class="p">,</span> <span class="n">menuName</span><span class="p">):</span>
+    <span class="n">provider</span> <span class="o">=</span> <span class="n">Processing</span><span class="o">.</span><span class="n">getProviderFromName</span><span class="p">(</span><span class="n">providerName</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">alg</span> <span class="ow">in</span> <span class="n">provider</span><span class="o">.</span><span class="n">algs</span><span class="p">:</span>
+        <span class="n">addAlgorithmEntry</span><span class="p">(</span><span class="n">alg</span><span class="o">.</span><span class="n">commandLineName</span><span class="p">(),</span> <span class="n">menuName</span><span class="p">,</span> <span class="n">alg</span><span class="o">.</span><span class="n">group</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">apply</span><span class="p">():</span>
+    <span class="n">addProviderAsMenus</span><span class="p">(</span><span class="s">&quot;otb&quot;</span><span class="p">,</span> <span class="s">&quot;Image analysis&quot;</span><span class="p">)</span>
+    <span class="n">plugin</span> <span class="o">=</span> <span class="n">plugins</span><span class="p">[</span><span class="s">&quot;catalogpl_plugin&quot;</span><span class="p">]</span>
+    <span class="n">action</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="n">plugin</span><span class="o">.</span><span class="n">icon</span><span class="p">,</span> <span class="s">&quot;Planet Labs layer&quot;</span><span class="p">,</span> <span class="n">iface</span><span class="o">.</span><span class="n">mainWindow</span><span class="p">())</span>
+    <span class="n">action</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">plugin</span><span class="o">.</span><span class="n">run</span><span class="p">)</span>
+    <span class="n">addActionAt</span><span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="s">&quot;mLayerMenu/mAddLayerMenu&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="index.html" title="previous chapter">Welcome to QGIS Profiles Plugin&#8217;s documentation!</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2016, Victor Olaya
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">Profile files</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="index.html" title="previous chapter">Welcome to QGIS Profiles Plugin&#8217;s documentation!</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="_sources/profilefiles.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="index.html" title="Welcome to QGIS Profiles Plugin’s documentation!"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">&copy; Copyright 2016, Victor Olaya</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="_static/dropdown.js"></script>-->
+
+  </body>
+</html>
