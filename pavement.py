@@ -37,7 +37,8 @@ def fetch(options):
     plugins = pluginNames()
     cwd = os.getcwd()
     tmpDir = os.path.join(cwd, 'tmp')
-    os.mkdir(tmpDir)
+    if not os.path.exists(tmpDir):
+        os.mkdir(tmpDir)
     for plugin in plugins:
         repoPath = os.path.join(tmpDir, plugin)
         if os.path.exists(repoPath):            
