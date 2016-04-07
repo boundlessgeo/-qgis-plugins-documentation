@@ -36,8 +36,10 @@ def fetch(options):
     '''clone all plugin repos'''
     plugins = pluginNames()
     cwd = os.getcwd()
+    tmpDir = os.path.join(cwd, 'tmp')
+    os.mkdir(tmpDir)
     for plugin in plugins:
-        repoPath = os.path.join(cwd, plugin)
+        repoPath = os.path.join(tmpDir, plugin)
         if os.path.exists(repoPath):            
             os.chdir(repoPath)
             sh("git pull")
@@ -52,8 +54,9 @@ def fetch(options):
 def builddocs():
     '''create html docs from sphinx files'''
     cwd = os.getcwd()
-    subfolders = [os.path.join(cwd, name) for name in os.listdir(cwd)
-            if os.path.isdir(os.path.join(cwd, name))]
+    tmpDir = os.path.join(cwd, 'tmp')
+    subfolders = [os.path.join(tmpDir, name) for name in os.listdir(tmpDir)
+            if os.path.isdir(os.path.join(tmpDir, name))]
     for folder in subfolders:
         docFolder = os.path.join(folder, 'docs')
         if os.path.exists(docFolder):
@@ -71,5 +74,18 @@ def builddocs():
 
 @task    
 def deploy():
-    pass
+    sh("git checkout gh-pages")
+    cwd = os.getcwd()
+    tmpDir = os.path.join(cwd, 'tmp')
+    subfolders = [name for name in os.listdir(tmpDir)
+            if os.path.isdir(os.path.join(tmpDir, name))]
+    for folder in subfolders:
+        src = os.path.join(tmpDir, folder, 'docs', 'build')
+        dst = os.path.join(cwd,  folder)
+        if os.path.exists(dst):
+            shutil.rmtree(dst)
+        shutil.copytree(src, dst)
+    sh("git commit -m 'docs update'")
+    #sh("git push origin gh-pages")
+    sh("git checkout master")
 
