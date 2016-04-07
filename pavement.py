@@ -87,6 +87,6 @@ def deploy():
             shutil.rmtree(dst)
         shutil.copytree(src, dst)
     sh("git commit -m 'docs update'")
-    #sh("git push origin gh-pages")
+    sh("git push origin gh-pages")
     sh("git checkout master")
 
