@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="_static/extra.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="top" title="QGIS Lessons Plugin 1.0 documentation" href="index.html" />
+      <link rel="prev" title="Usage" href="usage.html" />
 <style>
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
@@ -80,15 +81,14 @@
 <ol class="arabic simple" start="3">
 <li>In the init method of your plugin, register your plugin adding the following snippet</li>
 </ol>
-<div class="highlight-python"><div class="highlight"><pre>    try:
+<div class="highlight-python"><pre>    try:
     from lessons import addLessonModule
     addLessonModule(lesson_module)
 except:
-    pass
-</pre></div>
+    pass</pre>
 </div>
 <p>Replace <em>lesson_module</em> with the reference to your lesson module (which you should have imported), and add as many entries as module you have created in your set of lessons.</p>
-<p>An example of a plugin that adds a collection of lessons can be found in the <tt class="docutils literal"><span class="pre">`lessonscollectionplugin`</span></tt> folder of this repository. Use is as a template for you own collections. If using it, you do not have to manually call the <tt class="docutils literal"><span class="pre">`addLessonModule`</span></tt> method. The plugin will automatically discover all available lessons. The only thing you have to do is to add your lessons under the <tt class="docutils literal"><span class="pre">`lessons`</span></tt> subfolder, each of them in its corresponding subfolder, as described above.</p>
+<p>An example of a plugin that adds a collection of lessons can be found in the <tt class="docutils literal"><span class="pre">`examplelessons`</span></tt> folder of this repository. Use is as a template for you own collections. If using it, you do not have to manually call the <tt class="docutils literal"><span class="pre">`addLessonModule`</span></tt> method. The plugin will automatically discover all available lessons. The only thing you have to do is to add your lessons under the <tt class="docutils literal"><span class="pre">`_lessons`</span></tt> subfolder, each of them in its corresponding subfolder, as described above.</p>
 <div class="section" id="creating-a-lesson">
 <h2>Creating a lesson<a class="headerlink" href="#creating-a-lesson" title="Permalink to this headline">¶</a></h2>
 <p>If you have created a folder for each lesson as described above, the steps of the lesson and the content of each step should be defined in the <tt class="docutils literal"><span class="pre">`__init__.py`</span></tt> file.</p>
@@ -105,9 +105,8 @@ except:
 <p>There is no need to add the full path to the file, as long as the file is in the same folder as the <tt class="docutils literal"><span class="pre">`__init__.py`</span></tt> file. The full path will be correctly resolved at runtime.</p>
 <p>If your lesson requires loading data into QGIS, you can prepare a project with that data. Name the project <a href="#id2"><span class="problematic" id="id3">``</span></a>project.qgs```and put it in the lesson folder as well, as indicated. This will cause the lesson to automatically have a first step that loads the data before starting with the rest of step. If you want your data to be loaded from a different project in another folder, or to load it not at the beginning of the lesson, you will have to manually add that step.</p>
 <p>Now you can add steps to your lesson using the <tt class="docutils literal"><span class="pre">`addStep`</span></tt> method, which has the following signature:</p>
-<div class="highlight-python"><div class="highlight"><pre>addStep(self, name, description, function=None, prestep=None, endsignal=None,
-        endsignalcheck=None, endcheck=lambda:True, steptype=1):
-</pre></div>
+<div class="highlight-python"><pre>addStep(self, name, description, function=None, prestep=None, endsignal=None,
+        endsignalcheck=None, endcheck=lambda:True, steptype=1):</pre>
 </div>
 <p>Here is a description of its arguments:</p>
 <ul class="simple">
@@ -130,7 +129,7 @@ except:
 <h2>Capturing QGIS interaction to create a lesson<a class="headerlink" href="#capturing-qgis-interaction-to-create-a-lesson" title="Permalink to this headline">¶</a></h2>
 <p>The help files associated with a lesson contain text and usually screenshots. These have to be created manually, by creating the corresponding html and image files.</p>
 <p>An additional plugin is included in this repository, in the <tt class="docutils literal"><span class="pre">`lessonscreator`</span></tt> folder, aimed at users that plan to create their own lessons. It simplifies both writing text and creating screenshots, by capturing actions performed in QGIS. That is, the user performs the steps in the lesson to create, and the plugin tries to automatically create the corresponding lesson files.</p>
-<p>To create a new lesson, select the <em>Plugins/Lessons/Cature lesson steps</em> menu. Select a folder to store the lessons data.</p>
+<p>To create a new lesson, select the <em>Plugins/Lessons/Capture lesson steps</em> menu. Select a folder to store the lessons data.</p>
 <p>From that moment, the plugin will be listening to your actions and documenting them according to the following ideas:</p>
 <ul>
 <li><p class="first">Whenever the focus changes to a new window, a screenshot of the window will be taken. An entry in the html file describing the current step will be added, which will include the screenshot.</p>
@@ -150,11 +149,15 @@ except:
 </ul>
 <p>All texts snippets and screenshots are added to the html file that describes the current step. A lesson might contain several steps. To start a new step and add text and screenshots to another file, press CTRL-W at anytime, and a new step will be started.</p>
 <p>When you have captured all elements of you lesson, select the <em>Plugins/Lessons/Stop capturing lesson steps</em> menu.</p>
-<p>In the folder that you selected, you will find all html files and image files. You will also find a <tt class="docutils literal"><span class="pre">`___init.py___`</span></tt> file that describe the lesson. The folder as it is generated can be added to your lessons plugin (created based on the <tt class="docutils literal"><span class="pre">`lessonscollectionplugin`</span></tt> template) and will be recognised as a valid lesson.</p>
+<p>In the folder that you selected, you will find all html files and image files. You will also find a <tt class="docutils literal"><span class="pre">`___init.py___`</span></tt> file that describe the lesson. The folder as it is generated can be added to your lessons plugin (created based on the <tt class="docutils literal"><span class="pre">`examplelessons`</span></tt> template) and will be recognised as a valid lesson.</p>
 </div>
 </div>
 
 
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="usage.html" title="previous chapter">Usage</a></div>
+      </div>
 
   <!--
     &copy; Copyright 2016, Victor Olaya
@@ -178,6 +181,11 @@ except:
         <div class="section-footer"></div>
       </div>
         <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="usage.html" title="previous chapter">Usage</a></p>
+          </ul>
+        </div>
+        <div class="section">
         <h4>This Page</h4>
         <ul class="this-page-menu">
           <li><a href="_sources/writing_lessons.txt">Show Source</a></li>
@@ -195,6 +203,9 @@ except:
   <li class="first">
     <a href="genindex.html" title="General Index"
        accesskey="I">index</a></li>
+  <li>
+    <a href="usage.html" title="Usage"
+       accesskey="P">previous</a>|</li>
 </ul> -->
   </div> <!-- rightbar_bar -->
 

@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   
-  <title>Boundless : Boundless Connect : Addining Boundless Connect to installer</title>
+  <title>Boundless : Boundless Connect QGIS Plugin : For system administrators</title>
 
   <link rel="profile" href="http://gmpg.org/xfn/11">
   <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
   <link rel="stylesheet" href="_static/extra.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="top" title="Boundless Connect 1.0 documentation" href="index.html" />
-      <link rel="prev" title="Using Boundless Connect" href="usage.html" />
+      <link rel="top" title="Boundless Connect QGIS Plugin 1.0 documentation" href="index.html" />
+      <link rel="prev" title="Usage" href="usage.html" />
 <style>
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
@@ -50,84 +50,51 @@
 				</div>
 			</div><!--closes container-->
 
-		</header><div id="pageheading"><div class="contents"><h1>Boundless Connect</h1></div></div>
+		</header><div id="pageheading"><div class="contents"><h1>Boundless Connect QGIS Plugin</h1></div></div>
 
   <div id="content" class="contents">
 <div id="breadcrumbs">
   <a href="http://boundlessgeo.com/">Home</a> &raquo;
   <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
-  <a href="index.html">Boundless Connect</a>
+  <a href="index.html">Boundless Connect QGIS Plugin</a>
   
-     &raquo; <a href="">Addining Boundless Connect to installer</a>
+     &raquo; <a href="">For system administrators</a>
 </div>
 
   <div id="rightbar_main">
       
-  <div class="section" id="addining-boundless-connect-to-installer">
-<h1>Addining Boundless Connect to installer<a class="headerlink" href="#addining-boundless-connect-to-installer" title="Permalink to this headline">¶</a></h1>
-<p>Plugin can be placed in the QGIS python plugins directory, where all &#8220;core&#8221;
-plugins stored, before creating installer. Alternatively it can be extracted
-and placed in the correct place, e.g. QGIS plugins directory or users plugins
-directory, by installer during installation.</p>
-<p>Boundless Connect should be enabled by default in our QGIS build, e.g. via
-adding corresponding entry to the Windows registry at the install stage. This
-can be done with the following NSIS code</p>
-<div class="highlight-python"><div class="highlight"><pre>WriteRegStr HKEY_CURRENT_USER &quot;Software\QGIS\QGIS2\Plugins&quot; &quot;boundlessconnect&quot; &quot;true&quot;
-</pre></div>
+  <div class="section" id="for-system-administrators">
+<h1>For system administrators<a class="headerlink" href="#for-system-administrators" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="configure-the-repository-location">
+<span id="configure-repository-location"></span><h2>Configure the repository location<a class="headerlink" href="#configure-the-repository-location" title="Permalink to this headline">¶</a></h2>
+<p>The <em>Boundless Connect QGIS Plugin</em> can work with the standard remote <em>Boundless QGIS Plugin Repository</em>, use an internal repository (e.g. in Docker container) or install plugins from a local folder (useful for customers with special requirements, when connection to external resources is not possible).</p>
+<p>On its first run, the <em>Boundless Connect QGIS Plugin</em> will look for <tt class="docutils literal"><span class="pre">$HOME/.qgis2/repoUrl.txt</span></tt> file. If the file exists, the plugin will read the repository URL/path from it and use this as a location for the plugins repository. Otherwise, if the file is not found, the standard Boundless QGIS Plugins Repository URL will be used. After this, the file will be deleted.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Creating a new file after the first launch of <em>Boundless Connect QGIS Plugin</em> will have no effect whatsoever. The plugin will ignore the new file and will continue to use the already saved repository location.</p>
 </div>
-<div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<p>There is only one thing to configure now &#8212; repository location. Plugin can
-work with standard Boundless Plugins Repository, use internal repository (e.g.
-in Docker container) or install plugins from local folder (useful for customers
-with special requirements, when connection to external resources is not
-possible).</p>
-<p>On first run <em>Boundless Connect</em> looks for <tt class="docutils literal"><span class="pre">$HOME/.qgis2/repoUrl.txt</span></tt> file.
-If this file exists, plugin will read repository URL from it and use this URL
-as location of plugins repository. Otherwise standard Boundless Plugins
-Repository will be used. After reading repository URL file will be deleted.
-Creating new file after first launch of <em>Boundless Connect</em> will make no
-effect, it will ignore new file and continue to use already saved repository
-address.</p>
-<p>The <tt class="docutils literal"><span class="pre">$HOME/.qgis2/repoUrl.txt</span></tt> file is an INI-like text file with single
-<tt class="docutils literal"><span class="pre">general</span></tt> section and only one key-value pair, for example</p>
-<div class="highlight-python"><div class="highlight"><pre>[general]
-repoUrl=http://qgis.boundlessgeo.com/plugins/plugins.xml
-</pre></div>
+<p>The <tt class="docutils literal"><span class="pre">$HOME/.qgis2/repoUrl.txt</span></tt> file is an INI-like text file with single <tt class="docutils literal"><span class="pre">general</span></tt> section and only one key-value pair, for example:</p>
+<div class="highlight-python"><pre>[general]
+repoUrl=http://qgis.boundlessgeo.com/plugins/plugins.xml</pre>
 </div>
-<p>Repository location (value of the <tt class="docutils literal"><span class="pre">repoUrl</span></tt> key) can be:</p>
+<p>The value of the <tt class="docutils literal"><span class="pre">repoUrl</span></tt> key with repository location can be:</p>
 <ul class="simple">
-<li>repository URL. Plugin will add this URL to the list of available plugins
-repositories, so QGIS <em>Plugin Manager</em> can be used to access it. This is
-default.</li>
-<li>absolute path to the plugins directory. In such case this directory should
-contain plugins packages as well as repository description file
-<tt class="docutils literal"><span class="pre">plugins.xml</span></tt>. In this case nothing added to the QGIS settings, as QGIS
+<li>A <strong>Repository URL</strong>. The plugin will add this URL to the list of available plugins repositories and QGIS <em>Plugin Manager</em> can be used to access it. This is the default.</li>
+<li>An <strong>absolute path to the plugins directory</strong>. In this case, the directory should contain plugins packages as well as repository description file <tt class="docutils literal"><span class="pre">plugins.xml</span></tt>. With this option, nothing is added to the QGIS settings, as QGIS
 <em>Plugin Manager</em> can not handle directories yet.</li>
 </ul>
-<p>When QGIS starts and Boundless repository location is an URL, Connect plugin
-will add Boundless Plugins Repository to the <em>Plugin Manager</em>&#8216;s list of
-available plugin repositories. NOTE: only repository URL added, user should
-specify his credentials with <em>First Run</em> wizard or using <em>Plugin Manager</em>.</p>
-<p>If repository locations is a path, nothing added to <em>Plugin Manager</em>. User
-should use <em>Plugins → Boundless Connect → Manage plugins (local folder)</em> to
-install plugins from local directory-based repository.</p>
 </div>
+<div class="section" id="installing-additional-plugins-by-default">
+<span id="add-additional-plugins"></span><h2>Installing additional plugins by default<a class="headerlink" href="#installing-additional-plugins-by-default" title="Permalink to this headline">¶</a></h2>
+<p>If the system administrator wants to automatically install a bundle of additional plugins during the post-installation step, he can create a directory <cite>.qgis2/first-run-plugins</cite> under the user folder and put all the desired plugins ZIP packages in it.</p>
+<p>The <em>First Run wizard</em> tool from <em>Boundless Connect QGIS Plugin</em> will check if the directory exists and will install all the ZIP packages from it. Notice that the packages will be removed after hte installation.</p>
 </div>
-<div class="section" id="installing-plugins-from-standard-location">
-<h1>Installing plugins from &#8220;standard&#8221; location<a class="headerlink" href="#installing-plugins-from-standard-location" title="Permalink to this headline">¶</a></h1>
-<p>If sysadmin wants to install some additional plugins at the post-installation
-step, it is necessary to create directory <cite>~/.qgis2/first-run-plugins</cite> and put
-plugins ZIP packages in it.</p>
-<p><em>First Run</em> wizard from Boundless Connect will check if this directory exists
-and install all packages from it.</p>
-<p>NOTE: in current implementation this happens on every run of the wizard.</p>
 </div>
 
 
       <!-- Next/Prev -->
       <div class="selfclear pagination-nav">
-          <div class="left"><strong>Previous</strong>: <a href="usage.html" title="previous chapter">Using Boundless Connect</a></div>
+          <div class="left"><strong>Previous</strong>: <a href="usage.html" title="previous chapter">Usage</a></div>
       </div>
 
   <!--
@@ -141,18 +108,18 @@ and install all packages from it.</p>
       <div id="toc" class="section">
         <h4 class="pngfix">Table Of Contents</h4>
         <ul>
-<li><a class="reference internal" href="#">Addining Boundless Connect to installer</a><ul>
-<li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#">For system administrators</a><ul>
+<li><a class="reference internal" href="#configure-the-repository-location">Configure the repository location</a></li>
+<li><a class="reference internal" href="#installing-additional-plugins-by-default">Installing additional plugins by default</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#installing-plugins-from-standard-location">Installing plugins from &#8220;standard&#8221; location</a></li>
 </ul>
 
         <div class="section-footer"></div>
       </div>
         <div class="section">
           <h3>Continue Reading</h3>
-          <p style="margin-top:1em"><b>Previous:</b> <a href="usage.html" title="previous chapter">Using Boundless Connect</a></p>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="usage.html" title="previous chapter">Usage</a></p>
           </ul>
         </div>
         <div class="section">
@@ -174,7 +141,7 @@ and install all packages from it.</p>
     <a href="genindex.html" title="General Index"
        accesskey="I">index</a></li>
   <li>
-    <a href="usage.html" title="Using Boundless Connect"
+    <a href="usage.html" title="Usage"
        accesskey="P">previous</a>|</li>
 </ul> -->
   </div> <!-- rightbar_bar -->

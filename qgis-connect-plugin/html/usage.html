@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : Boundless Connect QGIS Plugin : Usage</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="top" title="Boundless Connect QGIS Plugin 1.0 documentation" href="index.html" />
+      <link rel="next" title="For system administrators" href="sysadmins.html" />
+      <link rel="prev" title="Installation" href="installation.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="/" rel="home" id="logo"><img src="_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>Boundless Connect QGIS Plugin</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="http://boundlessgeo.com/">Home</a> &raquo;
+  <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
+  <a href="index.html">Boundless Connect QGIS Plugin</a>
+  
+     &raquo; <a href="">Usage</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<p>When QGIS is started for the first time with the <em>Boundless Connect QGIS Plugin</em> (it&#8217;s activated by default in <em>Boundless Desktop</em>) it checks if there are Boundless plugins installed or not. Then, depending on the result of this check, one of the following scenarios will be activated:</p>
+<ul class="simple">
+<li>If no <strong>Boundless plugins are found or only some of them are installed</strong>, <em>Boundless Connect QGIS Plugin</em> will start <em>First Run wizard</em> to help the user setting up <em>Boundless QGIS Plugins Repository</em> and install additional plugins. See <a class="reference internal" href="#first-run-wizard"><em>First Run wizard</em></a> section for more details.</li>
+<li>If <strong>all Boundless plugins are found, but some of them are outdated</strong>, the <em>Boundless Connect QGIS Plugin</em> will propose to update the plugins automatically. See <a class="reference internal" href="#updating-plugins"><em>Updating plugins</em></a> section for more details.</li>
+<li>If <strong>all Boundless plugins are found and they are the latest version</strong>, the user will be notified that no additional actions are required.</li>
+</ul>
+<p>After any of the scenarios above, the user can always review and manage installed plugins either by using the <em>Plugin manager</em> or by re-running the <em>First Run Wizard</em> tool. Please see <a class="reference internal" href="#managing-plugins"><em>Managing plugins</em></a> for details.</p>
+<div class="section" id="first-run-wizard">
+<span id="id1"></span><h2>First Run wizard<a class="headerlink" href="#first-run-wizard" title="Permalink to this headline">¶</a></h2>
+<p>The aim of the <em>First Run wizard</em> is to help the user to setup the <a class="reference external" href="http://qgis.boundlessgeo.com">Boundless QGIS Plugin Repository</a> and install additional plugins, both Boundless and 3rd party ones (depending on what have been configured by the system administrator).</p>
+<p>The wizard will run automatically when QGIS is started for the first time with the <em>Boundless Connect QGIS Plugin</em> activated or whenever this plugin is updated.</p>
+<p>If at the time, you don&#8217;t want to go through the wizard, you can safely close it. While
+the wizard starts automatically only once, you can open it at any time from the <em class="menuselection">Plugins ‣ Boundless Connect ‣ First Run wizard</em> menu item.</p>
+<p>The first wizard&#8217;s dialog contains general information about it and what it will do. If you have installed any unsupported Boundless plugins (deprecated plugins that were replaced by others, e.g., OpenGeo Explorer was replaced by GeoServer Explorer) these plugins will be listed at the welcome page suggesting you to remove them.</p>
+<div class="figure align-center">
+<img alt="_images/welcome-page.png" src="_images/welcome-page.png" />
+<p class="caption">First Run Wizard welcome dialog</p>
+</div>
+<p>Please read the information on this dialog and press <em class="guilabel">Next</em> button to go to the next step.</p>
+<p>At this step, <em>First Run wizard</em> will behave differently depending on the
+<em>Boundless Connect QGIS Plugin</em> configuration.</p>
+<p>If your organization works with the remote <em>Boundless QGIS Plugin Repository</em>, the wizard will ask you to enter the credentials to access the repository. Press the <em class="guilabel">add</em> button in the <em>Boundless credentials</em> dialog, as shown below.</p>
+<div class="figure align-center">
+<img alt="_images/credentials-page.png" src="_images/credentials-page.png" />
+<p class="caption">Boundless credentials dialog</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If you haven&#8217;t done this before, QGIS will ask you to set a master password. This password will be used to store all your credentials inside QGIS, e.g., username and password  for connecting spatial databases. Choose the password wiselly and make sure you memorize it, as <strong>the password is not retrivable</strong>. Press <em class="guilabel">Save</em> to go to the next dialog.</p>
+<div class="figure align-center">
+<img alt="_images/add-master-password.png" src="_images/add-master-password.png" />
+</div>
+<p class="last">Setting QGIS master authentication password</p>
+</div>
+<p>In the next dialog, enter the provided Boundless credentials as shown below, and press <em class="guilabel">Save</em> to store the credentials in QGIS authentication database.</p>
+<div class="figure align-center">
+<img alt="_images/enter-credentials.png" src="_images/enter-credentials.png" />
+<p class="caption">Boundless credentials dialog</p>
+</div>
+<p>If the <em>Boundless Connect QGIS Plugin</em> was configured to use a local directory-based repository, all the authentication steps will be skipped.</p>
+<p>In the next dialog, the user has three options:</p>
+<ul class="simple">
+<li><em class="guilabel">Install all available plugins automatically</em>, will silently install and/or update all Boundless plugins (both from the QGIS Official Plugins Repository or the ones available to him in the Boundless QGIS Plugins Repository).</li>
+<li><em class="guilabel">Open Plugin Manager (all plugins)</em>, will open the plugin manager, where the user can manually choose which plugins to install (includes all plugins available in both repositories).</li>
+<li><em class="guilabel">Open Plugin Manager (Boundless plugins only)</em> will open the plugin manager as well, but showing only Boundless plugins available, making it easier to find.</li>
+</ul>
+<div class="figure align-center">
+<img alt="_images/plugins-page.png" src="_images/plugins-page.png" />
+<p class="caption">Plugin installation dialog</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Deprecated Boundless plugins will not be installed automatically. But, if you already have such plugins installed and there are new versions available, they will be updated.</p>
+</div>
+<p>After this, if previously configured by the system administrator, <em>Boundless Connect QGIS Plugin</em> will install additional plugins (see <em class="xref std std-ref">configuration</em> section for more details about it).</p>
+</div>
+<div class="section" id="updating-plugins">
+<span id="id2"></span><h2>Updating plugins<a class="headerlink" href="#updating-plugins" title="Permalink to this headline">¶</a></h2>
+<p>If during the first run of <em>Boundless Connect QGIS Plugin</em> (or after its update) is found that all Boundless plugins are already installed, but some of them are outdated, it will propose you to update those plugins automatically.</p>
+<div class="figure align-center">
+<img alt="_images/ask-update.png" src="_images/ask-update.png" />
+<p class="caption">First Run wizard suggesting to automatically update all plugins.</p>
+</div>
+<p>If you press the <em class="guilabel">Yes</em> button, all installed Boundless plugins will be updated automatically. If instead you chose to press the <em class="guilabel">No</em> button, pressed nothing else will happen. Notice that you can always update the plugins manually using the <em>Plugin Manager</em> (see :ref:&#8217;managing-plugins&#8217; for more details).</p>
+</div>
+<div class="section" id="plugins-installation">
+<h2>Plugins installation<a class="headerlink" href="#plugins-installation" title="Permalink to this headline">¶</a></h2>
+<p>Using <em>Boundless Connect QGIS Plugin</em>, plugin installation can be performed in several different ways:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#from-remote-repository"><em>From a remote plugin repository</em></a></li>
+<li><a class="reference internal" href="#from-local-repository"><em>From a local repository</em></a> (through <em>Boundless Connect QGIS Plugin</em> only)</li>
+<li><a class="reference internal" href="#from-zip-package"><em>From a plugin ZIP package</em></a> (through <em>Boundless Connect QGIS Plugin</em> only)</li>
+</ul>
+<div class="section" id="from-a-remote-plugin-repository">
+<span id="from-remote-repository"></span><h3>From a remote plugin repository<a class="headerlink" href="#from-a-remote-plugin-repository" title="Permalink to this headline">¶</a></h3>
+<p>This is the most common way to install plugins, whether from QGIS Official Plugins Repository, Boundless QGIS Plugins Repository or any other remote repository that you may have configured, using the <em>Plugin manager</em> directly or through the <em>First Run wizard</em> tool.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If your organization works with the remote <em>Boundless QGIS Plugin Repository</em> it will be necessary to provide credentials to fully access the repository. This can be done using the <em class="xref std std-ref">first-run_wizard</em> as described above or setting them manually using the QGIS <em>Plugin Manager</em> settings.</p>
+</div>
+</div>
+<div class="section" id="from-a-local-repository">
+<span id="from-local-repository"></span><h3>From a local repository<a class="headerlink" href="#from-a-local-repository" title="Permalink to this headline">¶</a></h3>
+<p>Using <em>Boundless Connect QGIS Plugin</em> it&#8217;s possible to use a local path or network path as a repository (see <em class="xref std std-ref">configuration</em> section for details on how to set a local repository). If any repository was set that way, the <em>Boundless Connect QGIS Plugin</em> will add an additional menu item in <a href="#id3"><span class="problematic" id="id4">:menuseletion:`Plugins &#8211;&gt; Boundless Connect`</span></a> named <em class="guilabel">Manage plugins (local folder)</em>. This tool should be used when the user wants to install plugins from a local (directory-based) repository. The usage is similar to the <em>plugin manager</em></p>
+<p>To active, deactivate or uninstall plugins from a local repository, either the <em>Plugin Manager</em> or the <em>Manage plugins (local folder)</em> tool can be used.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Since the QGIS <em>Plugin Manager</em> does not support directory-based repositories yet, when you uninstall a plugin, previously installed from Boundless local directory-based repository, the following warning will be shown.</p>
+<div class="figure align-center">
+<img alt="_images/plugin-uninstall.png" src="_images/plugin-uninstall.png" />
+</div>
+<p class="last">This warning can be safely ignored, as you can install or uninstalled the plugin again using <em class="menuselection">Plugins ‣ Boundless Connect ‣ Manage plugins (local folder)</em> menu item.</p>
+</div>
+</div>
+<div class="section" id="from-a-plugin-zip-package">
+<span id="from-zip-package"></span><h3>From a plugin ZIP package<a class="headerlink" href="#from-a-plugin-zip-package" title="Permalink to this headline">¶</a></h3>
+<p>If you have a plugin package (e.g. previously downloaded from any repository or GitHub)
+you can easily install it using the <em>Boundless Connect QGIS Plugin</em>, without the need to unpackage it. Go to <em class="menuselection">Plugins ‣ Boundless Connect ‣ Installing plugin from ZIP</em>, browse to the directory with plugin zip package and select the corresponding file. If the zip file is a valid QGIS plugin package it will be installed and activated.</p>
+<p>To deactivate or remove plugins installed whis way, like before, one can use QGIS <em>Plugin
+Manager</em> from <em class="menuselection">Plugins ‣ Manage and Install Plugins...</em> menu item.</p>
+</div>
+</div>
+<div class="section" id="managing-plugins">
+<span id="id5"></span><h2>Managing plugins<a class="headerlink" href="#managing-plugins" title="Permalink to this headline">¶</a></h2>
+<p>All plugins added by <em>Boundless Connect QGIS Plugin</em> can be deactivated, uninstalled or updated using QGIS <em>Plugin Manager</em>. You can access it via the <em class="menuselection">Plugins ‣ Manage and Install Plugins...</em> menu item or, for more selective options, re-running the <em class="xref std std-ref">First Run Wizard</em> tool.</p>
+<div class="figure align-center">
+<img alt="_images/managing-plugins.png" src="_images/managing-plugins.png" />
+<p class="caption">Plugin manager</p>
+</div>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="installation.html" title="previous chapter">Installation</a></div>
+          <div class="right"><strong>Next</strong>: <a href="sysadmins.html" title="next chapter">For system administrators</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2016, Boundless Spatial Inc.
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">Usage</a><ul>
+<li><a class="reference internal" href="#first-run-wizard">First Run wizard</a></li>
+<li><a class="reference internal" href="#updating-plugins">Updating plugins</a></li>
+<li><a class="reference internal" href="#plugins-installation">Plugins installation</a><ul>
+<li><a class="reference internal" href="#from-a-remote-plugin-repository">From a remote plugin repository</a></li>
+<li><a class="reference internal" href="#from-a-local-repository">From a local repository</a></li>
+<li><a class="reference internal" href="#from-a-plugin-zip-package">From a plugin ZIP package</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#managing-plugins">Managing plugins</a></li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="installation.html" title="previous chapter">Installation</a></p>
+          <p><b>Next:</b> <a href="sysadmins.html" title="next chapter">For system administrators</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="_sources/usage.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="sysadmins.html" title="For system administrators"
+       accesskey="N">next</a>|</li>
+  <li>
+    <a href="installation.html" title="Installation"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">&copy; Copyright 2016, Boundless Spatial Inc.</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="_static/dropdown.js"></script>-->
+
+  </body>
+</html>

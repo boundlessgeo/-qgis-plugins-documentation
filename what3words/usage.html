@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : QGIS what3words Plugin : Usage</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="top" title="QGIS what3words Plugin 1.0 documentation" href="index.html" />
+      <link rel="prev" title="Configuration" href="configuration.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="/" rel="home" id="logo"><img src="_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>QGIS what3words Plugin</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="http://boundlessgeo.com/">Home</a> &raquo;
+  <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
+  <a href="index.html">QGIS what3words Plugin</a>
+  
+     &raquo; <a href="">Usage</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<p>The <em>What3words Plugin</em> contains 3 tools:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#zoom-to-w3w"><em>Zoom to 3 Word Address Tool</em></a></li>
+<li><a class="reference internal" href="#w3w-map-tool"><em>3 Word Address Map Tool</em></a></li>
+<li><a class="reference internal" href="#w3w-processing"><em>Add 3 word Addresses Processing Algorithm</em></a></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you didn&#8217;t configure an API key (see <a class="reference internal" href="configuration.html#configuration"><em>Configuration</em></a>), you will be prompted to enter one when calling any of the tools the plugin provides.</p>
+</div>
+<div class="section" id="zoom-to-3-word-address-tool">
+<span id="zoom-to-w3w"></span><h2>Zoom to 3 Word Address Tool<a class="headerlink" href="#zoom-to-3-word-address-tool" title="Permalink to this headline">¶</a></h2>
+<p>The <em>Zoom to 3 word address</em> tool will allow you to zoom the map canvas to a given 3 word address. The tool is accessed trough the <em class="guilabel">Zoom to 3 word address</em> panel. If the panel is not active yet, go to <em class="menuselection">Plugins ‣ what3word</em> and click <em class="guilabel">Zoom to 3 word address</em> item.</p>
+<p>Insert the desired 3 word address in the <em class="guilabel">3 Word Address</em> field. The address should be specified as <em>word.word.word</em>. If valid, the map canvas will zoom to the 3 word address, and a marker will be added to the corresponding position.</p>
+<div class="figure align-center">
+<img alt="_images/2-zoom-to.png" src="_images/2-zoom-to.png" />
+<p class="caption">Map canvas centered on the inserted 3 word address</p>
+</div>
+</div>
+<div class="section" id="word-address-map-tool">
+<span id="w3w-map-tool"></span><h2>3 Word Address Map Tool<a class="headerlink" href="#word-address-map-tool" title="Permalink to this headline">¶</a></h2>
+<p>The <em>what3words map tool</em> is activated via the <em class="menuselection">Plugins &gt; what3words &gt; what3words map tool</em> menu item.
+When activated, clicking anywhere on the QGIS map canvas with your mouse will display the 3 word address that corresponds to the mouse position in the QGIS message bar, as shown in the next figure.</p>
+<div class="figure align-center">
+<img alt="_images/3-map-tool.png" src="_images/3-map-tool.png" />
+<p class="caption">What 3 words plugin map tool message</p>
+</div>
+<p>Along with that, for the users best convenience, the 3 word address is also copied to the system clipboard.</p>
+</div>
+<div class="section" id="add-3-word-addresses-processing-algorithm">
+<span id="w3w-processing"></span><h2>Add 3 word Addresses Processing Algorithm<a class="headerlink" href="#add-3-word-addresses-processing-algorithm" title="Permalink to this headline">¶</a></h2>
+<p>The <em>What3words Plugin</em> adds a processing algorithm to QGIS that allows you to determine the 3 word address for all features in an <strong>updatable</strong> point layer and add them in a field called <em>3WordAddr</em>. The algorithm is available in the QGIS in the <em>Processing Toolbox</em> under <em>what3words tools &gt; what3words tools &gt; Add 3 word address field to points layer</em>. In the algorithm dialog, select a point layer as <em class="guilabel">Input layer</em> and press <em class="guilabel">Run</em> as shown below.</p>
+<div class="figure align-center">
+<img alt="_images/4-processing-algorithm-in-action.png" src="_images/4-processing-algorithm-in-action.png" />
+<p class="caption">Add 3 word address field to point layer algorithm dialog</p>
+</div>
+<p>If you then open the layer&#8217;s attribute table, you will find a new <a href="#id1"><span class="problematic" id="id2">**</span></a>3WordAddr* field populated with the corresponding 3 word addresses.</p>
+<div class="figure align-center">
+<img alt="_images/5-processing-result.png" src="_images/5-processing-result.png" />
+<p class="caption">Attribute table with new 3WordAddr Field</p>
+</div>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="configuration.html" title="previous chapter">Configuration</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2016, Victor Olaya
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">Usage</a><ul>
+<li><a class="reference internal" href="#zoom-to-3-word-address-tool">Zoom to 3 Word Address Tool</a></li>
+<li><a class="reference internal" href="#word-address-map-tool">3 Word Address Map Tool</a></li>
+<li><a class="reference internal" href="#add-3-word-addresses-processing-algorithm">Add 3 word Addresses Processing Algorithm</a></li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="configuration.html" title="previous chapter">Configuration</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="_sources/usage.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="configuration.html" title="Configuration"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">&copy; Copyright 2016, Victor Olaya</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="_static/dropdown.js"></script>-->
+
+  </body>
+</html>

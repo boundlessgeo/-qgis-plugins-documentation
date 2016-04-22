@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : QGIS what3words Plugin : Installation</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="top" title="QGIS what3words Plugin 1.0 documentation" href="index.html" />
+      <link rel="next" title="Configuration" href="configuration.html" />
+      <link rel="prev" title="What3words QGIS Plugin Documentation" href="index.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="/" rel="home" id="logo"><img src="_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>QGIS what3words Plugin</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="http://boundlessgeo.com/">Home</a> &raquo;
+  <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
+  <a href="index.html">QGIS what3words Plugin</a>
+  
+     &raquo; <a href="">Installation</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>The easiest way to install <em>What3words Plugin</em> is to use the <strong>Boundless Connect Plugin</strong>, a QGIS plugin that will provide you direct access to Boundless plugins and other content.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are using <em>Bouldless Desktop</em>, the <em>Boundless Connect plugin</em> should be installed by default in its QGIS. Otherwise, if you are using QGIS from one of the community&#8217;s installers, you can install the <em>Boundless Connect plugin</em> by setting up the <a class="reference external" href="http://qgis.boundlessgeo.com">Boundless QGIS Plugin Repository</a> in the QGIS plugin manager.</p>
+</div>
+<div class="section" id="install-from-repository">
+<h2>Install from repository<a class="headerlink" href="#install-from-repository" title="Permalink to this headline">¶</a></h2>
+<p>If your organization works either with a remote or local directory-based repository, you can use the <em>First Run Wizard</em> tool. Go to the <em class="menuselection">Plugins ‣ Boundless Connect</em> menu and choose <em class="guilabel">First Run Wizard</em>. A Welcome dialog will open, click on the <em class="guilabel">Next</em> button.</p>
+<div class="figure">
+<img alt="_images/connect_welcome.png" src="_images/connect_welcome.png" />
+<p class="caption">First Run Wizard welcome dialog</p>
+</div>
+<p>If your organization works with a remote Boundless Plugins Repository, the wizard will ask you to enter credentials used to access the repository in the Boundless Credentials dialog, as shown below.</p>
+<div class="figure">
+<img alt="_images/connect_autentication.png" src="_images/connect_autentication.png" />
+<p class="caption">Wizard credentials dialog</p>
+</div>
+<p>If instead, Boundless Connect plugin was configured to use a local directory-based repository, this step will be skipped. Otherwise, if your organization does not have Boundless authentication credentials, for the <em>What3words Plugin</em>, this step can also be skipped.</p>
+<p>In the Plugin Installation dialog, select the last option <em class="guilabel">Open Plugin Manager (Boundless Plugins only)</em> and click the <em class="guilabel">finish</em> button, as shown in the following figure.</p>
+<div class="figure">
+<img alt="_images/connect_options.png" src="_images/connect_options.png" />
+<p class="caption">Wizard Plugin Installation dialog</p>
+</div>
+<p>From the list of uninstalled plugins, choose <em>What3words Plugin</em>, and click on the <em class="guilabel">Install Plugin</em> button, as shown below.</p>
+<div class="figure">
+<img alt="_images/w3w_install.png" src="_images/w3w_install.png" />
+<p class="caption">QGIS plugin manager showing Boundless not installed plugins</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If the <em>What3words Plugin</em> is not visible in the <em>Not Installed</em> list, maybe it was installed already. Check the <em>Installed</em> list and make sure the plugin is activated by selecting the respective checkbox.</p>
+</div>
+</div>
+<div class="section" id="install-from-a-zip-package">
+<h2>Install from a ZIP package<a class="headerlink" href="#install-from-a-zip-package" title="Permalink to this headline">¶</a></h2>
+<p>If you have previously downloaded the plugin ZIP package from the <a class="reference external" href="http://qgis.boundlessgeo.com">Boundless QGIS Plugin Repository</a> page, you can easily install it using the <em>Install plugin from ZIP</em> tool.</p>
+<p>Go to <em class="menuselection">Plugins ‣ Boundless Connect</em> and click <em class="guilabel">Install plugin from ZIP</em>. Then, simply browse to the ZIP file location, select the file and open it. If  everything went well, you should see a message &#8220;Your plugin was successfuly installed&#8221; on the top of the map canvas.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can download Boundless QGIS plugins ZIP packages from the <em>Browse the Repository</em> section in the <a class="reference external" href="http://qgis.boundlessgeo.com">Boundless QGIS Plugin Repository</a> page.</p>
+</div>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="index.html" title="previous chapter">What3words QGIS Plugin Documentation</a></div>
+          <div class="right"><strong>Next</strong>: <a href="configuration.html" title="next chapter">Configuration</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2016, Victor Olaya
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#install-from-repository">Install from repository</a></li>
+<li><a class="reference internal" href="#install-from-a-zip-package">Install from a ZIP package</a></li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="index.html" title="previous chapter">What3words QGIS Plugin Documentation</a></p>
+          <p><b>Next:</b> <a href="configuration.html" title="next chapter">Configuration</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="_sources/installation.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="configuration.html" title="Configuration"
+       accesskey="N">next</a>|</li>
+  <li>
+    <a href="index.html" title="What3words QGIS Plugin Documentation"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">&copy; Copyright 2016, Victor Olaya</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="_static/dropdown.js"></script>-->
+
+  </body>
+</html>
