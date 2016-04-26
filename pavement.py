@@ -63,6 +63,7 @@ def fetch(options):
 ])
 def builddocs():
     '''create html docs from sphinx files'''
+    pluginsIndex = []
     cwd = os.getcwd()
     tmpDir = os.path.join(cwd, 'tmp')
     subfolders = [os.path.join(tmpDir, name) for name in os.listdir(tmpDir)
@@ -71,6 +72,9 @@ def builddocs():
         docFolder = os.path.join(folder, 'docs')
         if os.path.exists(docFolder):
             os.chdir(docFolder)
+            with open(os.path.join(folder, "README.rst")) as f:
+                title = f.readline()
+                pluginsIndex.append((os.path.basename(folder).split("-")[1], title))
             if getattr(options, 'stable', False):
                 try:
                     tag = sh("git describe --abbrev=0 --tags", capture=True)
@@ -81,6 +85,13 @@ def builddocs():
             if getattr(options, 'stable', False):
                 sh("git checkout master")
     os.chdir(cwd)
+    '''build index'''
+    with open("index_template.html") as f:
+        s = f.read()
+    indexItems = "\n".join(["<li><a href='%s/index.html'>%s</a></li>" % (a[0], a[1]) for a in pluginsIndex])
+    with open("tmp/index.html", "w") as f:
+        f.write(s.replace("[PLUGINS]", indexItems))
+    return s
 
 @task    
 def deploy():
