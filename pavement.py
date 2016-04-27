@@ -62,7 +62,7 @@ def fetch(options):
     ('stable', 's', 'build docs for latest stable version')
 ])
 def builddocs():
-    '''create html docs from sphinx files'''
+    '''create html docs from sphinx files'''     
     pluginsIndex = []
     cwd = os.getcwd()
     tmpDir = os.path.join(cwd, 'tmp')
@@ -72,8 +72,11 @@ def builddocs():
         docFolder = os.path.join(folder, 'docs')
         if os.path.exists(docFolder):
             os.chdir(docFolder)
-            with open(os.path.join(folder, "README.rst")) as f:
-                title = f.readline()
+            helpFile = os.path.join(folder, "README.rst")
+            if not os.path.exists(helpFile):
+                helpFile = os.path.join(folder, "README.md")
+            with open(helpFile) as f:
+                title = f.readline().split("#")[-1]
                 pluginsIndex.append((os.path.basename(folder).split("-")[1], title))
             if getattr(options, 'stable', False):
                 try:
@@ -81,17 +84,18 @@ def builddocs():
                 except:
                     continue # in case no tags exist yet
                 sh("git checkout %s" % tag)
-            sh("make html")
+            #sh("make html")
             if getattr(options, 'stable', False):
                 sh("git checkout master")
     os.chdir(cwd)
     '''build index'''
+
     with open("index_template.html") as f:
         s = f.read()
-    indexItems = "\n".join(["<li><a href='%s/index.html'>%s</a></li>" % (a[0], a[1]) for a in pluginsIndex])
+    indexItems = "\n".join(["<li><a href='%s/index.html'>%s</a></li>" % (a[0], a[1]) for a in pluginsIndex])    
+    s = s.replace("[PLUGINS]", indexItems)
     with open("tmp/index.html", "w") as f:
-        f.write(s.replace("[PLUGINS]", indexItems))
-    return s
+        f.write(s)
 
 @task    
 def deploy():
@@ -107,6 +111,7 @@ def deploy():
             if os.path.exists(dst):
                 shutil.rmtree(dst)
             shutil.copytree(src, dst)
+    shutil.copyfile(os.path.join(tmpDir, "index.html"), os.path.join(cwd, "index.html"))
     sh('git add .')
     sh('git commit -m "docs update"')
     sh("git push origin gh-pages")
