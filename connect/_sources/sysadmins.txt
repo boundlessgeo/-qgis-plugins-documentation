@@ -19,7 +19,7 @@ The ``$HOME/.qgis2/repoUrl.txt`` file is an INI-like text file with single ``gen
 ::
 
   [general]
-  repoUrl=http://qgis.boundlessgeo.com/plugins/plugins.xml
+  repoUrl=https://qgis.boundlessgeo.com/plugins/plugins.xml
 
 The value of the ``repoUrl`` key with repository location can be:
 
