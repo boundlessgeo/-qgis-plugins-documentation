@@ -44,8 +44,9 @@ def fetch(options):
         if os.path.exists(repoPath):            
             os.chdir(repoPath)
             sh("git pull")
+            sh("git submodule update --remote")
         else:
-            sh("git clone https://github.com/boundlessgeo/%s.git %s" % (plugin, repoPath))
+            sh("git clone --recursive https://github.com/boundlessgeo/%s.git %s" % (plugin, repoPath))
     
     '''clone theme repo'''
     os.chdir(cwd)
