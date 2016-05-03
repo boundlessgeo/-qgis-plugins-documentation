@@ -81,11 +81,12 @@
 <ol class="arabic simple" start="3">
 <li>In the init method of your plugin, register your plugin adding the following snippet</li>
 </ol>
-<div class="highlight-python"><pre>    try:
+<div class="highlight-python"><div class="highlight"><pre>    try:
     from lessons import addLessonModule
     addLessonModule(lesson_module)
 except:
-    pass</pre>
+    pass
+</pre></div>
 </div>
 <p>Replace <em>lesson_module</em> with the reference to your lesson module (which you should have imported), and add as many entries as module you have created in your set of lessons.</p>
 <p>An example of a plugin that adds a collection of lessons can be found in the <tt class="docutils literal"><span class="pre">`examplelessons`</span></tt> folder of this repository. Use is as a template for you own collections. If using it, you do not have to manually call the <tt class="docutils literal"><span class="pre">`addLessonModule`</span></tt> method. The plugin will automatically discover all available lessons. The only thing you have to do is to add your lessons under the <tt class="docutils literal"><span class="pre">`_lessons`</span></tt> subfolder, each of them in its corresponding subfolder, as described above.</p>
@@ -105,8 +106,9 @@ except:
 <p>There is no need to add the full path to the file, as long as the file is in the same folder as the <tt class="docutils literal"><span class="pre">`__init__.py`</span></tt> file. The full path will be correctly resolved at runtime.</p>
 <p>If your lesson requires loading data into QGIS, you can prepare a project with that data. Name the project <a href="#id2"><span class="problematic" id="id3">``</span></a>project.qgs```and put it in the lesson folder as well, as indicated. This will cause the lesson to automatically have a first step that loads the data before starting with the rest of step. If you want your data to be loaded from a different project in another folder, or to load it not at the beginning of the lesson, you will have to manually add that step.</p>
 <p>Now you can add steps to your lesson using the <tt class="docutils literal"><span class="pre">`addStep`</span></tt> method, which has the following signature:</p>
-<div class="highlight-python"><pre>addStep(self, name, description, function=None, prestep=None, endsignal=None,
-        endsignalcheck=None, endcheck=lambda:True, steptype=1):</pre>
+<div class="highlight-python"><div class="highlight"><pre>addStep(self, name, description, function=None, prestep=None, endsignal=None,
+        endsignalcheck=None, endcheck=lambda:True, steptype=1):
+</pre></div>
 </div>
 <p>Here is a description of its arguments:</p>
 <ul class="simple">
