@@ -47,15 +47,6 @@ def fetch(options):
             sh("git submodule update --remote")
         else:
             sh("git clone --recursive https://github.com/boundlessgeo/%s.git %s" % (plugin, repoPath))
-    
-    '''clone theme repo'''
-    os.chdir(cwd)
-    themesPath = os.path.join(tmpDir, "themes")
-    if os.path.exists(themesPath):            
-        os.chdir(themesPath)
-        sh("git pull")
-    else:
-        sh("git clone https://github.com/boundlessgeo/sphinx-theme.git %s" % themesPath)
     os.chdir(cwd)
 
 @task
@@ -85,7 +76,7 @@ def builddocs():
                 except:
                     continue # in case no tags exist yet
                 sh("git checkout %s" % tag)
-            #sh("make html")
+            sh("make html")
             if getattr(options, 'stable', False):
                 sh("git checkout master")
     os.chdir(cwd)
