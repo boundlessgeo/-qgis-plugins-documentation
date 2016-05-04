@@ -79,11 +79,13 @@ def builddocs():
             sh("make html")
             if getattr(options, 'stable', False):
                 sh("git checkout master")
+    
     os.chdir(cwd)
     '''build index'''
 
     with open("index_template.html") as f:
         s = f.read()
+    pluginsIndex.sort()
     indexItems = "\n".join(["<li><a href='%s/index.html'>%s</a></li>" % (a[0], a[1]) for a in pluginsIndex])    
     s = s.replace("[PLUGINS]", indexItems)
     with open("tmp/index.html", "w") as f:
