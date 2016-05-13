@@ -20,6 +20,24 @@ To do that, just add a python file with the same name as the json file that cont
 
 Profiles files (both json and python files) must be saved into the ``userprofiles`` folder, in order to be used by the profiles plugin.
 
+Instead of writing profiles manually, helper methods can be used to write them based on the current QGIS configuration. First, customize your QGIS UI using the built-in functionality. Then run the following code
+
+::
+
+	from profiles.utils import *
+	saveCurrentStatus("path/to/file/to/create/", "MyProfileName")
+
+An additional parameter with an array of constants can be passed to indicate what will be saved in the profile. Available constants are *PLUGINS, MENUS, BUTTONS* and *PANELS*.
+
+For instance, for creating a profile that only modifies menus and buttons (but will not touch the installed plugins or the current panels when applied), the following can be executed:
+
+::
+
+	from profiles.utils import *
+	saveCurrentStatus("path/to/file/to/create/", "MyProfileName", [MENUS, BUTTONS])
+
+If this parameters is not passed, all elements will be stored in the plugin definition.
+
 Example
 --------
 

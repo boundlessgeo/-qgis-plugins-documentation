@@ -1,3 +1,7 @@
+<!--
+ (c) 2016 Boundless, http://boundlessgeo.com
+ This code is licensed under the GPL 2.0 license.
+-->
 <!DOCTYPE html>
 <html lang="en-US" prefix="og: http://ogp.me/ns#">
 <head>
@@ -76,6 +80,18 @@
 <p>For each json file in the <tt class="docutils literal"><span class="pre">userprofiles</span></tt> folder, a Profile object is created and registered, and a menu entry corresponding to that profile will be added to the <em>Profiles</em> menu. If your profile requires more than what the json file allows to configure, you can add a python file with code to be run when applying the profile.</p>
 <p>To do that, just add a python file with the same name as the json file that contains the profile description, and add a function called <tt class="docutils literal"><span class="pre">apply</span></tt> to it. That function will be run when the profile is applied.</p>
 <p>Profiles files (both json and python files) must be saved into the <tt class="docutils literal"><span class="pre">userprofiles</span></tt> folder, in order to be used by the profiles plugin.</p>
+<p>Instead of writing profiles manually, helper methods can be used to write them based on the current QGIS configuration. First, customize your QGIS UI using the built-in functionality. Then run the following code</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">profiles.utils</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">saveCurrentStatus</span><span class="p">(</span><span class="s">&quot;path/to/file/to/create/&quot;</span><span class="p">,</span> <span class="s">&quot;MyProfileName&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>An additional parameter with an array of constants can be passed to indicate what will be saved in the profile. Available constants are <em>PLUGINS, MENUS, BUTTONS</em> and <em>PANELS</em>.</p>
+<p>For instance, for creating a profile that only modifies menus and buttons (but will not touch the installed plugins or the current panels when applied), the following can be executed:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">profiles.utils</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">saveCurrentStatus</span><span class="p">(</span><span class="s">&quot;path/to/file/to/create/&quot;</span><span class="p">,</span> <span class="s">&quot;MyProfileName&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">MENUS</span><span class="p">,</span> <span class="n">BUTTONS</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>If this parameters is not passed, all elements will be stored in the plugin definition.</p>
 </div>
 <div class="section" id="example">
 <h1>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h1>

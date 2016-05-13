@@ -242,20 +242,18 @@ and studying their distribution across the country.<span class="nt">&lt;/p&gt;</
 <li><p class="first">In a text editor, open <tt class="file docutils literal"><span class="pre">resources/tools.js</span></tt> from the directory where you stored the web app.</p>
 </li>
 <li><p class="first">Scroll down to around line 650, where you will see:</p>
-<div class="highlight-python"><div class="highlight"><pre>for (i = 0; i &lt; sorted.length; i++) {
+<div class="highlight-python"><pre>for (i = 0; i &lt; sorted.length; i++) {
     columns[0].push(sorted[i][0]);
     columns[1].push(sorted[i][1]);
-}
-</pre></div>
+}</pre>
 </div>
 <p>The code takes all the count values and uses them for the chart bars. That might not be a good idea, since there might be too many of them, and in most cases would just be equal to 1 (since most names might just appear at a single school). It is more interesting to focus on those names that appear in several schools, meaning to focus on the categories that have larger count values.</p>
 </li>
 <li><p class="first">Replace the above code with the following:</p>
-<div class="highlight-python"><div class="highlight"><pre>for (i = 0; i &lt; Math.min(sorted.length, 30); i++) {
+<div class="highlight-python"><pre>for (i = 0; i &lt; Math.min(sorted.length, 30); i++) {
     columns[0].push(sorted[i][0]);
     columns[1].push(sorted[i][1]);
-}
-</pre></div>
+}</pre>
 </div>
 <p>This will generate more informative charts.</p>
 </li>
