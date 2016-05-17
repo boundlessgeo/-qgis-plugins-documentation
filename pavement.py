@@ -68,7 +68,17 @@ def builddocs():
             if not os.path.exists(helpFile):
                 helpFile = os.path.join(folder, "README.md")
             with open(helpFile) as f:
-                title = f.readline().split("#")[-1]
+                title = None
+                lines = f.readlines()
+                for i, line in enumerate(lines):
+                    if line.startswith("#"):
+                        title = line.split("#")[-1]
+                        break
+                    elif "===" in line:
+                        title = lines[i - 1]
+                        break
+                if title is None:
+                    title = os.path.basename(folder).split("-")[1]
                 pluginsIndex.append((os.path.basename(folder).split("-")[1], title))
             if getattr(options, 'stable', False):
                 try:
