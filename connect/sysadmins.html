@@ -1,7 +1,3 @@
-<!--
- (c) 2016 Boundless, http://boundlessgeo.com
- This work is licensed under CC-BY-SA 3.0 US License. 
--->
 <!DOCTYPE html>
 <html lang="en-US" prefix="og: http://ogp.me/ns#">
 <head>
@@ -78,8 +74,9 @@
 <p class="last">Creating a new file after the first launch of <em>Boundless Connect QGIS Plugin</em> will have no effect whatsoever. The plugin will ignore the new file and will continue to use the already saved repository location.</p>
 </div>
 <p>The <tt class="docutils literal"><span class="pre">$HOME/.qgis2/repoUrl.txt</span></tt> file is an INI-like text file with single <tt class="docutils literal"><span class="pre">general</span></tt> section and only one key-value pair, for example:</p>
-<div class="highlight-python"><pre>[general]
-repoUrl=https://qgis.boundlessgeo.com/plugins/plugins.xml</pre>
+<div class="highlight-python"><div class="highlight"><pre>[general]
+repoUrl=https://qgis.boundlessgeo.com/plugins/plugins.xml
+</pre></div>
 </div>
 <p>The value of the <tt class="docutils literal"><span class="pre">repoUrl</span></tt> key with repository location can be:</p>
 <ul class="simple">
@@ -99,18 +96,22 @@ setup from <a class="reference external" href="https://github.com/boundlessgeo/q
 repository.</p>
 <p>To use our scripts you will need docker &gt;= 1.10 and docker-compose &gt;= 1.6.</p>
 <p>First you need to clone repository</p>
-<div class="highlight-python"><pre>git clone --recursive git@github.com:boundlessgeo/qgis-plugin-repos.git
-cd qgis-plugin-repos/docker-plugins-xml</pre>
+<div class="highlight-python"><div class="highlight"><pre>git clone --recursive git@github.com:boundlessgeo/qgis-plugin-repos.git
+cd qgis-plugin-repos/docker-plugins-xml
+</pre></div>
 </div>
 <p>Edit <cite>docker-compose.env</cite> file specifying your own user name and passford for
 SSH service and plugin repository domain. Then source this file using command</p>
-<div class="highlight-python"><pre>source docker-compose.env</pre>
+<div class="highlight-python"><div class="highlight"><pre>source docker-compose.env
+</pre></div>
 </div>
 <p>and finally build Docker images</p>
-<div class="highlight-python"><pre>docker-compose build</pre>
+<div class="highlight-python"><div class="highlight"><pre>docker-compose build
+</pre></div>
 </div>
 <p>To start containers use following command</p>
-<div class="highlight-python"><pre>docker-compose up  -d</pre>
+<div class="highlight-python"><div class="highlight"><pre>docker-compose up  -d
+</pre></div>
 </div>
 <p>More details available in <a class="reference external" href="https://github.com/boundlessgeo/qgis-plugin-repos/blob/master/docker-plugins-xml/README.md">README</a>
 file inside GitHub repository.</p>
@@ -122,12 +123,14 @@ configuration, namely improve security.</p>
 <p>To add new plugin to the repository follow these steps:</p>
 <p># copy plugin&#8217;s package to server</p>
 <blockquote>
-<div><div class="highlight-python"><pre>scp plugin.zip repository.domain:/opt/repo-updater/uploads/</pre>
+<div><div class="highlight-python"><div class="highlight"><pre>scp plugin.zip repository.domain:/opt/repo-updater/uploads/
+</pre></div>
 </div>
 </div></blockquote>
 <p># run remote updater script on uploaded archive</p>
 <blockquote>
-<div><div class="highlight-python"><pre>ssh repository.domain "/opt/repo-updater/plugins-xml/plugins-xml.sh update plugin.zip"</pre>
+<div><div class="highlight-python"><div class="highlight"><pre>ssh repository.domain &quot;/opt/repo-updater/plugins-xml/plugins-xml.sh update plugin.zip&quot;
+</pre></div>
 </div>
 </div></blockquote>
 <p>Run <cite>plugins-xml.sh &#8211;help</cite> to get infomation about script usage and subcommands.</p>
