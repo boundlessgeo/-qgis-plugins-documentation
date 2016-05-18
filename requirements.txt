@@ -1,0 +1,7 @@
+11:21] 
+#
+# (c) 2016 Boundless, http://boundlessgeo.com
+# This code is licensed under the GPL 2.0 license.
+#
+httplib2==0.8
+requests==2.5.0
