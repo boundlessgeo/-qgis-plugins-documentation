@@ -40,6 +40,7 @@ def fetch(options):
     if not os.path.exists(tmpDir):
         os.mkdir(tmpDir)
     for plugin in plugins:
+        print "\nFetching %s" % plugin
         repoPath = os.path.join(tmpDir, plugin)
         if os.path.exists(repoPath):            
             os.chdir(repoPath)
@@ -86,6 +87,7 @@ def builddocs():
                 except:
                     continue # in case no tags exist yet
                 sh("git checkout %s" % tag)
+            print ("\nBuilding %s") % title
             sh("make html")
             if getattr(options, 'stable', False):
                 sh("git checkout master")
@@ -109,6 +111,7 @@ def deploy():
     subfolders = [name for name in os.listdir(tmpDir)
             if os.path.isdir(os.path.join(tmpDir, name))]
     for folder in subfolders:
+        print "\nDeploying %s ..." % folder
         src = os.path.join(tmpDir, folder, 'docs', 'build', 'html')
         if os.path.exists(src):
             dst = os.path.join(cwd,  folder.split("-")[1])
