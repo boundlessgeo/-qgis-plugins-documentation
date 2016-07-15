@@ -11,6 +11,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   plugin
    profilefiles
 
 Indices and tables

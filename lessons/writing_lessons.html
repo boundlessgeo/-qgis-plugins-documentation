@@ -1,3 +1,7 @@
+<!--
+ (c) 2016 Boundless, http://boundlessgeo.com
+ This work is licensed under CC-BY-SA 3.0 US License. 
+-->
 <!DOCTYPE html>
 <html lang="en-US" prefix="og: http://ogp.me/ns#">
 <head>
@@ -88,18 +92,18 @@ except:
     pass
 </pre></div>
 </div>
-<p>Replace <em>lesson_module</em> with the reference to your lesson module (which you should have imported), and add as many entries as module you have created in your set of lessons.</p>
+<p>Replace <em>lesson_module</em> with the reference to your lesson module (which you should have imported), and add as many entries as modules you have created in your set of lessons.</p>
 <p>An example of a plugin that adds a collection of lessons can be found in the <tt class="docutils literal"><span class="pre">`examplelessons`</span></tt> folder of this repository. Use is as a template for you own collections. If using it, you do not have to manually call the <tt class="docutils literal"><span class="pre">`addLessonModule`</span></tt> method. The plugin will automatically discover all available lessons. The only thing you have to do is to add your lessons under the <tt class="docutils literal"><span class="pre">`_lessons`</span></tt> subfolder, each of them in its corresponding subfolder, as described above.</p>
 <div class="section" id="creating-a-lesson">
 <h2>Creating a lesson<a class="headerlink" href="#creating-a-lesson" title="Permalink to this headline">¶</a></h2>
 <p>If you have created a folder for each lesson as described above, the steps of the lesson and the content of each step should be defined in the <tt class="docutils literal"><span class="pre">`__init__.py`</span></tt> file.</p>
 <p>Create a <tt class="docutils literal"><span class="pre">`Lesson`</span></tt> object, specifying its name, the group it belongs to (lessons can be grouped) and a detailed description.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">lesson</span> <span class="o">=</span> <span class="n">Lesson</span> <span class="p">(</span><span class="s">&quot;Interpolating from a points layer&quot;</span><span class="p">,</span> <span class="s">&quot;Analysis lessons&quot;</span>
-                                <span class="s">&quot;this lessons shows how to use the interpolation capabilities of QGIS&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">lesson</span> <span class="o">=</span> <span class="n">Lesson</span> <span class="p">(</span><span class="s">&quot;Interpolating from a points layer&quot;</span><span class="p">,</span> <span class="s">&quot;Analysis lessons&quot;</span><span class="p">,</span>
+                                <span class="s">&quot;This lessons shows how to use the interpolation capabilities of QGIS&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Instead of a string with the description, you can pass the name of an HTML file containing a richer description. For instance:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">lesson</span> <span class="o">=</span> <span class="n">Lesson</span> <span class="p">(</span><span class="s">&quot;Interpolating from a points layer&quot;</span><span class="p">,</span> <span class="s">&quot;Analysis lessons&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">lesson</span> <span class="o">=</span> <span class="n">Lesson</span> <span class="p">(</span><span class="s">&quot;Interpolating from a points layer&quot;</span><span class="p">,</span> <span class="s">&quot;Analysis lessons&quot;</span><span class="p">,</span>
                                 <span class="s">&quot;lesson.html&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -119,7 +123,7 @@ except:
 <li><strong>endsignal</strong>: a signal that indicates that the step has been finished. If not None, the plugin will listen to the passed signal, and when it is emitted, it will automatically move to the next step.</li>
 <li><strong>endsignalcheck</strong>: In case it is needed to check that the <em>endsignal</em> signal should actually cause moving to the next step, pass a function to do the checking using this parameters. Should be used if the signal might be emmited in cases that do not represent the end of the step. Should be None if no check has to be performed.</li>
 <li><strong>endcheck</strong>: a function to check that the step has been correctly executed. This function will be run when the lesson moves to the next step. If should return true if the user has correctly performed the task for this step, or false otherwise. In this last case, the plugin will show a warning message and won&#8217;t let the user move to the next step until the step is correctly completed.</li>
-<li><strong>steptype</strong>: <tt class="docutils literal"><span class="pre">`Step.MANUALSTEP`</span></tt> if the step is to be performed manuallyl by the user, or <tt class="docutils literal"><span class="pre">`Step.AUTOMATEDSTEP`</span></tt> if it&#8217;s an automated one. In this last case, the step will not be shown in the list of them in the lesson explorer, and it is required to pass a function using the <tt class="docutils literal"><span class="pre">`function`</span></tt> argument.</li>
+<li><strong>steptype</strong>: <tt class="docutils literal"><span class="pre">`Step.MANUALSTEP`</span></tt> if the step is to be performed manually by the user, or <tt class="docutils literal"><span class="pre">`Step.AUTOMATEDSTEP`</span></tt> if it&#8217;s an automated one. In this last case, the step will not be shown in the list of them in the lesson explorer, and it is required to pass a function using the <tt class="docutils literal"><span class="pre">`function`</span></tt> argument.</li>
 </ul>
 </div>
 <div class="section" id="convenience-methods-and-utils">

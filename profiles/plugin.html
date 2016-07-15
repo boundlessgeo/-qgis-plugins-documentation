@@ -1,0 +1,264 @@
+<!--
+ (c) 2016 Boundless, http://boundlessgeo.com
+ This work is licensed under CC-BY-SA 3.0 US License. 
+-->
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : QGIS Profiles Plugin : QGIS Profiles plugin</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="top" title="QGIS Profiles Plugin 1.0 documentation" href="index.html" />
+      <link rel="next" title="Profile files" href="profilefiles.html" />
+      <link rel="prev" title="Welcome to QGIS Profiles Plugin’s documentation!" href="index.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="/" rel="home" id="logo"><img src="_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>QGIS Profiles Plugin</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="http://boundlessgeo.com/">Home</a> &raquo;
+  <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
+  <a href="index.html">QGIS Profiles Plugin</a>
+  
+     &raquo; <a href="">QGIS Profiles plugin</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="qgis-profiles-plugin">
+<h1>QGIS Profiles plugin<a class="headerlink" href="#qgis-profiles-plugin" title="Permalink to this headline">¶</a></h1>
+<p>The QGIS profiles plugin allows to quickly set up your QGIS environment according a predefined configuration.</p>
+<p>Configurations are supplied with the plugin itself, and can also be created at runtime, to store the current state of your QGIS instance.</p>
+<p>A configuration includes settings for the following elements:</p>
+<ul class="simple">
+<li>Visible panels</li>
+<li>Visible menus and their names</li>
+<li>Visible buttons and their placement in the toolbar</li>
+<li>Active plugins. If a plugin is not installed, the Profiles Plugin will install it and activate it.</li>
+</ul>
+<div class="section" id="setting-a-profile">
+<h2>Setting a profile<a class="headerlink" href="#setting-a-profile" title="Permalink to this headline">¶</a></h2>
+<p>All available profiles are displayed in the <em>Settings/Profiles</em> menu group. Menu entries are grouped themselves according to categories.</p>
+<p>To set a profile, click on the corresponding menu item. The interface will be adapted according the the profile settings.</p>
+<p>If it is the first time that you use the Profiles Plugin, you will see a message like the following one:</p>
+<div class="figure align-center">
+<img alt="_images/warning.png" src="_images/warning.png" />
+</div>
+<p>In order to allow you recovering your current configuration, the state of our QGIS interface is saved as a profile itself. This won&#8217;t happen again once it has been stored, unless you delete all available recovery profiles (you can create more, as we will see next). Profiles containing previous system configurations will not be shown in the <em>Settings</em> menus, and to access them you should use the profiles manager.</p>
+<p>When applying a profile, the Profiles plugin will try to optimally arrange the visible toolbars. If you later modify the arrangement manually by dragging toolbars, the new configuration will be stored, and applied each time the profile is applied again.</p>
+</div>
+<div class="section" id="the-profiles-manager">
+<h2>The profiles manager<a class="headerlink" href="#the-profiles-manager" title="Permalink to this headline">¶</a></h2>
+<p>To open the profile manager, click on the <em>Plugin/Profiles/Profiles manager...</em> menu.</p>
+<div class="figure align-center">
+<img alt="_images/manager.png" src="_images/manager.png" />
+</div>
+<p>The profiles manager contains a list of all available plugins. It shows them organized in groups, as they are shown in the <em>Settings/Profiles</em> menu. An additional group with custom profiles is shown at the bottom of the profiles tree.</p>
+<p>Custom profiles are created, as we have seen, the first time you set up a profile, to create a restoration point. They can also be created manually at anytime, by clicking on the &#8220;Store current configuration as profile&#8221; button. A new profile entry will be added to the group of custom profiles.</p>
+<p>Clicking on any profile will display information about it, such as a description. A link to set that profile is available along with the description, so you can set it without having to go the the <em>Settings/Profiles</em> menu.</p>
+<p>For custom profiles, a link to delete the profile is also shown. Built-in profiles cannot be deleted.</p>
+</div>
+<div class="section" id="automatically-set-a-profile-on-startup">
+<h2>Automatically set a profile on startup<a class="headerlink" href="#automatically-set-a-profile-on-startup" title="Permalink to this headline">¶</a></h2>
+<p>Some of the changes introduced by a profile are not permanent, such as the menu configurations. When you reopen QGIS, your interface will not be configured in the same way as after you applied a profile for the last time. You have to apply that profile again.</p>
+<p>If you want to have a profile applied automatically when you start QGIS, select the <em>Plugins/Profiles/Auto-load last profile on QGIS start</em>. The last applied profile will be reapplied when you open QGIS.</p>
+<p>If plugins required by the profile have been uninstalled and the Profile Plugin has to reinstall them, the profile will not be applied.</p>
+<p>To disable this functionality and not make any modification to the QGIS interface upon startup, unselect the menu item by clicking again on it.</p>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="index.html" title="previous chapter">Welcome to QGIS Profiles Plugin&#8217;s documentation!</a></div>
+          <div class="right"><strong>Next</strong>: <a href="profilefiles.html" title="next chapter">Profile files</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2016, Victor Olaya
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">QGIS Profiles plugin</a><ul>
+<li><a class="reference internal" href="#setting-a-profile">Setting a profile</a></li>
+<li><a class="reference internal" href="#the-profiles-manager">The profiles manager</a></li>
+<li><a class="reference internal" href="#automatically-set-a-profile-on-startup">Automatically set a profile on startup</a></li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="index.html" title="previous chapter">Welcome to QGIS Profiles Plugin&#8217;s documentation!</a></p>
+          <p><b>Next:</b> <a href="profilefiles.html" title="next chapter">Profile files</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="_sources/plugin.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="profilefiles.html" title="Profile files"
+       accesskey="N">next</a>|</li>
+  <li>
+    <a href="index.html" title="Welcome to QGIS Profiles Plugin’s documentation!"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">&copy; Copyright 2016, Victor Olaya</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="_static/dropdown.js"></script>-->
+
+  </body>
+</html>

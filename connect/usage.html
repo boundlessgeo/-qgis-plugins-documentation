@@ -1,3 +1,7 @@
+<!--
+ (c) 2016 Boundless, http://boundlessgeo.com
+ This work is licensed under CC-BY-SA 3.0 US License. 
+-->
 <!DOCTYPE html>
 <html lang="en-US" prefix="og: http://ogp.me/ns#">
 <head>
@@ -68,11 +72,12 @@
 <h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
 <p>When QGIS is started for the first time with the <em>Boundless Connect QGIS Plugin</em> (it&#8217;s activated by default in <em>Boundless Desktop</em>) it checks if there are Boundless plugins installed or not. Then, depending on the result of this check, one of the following scenarios will be activated:</p>
 <ul class="simple">
-<li>If no <strong>Boundless plugins are found or only some of them are installed</strong>, <em>Boundless Connect QGIS Plugin</em> will start <em>First Run wizard</em> to help the user setting up <em>Boundless QGIS Plugins Repository</em> and install additional plugins. See <a class="reference internal" href="#first-run-wizard"><em>First Run wizard</em></a> section for more details.</li>
+<li>If no <strong>Boundless plugins are found or only some of them are installed</strong>, <em>Boundless Connect QGIS Plugin</em> will show information message sauing that some plugins should be updated. To update them you can start <em>First Run wizard</em> (see <a class="reference internal" href="#first-run-wizard"><em>First Run wizard</em></a> section for more details) or use <em>Plugin Manager</em>.</li>
 <li>If <strong>all Boundless plugins are found, but some of them are outdated</strong>, the <em>Boundless Connect QGIS Plugin</em> will propose to update the plugins automatically. See <a class="reference internal" href="#updating-plugins"><em>Updating plugins</em></a> section for more details.</li>
 <li>If <strong>all Boundless plugins are found and they are the latest version</strong>, the user will be notified that no additional actions are required.</li>
 </ul>
 <p>After any of the scenarios above, the user can always review and manage installed plugins either by using the <em>Plugin manager</em> or by re-running the <em>First Run Wizard</em> tool. Please see <a class="reference internal" href="#managing-plugins"><em>Managing plugins</em></a> for details.</p>
+<p>Also at this stage <em>Boundless Connect QGIS Plugin</em> can update itself if it found newer version in the <em>Boundless QGIS Plugins Repository</em>. After self-update you will need to restart <em>Boundless Desktop</em> to reload <em>Boundless Connect QGIS Plugin</em>.</p>
 <div class="section" id="first-run-wizard">
 <span id="id1"></span><h2>First Run wizard<a class="headerlink" href="#first-run-wizard" title="Permalink to this headline">¶</a></h2>
 <p>The aim of the <em>First Run wizard</em> is to help the user to setup the <a class="reference external" href="http://qgis.boundlessgeo.com">Boundless QGIS Plugin Repository</a> and install additional plugins, both Boundless and 3rd party ones (depending on what have been configured by the system administrator).</p>
@@ -120,6 +125,10 @@ the wizard starts automatically only once, you can open it at any time from the 
 <p class="first admonition-title">Note</p>
 <p class="last">Deprecated Boundless plugins will not be installed automatically. But, if you already have such plugins installed and there are new versions available, they will be updated.</p>
 </div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If <em class="guilabel">Open Plugin Manager (Boundless plugins only)</em> option is selected <em>Boundless Connect QGIS Plugin</em> will open <em>Plugin Manager</em> with <em>Not Installed</em> tab activated by default. At this tab you will see only Boundless plugins available from the <em>Boundless QGIS Plugin Repository</em>. At the same time at the <em>Installed</em> tab you will see all core C++ plugins as well as all Python plugins (Boundless and 3rd paty) installed in your QGIS.</p>
+</div>
 <p>After this, if previously configured by the system administrator, <em>Boundless Connect QGIS Plugin</em> will install additional plugins (see <a class="reference internal" href="sysadmins.html#add-additional-plugins"><em>Installing additional plugins by default</em></a> section for more details about it).</p>
 </div>
 <div class="section" id="updating-plugins">
@@ -130,6 +139,10 @@ the wizard starts automatically only once, you can open it at any time from the 
 <p class="caption">First Run wizard suggesting to automatically update all plugins.</p>
 </div>
 <p>If you press the <em class="guilabel">Yes</em> button, all installed Boundless plugins will be updated automatically. If instead you chose to press the <em class="guilabel">No</em> button, pressed nothing else will happen. Notice that you can always update the plugins manually using the <em>Plugin Manager</em> (see :ref:&#8217;managing-plugins&#8217; for more details).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">During installation (or update) of plugins, a dialog will open showing the plugin&#8217;s download progress bar. If you choose to install (or update) two or more plugins at once, the plugin manager will show this dialog several times. This is perfectly normal; there is no cause for alarm.</p>
+</div>
 </div>
 <div class="section" id="plugins-installation">
 <h2>Plugins installation<a class="headerlink" href="#plugins-installation" title="Permalink to this headline">¶</a></h2>
@@ -141,7 +154,7 @@ the wizard starts automatically only once, you can open it at any time from the 
 </ul>
 <div class="section" id="from-a-remote-plugin-repository">
 <span id="from-remote-repository"></span><h3>From a remote plugin repository<a class="headerlink" href="#from-a-remote-plugin-repository" title="Permalink to this headline">¶</a></h3>
-<p>This is the most common way to install plugins, whether from QGIS Official Plugins Repository, Boundless QGIS Plugins Repository or any other remote repository that you may have configured, using the <em>Plugin manager</em> directly or through the <em>First Run wizard</em> tool.</p>
+<p>This is the most common way to install plugins, whether from QGIS Official Plugins Repository, Boundless QGIS Plugins Repository or any other remote repository that you may have configured, using the <em>Plugin Manager</em> directly or through the <em>First Run wizard</em> tool.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">If your organization works with the remote <em>Boundless QGIS Plugin Repository</em> it will be necessary to provide credentials to fully access the repository. This can be done using the <a class="reference internal" href="#first-run-wizard"><em>First Run wizard</em></a> as described above or setting them manually using the QGIS <em>Plugin Manager</em> settings.</p>
@@ -149,7 +162,7 @@ the wizard starts automatically only once, you can open it at any time from the 
 </div>
 <div class="section" id="from-a-local-repository">
 <span id="from-local-repository"></span><h3>From a local repository<a class="headerlink" href="#from-a-local-repository" title="Permalink to this headline">¶</a></h3>
-<p>Using <em>Boundless Connect QGIS Plugin</em> it&#8217;s possible to use a local path or network path as a repository (see <a class="reference internal" href="sysadmins.html#configure-repository-location"><em>Configure the repository location</em></a> section for details on how to set a local repository). If any repository was set that way, the <em>Boundless Connect QGIS Plugin</em> will add an additional menu item in <em class="menuselection">Plugins ‣ Boundless Connect</em> named <em class="guilabel">Manage plugins (local folder)</em>. This tool should be used when the user wants to install plugins from a local (directory-based) repository. The usage is similar to the <em>plugin manager</em></p>
+<p>Using <em>Boundless Connect QGIS Plugin</em> it&#8217;s possible to use a local path or network path as a repository (see <a class="reference internal" href="sysadmins.html#configure-repository-location"><em>Configure the repository location</em></a> section for details on how to set a local repository). If any repository was set that way, the <em>Boundless Connect QGIS Plugin</em> will add an additional menu item in <em class="menuselection">Plugins ‣ Boundless Connect</em> named <em class="guilabel">Manage plugins (local folder)</em>. This tool should be used when the user wants to install plugins from a local (directory-based) repository. The usage is similar to the <em>Plugin Manager</em></p>
 <p>To active, deactivate or uninstall plugins from a local repository, either the <em>Plugin Manager</em> or the <em>Manage plugins (local folder)</em> tool can be used.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>

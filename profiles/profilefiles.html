@@ -1,6 +1,6 @@
 <!--
  (c) 2016 Boundless, http://boundlessgeo.com
- This code is licensed under the GPL 2.0 license.
+ This work is licensed under CC-BY-SA 3.0 US License. 
 -->
 <!DOCTYPE html>
 <html lang="en-US" prefix="og: http://ogp.me/ns#">
@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="_static/extra.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="top" title="QGIS Profiles Plugin 1.0 documentation" href="index.html" />
-      <link rel="prev" title="Welcome to QGIS Profiles Plugin’s documentation!" href="index.html" />
+      <link rel="prev" title="QGIS Profiles plugin" href="plugin.html" />
 <style>
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
@@ -72,10 +72,13 @@
 <p>A profile file contain all the elements needed to configure the QGIS interface according to a profile.</p>
 <p>It&#8217;s stored as a JSON file, with the following elements:</p>
 <ul class="simple">
-<li>panels: The names of panels to show, with their QT object names. These panels will be made visible. All other panels not listed here will be hidden. If not present, panels won&#8217;t be altered.</li>
-<li>menus: Dict of menus to display. Menus are referred with their full path (including names of all parent menus) used as keys of the dict. Values are the name of the menu entry, to allow renaming of the menu item. If not present, menus won&#8217;t be altered.</li>
-<li>buttons: Buttons to be displayed in the toolbar. Grouped by toolbars and referenced using their QT object name. If not present, toolbars won&#8217;t be altered.</li>
-<li>plugins: names of plugins to activate. If a plugin is not installed, installation should be proposed to the user when changing. If plugins to activate add menu entries to the menu bar, those menu entries should be added to the <em>menus</em> list, otherwise they wont be shown. This is configured like this to alow having a plugin enabled, but only have certain menus from it available, or even no menus at all (so the plugin is only available for other plugins or to be used programatically)</li>
+<li>panels: The names of panels to show, with their QT object names. These panels will be made visible. All other panels not listed here will be hidden. If not present, panels from the default profile will be set.</li>
+<li>menus: Dictionaries of menus to display. Menus are referred with their full path (including names of all parent menus) used as keys of the dict. Values are the name of the menu entry, to allow renaming of the menu item. If not present, menus from the default profile will be set.</li>
+<li>buttons: Dictionaries of toolbars. Each dictionary represents a toolbar from the available ones, with the list of buttons to include, referenced using their QT object name. If a button is not added, it wont be shown. IF the value associated to the key representing a button is null, the button is shown in its original toolbar. Otherwise, a new toolbar with the name used as value will be created. This allows to create new toolbars and group buttons in a different way. If the &#8216;buttons&#8217; property is not present, buttons from the default profile will be set. If it&#8217;s an empty dictionary, all buttons from the toolbar will be added.</li>
+</ul>
+<p>Notice that, if a button is not shown, the corresponding menu item might not be visible if both the button and the menu use the same action object.</p>
+<ul class="simple">
+<li>plugins: names of plugins to activate. If a plugin is not installed, installation should be proposed to the user when changing. If plugins to activate add menu entries to the menu bar, those menu entries should be added to the <em>menus</em> list, otherwise they wont be shown. This is configured like this to allow having a plugin enabled, but only have certain menus from it available, or even no menus at all (so the plugin is only available for other plugins or to be used programatically)</li>
 </ul>
 <p>For each json file in the <tt class="docutils literal"><span class="pre">userprofiles</span></tt> folder, a Profile object is created and registered, and a menu entry corresponding to that profile will be added to the <em>Profiles</em> menu. If your profile requires more than what the json file allows to configure, you can add a python file with code to be run when applying the profile.</p>
 <p>To do that, just add a python file with the same name as the json file that contains the profile description, and add a function called <tt class="docutils literal"><span class="pre">apply</span></tt> to it. That function will be run when the profile is applied.</p>
@@ -86,47 +89,18 @@
 </pre></div>
 </div>
 <p>An additional parameter with an array of constants can be passed to indicate what will be saved in the profile. Available constants are <em>PLUGINS, MENUS, BUTTONS</em> and <em>PANELS</em>.</p>
-<p>For instance, for creating a profile that only modifies menus and buttons (but will not touch the installed plugins or the current panels when applied), the following can be executed:</p>
+<p>For instance, for creating a profile that only stores menus and buttons, the following can be executed:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">profiles.utils</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">saveCurrentStatus</span><span class="p">(</span><span class="s">&quot;path/to/file/to/create/&quot;</span><span class="p">,</span> <span class="s">&quot;MyProfileName&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">MENUS</span><span class="p">,</span> <span class="n">BUTTONS</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>If this parameters is not passed, all elements will be stored in the plugin definition.</p>
-</div>
-<div class="section" id="example">
-<h1>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h1>
-<p>In the <tt class="docutils literal"><span class="pre">userprofiles</span></tt> folder you will find examples of profiles. Here we will use one of them, the <em>image analysis</em> profile, to explain what it does and how that is implemented in the profiles files.</p>
-<p>To activate the profile, you will find it under the <em>Settings/Profiles</em> menu.</p>
-<img alt="_images/menu.png" class="align-center" src="_images/menu.png" />
-<p>The profile features a minimal set of menus and buttons, and focuses on providing tools for working with image data.</p>
-<p>Only the map navigation toolbar is shown.</p>
-<img alt="_images/toolbar.png" class="align-center" src="_images/toolbar.png" />
-<p>All panels are hidden, except for the layers list panel, to allow more space for the QGIS map canvas.</p>
-<p>A menu named <em>Image analysis</em> is added, containing the tools from the OTB provider in Processing.</p>
-<img alt="_images/otb.png" class="align-center" src="_images/otb.png" />
-<p>The Processing plugin itself is active, but its menus are hidden.</p>
-<p>The Planet Labs catalog plugin is also added to the profile, but its menu (usually under the <em>Raster</em> menu) is also hidden. Instead, a menu entry under the <em>Layer/Add Layer</em> menu is added, for a better integration.</p>
-<img alt="_images/planet.png" class="align-center" src="_images/planet.png" />
-<p>This changes are made using a python file as part of the profile, with the following code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">addProviderAsMenus</span><span class="p">(</span><span class="n">providerName</span><span class="p">,</span> <span class="n">menuName</span><span class="p">):</span>
-    <span class="n">provider</span> <span class="o">=</span> <span class="n">Processing</span><span class="o">.</span><span class="n">getProviderFromName</span><span class="p">(</span><span class="n">providerName</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">alg</span> <span class="ow">in</span> <span class="n">provider</span><span class="o">.</span><span class="n">algs</span><span class="p">:</span>
-        <span class="n">addAlgorithmEntry</span><span class="p">(</span><span class="n">alg</span><span class="o">.</span><span class="n">commandLineName</span><span class="p">(),</span> <span class="n">menuName</span><span class="p">,</span> <span class="n">alg</span><span class="o">.</span><span class="n">group</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">apply</span><span class="p">():</span>
-    <span class="n">addProviderAsMenus</span><span class="p">(</span><span class="s">&quot;otb&quot;</span><span class="p">,</span> <span class="s">&quot;Image analysis&quot;</span><span class="p">)</span>
-    <span class="n">plugin</span> <span class="o">=</span> <span class="n">plugins</span><span class="p">[</span><span class="s">&quot;catalogpl_plugin&quot;</span><span class="p">]</span>
-    <span class="n">action</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="n">plugin</span><span class="o">.</span><span class="n">icon</span><span class="p">,</span> <span class="s">&quot;Planet Labs layer&quot;</span><span class="p">,</span> <span class="n">iface</span><span class="o">.</span><span class="n">mainWindow</span><span class="p">())</span>
-    <span class="n">action</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">plugin</span><span class="o">.</span><span class="n">run</span><span class="p">)</span>
-    <span class="n">addActionAt</span><span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="s">&quot;mLayerMenu/mAddLayerMenu&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
+<p>If this parameter is not passed, all elements will be stored in the profile definition.</p>
 </div>
 
 
       <!-- Next/Prev -->
       <div class="selfclear pagination-nav">
-          <div class="left"><strong>Previous</strong>: <a href="index.html" title="previous chapter">Welcome to QGIS Profiles Plugin&#8217;s documentation!</a></div>
+          <div class="left"><strong>Previous</strong>: <a href="plugin.html" title="previous chapter">QGIS Profiles plugin</a></div>
       </div>
 
   <!--
@@ -137,18 +111,9 @@
 
   <div id="rightbar_bar">
     
-      <div id="toc" class="section">
-        <h4 class="pngfix">Table Of Contents</h4>
-        <ul>
-<li><a class="reference internal" href="#">Profile files</a></li>
-<li><a class="reference internal" href="#example">Example</a></li>
-</ul>
-
-        <div class="section-footer"></div>
-      </div>
         <div class="section">
           <h3>Continue Reading</h3>
-          <p style="margin-top:1em"><b>Previous:</b> <a href="index.html" title="previous chapter">Welcome to QGIS Profiles Plugin&#8217;s documentation!</a></p>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="plugin.html" title="previous chapter">QGIS Profiles plugin</a></p>
           </ul>
         </div>
         <div class="section">
@@ -170,7 +135,7 @@
     <a href="genindex.html" title="General Index"
        accesskey="I">index</a></li>
   <li>
-    <a href="index.html" title="Welcome to QGIS Profiles Plugin’s documentation!"
+    <a href="plugin.html" title="QGIS Profiles plugin"
        accesskey="P">previous</a>|</li>
 </ul> -->
   </div> <!-- rightbar_bar -->

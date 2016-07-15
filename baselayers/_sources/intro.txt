@@ -1,0 +1,46 @@
+Boundless Base Layers
+*********************
+
+A QGIS plugins to easily add base layers 
+
+Usage
+=====
+
+The plugin will add a new menu under the *Layers/Add layer* submenu.
+
+
+.. figure:: img/menu.png
+   :align: center
+
+Click on the menu entry corresponding to the layer that you want to add, and
+it will be added to your current project.
+
+Not all layers will be shown the first time you run the plugin. Some providers might require additional information, such as user credentials or an access token. To configure them, use the settings window. To open it, select the Settings option from the menu. You will see the following dialog:
+
+.. figure:: img/settings.png
+   :align: center
+
+
+Credentials and access tokens do not have to be entered each time you start QGIS. Once entered,
+they are safely stored in the user keyring, and the plugin will automatically
+connect using the credentials used in the last session.
+
+Once you close the settings window, the list of available layers in the "Add Base layer menu" will be updated.
+
+Setting a default layer for projects
+------------------------------------
+
+You can define a default base layer for new proyects. Whenever a new project
+is created, the plugin will add the selected layer to it.
+
+To select a default base layers, use the dropdown list in the *Automatically
+add base layer to new projects* parameter.
+
+.. figure:: img/defaultlayer.png
+   :align: center
+
+Only those layers that are currently available in the "Add Base layer" menu will be available in the dropdown list. To update the list, enter the corresponding credentials/tokens to enable additional services and then reopen the settings dialog.
+
+
+
+
