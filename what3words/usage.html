@@ -71,44 +71,44 @@
 <h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
 <p>The <em>What3words Plugin</em> contains 3 tools:</p>
 <ul class="simple">
-<li><a class="reference internal" href="#zoom-to-w3w"><em>Zoom to 3 Word Address Tool</em></a></li>
-<li><a class="reference internal" href="#w3w-map-tool"><em>3 Word Address Map Tool</em></a></li>
-<li><a class="reference internal" href="#w3w-processing"><em>Add 3 word Addresses Processing Algorithm</em></a></li>
+<li><a class="reference internal" href="#zoom-to-w3w"><span>Zoom to 3 Word Address Tool</span></a></li>
+<li><a class="reference internal" href="#w3w-map-tool"><span>3 Word Address Map Tool</span></a></li>
+<li><a class="reference internal" href="#w3w-processing"><span>Add 3 word Addresses Processing Algorithm</span></a></li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If you didn&#8217;t configure an API key (see <a class="reference internal" href="configuration.html#configuration"><em>Configuration</em></a>), you will be prompted to enter one when calling any of the tools the plugin provides.</p>
+<p class="last">If you didn&#8217;t configure an API key (see <a class="reference internal" href="configuration.html#configuration"><span>Configuration</span></a>), you will be prompted to enter one when calling any of the tools the plugin provides.</p>
 </div>
 <div class="section" id="zoom-to-3-word-address-tool">
 <span id="zoom-to-w3w"></span><h2>Zoom to 3 Word Address Tool<a class="headerlink" href="#zoom-to-3-word-address-tool" title="Permalink to this headline">¶</a></h2>
-<p>The <em>Zoom to 3 word address</em> tool will allow you to zoom the map canvas to a given 3 word address. The tool is accessed trough the <em class="guilabel">Zoom to 3 word address</em> panel. If the panel is not active yet, go to <em class="menuselection">Plugins ‣ what3word</em> and click <em class="guilabel">Zoom to 3 word address</em> item.</p>
-<p>Insert the desired 3 word address in the <em class="guilabel">3 Word Address</em> field. The address should be specified as <em>word.word.word</em>. If valid, the map canvas will zoom to the 3 word address, and a marker will be added to the corresponding position.</p>
-<div class="figure align-center">
+<p>The <em>Zoom to 3 word address</em> tool will allow you to zoom the map canvas to a given 3 word address. The tool is accessed trough the <span class="guilabel">Zoom to 3 word address</span> panel. If the panel is not active yet, go to <span class="menuselection">Plugins ‣ what3word</span> and click <span class="guilabel">Zoom to 3 word address</span> item.</p>
+<p>Insert the desired 3 word address in the <span class="guilabel">3 Word Address</span> field. The address should be specified as <em>word.word.word</em>. If valid, the map canvas will zoom to the 3 word address, and a marker will be added to the corresponding position.</p>
+<div class="figure align-center" id="id3">
 <img alt="_images/2-zoom-to.png" src="_images/2-zoom-to.png" />
-<p class="caption">Map canvas centered on the inserted 3 word address</p>
+<p class="caption"><span class="caption-text">Map canvas centered on the inserted 3 word address</span></p>
 </div>
 </div>
 <div class="section" id="word-address-map-tool">
 <span id="w3w-map-tool"></span><h2>3 Word Address Map Tool<a class="headerlink" href="#word-address-map-tool" title="Permalink to this headline">¶</a></h2>
-<p>The <em>what3words map tool</em> is activated via the <em class="menuselection">Plugins &gt; what3words &gt; what3words map tool</em> menu item.
+<p>The <em>what3words map tool</em> is activated via the <span class="menuselection">Plugins &gt; what3words &gt; what3words map tool</span> menu item.
 When activated, clicking anywhere on the QGIS map canvas with your mouse will display the 3 word address that corresponds to the mouse position in the QGIS message bar, as shown in the next figure.</p>
-<div class="figure align-center">
+<div class="figure align-center" id="id4">
 <img alt="_images/3-map-tool.png" src="_images/3-map-tool.png" />
-<p class="caption">What 3 words plugin map tool message</p>
+<p class="caption"><span class="caption-text">What 3 words plugin map tool message</span></p>
 </div>
 <p>Along with that, for the users best convenience, the 3 word address is also copied to the system clipboard.</p>
 </div>
 <div class="section" id="add-3-word-addresses-processing-algorithm">
 <span id="w3w-processing"></span><h2>Add 3 word Addresses Processing Algorithm<a class="headerlink" href="#add-3-word-addresses-processing-algorithm" title="Permalink to this headline">¶</a></h2>
-<p>The <em>What3words Plugin</em> adds a processing algorithm to QGIS that allows you to determine the 3 word address for all features in an <strong>updatable</strong> point layer and add them in a field called <em>3WordAddr</em>. The algorithm is available in the QGIS in the <em>Processing Toolbox</em> under <em>what3words tools &gt; what3words tools &gt; Add 3 word address field to points layer</em>. In the algorithm dialog, select a point layer as <em class="guilabel">Input layer</em> and press <em class="guilabel">Run</em> as shown below.</p>
-<div class="figure align-center">
+<p>The <em>What3words Plugin</em> adds a processing algorithm to QGIS that allows you to determine the 3 word address for all features in an <strong>updatable</strong> point layer and add them in a field called <em>3WordAddr</em>. The algorithm is available in the QGIS in the <em>Processing Toolbox</em> under <em>what3words tools &gt; what3words tools &gt; Add 3 word address field to points layer</em>. In the algorithm dialog, select a point layer as <span class="guilabel">Input layer</span> and press <span class="guilabel">Run</span> as shown below.</p>
+<div class="figure align-center" id="id5">
 <img alt="_images/4-processing-algorithm-in-action.png" src="_images/4-processing-algorithm-in-action.png" />
-<p class="caption">Add 3 word address field to point layer algorithm dialog</p>
+<p class="caption"><span class="caption-text">Add 3 word address field to point layer algorithm dialog</span></p>
 </div>
 <p>If you then open the layer&#8217;s attribute table, you will find a new <a href="#id1"><span class="problematic" id="id2">**</span></a>3WordAddr* field populated with the corresponding 3 word addresses.</p>
-<div class="figure align-center">
+<div class="figure align-center" id="id6">
 <img alt="_images/5-processing-result.png" src="_images/5-processing-result.png" />
-<p class="caption">Attribute table with new 3WordAddr Field</p>
+<p class="caption"><span class="caption-text">Attribute table with new 3WordAddr Field</span></p>
 </div>
 </div>
 </div>

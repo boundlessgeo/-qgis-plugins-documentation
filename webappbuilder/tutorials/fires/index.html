@@ -74,96 +74,96 @@
 <p>This tutorial shows how to create a dynamic web app that shows fire events occurred during a given period of time. It demonstrates the Timeline component and how to use it with layers containing time information</p>
 <div class="section" id="data">
 <h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference download internal" href="../../_downloads/fires.zip"><tt class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">the</span> <span class="pre">data</span> <span class="pre">for</span> <span class="pre">this</span> <span class="pre">tutorial</span></tt></a>.</p>
+<p><a class="reference download internal" href="../../_downloads/fires.zip" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">the</span> <span class="pre">data</span> <span class="pre">for</span> <span class="pre">this</span> <span class="pre">tutorial</span></code></a>.</p>
 <p>This archive contains a QGIS project with a points shapefile and it corresponding styling.</p>
 </div>
 <div class="section" id="preparing-the-application-in-qgis">
 <h2>Preparing the application in QGIS<a class="headerlink" href="#preparing-the-application-in-qgis" title="Permalink to this headline">¶</a></h2>
 <p>Open the QGIS project in the zip file.</p>
-<div class="figure">
+<div class="figure" id="id1">
 <img alt="../../_images/qgisproject.png" src="../../_images/qgisproject.png" />
-<p class="caption">QGIS project with fire data</p>
+<p class="caption"><span class="caption-text">QGIS project with fire data</span></p>
 </div>
 <p>The project already has the data and symbology that we will use in the web app, so there is no need for further configuration.</p>
 </div>
 <div class="section" id="configuring-the-application">
 <h2>Configuring the application<a class="headerlink" href="#configuring-the-application" title="Permalink to this headline">¶</a></h2>
-<p>Start the Web App Builder by selecting <em class="menuselection">Plugins ‣ Boundless ‣ Web App Builder</em>. This will bring up the interface used to configure our web app. There are several tabs, each one used to define a particular set of parameters. We will go through each of them and describe their meaning.</p>
+<p>Start the Web App Builder by selecting <span class="menuselection">Plugins ‣ Boundless ‣ Web App Builder</span>. This will bring up the interface used to configure our web app. There are several tabs, each one used to define a particular set of parameters. We will go through each of them and describe their meaning.</p>
 <ol class="arabic">
-<li><p class="first">In the <em class="guilabel">Description</em> tab, fill out the form with the following:</p>
+<li><p class="first">In the <span class="guilabel">Description</span> tab, fill out the form with the following:</p>
 <ol class="arabic">
-<li><p class="first">Enter <tt class="kbd docutils literal"><span class="pre">Mapping</span> <span class="pre">fire</span> <span class="pre">events</span></tt> in the title box.</p>
+<li><p class="first">Enter <code class="kbd docutils literal"><span class="pre">Mapping</span> <span class="pre">fire</span> <span class="pre">events</span></code> in the title box.</p>
 </li>
-<li><p class="first">Select the <em class="guilabel">basic</em> theme.</p>
-<div class="figure">
+<li><p class="first">Select the <span class="guilabel">basic</span> theme.</p>
+<div class="figure" id="id2">
 <img alt="../../_images/description.png" src="../../_images/description.png" />
-<p class="caption">Description tab</p>
+<p class="caption"><span class="caption-text">Description tab</span></p>
 </div>
 </li>
 </ol>
 </li>
-<li><p class="first">In the <em class="guilabel">QGIS Layers</em> tab, fill out the form with the following:</p>
+<li><p class="first">In the <span class="guilabel">QGIS Layers</span> tab, fill out the form with the following:</p>
 <ol class="arabic simple">
-<li>Make sure that the <em class="guilabel">Fires</em> layer is checked.</li>
-<li>Click the <em class="guilabel">Edit</em> link to edit the time info of the layer.</li>
-<li>Select the <em class="guilabel">Feature time info is stored in layer attribute</em> option.</li>
-<li>Select the <em class="guilabel">STARTDATED</em> field in the <em class="guilabel">From date field</em> dropdown list.</li>
-<li>Select the <em class="guilabel">OUTDATED</em> field in the <em class="guilabel">To date field</em> dropdown list.</li>
+<li>Make sure that the <span class="guilabel">Fires</span> layer is checked.</li>
+<li>Click the <span class="guilabel">Edit</span> link to edit the time info of the layer.</li>
+<li>Select the <span class="guilabel">Feature time info is stored in layer attribute</span> option.</li>
+<li>Select the <span class="guilabel">STARTDATED</span> field in the <span class="guilabel">From date field</span> dropdown list.</li>
+<li>Select the <span class="guilabel">OUTDATED</span> field in the <span class="guilabel">To date field</span> dropdown list.</li>
 </ol>
-<div class="figure">
+<div class="figure" id="id3">
 <img alt="../../_images/timeinfo.png" src="../../_images/timeinfo.png" />
-<p class="caption">Layer time infor configuration</p>
+<p class="caption"><span class="caption-text">Layer time infor configuration</span></p>
 </div>
 <ol class="arabic simple">
-<li>Click <em class="guilabel">OK</em>.</li>
+<li>Click <span class="guilabel">OK</span>.</li>
 </ol>
 </li>
-<li><p class="first">In the <em class="guilabel">Other Layers</em> tab, select the <em class="guilabel">CartoDB</em> layer.</p>
-<div class="figure">
+<li><p class="first">In the <span class="guilabel">Other Layers</span> tab, select the <span class="guilabel">CartoDB</span> layer.</p>
+<div class="figure" id="id4">
 <img alt="../../_images/otherlayers.png" src="../../_images/otherlayers.png" />
-<p class="caption">Other Layers tab</p>
+<p class="caption"><span class="caption-text">Other Layers tab</span></p>
 </div>
 </li>
-<li><p class="first">In the <em class="guilabel">Controls</em> tab, enable the Timeline component, and leave the three default controls enabled as well.</p>
-<div class="figure">
+<li><p class="first">In the <span class="guilabel">Controls</span> tab, enable the Timeline component, and leave the three default controls enabled as well.</p>
+<div class="figure" id="id5">
 <img alt="../../_images/controls.png" src="../../_images/controls.png" />
-<p class="caption">Controls tab</p>
+<p class="caption"><span class="caption-text">Controls tab</span></p>
 </div>
 </li>
-<li><p class="first">Leave the <em class="guilabel">Settings</em> and <em class="guilabel">Deploy</em> tabs as they are. There is no need to edit any of the parameters in them.</p>
+<li><p class="first">Leave the <span class="guilabel">Settings</span> and <span class="guilabel">Deploy</span> tabs as they are. There is no need to edit any of the parameters in them.</p>
 </li>
 </ol>
 </div>
 <div class="section" id="creating-the-application">
 <h2>Creating the application<a class="headerlink" href="#creating-the-application" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Save the application configuration by clicking the <em class="guilabel">Save</em> (disk) icon at the bottom of the dialog.</p>
+<li><p class="first">Save the application configuration by clicking the <span class="guilabel">Save</span> (disk) icon at the bottom of the dialog.</p>
 </li>
-<li><p class="first">With the configuration defined, we can now create it by clicking the <em class="guilabel">Create App</em> button at the bottom of the Web App Builder dialog.</p>
+<li><p class="first">With the configuration defined, we can now create it by clicking the <span class="guilabel">Create App</span> button at the bottom of the Web App Builder dialog.</p>
 </li>
 <li><p class="first">Select the directory where you want to store the web app.</p>
 </li>
 <li><p class="first">The app will be created and saved in this directory. When finished, a dialog will display.</p>
-<div class="figure">
+<div class="figure" id="id6">
 <img alt="../../_images/deployed1.png" src="../../_images/deployed1.png" />
-<p class="caption">App successfully deployed</p>
+<p class="caption"><span class="caption-text">App successfully deployed</span></p>
 </div>
 </li>
-<li><p class="first">Click <em class="guilabel">Yes</em> to see the deployed app.</p>
+<li><p class="first">Click <span class="guilabel">Yes</span> to see the deployed app.</p>
 </li>
 </ol>
 </div>
 <div class="section" id="final-result">
 <h2>Final result<a class="headerlink" href="#final-result" title="Permalink to this headline">¶</a></h2>
-<p>If not already open, launch the app by opening <tt class="file docutils literal"><span class="pre">index.html</span></tt> file inside the directory where you created your web app.</p>
-<div class="figure">
+<p>If not already open, launch the app by opening <code class="file docutils literal"><span class="pre">index.html</span></code> file inside the directory where you created your web app.</p>
+<div class="figure" id="id7">
 <img alt="../../_images/app.png" src="../../_images/app.png" />
-<p class="caption">Deployed app</p>
+<p class="caption"><span class="caption-text">Deployed app</span></p>
 </div>
 <p>At the initial time setting, no fire marker are shown, since no fire is active for that time. Move the time slider to set a different time. Points that represent a fire active at the new time set in the time slider will be rendered.</p>
-<div class="figure">
+<div class="figure" id="id8">
 <img alt="../../_images/appwithfires.png" src="../../_images/appwithfires.png" />
-<p class="caption">Deployed app showing fire markers</p>
+<p class="caption"><span class="caption-text">Deployed app showing fire markers</span></p>
 </div>
 <p>You can press the play button to active the autoplay mode. The time slider will advance automatically and the map will be updated accordingly.</p>
 </div>
@@ -176,13 +176,13 @@
 <li><p class="first">Open the field calculator</p>
 </li>
 <li><p class="first">Fill the fields in the field calculator dialog as shown below.</p>
-<div class="figure">
+<div class="figure" id="id9">
 <img alt="../../_images/fieldcalculator.png" src="../../_images/fieldcalculator.png" />
-<p class="caption">Deployed app</p>
+<p class="caption"><span class="caption-text">Deployed app</span></p>
 </div>
 <p>This will create a new field in the attributes table of the layer, with al features containing the same date. That date corresponds to the latest date in the OUTDATED field.</p>
 </li>
-<li><p class="first">Recreate the web app as explained before, but selecting the newly created LASTDATE field for the <em class="guilabel">To date field</em> option in the time info configuration dialog.</p>
+<li><p class="first">Recreate the web app as explained before, but selecting the newly created LASTDATE field for the <span class="guilabel">To date field</span> option in the time info configuration dialog.</p>
 </li>
 </ol>
 <p>The resulting web app will now how all fires that occured before the selected date.</p>

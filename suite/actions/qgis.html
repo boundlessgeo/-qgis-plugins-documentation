@@ -93,7 +93,7 @@
 <td><p class="first">Publishes all the layers in the project. The publish operation is configured through the following dialog:</p>
 <img alt="../_images/publish_project.png" src="../_images/publish_project.png" />
 <p>All layers will be published to the selected workspace. If there are groups in the QGIS project, they will also be created. Groups are not overwritten when publishing a project. If a group with the same name exists in the catalog, a warning message will be shown and the group will not be uploaded.</p>
-<p class="last">If you want to create a group containing all the published layers, enter its name in the <em class="guilabel">Global group name</em> textbox. Otherwise, leave it empty and the global group will not be created.</p>
+<p class="last">If you want to create a group containing all the published layers, enter its name in the <span class="guilabel">Global group name</span> textbox. Otherwise, leave it empty and the global group will not be created.</p>
 </td>
 </tr>
 </tbody>
@@ -125,10 +125,10 @@
 </td>
 </tr>
 <tr class="row-even"><th class="stub">Create store from layer</th>
-<td>Similar to <em class="guilabel">Publish</em>, except it does not publish a layer or use the styling.</td>
+<td>Similar to <span class="guilabel">Publish</span>, except it does not publish a layer or use the styling.</td>
 </tr>
 <tr class="row-odd"><th class="stub">Edit/view layer metadata</th>
-<td>Opens the metadata editor/viewer. More information about the metadata interface is provided in the <a class="reference internal" href="../metadata/index.html#metadata"><em>Editing/viewing layer metadata</em></a> section.</td>
+<td>Opens the metadata editor/viewer. More information about the metadata interface is provided in the <a class="reference internal" href="../metadata/index.html#metadata"><span>Editing/viewing layer metadata</span></a> section.</td>
 </tr>
 </tbody>
 </table>
@@ -150,7 +150,7 @@
 <td>Updates the contents of the list of QGIS groups in the tree.</td>
 </tr>
 <tr class="row-odd"><th class="stub">Publish</th>
-<td><p class="first">Publishes the selected group as a layer group. If layers with the names of the layers in the group already exist in the destination catalog, they will be used and the data from the corresponding QGIS layers will not be used (depending on whether <em class="guilabel">Overwrite layers when uploading group</em> was checked or not in the <a class="reference internal" href="../config/index.html#config"><em>Configuration</em></a>.</p>
+<td><p class="first">Publishes the selected group as a layer group. If layers with the names of the layers in the group already exist in the destination catalog, they will be used and the data from the corresponding QGIS layers will not be used (depending on whether <span class="guilabel">Overwrite layers when uploading group</span> was checked or not in the <a class="reference internal" href="../config/index.html#config"><span>Configuration</span></a>.</p>
 <p>The command will first ask you to select a catalog. Then it will check the layers in the selected catalog, to see if there are missing layers. If so, the layer publish dialog will be shown, containing the layers that have to be published before the group can be created, so you can specify the destination workspace for each of them.</p>
 <img alt="../_images/publish_layers_single_catalog.png" class="last" src="../_images/publish_layers_single_catalog.png" />
 </td>

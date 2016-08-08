@@ -72,17 +72,17 @@
       
   <div class="section" id="geoserver-catalogs-actions">
 <span id="actions-geoserver"></span><h1>GeoServer Catalogs actions<a class="headerlink" href="#geoserver-catalogs-actions" title="Permalink to this headline">¶</a></h1>
-<p>GeoServer catalogs are defined using the <em class="guilabel">New catalog</em> option in the <em class="guilabel">GeoServer catalogs</em> item. A catalog is defined using the following dialog:</p>
-<div class="figure">
+<p>GeoServer catalogs are defined using the <span class="guilabel">New catalog</span> option in the <span class="guilabel">GeoServer catalogs</span> item. A catalog is defined using the following dialog:</p>
+<div class="figure" id="id1">
 <img alt="../_images/create_catalog.png" src="../_images/create_catalog.png" />
-<p class="caption">New catalog dialog</p>
+<p class="caption"><span class="caption-text">New catalog dialog</span></p>
 </div>
 <p>Basic authentication is supported, as well as certificate-based authentication. Select the corresponding tab and enter the required parameters. The active tab in the window will define the type of authentication to use, even if the other tab has data in its text boxes.</p>
 <p>The certificate parameters should point at PEM files with certificates and keys. A CA root certificates file can be configured in the OpenGeo Explorer plugin setting dialog, which will be used along with the key and certificate files.</p>
-<p>There are certain limitations when using PKI authentication. See the <a class="reference internal" href="../caveats/index.html#pkilimitations"><em>PKI authentication limitations</em></a> section to know more about them.</p>
+<p>There are certain limitations when using PKI authentication. See the <a class="reference internal" href="../caveats/index.html#pkilimitations"><span>PKI authentication limitations</span></a> section to know more about them.</p>
 <p>The GeoNode URL is needed if you want to publish a GeoServer layer to a GeoNode endpoint. Otherwise, it is optional, and you can leave the default value.</p>
-<p>The list of catalogs is empty by default when you start the OpenGeo Explorer. See the <a class="reference internal" href="../config/index.html#gs-connections"><em>Keep a list of previous GeoServer connections</em></a> section to know how to keep a list of previously opened catalogs, so you do not have to define them and connect to them in each session.</p>
-<p>This is a detailed list of actions available for each item under the <em class="guilabel">GeoServer</em> branch.</p>
+<p>The list of catalogs is empty by default when you start the OpenGeo Explorer. See the <a class="reference internal" href="../config/index.html#gs-connections"><span>Keep a list of previous GeoServer connections</span></a> section to know how to keep a list of previously opened catalogs, so you do not have to define them and connect to them in each session.</p>
+<p>This is a detailed list of actions available for each item under the <span class="guilabel">GeoServer</span> branch.</p>
 <div class="section" id="geoserver-catalog">
 <h2>GeoServer catalog<a class="headerlink" href="#geoserver-catalog" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="non-responsive docutils">
@@ -100,7 +100,7 @@
 <td>Updates the contents of the catalog.</td>
 </tr>
 <tr class="row-odd"><th class="stub">Remove</th>
-<td>Removes the catalog from the list of connected ones. This also removes it from the list that is stored between sessions <a class="reference internal" href="../config/index.html#gs-connections"><em>if enabled</em></a>, so it will not appear the next time QGIS is started and OpenGeo Explorer is run.</td>
+<td>Removes the catalog from the list of connected ones. This also removes it from the list that is stored between sessions <a class="reference internal" href="../config/index.html#gs-connections"><span>if enabled</span></a>, so it will not appear the next time QGIS is started and OpenGeo Explorer is run.</td>
 </tr>
 <tr class="row-even"><th class="stub">Clean (remove unused elements)</th>
 <td>Cleans all styles in the catalog that are not used by any layer, and all stores that are not published through any layer.</td>
@@ -201,7 +201,7 @@
 </td>
 </tr>
 <tr class="row-even"><th class="stub">Delete</th>
-<td>Deletes the layer from the catalog. The associated style or resource may also be deleted; see the <a class="reference internal" href="../config/index.html#config"><em>Configuration</em></a> section for more about how to set those parameters.</td>
+<td>Deletes the layer from the catalog. The associated style or resource may also be deleted; see the <a class="reference internal" href="../config/index.html#config"><span>Configuration</span></a> section for more about how to set those parameters.</td>
 </tr>
 <tr class="row-odd"><th class="stub">Add to current QGIS project</th>
 <td>Adds to the current project, and includes the style information in the case of vector layers. Style is downloaded as an SLD file and configured for the corresponding QGIS layer. In the case of raster layers, there is no support for SLD styles, and for this reason the layer will use a default style.</td>
@@ -281,7 +281,7 @@
 </tr>
 <tr class="row-even"><th class="stub">Consolidate styles</th>
 <td><p class="first">Searches for layers in the catalog that have different styles that correspond to the same symbology. This might occur when uploading layers with the same style, since each uploaded layer will have its own layer with the same name as the layer, and all of them will share the same SLD code. This command replaces the corresponding styles with the first style in the list of redundant styles.</p>
-<p class="last">After the command has been run, only one style of those that are identical will be in use, while the remaining ones will not be used by any layer. Those unused styles are not removed, but calling the <em class="guilabel">Clean (remove unused styles)</em> command will remove then from the catalog.</p>
+<p class="last">After the command has been run, only one style of those that are identical will be in use, while the remaining ones will not be used by any layer. Those unused styles are not removed, but calling the <span class="guilabel">Clean (remove unused styles)</span> command will remove then from the catalog.</p>
 </td>
 </tr>
 </tbody>
@@ -375,11 +375,11 @@
 <td><p class="first">Launches a seeding operation for the cached layer. The operation is defined through the following dialog:</p>
 <img alt="../_images/seed.png" src="../_images/seed.png" />
 <p>The area to seed has to be entered in the box in the bottom part of the dialog, with a string of 4 comma-separated values (xmin, xmax, ymin, ymax). If no values are entered, the full extent of the layer to seed is used.</p>
-<p>Another way of setting the seeding region is to click the <em class="guilabel">Define on canvas</em> button on the right side of the extent box. Then click and drag on the canvas to define the desired seeding region, and the dialog will be populated with the coordinates of the region.</p>
+<p>Another way of setting the seeding region is to click the <span class="guilabel">Define on canvas</span> button on the right side of the extent box. Then click and drag on the canvas to define the desired seeding region, and the dialog will be populated with the coordinates of the region.</p>
 <img alt="../_images/extent_drag.png" src="../_images/extent_drag.png" />
 <p>When a seeding operation is started, the description box corresponding to the GWC layer being seeded will show the current state of the operation.</p>
 <img alt="../_images/seed_status.png" src="../_images/seed_status.png" />
-<p class="last">Since this operation might be very long, depending on the selected zoom levels and the area covered by the layer, progress in this case is not shown using the normal progress bar and hourglass mouse pointer. Instead, you can use QGIS as usual while the operation is running in the background, and to update the status, click the <em class="guilabel">update</em> link in the description box to get the current status. To stop the seeding operation, click the <em class="guilabel">kill</em> link.</p>
+<p class="last">Since this operation might be very long, depending on the selected zoom levels and the area covered by the layer, progress in this case is not shown using the normal progress bar and hourglass mouse pointer. Instead, you can use QGIS as usual while the operation is running in the background, and to update the status, click the <span class="guilabel">update</span> link in the description box to get the current status. To stop the seeding operation, click the <span class="guilabel">kill</span> link.</p>
 </td>
 </tr>
 <tr class="row-even"><th class="stub">Empty</th>
@@ -397,14 +397,14 @@
 </div>
 <div class="section" id="geoserver-settings">
 <h2>GeoServer Settings<a class="headerlink" href="#geoserver-settings" title="Permalink to this headline">¶</a></h2>
-<p>When this item is selected, it will display all configurable parameters in the Description panel. You can edit them there and then press the <em class="guilabel">Save</em> button to upload changes to the corresponding catalog and update it.</p>
-<div class="figure">
+<p>When this item is selected, it will display all configurable parameters in the Description panel. You can edit them there and then press the <span class="guilabel">Save</span> button to upload changes to the corresponding catalog and update it.</p>
+<div class="figure" id="id2">
 <img alt="../_images/gssettings.png" src="../_images/gssettings.png" />
-<p class="caption">GeoServer Settings</p>
+<p class="caption"><span class="caption-text">GeoServer Settings</span></p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The description panel must be shown in order for these settings to be edited. It can be toggled on and off in the <a class="reference internal" href="../config/index.html#config"><em>Configuration</em></a>.</p>
+<p class="last">The description panel must be shown in order for these settings to be edited. It can be toggled on and off in the <a class="reference internal" href="../config/index.html#config"><span>Configuration</span></a>.</p>
 </div>
 </div>
 </div>

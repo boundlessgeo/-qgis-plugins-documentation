@@ -73,24 +73,24 @@
 <p>This tutorial will guide you through some of the most common tasks that can be performed using OpenGeo Explorer.</p>
 <div class="section" id="prerequisites-and-data">
 <h2>Prerequisites and data<a class="headerlink" href="#prerequisites-and-data" title="Permalink to this headline">¶</a></h2>
-<p>This tutorial assumes that QGIS with OpenGeo Explorer has been already <a class="reference internal" href="../install.html#install"><em>installed</em></a>. It also assumes a local GeoServer instance and a PostGIS database installed with the parameters set by a standard OpenGeo Suite installation:</p>
+<p>This tutorial assumes that QGIS with OpenGeo Explorer has been already <a class="reference internal" href="../install.html#install"><span>installed</span></a>. It also assumes a local GeoServer instance and a PostGIS database installed with the parameters set by a standard OpenGeo Suite installation:</p>
 <ul class="simple">
-<li>GeoServer running on port 8080 and responding on <tt class="docutils literal"><span class="pre">http://localhost:8080/geoserver/</span></tt></li>
+<li>GeoServer running on port 8080 and responding on <code class="docutils literal"><span class="pre">http://localhost:8080/geoserver/</span></code></li>
 <li>PostGIS running on port 5432</li>
 </ul>
 <p>You may need to adapt the examples as needed to fit your specific installation.</p>
-<p>Next, <a class="reference download internal" href="../_downloads/quickstart_data.zip"><tt class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">the</span> <span class="pre">example</span> <span class="pre">data</span></tt></a> to be used in this tutorial. Extract this archive to a convenient directory.</p>
+<p>Next, <a class="reference download internal" href="../_downloads/quickstart_data.zip" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">the</span> <span class="pre">example</span> <span class="pre">data</span></code></a> to be used in this tutorial. Extract this archive to a convenient directory.</p>
 </div>
 <div class="section" id="connecting-to-geoserver">
 <h2>Connecting to GeoServer<a class="headerlink" href="#connecting-to-geoserver" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">To start, launch OpenGeo Explorer by clicking the <em class="guilabel">OpenGeo</em> menu and selecting <em class="guilabel">OpenGeo Explorer</em>. The panel will appear on the right side of your QGIS window.</p>
-<div class="figure">
+<li><p class="first">To start, launch OpenGeo Explorer by clicking the <span class="guilabel">OpenGeo</span> menu and selecting <span class="guilabel">OpenGeo Explorer</span>. The panel will appear on the right side of your QGIS window.</p>
+<div class="figure" id="id2">
 <img alt="../_images/explorer.png" src="../_images/explorer.png" />
-<p class="caption">OpenGeo Explorer</p>
+<p class="caption"><span class="caption-text">OpenGeo Explorer</span></p>
 </div>
 </li>
-<li><p class="first">You will see that the <em class="guilabel">GeoServer Catalogs</em> entry is empty. Click to select it and then click the <em class="guilabel">New catalog</em> button.</p>
+<li><p class="first">You will see that the <span class="guilabel">GeoServer Catalogs</span> entry is empty. Click to select it and then click the <span class="guilabel">New catalog</span> button.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The buttons on the toolbar will change depending on the type of element selected in the tree.</p>
@@ -101,15 +101,15 @@
 </div>
 </li>
 <li><p class="first">The catalog creation dialog contains the default parameters for a local GeoServer instance.</p>
-<div class="figure">
+<div class="figure" id="id3">
 <img alt="../_images/create_catalog1.png" src="../_images/create_catalog1.png" />
-<p class="caption">Default parameters</p>
+<p class="caption"><span class="caption-text">Default parameters</span></p>
 </div>
 </li>
-<li><p class="first">There is no need to modify the default values, so just click <em class="guilabel">OK</em>. The new catalog will appear in the <em class="guilabel">GeoServer catalogs</em> branch.</p>
-<div class="figure">
+<li><p class="first">There is no need to modify the default values, so just click <span class="guilabel">OK</span>. The new catalog will appear in the <span class="guilabel">GeoServer catalogs</span> branch.</p>
+<div class="figure" id="id4">
 <img alt="../_images/catalog_entry.png" src="../_images/catalog_entry.png" />
-<p class="caption">Creating a connection to a GeoServer catalog</p>
+<p class="caption"><span class="caption-text">Creating a connection to a GeoServer catalog</span></p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -122,34 +122,34 @@
 <h2>Publishing a QGIS project<a class="headerlink" href="#publishing-a-qgis-project" title="Permalink to this headline">¶</a></h2>
 <p>In order to publish data into the GeoServer connected to in the previous step, we will first create a workspace where we can put our data.</p>
 <ol class="arabic">
-<li><p class="first">Expand the <em class="guilabel">Default GeoServer catalog</em> tree.</p>
+<li><p class="first">Expand the <span class="guilabel">Default GeoServer catalog</span> tree.</p>
 </li>
-<li><p class="first">Click the <em class="guilabel">GeoServer Workspaces</em> entry to select it and then click the <em class="guilabel">New workspace</em> button.</p>
+<li><p class="first">Click the <span class="guilabel">GeoServer Workspaces</span> entry to select it and then click the <span class="guilabel">New workspace</span> button.</p>
 </li>
-<li><p class="first">Fill out the form in the dialog boxes with the inputs as shown above and click <em class="guilabel">OK</em>.</p>
+<li><p class="first">Fill out the form in the dialog boxes with the inputs as shown above and click <span class="guilabel">OK</span>.</p>
 <ul class="simple">
-<li><strong>Name</strong>: <tt class="docutils literal"><span class="pre">quickstart</span></tt></li>
-<li><strong>URI</strong>: <tt class="docutils literal"><span class="pre">http://quickstart</span></tt></li>
+<li><strong>Name</strong>: <code class="docutils literal"><span class="pre">quickstart</span></code></li>
+<li><strong>URI</strong>: <code class="docutils literal"><span class="pre">http://quickstart</span></code></li>
 </ul>
-<div class="figure">
+<div class="figure" id="id5">
 <img alt="../_images/create_workspace.png" src="../_images/create_workspace.png" />
-<p class="caption">Creating a new workspace in GeoServer</p>
+<p class="caption"><span class="caption-text">Creating a new workspace in GeoServer</span></p>
 </div>
 </li>
-<li><p class="first">Expand the <em class="guilabel">GeoServer Workspaces</em> entry, and the new workspace should now appear in the list.</p>
+<li><p class="first">Expand the <span class="guilabel">GeoServer Workspaces</span> entry, and the new workspace should now appear in the list.</p>
 </li>
-<li><p class="first">To make this new workspace the default, select the workspace item, and click the <em class="guilabel">Set as default workspace</em> button.</p>
-<div class="figure">
+<li><p class="first">To make this new workspace the default, select the workspace item, and click the <span class="guilabel">Set as default workspace</span> button.</p>
+<div class="figure" id="id6">
 <img alt="../_images/default_workspace.png" src="../_images/default_workspace.png" />
-<p class="caption">Default workspace</p>
+<p class="caption"><span class="caption-text">Default workspace</span></p>
 </div>
 </li>
-<li><p class="first">Open the QGIS project that is included in the example data (<tt class="file docutils literal"><span class="pre">quickstart.qgs</span></tt>). There should be five layers in your project in two groups.</p>
+<li><p class="first">Open the QGIS project that is included in the example data (<code class="file docutils literal"><span class="pre">quickstart.qgs</span></code>). There should be five layers in your project in two groups.</p>
 </li>
 <li><p class="first">This is what the project will look like:</p>
-<div class="figure">
+<div class="figure" id="id7">
 <img alt="../_images/project.png" src="../_images/project.png" />
-<p class="caption">Quickstart sample project</p>
+<p class="caption"><span class="caption-text">Quickstart sample project</span></p>
 </div>
 <p>It contains the following layers:</p>
 <ul class="simple">
@@ -157,15 +157,15 @@
 </ul>
 </li>
 <li><p class="first">We will publish this project to GeoServer as it is, with those layers, groups, and the symbology associated with each layer.</p>
-<p>To publish the project as it is, just select the <em class="guilabel">QGIS project</em> entry in the OpenGeo Explorer tree, and then click the <em class="guilabel">Publish...</em> button. You will see the following dialog:</p>
-<div class="figure">
+<p>To publish the project as it is, just select the <span class="guilabel">QGIS project</span> entry in the OpenGeo Explorer tree, and then click the <span class="guilabel">Publish...</span> button. You will see the following dialog:</p>
+<div class="figure" id="id8">
 <img alt="../_images/publish_project1.png" src="../_images/publish_project1.png" />
-<p class="caption">Publish project dialog</p>
+<p class="caption"><span class="caption-text">Publish project dialog</span></p>
 </div>
 </li>
-<li><p class="first">Select the <em class="guilabel">quickstart</em> workspace as the destination workspace. Make sure the <em class="guilabel">Global group name</em> box is left blank. Click <em class="guilabel">OK</em> to start the publishing process.</p>
+<li><p class="first">Select the <span class="guilabel">quickstart</span> workspace as the destination workspace. Make sure the <span class="guilabel">Global group name</span> box is left blank. Click <span class="guilabel">OK</span> to start the publishing process.</p>
 </li>
-<li><p class="first">For each top-level layer, a dialog will display, giving you an opportunity to rename the layers and layer groups when published to GeoServer. You don&#8217;t need to rename anything, so click <em class="guilabel">OK</em> in each of the three dialogs.</p>
+<li><p class="first">For each top-level layer, a dialog will display, giving you an opportunity to rename the layers and layer groups when published to GeoServer. You don&#8217;t need to rename anything, so click <span class="guilabel">OK</span> in each of the three dialogs.</p>
 <div class="figure">
 <img alt="../_images/publish_dem.png" src="../_images/publish_dem.png" />
 </div>
@@ -177,54 +177,54 @@
 </div>
 </li>
 <li><p class="first">Once finished, your catalog should look like this:</p>
-<div class="figure">
+<div class="figure" id="id9">
 <img alt="../_images/catalog_after_publish.png" src="../_images/catalog_after_publish.png" />
-<p class="caption">GeoServer catalog after published project</p>
+<p class="caption"><span class="caption-text">GeoServer catalog after published project</span></p>
 </div>
-<p>A store has been created for each QGIS layer, and also the corresponding GeoServer layers and styles, all in the <tt class="docutils literal"><span class="pre">quickstart</span></tt> workspace. Layers have also been configured to use the corresponding styles.</p>
+<p>A store has been created for each QGIS layer, and also the corresponding GeoServer layers and styles, all in the <code class="docutils literal"><span class="pre">quickstart</span></code> workspace. Layers have also been configured to use the corresponding styles.</p>
 </li>
 </ol>
 <p>You can now verify these layers and groups in your GeoServer instance.</p>
 </div>
 <div class="section" id="publishing-a-shapefile">
 <h2>Publishing a shapefile<a class="headerlink" href="#publishing-a-shapefile" title="Permalink to this headline">¶</a></h2>
-<p>The sample data contains a shapefile named <tt class="file docutils literal"><span class="pre">pt4.shp</span></tt> that was not included in the QGIS project. We will add it to the already-published content. It is not necessary to open/view the layer in QGIS to publish it to GeoServer.</p>
+<p>The sample data contains a shapefile named <code class="file docutils literal"><span class="pre">pt4.shp</span></code> that was not included in the QGIS project. We will add it to the already-published content. It is not necessary to open/view the layer in QGIS to publish it to GeoServer.</p>
 <ol class="arabic">
-<li><p class="first">Open the QGIS Browser (<em class="menuselection">View ‣ Panels ‣ Browser</em> if it is not already open) and locate the shapefile.</p>
-<div class="figure">
+<li><p class="first">Open the QGIS Browser (<span class="menuselection">View ‣ Panels ‣ Browser</span> if it is not already open) and locate the shapefile.</p>
+<div class="figure" id="id10">
 <img alt="../_images/file_in_browser.png" src="../_images/file_in_browser.png" />
-<p class="caption">File in the QGIS Browser</p>
+<p class="caption"><span class="caption-text">File in the QGIS Browser</span></p>
 </div>
 </li>
-<li><p class="first">Click to select the file and drag it onto the <em class="guilabel">GeoServer Workspaces</em> catalog item in the OpenGeo Explorer tree.</p>
+<li><p class="first">Click to select the file and drag it onto the <span class="guilabel">GeoServer Workspaces</span> catalog item in the OpenGeo Explorer tree.</p>
 </li>
-<li><p class="first">A dialog will display, asking you to name the layer. Click <em class="guilabel">OK</em>.</p>
-<div class="figure">
+<li><p class="first">A dialog will display, asking you to name the layer. Click <span class="guilabel">OK</span>.</p>
+<div class="figure" id="id11">
 <img alt="../_images/upload_rename.png" src="../_images/upload_rename.png" />
-<p class="caption">Shapefile upload dialog</p>
+<p class="caption"><span class="caption-text">Shapefile upload dialog</span></p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">As the <tt class="docutils literal"><span class="pre">quickstart</span></tt> workspace was set as the default, the layer will be added to that workspace. If you want to publish into another workspace, drag and drop the file on to the corresponding workspace entry.</p>
+<p class="last">As the <code class="docutils literal"><span class="pre">quickstart</span></code> workspace was set as the default, the layer will be added to that workspace. If you want to publish into another workspace, drag and drop the file on to the corresponding workspace entry.</p>
 </div>
 </li>
 <li><p class="first">The shapefile is now published in GeoServer, but is not currently added to the QGIS project, so it won&#8217;t be displayed in the map window.</p>
 </li>
-<li><p class="first">In this case, we want the layer to have the same style as the other layers we uploaded (which themselves all share the same styling), so we can reuse one of the uploaded styles. To change the style, expand the tree and select the <em class="guilabel">pt4</em> layer in the <em class="guilabel">GeoServer Layers</em> list (<em>not</em> <em class="guilabel">GeoServer Workspaces</em>). Then click the <em class="guilabel">Add style to layer</em> button.</p>
+<li><p class="first">In this case, we want the layer to have the same style as the other layers we uploaded (which themselves all share the same styling), so we can reuse one of the uploaded styles. To change the style, expand the tree and select the <span class="guilabel">pt4</span> layer in the <span class="guilabel">GeoServer Layers</span> list (<em>not</em> <span class="guilabel">GeoServer Workspaces</span>). Then click the <span class="guilabel">Add style to layer</span> button.</p>
 </li>
-<li><p class="first">Select the <em class="guilabel">pt1</em> style in the list. Make sure to check the <em class="guilabel">Add as default style</em> option as well.</p>
-<div class="figure">
+<li><p class="first">Select the <span class="guilabel">pt1</span> style in the list. Make sure to check the <span class="guilabel">Add as default style</span> option as well.</p>
+<div class="figure" id="id12">
 <img alt="../_images/add_style1.png" src="../_images/add_style1.png" />
-<p class="caption">Add style to layer dialog</p>
+<p class="caption"><span class="caption-text">Add style to layer dialog</span></p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">You can also accomplish the same action by dragging the <em class="guilabel">pt1</em> style onto the layer item. That will not make it the default style, but you can then select it and click the <em class="guilabel">Set as default style</em> button.</p>
+<p class="last">You can also accomplish the same action by dragging the <span class="guilabel">pt1</span> style onto the layer item. That will not make it the default style, but you can then select it and click the <span class="guilabel">Set as default style</span> button.</p>
 </div>
 </li>
-<li><p class="first">Click <em class="guilabel">OK</em>.</p>
+<li><p class="first">Click <span class="guilabel">OK</span>.</p>
 </li>
-<li><p class="first">While it&#8217;s not necessary, we can now remove the original style. This can be done by right-clicking the <tt class="docutils literal"><span class="pre">pt4</span></tt> style inside the <tt class="docutils literal"><span class="pre">pt4</span></tt> layer and selecting <em class="guilabel">Remove style from layer</em>. You can also delete it from the catalog itself (as it is not used by any other layer) by clicking the <tt class="docutils literal"><span class="pre">pt4</span></tt> element in the <em class="guilabel">GeoServer Styles</em> branch and then clicking the <em class="guilabel">Delete</em> button.</p>
+<li><p class="first">While it&#8217;s not necessary, we can now remove the original style. This can be done by right-clicking the <code class="docutils literal"><span class="pre">pt4</span></code> style inside the <code class="docutils literal"><span class="pre">pt4</span></code> layer and selecting <span class="guilabel">Remove style from layer</span>. You can also delete it from the catalog itself (as it is not used by any other layer) by clicking the <code class="docutils literal"><span class="pre">pt4</span></code> element in the <span class="guilabel">GeoServer Styles</span> branch and then clicking the <span class="guilabel">Delete</span> button.</p>
 <div class="figure">
 <img alt="../_images/new_default_style.png" src="../_images/new_default_style.png" />
 </div>
@@ -234,51 +234,51 @@
 <div class="section" id="editing-a-style">
 <h2>Editing a style<a class="headerlink" href="#editing-a-style" title="Permalink to this headline">¶</a></h2>
 <p>One of the most interesting features of the OpenGeo Explorer plugin is that you can use QGIS to create your styles, and then publish them directly to GeoServer. This means that you have access to all of graphical editing capabilities in QGIS, without the need to edit SLD code.</p>
-<p>While the project already has a style for each of its layers, you can also directly edit any GeoServer style without it being part of a QGIS project. We will show that below, by editing the style of the <tt class="docutils literal"><span class="pre">landuse</span></tt> layer in GeoServer.</p>
+<p>While the project already has a style for each of its layers, you can also directly edit any GeoServer style without it being part of a QGIS project. We will show that below, by editing the style of the <code class="docutils literal"><span class="pre">landuse</span></code> layer in GeoServer.</p>
 <ol class="arabic">
-<li><p class="first">In the OpenGeo Explorer tree, locate the <tt class="docutils literal"><span class="pre">landuse</span></tt> layer in <em class="guilabel">GeoServer Layers</em>. Under it, you should see the list of styles associated with the layer, which in this case will only be the <tt class="docutils literal"><span class="pre">landuse</span></tt> style.</p>
-<div class="figure">
+<li><p class="first">In the OpenGeo Explorer tree, locate the <code class="docutils literal"><span class="pre">landuse</span></code> layer in <span class="guilabel">GeoServer Layers</span>. Under it, you should see the list of styles associated with the layer, which in this case will only be the <code class="docutils literal"><span class="pre">landuse</span></code> style.</p>
+<div class="figure" id="id13">
 <img alt="../_images/edit_style.png" src="../_images/edit_style.png" />
-<p class="caption">Style associated with the layer</p>
+<p class="caption"><span class="caption-text">Style associated with the layer</span></p>
 </div>
 </li>
-<li><p class="first">Select the style and click the <em class="guilabel">Edit</em> button. This will open the QGIS symbology dialog, where you can make the changes you want to your style. When you close it, the style in your GeoServer catalog will be updated.</p>
+<li><p class="first">Select the style and click the <span class="guilabel">Edit</span> button. This will open the QGIS symbology dialog, where you can make the changes you want to your style. When you close it, the style in your GeoServer catalog will be updated.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">There is also an <em class="guilabel">Edit SLD</em> option, but that is a different task.</p>
+<p class="last">There is also an <span class="guilabel">Edit SLD</span> option, but that is a different task.</p>
 </div>
-<div class="figure">
+<div class="figure" id="id14">
 <img alt="../_images/layer_properties_style_edit.png" src="../_images/layer_properties_style_edit.png" />
-<p class="caption">QGIS style editor</p>
+<p class="caption"><span class="caption-text">QGIS style editor</span></p>
 </div>
 </li>
-<li><p class="first">Let&#8217;s make some small edits to this style. In the QGIS style dialog, double click the <em class="guilabel">agricultural_areas</em> row.</p>
+<li><p class="first">Let&#8217;s make some small edits to this style. In the QGIS style dialog, double click the <span class="guilabel">agricultural_areas</span> row.</p>
 </li>
-<li><p class="first">In the <em class="guilabel">Style properties</em> dialog, click the <em class="guilabel">Color</em> button and change the color.</p>
-<div class="figure">
+<li><p class="first">In the <span class="guilabel">Style properties</span> dialog, click the <span class="guilabel">Color</span> button and change the color.</p>
+<div class="figure" id="id15">
 <img alt="../_images/rule_properties.png" src="../_images/rule_properties.png" />
-<p class="caption">Style rule with a changed color (purple)</p>
+<p class="caption"><span class="caption-text">Style rule with a changed color (purple)</span></p>
 </div>
 </li>
-<li><p class="first">Click <em class="guilabel">OK</em>.</p>
+<li><p class="first">Click <span class="guilabel">OK</span>.</p>
 </li>
-<li><p class="first">Delete the bottom rule that contains <em class="guilabel">(no filter)</em>. Click to select it and click the <em class="guilabel">Remove rule</em> button (the red minus).</p>
+<li><p class="first">Delete the bottom rule that contains <span class="guilabel">(no filter)</span>. Click to select it and click the <span class="guilabel">Remove rule</span> button (the red minus).</p>
 </li>
-<li><p class="first">Click <em class="guilabel">OK</em>.</p>
+<li><p class="first">Click <span class="guilabel">OK</span>.</p>
 </li>
 </ol>
-<p>The style has been changed in GeoServer. This can be verified in OpenGeo Explorer by selecting the same style and clicking the <em class="guilabel">Edit SLD</em> button and viewing the style code. It can also be viewed in GeoServer&#8217;s Layer Preview.</p>
+<p>The style has been changed in GeoServer. This can be verified in OpenGeo Explorer by selecting the same style and clicking the <span class="guilabel">Edit SLD</span> button and viewing the style code. It can also be viewed in GeoServer&#8217;s Layer Preview.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The style change will not be reflected in the QGIS viewing window, because it is reading from the local project and not from GeoServer.</p>
 </div>
-<div class="figure">
+<div class="figure" id="id16">
 <img alt="../_images/landuse_before.png" src="../_images/landuse_before.png" />
-<p class="caption">Original landuse style</p>
+<p class="caption"><span class="caption-text">Original landuse style</span></p>
 </div>
-<div class="figure">
+<div class="figure" id="id17">
 <img alt="../_images/landuse_after.png" src="../_images/landuse_after.png" />
-<p class="caption">Changed landuse style</p>
+<p class="caption"><span class="caption-text">Changed landuse style</span></p>
 </div>
 </div>
 <div class="section" id="publishing-from-postgis">
@@ -286,60 +286,60 @@
 <p>You can also create layers in GeoServer based on database tables, all through OpenGeo Explorer.</p>
 <p>We will see this by first importing those shapefiles into a PostGIS database, and then creating layers.</p>
 <ol class="arabic">
-<li><p class="first">First create a database named <tt class="docutils literal"><span class="pre">quickstart</span></tt>. Make sure this database is spatially enabled.</p>
+<li><p class="first">First create a database named <code class="docutils literal"><span class="pre">quickstart</span></code>. Make sure this database is spatially enabled.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>The details of this step are beyond the scope of this tutorial, as it must be done outside of QGIS using PostgreSQL command-line utilities like <tt class="docutils literal"><span class="pre">psql</span></tt> or the <tt class="docutils literal"><span class="pre">pgAdmin</span></tt> utility. An example using the command line would look like this:</p>
+<p>The details of this step are beyond the scope of this tutorial, as it must be done outside of QGIS using PostgreSQL command-line utilities like <code class="docutils literal"><span class="pre">psql</span></code> or the <code class="docutils literal"><span class="pre">pgAdmin</span></code> utility. An example using the command line would look like this:</p>
 <div class="last highlight-console"><div class="highlight"><pre><span class="go">createdb -U postgres quickstart</span>
 <span class="go">psql -U postgres -d quickstart -c &quot;create extension postgis;&quot;</span>
 </pre></div>
 </div>
 </div>
 </li>
-<li><p class="first">Connect to the database using the OpenGeo Explorer by selecting <em class="guilabel">PostGIS connections</em> and then clicking the <em class="guilabel">New connection</em> button.</p>
+<li><p class="first">Connect to the database using the OpenGeo Explorer by selecting <span class="guilabel">PostGIS connections</span> and then clicking the <span class="guilabel">New connection</span> button.</p>
 </li>
-<li><p class="first">Leave all fields in the form as defaults. Add <tt class="docutils literal"><span class="pre">quickstart</span></tt> in the <em class="guilabel">Database</em> field.</p>
+<li><p class="first">Leave all fields in the form as defaults. Add <code class="docutils literal"><span class="pre">quickstart</span></code> in the <span class="guilabel">Database</span> field.</p>
 <div class="figure">
 <img alt="../_images/new_pg_connection1.png" src="../_images/new_pg_connection1.png" />
 </div>
 </li>
-<li><p class="first">Set the parameters of the connection and click <em class="guilabel">OK</em>. The database should appear in the tree.</p>
+<li><p class="first">Set the parameters of the connection and click <span class="guilabel">OK</span>. The database should appear in the tree.</p>
 <div class="figure">
 <img alt="../_images/pg_connection.png" src="../_images/pg_connection.png" />
 </div>
 </li>
-<li><p class="first">Expand the tree and select the schema where you want to import your data (usually called <tt class="docutils literal"><span class="pre">public</span></tt>).</p>
+<li><p class="first">Expand the tree and select the schema where you want to import your data (usually called <code class="docutils literal"><span class="pre">public</span></code>).</p>
 </li>
-<li><p class="first">Click the <em class="guilabel">Import files</em> button.</p>
+<li><p class="first">Click the <span class="guilabel">Import files</span> button.</p>
 </li>
-<li><p class="first">In the resulting dialog, click the button in the upper part of the dialog to select the files to import. Select the <tt class="docutils literal"><span class="pre">pt1.shp</span></tt>, <tt class="docutils literal"><span class="pre">pt2.shp</span></tt>, and <tt class="docutils literal"><span class="pre">pt3.shp</span></tt> files. Set the name of the Table to <em class="guilabel">elevation</em>, and check the <em class="guilabel">Add to table (do not overwrite)</em> box. This will cause all files to be imported to a <em>single</em> table named <tt class="docutils literal"><span class="pre">elevation</span></tt> and not as three separate tables.</p>
+<li><p class="first">In the resulting dialog, click the button in the upper part of the dialog to select the files to import. Select the <code class="docutils literal"><span class="pre">pt1.shp</span></code>, <code class="docutils literal"><span class="pre">pt2.shp</span></code>, and <code class="docutils literal"><span class="pre">pt3.shp</span></code> files. Set the name of the Table to <span class="guilabel">elevation</span>, and check the <span class="guilabel">Add to table (do not overwrite)</span> box. This will cause all files to be imported to a <em>single</em> table named <code class="docutils literal"><span class="pre">elevation</span></code> and not as three separate tables.</p>
 <div class="figure">
 <img alt="../_images/import_to_postgis.png" src="../_images/import_to_postgis.png" />
 </div>
 </li>
-<li><p class="first">Click <em class="guilabel">OK</em>.</p>
+<li><p class="first">Click <span class="guilabel">OK</span>.</p>
 </li>
 </ol>
-<p>The data will be imported. To create a GeoServer layer from that table, drag and drop the <em class="guilabel">elevation</em> entry onto <em class="guilabel">GeoServer Workspaces</em>, just like when importing the shapefile above.</p>
-<div class="figure">
+<p>The data will be imported. To create a GeoServer layer from that table, drag and drop the <span class="guilabel">elevation</span> entry onto <span class="guilabel">GeoServer Workspaces</span>, just like when importing the shapefile above.</p>
+<div class="figure" id="id18">
 <img alt="../_images/pg_elevation.png" src="../_images/pg_elevation.png" />
-<p class="caption">Viewing the combined <tt class="docutils literal"><span class="pre">elevation</span></tt> table in QGIS.</p>
+<p class="caption"><span class="caption-text">Viewing the combined <code class="docutils literal"><span class="pre">elevation</span></code> table in QGIS.</span></p>
 </div>
 </div>
 <div class="section" id="publishing-a-tif-file">
 <h2>Publishing a TIF file<a class="headerlink" href="#publishing-a-tif-file" title="Permalink to this headline">¶</a></h2>
-<p>Raster layers are published in a similar way to vector layers. The example data includes a raster layer named <tt class="file docutils literal"><span class="pre">dem.tif`</span></tt> that can be uploaded to GeoServer in the two ways we&#8217;ve seen before:</p>
+<p>Raster layers are published in a similar way to vector layers. The example data includes a raster layer named <code class="file docutils literal"><span class="pre">dem.tif`</span></code> that can be uploaded to GeoServer in the two ways we&#8217;ve seen before:</p>
 <ul class="simple">
-<li>Drag file name from the QGIS Browser to <em class="guilabel">GeoServer Workspaces</em>.</li>
-<li>Add to the current project, then select the layer in the <em class="guilabel">QGIS Layers</em> list in OpenGeo Explorer and click <em class="guilabel">Publish</em>.</li>
+<li>Drag file name from the QGIS Browser to <span class="guilabel">GeoServer Workspaces</span>.</li>
+<li>Add to the current project, then select the layer in the <span class="guilabel">QGIS Layers</span> list in OpenGeo Explorer and click <span class="guilabel">Publish</span>.</li>
 </ul>
 <p>In either case, a new raster store will be created in the catalog, and the corresponding layer will be published.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>This file was already part of the project that was uploaded, so if publishing again, you will need to rename the layer, or the existing layer will be overwritten.</p>
-<div class="last figure">
+<div class="last figure" id="id19">
 <img alt="../_images/publish_tif_overwrite.png" src="../_images/publish_tif_overwrite.png" />
-<p class="caption">Overwriting a layer during publish</p>
+<p class="caption"><span class="caption-text">Overwriting a layer during publish</span></p>
 </div>
 </div>
 <p>When publishing directly from the file, a default style will be used. Single-band layers will use a black-to-white color ramp, and all other layers are assumed to be 3-band RGB color images.</p>
@@ -348,24 +348,24 @@
 <h2>Caching<a class="headerlink" href="#caching" title="Permalink to this headline">¶</a></h2>
 <p>Once data is in the GeoServer catalog, we can use OpenGeo Explorer to seed the tile cache of a particular layer.</p>
 <ol class="arabic">
-<li><p class="first">In the <em class="guilabel">GeoWebCache Layers</em> entry, you will see a list of every cached layer in GeoServer:</p>
-<div class="figure">
+<li><p class="first">In the <span class="guilabel">GeoWebCache Layers</span> entry, you will see a list of every cached layer in GeoServer:</p>
+<div class="figure" id="id20">
 <img alt="../_images/gwc.png" src="../_images/gwc.png" />
-<p class="caption">Cached layers</p>
+<p class="caption"><span class="caption-text">Cached layers</span></p>
 </div>
 </li>
-<li><p class="first">Select the <tt class="docutils literal"><span class="pre">elevation_table</span></tt> layer (from PostGIS) and click the <em class="guilabel">Seed</em> button. You will see a dialog to define the seeding task to perform, along with all parameters, as shown in the figure below:</p>
-<div class="figure">
+<li><p class="first">Select the <code class="docutils literal"><span class="pre">elevation_table</span></code> layer (from PostGIS) and click the <span class="guilabel">Seed</span> button. You will see a dialog to define the seeding task to perform, along with all parameters, as shown in the figure below:</p>
+<div class="figure" id="id21">
 <img alt="../_images/seed_dialog.png" src="../_images/seed_dialog.png" />
-<p class="caption">Seed dialog</p>
+<p class="caption"><span class="caption-text">Seed dialog</span></p>
 </div>
 </li>
-<li><p class="first">Click <em class="guilabel">OK</em> to start the seeding process. The description panel of the layer entry will change to reflect that a seeding operation has been launched.</p>
+<li><p class="first">Click <span class="guilabel">OK</span> to start the seeding process. The description panel of the layer entry will change to reflect that a seeding operation has been launched.</p>
 <div class="figure">
 <img alt="../_images/seed1.png" src="../_images/seed1.png" />
 </div>
 </li>
-<li><p class="first">The description is not updated automatically, but you can click the <em class="guilabel">Update</em> link to refresh the view or the <em class="guilabel">Kill</em> link to abort the seeding operation.</p>
+<li><p class="first">The description is not updated automatically, but you can click the <span class="guilabel">Update</span> link to refresh the view or the <span class="guilabel">Kill</span> link to abort the seeding operation.</p>
 </li>
 </ol>
 </div>

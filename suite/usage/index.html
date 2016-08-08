@@ -70,14 +70,14 @@
       
   <div class="section" id="usage">
 <span id="id1"></span><h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
-<p>This page discusses the basics of interacting with OpenGeo Explorer. For common functionality, please see the <a class="reference internal" href="../tutorial/index.html#tutorial"><em>Tutorial</em></a> page. For a comprehensive reference of all possible options, please see the <a class="reference internal" href="../actions/index.html#actions"><em>Available actions</em></a> section.</p>
+<p>This page discusses the basics of interacting with OpenGeo Explorer. For common functionality, please see the <a class="reference internal" href="../tutorial/index.html#tutorial"><span>Tutorial</span></a> page. For a comprehensive reference of all possible options, please see the <a class="reference internal" href="../actions/index.html#actions"><span>Available actions</span></a> section.</p>
 <div class="section" id="main-panel">
 <h2>Main panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
-<p>OpenGeo Explorer is launched from the <em class="guilabel">OpenGeo</em> menu:</p>
+<p>OpenGeo Explorer is launched from the <span class="guilabel">OpenGeo</span> menu:</p>
 <blockquote>
-<div><div class="figure">
+<div><div class="figure" id="id2">
 <img alt="../_images/plugin_menu2.png" src="../_images/plugin_menu2.png" />
-<p class="caption">OpenGeo Explorer menu</p>
+<p class="caption"><span class="caption-text">OpenGeo Explorer menu</span></p>
 </div>
 </div></blockquote>
 <p>This brings up a panel in QGIS. The main element of this panel is the tree. It has the following main branches, each of which deals with a different component:</p>
@@ -91,9 +91,9 @@
 <p class="last">The elements in the QGIS Project branch are presented with a structure that more resembles the elements in GeoServer, making publishing easier.</p>
 </div>
 <p>The lower part of the panel contains an information window showing the description of the currently selected item, and also contains links to actions that are related to the current element.</p>
-<div class="figure">
+<div class="figure" id="id3">
 <img alt="../_images/description_panel.png" src="../_images/description_panel.png" />
-<p class="caption">Description panel</p>
+<p class="caption"><span class="caption-text">Description panel</span></p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -102,7 +102,7 @@
 <img alt="../_images/undocked.png" src="../_images/undocked.png" />
 </div>
 </div>
-<p>The information window can also show tables where parameters can be edited. The one shown below corresponds to the <em class="guilabel">Settings</em> element of a GeoServer catalog.</p>
+<p>The information window can also show tables where parameters can be edited. The one shown below corresponds to the <span class="guilabel">Settings</span> element of a GeoServer catalog.</p>
 <div class="figure">
 <img alt="../_images/description_table.png" src="../_images/description_table.png" />
 </div>
@@ -111,11 +111,11 @@
 <div class="section" id="batch-processing-with-multiple-selections">
 <h2>Batch processing with multiple selections<a class="headerlink" href="#batch-processing-with-multiple-selections" title="Permalink to this headline">¶</a></h2>
 <p>You can select multiple elements of the same type (such as multiple QGIS layers or multiple GeoServer layers, etc.) to automate operations.</p>
-<p>Selecting multiple elements can be done by clicking while pressing <tt class="kbd docutils literal"><span class="pre">Ctrl/Cmd</span></tt> or <tt class="kbd docutils literal"><span class="pre">Shift</span></tt>. Selecting an action with multiple elements selected will set that action for every element.</p>
-<p>For example, to publish multiple QGIS layers at once, select them all, then select the <em class="guilabel">Publish</em> action. You will see a dialog like this:</p>
-<div class="figure">
+<p>Selecting multiple elements can be done by clicking while pressing <code class="kbd docutils literal"><span class="pre">Ctrl/Cmd</span></code> or <code class="kbd docutils literal"><span class="pre">Shift</span></code>. Selecting an action with multiple elements selected will set that action for every element.</p>
+<p>For example, to publish multiple QGIS layers at once, select them all, then select the <span class="guilabel">Publish</span> action. You will see a dialog like this:</p>
+<div class="figure" id="id4">
 <img alt="../_images/publish_layers_multiple_catalogs.png" src="../_images/publish_layers_multiple_catalogs.png" />
-<p class="caption">Publishing multiple layers</p>
+<p class="caption"><span class="caption-text">Publishing multiple layers</span></p>
 </div>
 <p>This is similar to the dialog that appears when publishing a group to a GeoServer catalog, however, in this case, there is more flexibility, so an additional column is shown which can be used to select the catalog for each layer. Changing the selected catalog at a given row will automatically update the list of workspaces in that row, so it contains the workspaces of that catalog.</p>
 <div class="admonition note">
@@ -133,9 +133,9 @@
 <div class="section" id="inside-opengeo-explorer">
 <h3>Inside OpenGeo Explorer<a class="headerlink" href="#inside-opengeo-explorer" title="Permalink to this headline">¶</a></h3>
 <p>The OpenGeo Explorer tree supports drag and drop. You can use this to relocate elements, publish data or edit the configuration of an element.</p>
-<div class="figure">
+<div class="figure" id="id5">
 <img alt="../_images/dragdrop.png" src="../_images/dragdrop.png" />
-<p class="caption">Drag and drop</p>
+<p class="caption"><span class="caption-text">Drag and drop</span></p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -148,7 +148,7 @@
 <li>Dragging a style item onto a GeoServer layer will add the style to the list of alternative styles of the layer.</li>
 <li>Dragging a QGIS style into the Styles element of a catalog will add the style to that catalog.</li>
 <li>Dragging a QGIS group element into the Groups, Workspaces, or Layers of a GeoServer catalog will publish the group and its contents. If dropped on a workspace item, that workspace will be used as destination.</li>
-<li>Dragging a GeoServer layer item onto the <em class="guilabel">GeoWebCache layers</em> item of the same catalog will add the corresponding cached layer for the dragged layer.</li>
+<li>Dragging a GeoServer layer item onto the <span class="guilabel">GeoWebCache layers</span> item of the same catalog will add the corresponding cached layer for the dragged layer.</li>
 <li>Dragging a QGIS layer into a PostGIS connection or schema item will import the layer into the corresponding PostGIS database. The import dialog will be shown before importing.</li>
 <li>Dragging a QGIS layer into a PostGIS table item will append the dragged layer to the existing table. No checking is performed, so the schema of the imported layer should match the schema of the table.</li>
 <li>Dragging a PostGIS table item into a GeoServer catalog or workspace item will publish a new layer based on that table, using the item workspace or the default workspace if not specified.</li>
@@ -157,9 +157,9 @@
 <div class="section" id="from-qgis-to-opengeo-explorer">
 <h3>From QGIS to OpenGeo Explorer<a class="headerlink" href="#from-qgis-to-opengeo-explorer" title="Permalink to this headline">¶</a></h3>
 <p>You can also drag elements from outside of the OpenGeo Explorer itself. For instance, you can drag elements from the QGIS Browser directly into a PostGIS database or GeoServer catalog element. That will cause the data in those files to be imported into the corresponding database or catalog. Format conversion will be performed automatically if needed.</p>
-<div class="figure">
+<div class="figure" id="id6">
 <img alt="../_images/dragdrop_external.png" src="../_images/dragdrop_external.png" />
-<p class="caption">Drag and drop from an external source</p>
+<p class="caption"><span class="caption-text">Drag and drop from an external source</span></p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -179,8 +179,8 @@
 <p>Layers to upload sometimes require preprocessing. An example of this is when a layer is not in an optimal format for best performance once published. This preprocessing can be performed independently before publishing, but can also be included as part of the publishing operation itself.</p>
 <p>The OpenGeo Explorer integrates with the QGIS Processing Framework and allows you to define a process to be run on any layer before uploading it, publishing the resulting <em>processed</em> layer instead.</p>
 <p>Processes are defined using the QGIS processing graphical modeler or as python scripts.</p>
-<p>Preprocessing hooks can be set in the <a class="reference internal" href="../config/index.html#config"><em>Configuration</em></a> section, specifying <em class="guilabel">Vector preprocessing hook file</em> or <em class="guilabel">Raster preprocessing hook file</em>.</p>
-<p><a class="reference download internal" href="../_downloads/quickstart_data.zip"><tt class="xref download docutils literal"><span class="pre">The</span> <span class="pre">example</span> <span class="pre">data</span></tt></a> contains a hook that can be used for vector layers. It will export selected features to a new layer, so only those features will be later uploaded. If no features are selected, the whole layer will be uploaded. This hook only will apply if the layer is open in QGIS.</p>
+<p>Preprocessing hooks can be set in the <a class="reference internal" href="../config/index.html#config"><span>Configuration</span></a> section, specifying <span class="guilabel">Vector preprocessing hook file</span> or <span class="guilabel">Raster preprocessing hook file</span>.</p>
+<p><a class="reference download internal" href="../_downloads/quickstart_data.zip" download=""><code class="xref download docutils literal"><span class="pre">The</span> <span class="pre">example</span> <span class="pre">data</span></code></a> contains a hook that can be used for vector layers. It will export selected features to a new layer, so only those features will be later uploaded. If no features are selected, the whole layer will be uploaded. This hook only will apply if the layer is open in QGIS.</p>
 </div>
 </div>
 

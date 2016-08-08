@@ -75,175 +75,175 @@
 <p>This example shows how to create a web app using a storytelling approach. In this case, we will create a wep app to explore a selection of the best bakeries in Paris.</p>
 <div class="section" id="data">
 <h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference download internal" href="../../_downloads/bakeries.zip"><tt class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">the</span> <span class="pre">data</span> <span class="pre">for</span> <span class="pre">this</span> <span class="pre">tutorial</span></tt></a>.</p>
+<p><a class="reference download internal" href="../../_downloads/bakeries.zip" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">the</span> <span class="pre">data</span> <span class="pre">for</span> <span class="pre">this</span> <span class="pre">tutorial</span></code></a>.</p>
 <p>This archive contains a single point shapefile, consisting of the locations of bakeries in Paris.</p>
 </div>
 <div class="section" id="preparing-the-application-in-qgis">
 <h2>Preparing the application in QGIS<a class="headerlink" href="#preparing-the-application-in-qgis" title="Permalink to this headline">¶</a></h2>
 <p>First, we have to set up our data layers in QGIS. The tutorial data contains a QGIS project. Open it and you will see that it has a single layer.</p>
-<p>If you open the attributes table for this layer, you will see that the layer has several fields with information about each bakery, and a field named <em class="guilabel">Text</em> with a HTML-formatted text which includes that information. We will be using this field for showing the description of each bakery.</p>
-<div class="figure">
+<p>If you open the attributes table for this layer, you will see that the layer has several fields with information about each bakery, and a field named <span class="guilabel">Text</span> with a HTML-formatted text which includes that information. We will be using this field for showing the description of each bakery.</p>
+<div class="figure" id="id1">
 <img alt="../../_images/attributetable.png" src="../../_images/attributetable.png" />
-<p class="caption">Attribute table</p>
+<p class="caption"><span class="caption-text">Attribute table</span></p>
 </div>
 </div>
 <div class="section" id="configuring-the-application">
 <h2>Configuring the application<a class="headerlink" href="#configuring-the-application" title="Permalink to this headline">¶</a></h2>
-<p>Start the Web App Builder by selecting <em class="menuselection">Plugins ‣ Boundless ‣ Web App Builder</em>. This will bring up the interface used to configure our web app. There are several tabs, each one used to define a particular set of parameters. We will go through each of them and describe their meaning.</p>
+<p>Start the Web App Builder by selecting <span class="menuselection">Plugins ‣ Boundless ‣ Web App Builder</span>. This will bring up the interface used to configure our web app. There are several tabs, each one used to define a particular set of parameters. We will go through each of them and describe their meaning.</p>
 <ol class="arabic">
-<li><p class="first">In the <em class="guilabel">Description</em> tab, fill out the form with the following:</p>
+<li><p class="first">In the <span class="guilabel">Description</span> tab, fill out the form with the following:</p>
 <ol class="arabic simple">
-<li>Enter <tt class="kbd docutils literal"><span class="pre">Paris</span> <span class="pre">bakeries</span></tt> in the title box.</li>
-<li>Select the <em class="guilabel">fullscreen</em> theme.</li>
+<li>Enter <code class="kbd docutils literal"><span class="pre">Paris</span> <span class="pre">bakeries</span></code> in the title box.</li>
+<li>Select the <span class="guilabel">fullscreen</span> theme.</li>
 </ol>
-<div class="figure">
+<div class="figure" id="id2">
 <img alt="../../_images/descriptiontab.png" src="../../_images/descriptiontab.png" />
-<p class="caption">Description tab</p>
+<p class="caption"><span class="caption-text">Description tab</span></p>
 </div>
 </li>
-<li><p class="first">In the <em class="guilabel">QGIS Layers</em> tab, fill out the form with the following:</p>
+<li><p class="first">In the <span class="guilabel">QGIS Layers</span> tab, fill out the form with the following:</p>
 <ol class="arabic simple">
-<li>Make sure the <em class="guilabel">bakeries</em> layer is checked.</li>
-<li>Uncheck the <em class="guilabel">Allow selection on this layer</em> check box, since we do not want to let the user interact with the layer.</li>
+<li>Make sure the <span class="guilabel">bakeries</span> layer is checked.</li>
+<li>Uncheck the <span class="guilabel">Allow selection on this layer</span> check box, since we do not want to let the user interact with the layer.</li>
 </ol>
-<div class="figure">
+<div class="figure" id="id3">
 <img alt="../../_images/qgislayerstab.png" src="../../_images/qgislayerstab.png" />
-<p class="caption">QGIS Layers tab</p>
+<p class="caption"><span class="caption-text">QGIS Layers tab</span></p>
 </div>
 </li>
-<li><p class="first">In the <em class="guilabel">Other Layers</em> tab, select the <em class="guilabel">OSM Mapnik</em> layer.</p>
-<div class="figure">
+<li><p class="first">In the <span class="guilabel">Other Layers</span> tab, select the <span class="guilabel">OSM Mapnik</span> layer.</p>
+<div class="figure" id="id4">
 <img alt="../../_images/otherlayerstab.png" src="../../_images/otherlayerstab.png" />
-<p class="caption">Other Layers tab</p>
+<p class="caption"><span class="caption-text">Other Layers tab</span></p>
 </div>
 </li>
-<li><p class="first">In the <em class="guilabel">Controls</em> tab:</p>
+<li><p class="first">In the <span class="guilabel">Controls</span> tab:</p>
 <ol class="arabic simple">
-<li>disable all selected controls and select the <em class="guilabel">Bookmarks</em> tool.</li>
+<li>disable all selected controls and select the <span class="guilabel">Bookmarks</span> tool.</li>
 </ol>
-<div class="figure">
+<div class="figure" id="id5">
 <img alt="../../_images/controlstab.png" src="../../_images/controlstab.png" />
-<p class="caption">Controls tab</p>
+<p class="caption"><span class="caption-text">Controls tab</span></p>
 </div>
 <ol class="arabic">
-<li><p class="first">Right-click the <em class="guilabel">Bookmarks</em> tool and select <em class="guilabel">Configure</em>. This will be the central part of our web app, since the main storytelling functionality will be based on it.</p>
+<li><p class="first">Right-click the <span class="guilabel">Bookmarks</span> tool and select <span class="guilabel">Configure</span>. This will be the central part of our web app, since the main storytelling functionality will be based on it.</p>
 </li>
 <li><p class="first">You will see the following dialog:</p>
-<div class="figure">
+<div class="figure" id="id6">
 <img alt="../../_images/bookmarks.png" src="../../_images/bookmarks.png" />
-<p class="caption">Bookmarks dialog</p>
+<p class="caption"><span class="caption-text">Bookmarks dialog</span></p>
 </div>
 </li>
-<li><p class="first">Bookmarks can be taken from a collection of QGIS bookmarks or from a layer. In this case, we will take bookmarks from a layer, generating one bookmark for each bakery location. Click the <em class="guilabel">Add from layer</em> button.</p>
+<li><p class="first">Bookmarks can be taken from a collection of QGIS bookmarks or from a layer. In this case, we will take bookmarks from a layer, generating one bookmark for each bakery location. Click the <span class="guilabel">Add from layer</span> button.</p>
 </li>
-<li><p class="first">In the <em class="guilabel">Layer</em> field, select <em class="guilabel">bakeries</em>. In the <em class="guilabel">Name</em> field, select <em class="guilabel">Name</em>. In the <em class="guilabel">Description</em> field, selection <em class="guilabel">Text</em>. The content of these two fields will be used to create the content of the panel that will describe each of the bookmarks. The name will be shown as a header title, and the description text will be shown below in a normal paragraph.</p>
-<div class="figure">
+<li><p class="first">In the <span class="guilabel">Layer</span> field, select <span class="guilabel">bakeries</span>. In the <span class="guilabel">Name</span> field, select <span class="guilabel">Name</span>. In the <span class="guilabel">Description</span> field, selection <span class="guilabel">Text</span>. The content of these two fields will be used to create the content of the panel that will describe each of the bookmarks. The name will be shown as a header title, and the description text will be shown below in a normal paragraph.</p>
+<div class="figure" id="id7">
 <img alt="../../_images/bookmarksfromlayer.png" src="../../_images/bookmarksfromlayer.png" />
-<p class="caption">Creating bookmarks from layer</p>
+<p class="caption"><span class="caption-text">Creating bookmarks from layer</span></p>
 </div>
 </li>
-<li><p class="first">Click <em class="guilabel">OK</em>. The bookmarks will be added to the list of defined bookmarks for the web app.</p>
-<div class="figure">
+<li><p class="first">Click <span class="guilabel">OK</span>. The bookmarks will be added to the list of defined bookmarks for the web app.</p>
+<div class="figure" id="id8">
 <img alt="../../_images/bookmarksadded.png" src="../../_images/bookmarksadded.png" />
-<p class="caption">Bookmarks added</p>
+<p class="caption"><span class="caption-text">Bookmarks added</span></p>
 </div>
 </li>
 <li><p class="first">If you select any of the bookmarks in the list, you will see its description text in the lower panel.</p>
-<div class="figure">
+<div class="figure" id="id9">
 <img alt="../../_images/bookmarksselected.png" src="../../_images/bookmarksselected.png" />
-<p class="caption">Viewing the contents of a bookmark</p>
+<p class="caption"><span class="caption-text">Viewing the contents of a bookmark</span></p>
 </div>
 </li>
-<li><p class="first">Click the <em class="guilabel">Configuration</em> tab.</p>
+<li><p class="first">Click the <span class="guilabel">Configuration</span> tab.</p>
 </li>
-<li><p class="first">Check the <em class="guilabel">Show in story panel</em> box, as we want to display bookmark descriptions in a panel.</p>
+<li><p class="first">Check the <span class="guilabel">Show in story panel</span> box, as we want to display bookmark descriptions in a panel.</p>
 </li>
-<li><p class="first">In the <em class="guilabel">Intro title</em> box, type <tt class="kbd docutils literal"><span class="pre">Paris</span> <span class="pre">Bakeries</span></tt>.</p>
+<li><p class="first">In the <span class="guilabel">Intro title</span> box, type <code class="kbd docutils literal"><span class="pre">Paris</span> <span class="pre">Bakeries</span></code>.</p>
 </li>
-<li><p class="first">In the <em class="guilabel">Intro description</em> box, type <tt class="kbd docutils literal"><span class="pre">Explore</span> <span class="pre">the</span> <span class="pre">best</span> <span class="pre">bakeries</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">capital</span> <span class="pre">of</span> <span class="pre">France.</span></tt>. These will be used to create the content of the panel when the web app is started, before moving to the first bookmark.</p>
+<li><p class="first">In the <span class="guilabel">Intro description</span> box, type <code class="kbd docutils literal"><span class="pre">Explore</span> <span class="pre">the</span> <span class="pre">best</span> <span class="pre">bakeries</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">capital</span> <span class="pre">of</span> <span class="pre">France.</span></code>. These will be used to create the content of the panel when the web app is started, before moving to the first bookmark.</p>
 </li>
-<li><p class="first">Change the <em class="guilabel">Animation type</em> to <em class="guilabel">Pan to</em>.</p>
-<div class="figure">
+<li><p class="first">Change the <span class="guilabel">Animation type</span> to <span class="guilabel">Pan to</span>.</p>
+<div class="figure" id="id10">
 <img alt="../../_images/bookmarksconfiguration.png" src="../../_images/bookmarksconfiguration.png" />
-<p class="caption">Bookmarks configuration</p>
+<p class="caption"><span class="caption-text">Bookmarks configuration</span></p>
 </div>
 </li>
-<li><p class="first">Click <em class="guilabel">OK</em>.</p>
+<li><p class="first">Click <span class="guilabel">OK</span>.</p>
 </li>
 </ol>
 </li>
 </ol>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">There is no need to edit any of the parameters in either the <em class="guilabel">Deploy</em> or <em class="guilabel">Settings</em> tabs.</p>
+<p class="last">There is no need to edit any of the parameters in either the <span class="guilabel">Deploy</span> or <span class="guilabel">Settings</span> tabs.</p>
 </div>
 </div>
 <div class="section" id="creating-the-application">
 <h2>Creating the application<a class="headerlink" href="#creating-the-application" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Save the application configuration by clicking the <em class="guilabel">Save</em> (disk) icon at the bottom of the dialog.</p>
+<li><p class="first">Save the application configuration by clicking the <span class="guilabel">Save</span> (disk) icon at the bottom of the dialog.</p>
 </li>
-<li><p class="first">With the configuration defined, we can now create it by clicking the <em class="guilabel">Create App</em> button at the bottom of the Web App Builder dialog.</p>
+<li><p class="first">With the configuration defined, we can now create it by clicking the <span class="guilabel">Create App</span> button at the bottom of the Web App Builder dialog.</p>
 </li>
 <li><p class="first">Select the directory where you want to store the web app.</p>
 </li>
 <li><p class="first">The app will be created and saved in this directory. When finished, a dialog will display.</p>
-<div class="figure">
+<div class="figure" id="id11">
 <img alt="../../_images/deployed.png" src="../../_images/deployed.png" />
-<p class="caption">App successfully deployed</p>
+<p class="caption"><span class="caption-text">App successfully deployed</span></p>
 </div>
 </li>
-<li><p class="first">Click <em class="guilabel">Yes</em> to see the deployed app.</p>
+<li><p class="first">Click <span class="guilabel">Yes</span> to see the deployed app.</p>
 </li>
 </ol>
 </div>
 <div class="section" id="improving-the-application">
 <h2>Improving the application<a class="headerlink" href="#improving-the-application" title="Permalink to this headline">¶</a></h2>
-<p>If not already open, launch the app by opening <tt class="file docutils literal"><span class="pre">index.html</span></tt> file inside the directory where you created your web app.</p>
+<p>If not already open, launch the app by opening <code class="file docutils literal"><span class="pre">index.html</span></code> file inside the directory where you created your web app.</p>
 <p>The application is now created but when you move through the story points, you will notice that the zoom level effect is set too high. This is because the layer that used for creating the bookmarks is a point layer, so the extent covered by each bookmark is just the point itself, not a real bounding box. That causes the app to zoom to the maximum zoom level.</p>
 <p>As a way to solve this, you can use a different layer for computing the extents of the bookmarks. We will generate one here.</p>
 <ol class="arabic">
-<li><p class="first">Back in QGIS, close the Web App Builder and open the <em class="guilabel">Processing toolbox</em> (<em class="menuselection">Processing ‣ Toolbox</em>).</p>
+<li><p class="first">Back in QGIS, close the Web App Builder and open the <span class="guilabel">Processing toolbox</span> (<span class="menuselection">Processing ‣ Toolbox</span>).</p>
 </li>
-<li><p class="first">Find the <em class="guilabel">Fixed distance buffer</em> algorithm (<em class="menuselection">Geoalgorithms ‣ Vector ‣ Geometry operations</em>) and double-click it to open its parameters dialog.</p>
-<div class="figure">
+<li><p class="first">Find the <span class="guilabel">Fixed distance buffer</span> algorithm (<span class="menuselection">Geoalgorithms ‣ Vector ‣ Geometry operations</span>) and double-click it to open its parameters dialog.</p>
+<div class="figure" id="id12">
 <img alt="../../_images/processingtoolboxbuffer.png" src="../../_images/processingtoolboxbuffer.png" />
-<p class="caption">Fixed distance buffer process in the Processing toolbox</p>
+<p class="caption"><span class="caption-text">Fixed distance buffer process in the Processing toolbox</span></p>
 </div>
 </li>
-<li><p class="first">In the <em class="guilabel">Input layer</em>, make sure that <em class="guilabel">bakeries</em> is selected.</p>
+<li><p class="first">In the <span class="guilabel">Input layer</span>, make sure that <span class="guilabel">bakeries</span> is selected.</p>
 </li>
-<li><p class="first">In the <em class="guilabel">distance</em> field, enter <tt class="kbd docutils literal"><span class="pre">0.005</span></tt>.</p>
-<div class="figure">
+<li><p class="first">In the <span class="guilabel">distance</span> field, enter <code class="kbd docutils literal"><span class="pre">0.005</span></code>.</p>
+<div class="figure" id="id13">
 <img alt="../../_images/bufferdialog.png" src="../../_images/bufferdialog.png" />
-<p class="caption">Fixed distance buffer parameters</p>
+<p class="caption"><span class="caption-text">Fixed distance buffer parameters</span></p>
 </div>
 </li>
-<li><p class="first">Click <em class="guilabel">Run</em> to compute a buffer around each bakery point. The result will be displayed as a new layer in QGIS.</p>
-<div class="figure">
+<li><p class="first">Click <span class="guilabel">Run</span> to compute a buffer around each bakery point. The result will be displayed as a new layer in QGIS.</p>
+<div class="figure" id="id14">
 <img alt="../../_images/bufferresult.png" src="../../_images/bufferresult.png" />
-<p class="caption">Buffer result</p>
+<p class="caption"><span class="caption-text">Buffer result</span></p>
 </div>
 </li>
 <li><p class="first">Now reopen the Web App Builder. Since you have already created a web app based on this same QGIS project, you will see the following message dialog:</p>
-<div class="figure">
+<div class="figure" id="id15">
 <img alt="../../_images/messagedialog.png" src="../../_images/messagedialog.png" />
-<p class="caption">Recovering the application definition</p>
+<p class="caption"><span class="caption-text">Recovering the application definition</span></p>
 </div>
 </li>
-<li><p class="first">Click <em class="guilabel">Yes</em> to recover the configuration parameters that you used when you first generated the web app.</p>
+<li><p class="first">Click <span class="guilabel">Yes</span> to recover the configuration parameters that you used when you first generated the web app.</p>
 </li>
-<li><p class="first">Go to the <em class="guilabel">Controls</em> tab and configure the Bookmarks tool again.</p>
+<li><p class="first">Go to the <span class="guilabel">Controls</span> tab and configure the Bookmarks tool again.</p>
 </li>
-<li><p class="first">Click <em class="guilabel">Remove all</em> to remove all existing bookmarks.</p>
+<li><p class="first">Click <span class="guilabel">Remove all</span> to remove all existing bookmarks.</p>
 </li>
 <li><p class="first">Recreate the bookmarks in the same way as before, except this time when creating bookmarks from a layer, use the Buffer layer instead of the bakeries layer. It will have the same attributes table as the original bakeries layer, so you can select the same fields for the Title and Description.</p>
-<div class="figure">
+<div class="figure" id="id16">
 <img alt="../../_images/bookmarksfromlayerbuffer.png" src="../../_images/bookmarksfromlayerbuffer.png" />
-<p class="caption">Bookmarks from Buffer layer</p>
+<p class="caption"><span class="caption-text">Bookmarks from Buffer layer</span></p>
 </div>
 </li>
-<li><p class="first">Click <em class="guilabel">OK</em> twice, then recreate the web app by clicking the <em class="guilabel">Create app</em> button.</p>
+<li><p class="first">Click <span class="guilabel">OK</span> twice, then recreate the web app by clicking the <span class="guilabel">Create app</span> button.</p>
 </li>
 </ol>
 </div>

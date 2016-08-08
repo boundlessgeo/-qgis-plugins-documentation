@@ -72,8 +72,8 @@
 <p>This page contains important information about the OpenGeo Explorer plugin. If you encounter problems with using the plugin, check here for potential workaround.</p>
 <div class="section" id="geoserver-and-postgis-synchronization">
 <h2>GeoServer and PostGIS synchronization<a class="headerlink" href="#geoserver-and-postgis-synchronization" title="Permalink to this headline">¶</a></h2>
-<p>Except for the <em class="guilabel">QGIS Project</em> item, all remaining items in the OpenGeo Explorer tree are not automatically updated when the element they represent changes. For example, a change in a PostGIS database performed outside of the plugin will not trigger an update in the OpenGeo Explorer tree.</p>
-<p>All items have a <em class="guilabel">Refresh</em> option. Use it to update the content of a given entry in the tree and keep it synchronized with the corresponding catalog or database.</p>
+<p>Except for the <span class="guilabel">QGIS Project</span> item, all remaining items in the OpenGeo Explorer tree are not automatically updated when the element they represent changes. For example, a change in a PostGIS database performed outside of the plugin will not trigger an update in the OpenGeo Explorer tree.</p>
+<p>All items have a <span class="guilabel">Refresh</span> option. Use it to update the content of a given entry in the tree and keep it synchronized with the corresponding catalog or database.</p>
 </div>
 <div class="section" id="version-support">
 <h2>Version support<a class="headerlink" href="#version-support" title="Permalink to this headline">¶</a></h2>
@@ -94,11 +94,11 @@
 <div class="section" id="crs">
 <h3>CRS<a class="headerlink" href="#crs" title="Permalink to this headline">¶</a></h3>
 <p>GeoServer might encounter problems when a custom CRS is used in QGIS. The CRS definition that works correctly when rendering the layer in QGIS might not work when importing the layer into GeoServer. Usually this results in a layer that is published but doesn&#8217;t have a CRS set and is not enabled. You can correct that manually, selecting the layer in the Explorer tree and modifying its CRS.</p>
-<p>Notice that layers are imported using the SRS defined in the original data source (i.e., the <tt class="docutils literal"><span class="pre">prj</span></tt> file if using a shapefile). Setting a different CRS using the <em class="guilabel">Set Layer CRS</em> option in the QGIS TOC will not have any effect when importing the layer into GeoServer, unless you save the layer with that CRS and the CRS definition is stored along with the layer data.</p>
+<p>Notice that layers are imported using the SRS defined in the original data source (i.e., the <code class="docutils literal"><span class="pre">prj</span></code> file if using a shapefile). Setting a different CRS using the <span class="guilabel">Set Layer CRS</span> option in the QGIS TOC will not have any effect when importing the layer into GeoServer, unless you save the layer with that CRS and the CRS definition is stored along with the layer data.</p>
 </div>
 <div class="section" id="layer-names">
 <h3>Layer names<a class="headerlink" href="#layer-names" title="Permalink to this headline">¶</a></h3>
-<p>OpenGeo Explorer uses the GeoServer REST API to retrieve the list of layers in a catalog. The REST API describes layers without workspace, that meaning that if you have two layers with the same name and in different workspaces (for instance, <tt class="docutils literal"><span class="pre">ws1:mylayer</span></tt> and <tt class="docutils literal"><span class="pre">ws2:mylayer</span></tt>), they will be shown as just one (<tt class="docutils literal"><span class="pre">mylayer</span></tt> in this case).</p>
+<p>OpenGeo Explorer uses the GeoServer REST API to retrieve the list of layers in a catalog. The REST API describes layers without workspace, that meaning that if you have two layers with the same name and in different workspaces (for instance, <code class="docutils literal"><span class="pre">ws1:mylayer</span></code> and <code class="docutils literal"><span class="pre">ws2:mylayer</span></code>), they will be shown as just one (<code class="docutils literal"><span class="pre">mylayer</span></code> in this case).</p>
 <p>When this happens, the situation is ambiguous and OpenGeo Explorer cannot differentiate between layers with the same name but belonging to different workspaces. The layer, as described by the REST API, is added to the Explorer tree, but it only represents one of the several layers that share the same name. To indicate this, the layer is shown with a warning icon, and a warning message is displayed in the layer description.</p>
 <div class="figure">
 <img alt="../_images/duplicated_layer.png" src="../_images/duplicated_layer.png" />
@@ -137,8 +137,8 @@
 <div class="figure">
 <img alt="../_images/error-bar.png" src="../_images/error-bar.png" />
 </div>
-<p>This error might be caused by a wrong usage (for instance, if you are trying to connect to a catalog that does not exist), or by a bug in the plugin. To help us fix this second case, you can report the error by clicking on the <em class="guilabel">Report error</em> button that appears in the message bar. This will cause the full error stack trace to be sent automatically, so we can check it and find out the cause of the error. No personal information is sent along with it.</p>
-<p>To check the stack trace yourself, click the <em class="guilabel">View more</em> button.</p>
+<p>This error might be caused by a wrong usage (for instance, if you are trying to connect to a catalog that does not exist), or by a bug in the plugin. To help us fix this second case, you can report the error by clicking on the <span class="guilabel">Report error</span> button that appears in the message bar. This will cause the full error stack trace to be sent automatically, so we can check it and find out the cause of the error. No personal information is sent along with it.</p>
+<p>To check the stack trace yourself, click the <span class="guilabel">View more</span> button.</p>
 <p>If no button is pushed, the message bar will remain visible for 15 seconds. You can close it using the close icon on its right side.</p>
 </div>
 </div>

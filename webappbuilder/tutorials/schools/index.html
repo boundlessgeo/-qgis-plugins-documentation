@@ -76,7 +76,7 @@
 <p>This app was inspired by a similar work published in <a class="reference external" href="http://www.lemonde.fr/les-decodeurs/article/2015/04/18/de-jules-ferry-a-pierre-perret-l-etonnant-palmares-des-noms-d-ecoles-de-colleges-et-de-lycees-en-france_4613091_4355770.html">an article in La Monde</a>.</p>
 <div class="section" id="data">
 <h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference download internal" href="../../_downloads/schools.zip"><tt class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">the</span> <span class="pre">data</span> <span class="pre">for</span> <span class="pre">this</span> <span class="pre">tutorial</span></tt></a>.</p>
+<p><a class="reference download internal" href="../../_downloads/schools.zip" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">the</span> <span class="pre">data</span> <span class="pre">for</span> <span class="pre">this</span> <span class="pre">tutorial</span></code></a>.</p>
 <p>The layer contained in this archive is a collection of schools, based on the original data from the article linked above. This was converted to a shapefile, with attribute field names translated into English. Some entries were removed to reduce the size of the file.</p>
 <p>Also, only schools in metropolitan France are considered to simplify handling projections, as the original data had coordinates using several CRSs in the same file.</p>
 </div>
@@ -85,9 +85,9 @@
 <p>The first step in building a web app using the Web App Builder is to set up our project in QGIS.</p>
 <ol class="arabic">
 <li><p class="first">Open the QGIS project included in the exercise data.</p>
-<div class="figure">
+<div class="figure" id="id1">
 <img alt="../../_images/qgisproject1.png" src="../../_images/qgisproject1.png" />
-<p class="caption">Schools QGIS project</p>
+<p class="caption"><span class="caption-text">Schools QGIS project</span></p>
 </div>
 <p>The project contains one layer with a rather basic styling. We don&#8217;t need to add more complex styling, as our web app is more about the data analysis than the map itself, so we will leave it as is.</p>
 </li>
@@ -97,53 +97,53 @@
 </div>
 <div class="section" id="configuring-the-application">
 <h2>Configuring the application<a class="headerlink" href="#configuring-the-application" title="Permalink to this headline">¶</a></h2>
-<p>Start the Web App Builder by selecting <em class="menuselection">Plugins ‣ Boundless ‣ Web App Builder</em>. This will bring up the interface used to configure our web app. There are several tabs, each one used to define a particular set of parameters. We will go through each of them and describe their meaning.</p>
+<p>Start the Web App Builder by selecting <span class="menuselection">Plugins ‣ Boundless ‣ Web App Builder</span>. This will bring up the interface used to configure our web app. There are several tabs, each one used to define a particular set of parameters. We will go through each of them and describe their meaning.</p>
 <ol class="arabic">
-<li><p class="first">In the <em class="guilabel">Description</em> tab, fill out the form with the following:</p>
+<li><p class="first">In the <span class="guilabel">Description</span> tab, fill out the form with the following:</p>
 <ol class="arabic">
-<li><p class="first">Enter <tt class="kbd docutils literal"><span class="pre">Mapping</span> <span class="pre">French</span> <span class="pre">School</span> <span class="pre">Names</span></tt> in the <em class="guilabel">App Title</em> box.</p>
+<li><p class="first">Enter <code class="kbd docutils literal"><span class="pre">Mapping</span> <span class="pre">French</span> <span class="pre">School</span> <span class="pre">Names</span></code> in the <span class="guilabel">App Title</span> box.</p>
 </li>
-<li><p class="first">Leave the <em class="guilabel">Logo image</em> box empty.</p>
+<li><p class="first">Leave the <span class="guilabel">Logo image</span> box empty.</p>
 </li>
-<li><p class="first">Select the <em class="guilabel">basic</em> theme.</p>
-<div class="figure">
+<li><p class="first">Select the <span class="guilabel">basic</span> theme.</p>
+<div class="figure" id="id2">
 <img alt="../../_images/descriptiontab1.png" src="../../_images/descriptiontab1.png" />
-<p class="caption">Description tab</p>
+<p class="caption"><span class="caption-text">Description tab</span></p>
 </div>
 </li>
 </ol>
 </li>
-<li><p class="first">In the <em class="guilabel">QGIS Layers</em> tab, fill out the form with the following:</p>
+<li><p class="first">In the <span class="guilabel">QGIS Layers</span> tab, fill out the form with the following:</p>
 <ol class="arabic">
-<li><p class="first">We only have one layer, so make sure that the <em class="guilabel">schools</em> layer is checked.</p>
+<li><p class="first">We only have one layer, so make sure that the <span class="guilabel">schools</span> layer is checked.</p>
 </li>
-<li><p class="first">Click on the <em class="guilabel">Edit</em> link to edit the content of the popup for the layer.</p>
+<li><p class="first">Click on the <span class="guilabel">Edit</span> link to edit the content of the popup for the layer.</p>
 </li>
-<li><p class="first">Enter <tt class="kbd docutils literal"><span class="pre">[NAME]</span></tt> in the text box to display the name in the popup when the feature is clicked on the map.</p>
-<div class="figure">
+<li><p class="first">Enter <code class="kbd docutils literal"><span class="pre">[NAME]</span></code> in the text box to display the name in the popup when the feature is clicked on the map.</p>
+<div class="figure" id="id3">
 <img alt="../../_images/popupeditor.png" src="../../_images/popupeditor.png" />
-<p class="caption">Popup editor</p>
+<p class="caption"><span class="caption-text">Popup editor</span></p>
 </div>
 </li>
-<li><p class="first">Click <em class="guilabel">OK</em> to close the dialog.</p>
+<li><p class="first">Click <span class="guilabel">OK</span> to close the dialog.</p>
 </li>
-<li><p class="first">Check the <em class="guilabel">Allow selection on this layer</em> box. This is important, since we want the user to be able to select schools, and then create their own custom charts based on that selection.</p>
+<li><p class="first">Check the <span class="guilabel">Allow selection on this layer</span> box. This is important, since we want the user to be able to select schools, and then create their own custom charts based on that selection.</p>
 </li>
-<li><p class="first">Check the <em class="guilabel">Cluster points</em> box. Since the number of features is large in the schools layers, clustering will ensure that the web app has good performance when rendering at a large scale. The default clustering distance is fine, so there is no need to modify it.</p>
+<li><p class="first">Check the <span class="guilabel">Cluster points</span> box. Since the number of features is large in the schools layers, clustering will ensure that the web app has good performance when rendering at a large scale. The default clustering distance is fine, so there is no need to modify it.</p>
 </li>
 </ol>
-<div class="figure">
+<div class="figure" id="id4">
 <img alt="../../_images/qgislayerstab1.png" src="../../_images/qgislayerstab1.png" />
-<p class="caption">Layers tab</p>
+<p class="caption"><span class="caption-text">Layers tab</span></p>
 </div>
 </li>
-<li><p class="first">In the <em class="guilabel">Other Layers</em> tab, select the <em class="guilabel">MapQuest aerial</em> layer as the base layer to use. Leave all others unselected.</p>
-<div class="figure">
+<li><p class="first">In the <span class="guilabel">Other Layers</span> tab, select the <span class="guilabel">MapQuest aerial</span> layer as the base layer to use. Leave all others unselected.</p>
+<div class="figure" id="id5">
 <img alt="../../_images/otherlayerstab1.png" src="../../_images/otherlayerstab1.png" />
-<p class="caption">Other Layers tab</p>
+<p class="caption"><span class="caption-text">Other Layers tab</span></p>
 </div>
 </li>
-<li><p class="first">In the <em class="guilabel">Controls</em> tab:</p>
+<li><p class="first">In the <span class="guilabel">Controls</span> tab:</p>
 <ol class="arabic simple">
 <li>For our web app, we will leave the default three controls activated (Scale Bar, Zoom, Layers) and add the following:<ul>
 <li>Selection</li>
@@ -154,62 +154,62 @@
 </ul>
 </li>
 </ol>
-<div class="figure">
+<div class="figure" id="id6">
 <img alt="../../_images/controlstab1.png" src="../../_images/controlstab1.png" />
-<p class="caption">Controls tab</p>
+<p class="caption"><span class="caption-text">Controls tab</span></p>
 </div>
 <ol class="arabic">
-<li><p class="first">Right-click <em class="guilabel">Charts</em> and select <em class="guilabel">Configure</em>.</p>
+<li><p class="first">Right-click <span class="guilabel">Charts</span> and select <span class="guilabel">Configure</span>.</p>
 </li>
-<li><p class="first">Here&#8217;s where we define how to produce the charts when the user makes a selection in the layer. We want to count the number of schools with the same name, so in the <em class="guilabel">Display mode</em> list, select <em class="guilabel">Count by category</em>.</p>
+<li><p class="first">Here&#8217;s where we define how to produce the charts when the user makes a selection in the layer. We want to count the number of schools with the same name, so in the <span class="guilabel">Display mode</span> list, select <span class="guilabel">Count by category</span>.</p>
 </li>
-<li><p class="first">Categories are defined by school names, so the <em class="guilabel">NAME</em> field has to be selected in the <em class="guilabel">Category field</em> list.</p>
+<li><p class="first">Categories are defined by school names, so the <span class="guilabel">NAME</span> field has to be selected in the <span class="guilabel">Category field</span> list.</p>
 </li>
-<li><p class="first">Enter <tt class="kbd docutils literal"><span class="pre">Count</span> <span class="pre">By</span> <span class="pre">Name</span></tt> in the <em class="guilabel">Chart Name</em> box, and click <em class="guilabel">Add/modify</em> to add it to the list of charts that will be available in the web app.</p>
-<div class="figure">
+<li><p class="first">Enter <code class="kbd docutils literal"><span class="pre">Count</span> <span class="pre">By</span> <span class="pre">Name</span></code> in the <span class="guilabel">Chart Name</span> box, and click <span class="guilabel">Add/modify</span> to add it to the list of charts that will be available in the web app.</p>
+<div class="figure" id="id7">
 <img alt="../../_images/charttool.png" src="../../_images/charttool.png" />
-<p class="caption">Chart tool</p>
+<p class="caption"><span class="caption-text">Chart tool</span></p>
 </div>
 </li>
-<li><p class="first">Click <em class="guilabel">OK</em> to finish configuring the Chart tool.</p>
+<li><p class="first">Click <span class="guilabel">OK</span> to finish configuring the Chart tool.</p>
 </li>
-<li><p class="first">Right-click <em class="guilabel">About panel</em> and select <em class="guilabel">Configure</em>.</p>
+<li><p class="first">Right-click <span class="guilabel">About panel</span> and select <span class="guilabel">Configure</span>.</p>
 </li>
-<li><p class="first">Click the <em class="guilabel">Edit</em> link to open the text editor.</p>
+<li><p class="first">Click the <span class="guilabel">Edit</span> link to open the text editor.</p>
 </li>
 <li><p class="first">The content of the panel is defined using HTML. Enter the following in the text editor:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;h1&gt;</span>Analysis of school names in France<span class="nt">&lt;/h1&gt;</span>
-<span class="nt">&lt;p&gt;</span>This web app replicates the work described in
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://www.lemonde.fr/les-decodeurs/article/2015/04/18/de-jules-ferry-a-pierre-perret-l-etonnant-palmares-des-noms-d-ecoles-de-colleges-et-de-lycees-en-france_4613091_4355770.html&quot;</span><span class="nt">&gt;</span>Le Monde<span class="nt">&lt;/a&gt;</span>.<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;p&gt;</span>It allows for analyzing the naming of schools in France, findinf out the most common ones
-and studying their distribution across the country.<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;p&gt;</span>Select points by dragging while pressing the Shift key to define a rectangle.<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;p&gt;</span>You can also use the <span class="nt">&lt;i&gt;</span>Query<span class="nt">&lt;/i&gt;</span> tool to select based on attributes.<span class="nt">&lt;/p&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Analysis of school names in France<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This web app replicates the work described in
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://www.lemonde.fr/les-decodeurs/article/2015/04/18/de-jules-ferry-a-pierre-perret-l-etonnant-palmares-des-noms-d-ecoles-de-colleges-et-de-lycees-en-france_4613091_4355770.html&quot;</span><span class="p">&gt;</span>Le Monde<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>It allows for analyzing the naming of schools in France, findinf out the most common ones
+and studying their distribution across the country.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Select points by dragging while pressing the Shift key to define a rectangle.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>You can also use the <span class="p">&lt;</span><span class="nt">i</span><span class="p">&gt;</span>Query<span class="p">&lt;/</span><span class="nt">i</span><span class="p">&gt;</span> tool to select based on attributes.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure" id="id8">
 <img alt="../../_images/aboutpaneleditor.png" src="../../_images/aboutpaneleditor.png" />
-<p class="caption">About panel editor</p>
+<p class="caption"><span class="caption-text">About panel editor</span></p>
 </div>
 </li>
-<li><p class="first">Click <em class="guilabel">OK</em> to close the text dialog.</p>
+<li><p class="first">Click <span class="guilabel">OK</span> to close the text dialog.</p>
 </li>
-<li><p class="first">Leave all other parameters as-is, and click <em class="guilabel">OK</em> to close the About panel parameters dialog.</p>
-<div class="figure">
+<li><p class="first">Leave all other parameters as-is, and click <span class="guilabel">OK</span> to close the About panel parameters dialog.</p>
+<div class="figure" id="id9">
 <img alt="../../_images/aboutpanel1.png" src="../../_images/aboutpanel1.png" />
-<p class="caption">About panel parameters</p>
+<p class="caption"><span class="caption-text">About panel parameters</span></p>
 </div>
 </li>
-<li><p class="first">Right-click <em class="guilabel">Layers</em> and select <em class="guilabel">Configure</em>.</p>
+<li><p class="first">Right-click <span class="guilabel">Layers</span> and select <span class="guilabel">Configure</span>.</p>
 </li>
-<li><p class="first">Check the <em class="guilabel">showDownload</em> check box. That will give the user the option to download the schools layer as a GeoJSON file.</p>
+<li><p class="first">Check the <span class="guilabel">showDownload</span> check box. That will give the user the option to download the schools layer as a GeoJSON file.</p>
 </li>
-<li><p class="first">Check the <em class="guilabel">shownZoomTo</em> check box. This will give the user the option to fit the extent of the view to the layer extent.</p>
+<li><p class="first">Check the <span class="guilabel">shownZoomTo</span> check box. This will give the user the option to fit the extent of the view to the layer extent.</p>
 </li>
-<li><p class="first">Leave all other parameters as-is, and click <em class="guilabel">OK</em> to close the dialog.</p>
-<div class="figure">
+<li><p class="first">Leave all other parameters as-is, and click <span class="guilabel">OK</span> to close the dialog.</p>
+<div class="figure" id="id10">
 <img alt="../../_images/layerslist1.png" src="../../_images/layerslist1.png" />
-<p class="caption">Layers list parameters</p>
+<p class="caption"><span class="caption-text">Layers list parameters</span></p>
 </div>
 </li>
 </ol>
@@ -217,25 +217,25 @@ and studying their distribution across the country.<span class="nt">&lt;/p&gt;</
 </ol>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">There is no need to edit any of the parameters in either the <em class="guilabel">Deploy</em> or <em class="guilabel">Settings</em> tabs.</p>
+<p class="last">There is no need to edit any of the parameters in either the <span class="guilabel">Deploy</span> or <span class="guilabel">Settings</span> tabs.</p>
 </div>
 </div>
 <div class="section" id="creating-the-application">
 <h2>Creating the application<a class="headerlink" href="#creating-the-application" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Save the application configuration by clicking the <em class="guilabel">Save</em> (disk) icon at the bottom of the dialog.</p>
+<li><p class="first">Save the application configuration by clicking the <span class="guilabel">Save</span> (disk) icon at the bottom of the dialog.</p>
 </li>
-<li><p class="first">With the configuration defined, we can now create it by clicking the <em class="guilabel">Create App</em> button at the bottom of the Web App Builder dialog.</p>
+<li><p class="first">With the configuration defined, we can now create it by clicking the <span class="guilabel">Create App</span> button at the bottom of the Web App Builder dialog.</p>
 </li>
 <li><p class="first">Select the directory where you want to store the web app.</p>
 </li>
 <li><p class="first">The app will be created and saved in this directory. When finished, a dialog will display.</p>
-<div class="figure">
+<div class="figure" id="id11">
 <img alt="../../_images/deployed2.png" src="../../_images/deployed2.png" />
-<p class="caption">App successfully deployed</p>
+<p class="caption"><span class="caption-text">App successfully deployed</span></p>
 </div>
 </li>
-<li><p class="first">Click <em class="guilabel">Yes</em> to see the deployed app.</p>
+<li><p class="first">Click <span class="guilabel">Yes</span> to see the deployed app.</p>
 </li>
 </ol>
 </div>
@@ -243,7 +243,7 @@ and studying their distribution across the country.<span class="nt">&lt;/p&gt;</
 <h2>Customizing the application code<a class="headerlink" href="#customizing-the-application-code" title="Permalink to this headline">¶</a></h2>
 <p>The code of the application is now in the selected directory and the web app is fully functional. The generated code can be edited to suit our needs. We will do one small modification.</p>
 <ol class="arabic">
-<li><p class="first">In a text editor, open <tt class="file docutils literal"><span class="pre">resources/tools.js</span></tt> from the directory where you stored the web app.</p>
+<li><p class="first">In a text editor, open <code class="file docutils literal"><span class="pre">resources/tools.js</span></code> from the directory where you stored the web app.</p>
 </li>
 <li><p class="first">Scroll down to around line 650, where you will see:</p>
 <div class="highlight-python"><div class="highlight"><pre>for (i = 0; i &lt; sorted.length; i++) {
@@ -271,10 +271,10 @@ and studying their distribution across the country.<span class="nt">&lt;/p&gt;</
 </div>
 <div class="section" id="final-result">
 <h2>Final result<a class="headerlink" href="#final-result" title="Permalink to this headline">¶</a></h2>
-<p>If not already open, launch the app by opening <tt class="file docutils literal"><span class="pre">index.html</span></tt> file inside the directory where you created your web app.</p>
-<div class="figure">
+<p>If not already open, launch the app by opening <code class="file docutils literal"><span class="pre">index.html</span></code> file inside the directory where you created your web app.</p>
+<div class="figure" id="id12">
 <img alt="../../_images/schoolsapp1.png" src="../../_images/schoolsapp1.png" />
-<p class="caption">Deployed app</p>
+<p class="caption"><span class="caption-text">Deployed app</span></p>
 </div>
 </div>
 <div class="section" id="using-the-application">
@@ -289,22 +289,22 @@ and studying their distribution across the country.<span class="nt">&lt;/p&gt;</
 </pre></div>
 </div>
 </li>
-<li><p class="first">Click <em class="guilabel">New selection</em>. The Paris schools will be highlighted. Unlike the unselected schools in the schools layer, selected ones are not clustered.</p>
-<div class="figure">
+<li><p class="first">Click <span class="guilabel">New selection</span>. The Paris schools will be highlighted. Unlike the unselected schools in the schools layer, selected ones are not clustered.</p>
+<div class="figure" id="id13">
 <img alt="../../_images/paris.png" src="../../_images/paris.png" />
-<p class="caption">Schools in Paris</p>
+<p class="caption"><span class="caption-text">Schools in Paris</span></p>
 </div>
 </li>
-<li><p class="first">Now close the Query tool and open the <em class="guilabel">Count by Name</em> chart:</p>
-<div class="figure">
+<li><p class="first">Now close the Query tool and open the <span class="guilabel">Count by Name</span> chart:</p>
+<div class="figure" id="id14">
 <img alt="../../_images/parischart.png" src="../../_images/parischart.png" />
-<p class="caption">Schools in Paris, charted</p>
+<p class="caption"><span class="caption-text">Schools in Paris, charted</span></p>
 </div>
 </li>
 <li><p class="first">To see the attributes associated with each school, close the Chart panel and open the Attributes table:</p>
-<div class="figure">
+<div class="figure" id="id15">
 <img alt="../../_images/attributes.png" src="../../_images/attributes.png" />
-<p class="caption">Attributes</p>
+<p class="caption"><span class="caption-text">Attributes</span></p>
 </div>
 </li>
 </ol>
@@ -313,15 +313,15 @@ and studying their distribution across the country.<span class="nt">&lt;/p&gt;</
 <h3>Group selection<a class="headerlink" href="#group-selection" title="Permalink to this headline">¶</a></h3>
 <p>Here is a more complex example. Let&#8217;s select all public schools in the Ile-de-France region, which includes Paris. The department numbers in the region are 75, 77, 78, 91, 92, 93, 94, and 95.</p>
 <ol class="arabic">
-<li><p class="first">Enter the following expression in the Query tool and click <em class="guilabel">New selection</em>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">floor</span><span class="p">(</span><span class="n">POSTCODE</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">75</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="mi">78</span><span class="p">,</span><span class="mi">91</span><span class="p">,</span><span class="mi">92</span><span class="p">,</span><span class="mi">93</span><span class="p">,</span><span class="mi">94</span><span class="p">,</span><span class="mi">95</span><span class="p">)</span> <span class="ow">and</span> <span class="n">PUBLIC</span> <span class="o">==</span> <span class="s">&quot;PU&quot;</span>
+<li><p class="first">Enter the following expression in the Query tool and click <span class="guilabel">New selection</span>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">floor</span><span class="p">(</span><span class="n">POSTCODE</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">75</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="mi">78</span><span class="p">,</span><span class="mi">91</span><span class="p">,</span><span class="mi">92</span><span class="p">,</span><span class="mi">93</span><span class="p">,</span><span class="mi">94</span><span class="p">,</span><span class="mi">95</span><span class="p">)</span> <span class="ow">and</span> <span class="n">PUBLIC</span> <span class="o">==</span> <span class="s2">&quot;PU&quot;</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Open the Chart tool and you will see something like this:</p>
-<div class="figure">
+<div class="figure" id="id16">
 <img alt="../../_images/ilefrance.png" src="../../_images/ilefrance.png" />
-<p class="caption">Schools in Ile-de-France</p>
+<p class="caption"><span class="caption-text">Schools in Ile-de-France</span></p>
 </div>
 </li>
 </ol>
@@ -331,15 +331,15 @@ and studying their distribution across the country.<span class="nt">&lt;/p&gt;</
 <p>You can also show <em>only</em> the location of schools with a given name using a trick.</p>
 <p>The selected features are in a separate layer which is not shown in the Layers list. That means that if you turn off visibility for the schools layers the layer with selected elements will still be in the map.</p>
 <ol class="arabic">
-<li><p class="first">Enter the following in the query box and click <em class="guilabel">New selection</em>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">NAME</span> <span class="o">==</span> <span class="s">&quot;JULES FERRY&quot;</span>
+<li><p class="first">Enter the following in the query box and click <span class="guilabel">New selection</span>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">NAME</span> <span class="o">==</span> <span class="s2">&quot;JULES FERRY&quot;</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">In the Layers list, uncheck the Schools layer. You should now see something like this:</p>
-<div class="figure">
+<div class="figure" id="id17">
 <img alt="../../_images/julesferry.png" src="../../_images/julesferry.png" />
-<p class="caption">Schools named &#8220;Jules Ferry&#8221;</p>
+<p class="caption"><span class="caption-text">Schools named &#8220;Jules Ferry&#8221;</span></p>
 </div>
 </li>
 </ol>

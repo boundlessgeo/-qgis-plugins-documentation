@@ -75,7 +75,7 @@
 <p>This tutorial shows how to create a web app that explores songs related to the city of Madrid in Spain. For each song, an entry is added to a map, which contains information abut the lyrics and the author. A popup is shown when hovering over each song point, with an embeded video for the song. This app is inspired by a similar work published in <a class="reference external" href="http://www.huffingtonpost.es/2015/05/15/canciones-madrid-mapa_n_7214408.html">this article in the Huffington Post</a>.</p>
 <div class="section" id="data">
 <h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference download internal" href="../../_downloads/songs.zip"><tt class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">the</span> <span class="pre">data</span> <span class="pre">for</span> <span class="pre">this</span> <span class="pre">tutorial</span></tt></a>.</p>
+<p><a class="reference download internal" href="../../_downloads/songs.zip" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">the</span> <span class="pre">data</span> <span class="pre">for</span> <span class="pre">this</span> <span class="pre">tutorial</span></code></a>.</p>
 <p>This archive contains a point shapefile with song information, along with an icon that we will use to render song locations on the map.</p>
 </div>
 <div class="section" id="preparing-the-application-in-qgis">
@@ -83,44 +83,44 @@
 <p>First, we have to set up our data layers in QGIS.</p>
 <ol class="arabic">
 <li><p class="first">Add the vector layer to a QGIS project.</p>
-<div class="figure">
+<div class="figure" id="id1">
 <img alt="../../_images/defaultlayer.png" src="../../_images/defaultlayer.png" />
-<p class="caption">Layer with default style</p>
+<p class="caption"><span class="caption-text">Layer with default style</span></p>
 </div>
 </li>
-<li><p class="first">Improve the default styling by replacing the default symbol with the SVG marker included in the data. (<tt class="file docutils literal"><span class="pre">note.svg</span></tt>). This can be done in the Layer Properties interface (found by right-clicking the layer name and going to <em class="guilabel">Properties</em>.)</p>
-<div class="figure">
+<li><p class="first">Improve the default styling by replacing the default symbol with the SVG marker included in the data. (<code class="file docutils literal"><span class="pre">note.svg</span></code>). This can be done in the Layer Properties interface (found by right-clicking the layer name and going to <span class="guilabel">Properties</span>.)</p>
+<div class="figure" id="id2">
 <img alt="../../_images/style.png" src="../../_images/style.png" />
-<p class="caption">Adding styling</p>
+<p class="caption"><span class="caption-text">Adding styling</span></p>
 </div>
-<div class="figure">
+<div class="figure" id="id3">
 <img alt="../../_images/styledlayer.png" src="../../_images/styledlayer.png" />
-<p class="caption">Layer with SVG marker</p>
+<p class="caption"><span class="caption-text">Layer with SVG marker</span></p>
 </div>
 </li>
 </ol>
 </div>
 <div class="section" id="configuring-the-application">
 <h2>Configuring the application<a class="headerlink" href="#configuring-the-application" title="Permalink to this headline">¶</a></h2>
-<p>Start the Web App Builder by selecting <em class="menuselection">Plugins ‣ Boundless ‣ Web App Builder</em>. This will bring up the interface used to configure our web app. There are several tabs, each one used to define a particular set of parameters. We will go through each of them and describe their meaning.</p>
+<p>Start the Web App Builder by selecting <span class="menuselection">Plugins ‣ Boundless ‣ Web App Builder</span>. This will bring up the interface used to configure our web app. There are several tabs, each one used to define a particular set of parameters. We will go through each of them and describe their meaning.</p>
 <ol class="arabic">
-<li><p class="first">In the <em class="guilabel">Description</em> tab, fill out the form with the following:</p>
+<li><p class="first">In the <span class="guilabel">Description</span> tab, fill out the form with the following:</p>
 <ol class="arabic">
-<li><p class="first">Enter <tt class="kbd docutils literal"><span class="pre">Mapping</span> <span class="pre">Madrid</span> <span class="pre">songs</span></tt> in the title box.</p>
+<li><p class="first">Enter <code class="kbd docutils literal"><span class="pre">Mapping</span> <span class="pre">Madrid</span> <span class="pre">songs</span></code> in the title box.</p>
 </li>
-<li><p class="first">Select the <em class="guilabel">fullscreen</em> theme.</p>
-<div class="figure">
+<li><p class="first">Select the <span class="guilabel">fullscreen</span> theme.</p>
+<div class="figure" id="id4">
 <img alt="../../_images/descriptiontab2.png" src="../../_images/descriptiontab2.png" />
-<p class="caption">Description tab</p>
+<p class="caption"><span class="caption-text">Description tab</span></p>
 </div>
 </li>
 </ol>
 </li>
-<li><p class="first">In the <em class="guilabel">QGIS Layers</em> tab, fill out the form with the following:</p>
+<li><p class="first">In the <span class="guilabel">QGIS Layers</span> tab, fill out the form with the following:</p>
 <ol class="arabic">
-<li><p class="first">Make sure that the <em class="guilabel">Songs</em> layer is checked.</p>
+<li><p class="first">Make sure that the <span class="guilabel">Songs</span> layer is checked.</p>
 </li>
-<li><p class="first">Click the <em class="guilabel">Edit</em> link to edit the content of the popup for the layer.</p>
+<li><p class="first">Click the <span class="guilabel">Edit</span> link to edit the content of the popup for the layer.</p>
 </li>
 <li><p class="first">Enter the following in the text box to define the content of the popup:</p>
 <div class="highlight-python"><div class="highlight"><pre>[Video]
@@ -130,72 +130,72 @@
 </pre></div>
 </div>
 <p>This popup will display the embeded video as well as lyrics, song, and author information.</p>
-<div class="figure">
+<div class="figure" id="id5">
 <img alt="../../_images/popup.png" src="../../_images/popup.png" />
-<p class="caption">Feature popup</p>
+<p class="caption"><span class="caption-text">Feature popup</span></p>
 </div>
 </li>
-<li><p class="first">Click <em class="guilabel">OK</em>.</p>
+<li><p class="first">Click <span class="guilabel">OK</span>.</p>
 <div class="figure">
 <img alt="../../_images/qgislayerstab2.png" src="../../_images/qgislayerstab2.png" />
 </div>
 </li>
 </ol>
 </li>
-<li><p class="first">In the <em class="guilabel">Other Layers</em> tab, select the <em class="guilabel">Stamen toner lite</em> layer.</p>
-<div class="figure">
+<li><p class="first">In the <span class="guilabel">Other Layers</span> tab, select the <span class="guilabel">Stamen toner lite</span> layer.</p>
+<div class="figure" id="id6">
 <img alt="../../_images/otherlayerstab2.png" src="../../_images/otherlayerstab2.png" />
-<p class="caption">Other Layers tab</p>
+<p class="caption"><span class="caption-text">Other Layers tab</span></p>
 </div>
 </li>
-<li><p class="first">In the <em class="guilabel">Controls</em> tab, disable (unselect) all controls.</p>
-<div class="figure">
+<li><p class="first">In the <span class="guilabel">Controls</span> tab, disable (unselect) all controls.</p>
+<div class="figure" id="id7">
 <img alt="../../_images/controlstab2.png" src="../../_images/controlstab2.png" />
-<p class="caption">Controls tab</p>
+<p class="caption"><span class="caption-text">Controls tab</span></p>
 </div>
 </li>
-<li><p class="first">In the <em class="guilabel">Settings</em> tab, check the <em class="guilabel">Show popups on hover</em> parameter, so popups are shown when passing the mouse over the points without having to click on them.</p>
-<div class="figure">
+<li><p class="first">In the <span class="guilabel">Settings</span> tab, check the <span class="guilabel">Show popups on hover</span> parameter, so popups are shown when passing the mouse over the points without having to click on them.</p>
+<div class="figure" id="id8">
 <img alt="../../_images/settingstab.png" src="../../_images/settingstab.png" />
-<p class="caption">Settings tab</p>
+<p class="caption"><span class="caption-text">Settings tab</span></p>
 </div>
 </li>
 </ol>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">There is no need to edit any of the parameters in the <em class="guilabel">Deploy</em> tab.</p>
+<p class="last">There is no need to edit any of the parameters in the <span class="guilabel">Deploy</span> tab.</p>
 </div>
 </div>
 <div class="section" id="creating-the-application">
 <h2>Creating the application<a class="headerlink" href="#creating-the-application" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Save the application configuration by clicking the <em class="guilabel">Save</em> (disk) icon at the bottom of the dialog.</p>
+<li><p class="first">Save the application configuration by clicking the <span class="guilabel">Save</span> (disk) icon at the bottom of the dialog.</p>
 </li>
-<li><p class="first">With the configuration defined, we can now create it by clicking the <em class="guilabel">Create App</em> button at the bottom of the Web App Builder dialog.</p>
+<li><p class="first">With the configuration defined, we can now create it by clicking the <span class="guilabel">Create App</span> button at the bottom of the Web App Builder dialog.</p>
 </li>
 <li><p class="first">Select the directory where you want to store the web app.</p>
 </li>
 <li><p class="first">The app will be created and saved in this directory. When finished, a dialog will display.</p>
-<div class="figure">
+<div class="figure" id="id9">
 <img alt="../../_images/deployed3.png" src="../../_images/deployed3.png" />
-<p class="caption">App successfully deployed</p>
+<p class="caption"><span class="caption-text">App successfully deployed</span></p>
 </div>
 </li>
-<li><p class="first">Click <em class="guilabel">Yes</em> to see the deployed app.</p>
+<li><p class="first">Click <span class="guilabel">Yes</span> to see the deployed app.</p>
 </li>
 </ol>
 </div>
 <div class="section" id="final-result">
 <h2>Final result<a class="headerlink" href="#final-result" title="Permalink to this headline">¶</a></h2>
-<p>If not already open, launch the app by opening <tt class="file docutils literal"><span class="pre">index.html</span></tt> file inside the directory where you created your web app.</p>
-<div class="figure">
+<p>If not already open, launch the app by opening <code class="file docutils literal"><span class="pre">index.html</span></code> file inside the directory where you created your web app.</p>
+<div class="figure" id="id10">
 <img alt="../../_images/app1.png" src="../../_images/app1.png" />
-<p class="caption">Deployed app</p>
+<p class="caption"><span class="caption-text">Deployed app</span></p>
 </div>
 <p>To see the application in action, hover over any of the points on the map.</p>
-<div class="figure">
+<div class="figure" id="id11">
 <img alt="../../_images/apphover.png" src="../../_images/apphover.png" />
-<p class="caption">Hovering over a point</p>
+<p class="caption"><span class="caption-text">Hovering over a point</span></p>
 </div>
 </div>
 </div>

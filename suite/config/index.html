@@ -70,10 +70,10 @@
       
   <div class="section" id="configuration">
 <span id="config"></span><h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
-<p>In the OpenGeo menu, along with the entry that starts OpenGeo Explorer, you will find an entry that opens the OpenGeo Explorer configuration dialog called <em class="guilabel">OpenGeo Explorer settings</em>.</p>
-<div class="figure">
+<p>In the OpenGeo menu, along with the entry that starts OpenGeo Explorer, you will find an entry that opens the OpenGeo Explorer configuration dialog called <span class="guilabel">OpenGeo Explorer settings</span>.</p>
+<div class="figure" id="id1">
 <img alt="../_images/plugin_menu.png" src="../_images/plugin_menu.png" />
-<p class="caption">OpenGeo Explorer menu</p>
+<p class="caption"><span class="caption-text">OpenGeo Explorer menu</span></p>
 </div>
 <div class="figure">
 <img alt="../_images/config.png" src="../_images/config.png" />
@@ -82,9 +82,9 @@
 <div class="section" id="use-single-tab-ui">
 <h2>Use single tab UI<a class="headerlink" href="#use-single-tab-ui" title="Permalink to this headline">¶</a></h2>
 <p>By default, OpenGeo Explorer shows all categories (GeoServer Catalogs, PostGIS Databases, and QGIS Project) in a single panel as branches in a tree. If you enable the multi-tab user interface, each category is put in a separate tab, with a tree of elements belonging to the corresponding category, as shown in the next figure.</p>
-<div class="figure">
+<div class="figure" id="id2">
 <img alt="../_images/multi-tab.png" src="../_images/multi-tab.png" />
-<p class="caption">Multi-tab interface</p>
+<p class="caption"><span class="caption-text">Multi-tab interface</span></p>
 </div>
 <p>Subcategories (such as layers or workspaces, in the case of a GeoServer catalog) can be accessed using the buttons on the lower part of the panel.</p>
 <p>All other functionality is identical, though drag and drop functionality is limited to elements within the same category.</p>
@@ -107,13 +107,13 @@
 <p>Enabling this option will cause all connection information will be preserved between QGIS sessions.</p>
 <p>Subsequent launching of QGIS and OpenGeo Explorer will show the Catalogs item populated with previous connections.</p>
 <p>While the connection information is stored, catalog data is fetched only on request. Unpopulated catalogs are shown with a gray icon; Refresh the catalog item to populate it.</p>
-<div class="figure">
+<div class="figure" id="id3">
 <img alt="../_images/gray_catalog.png" src="../_images/gray_catalog.png" />
-<p class="caption">Previous saved connections shown in gray</p>
+<p class="caption"><span class="caption-text">Previous saved connections shown in gray</span></p>
 </div>
 <p>If the catalog uses basic authentication, the password will not be stored. You will be prompted to enter it when you reconnect to the catalog. If the <em>Configurations</em> tab is used, connection data (wheter password or certificate-based) will be stored in the encrypted QGIS auth database. You will be prompted to enter the master password in case you haven&#8217;t used the auth database in the current QGIS session.</p>
 <p>To know more about how to use authentication configurations in QGIS, see the <a class="reference external" href="./auth.html">Authentication configurations</a> section</p>
-<p>To delete a catalog from the list of previous connections, use the <em class="guilabel">Remove</em> option of the catalog item in the Explorer tree.</p>
+<p>To delete a catalog from the list of previous connections, use the <span class="guilabel">Remove</span> option of the catalog item in the Explorer tree.</p>
 </div>
 <div class="section" id="always-use-rest-api-for-uploads">
 <h2>Always use REST API for uploads<a class="headerlink" href="#always-use-rest-api-for-uploads" title="Permalink to this headline">¶</a></h2>
@@ -136,7 +136,7 @@
 <div class="section" id="pre-upload-processing-hooks">
 <h2>Pre-upload processing hooks<a class="headerlink" href="#pre-upload-processing-hooks" title="Permalink to this headline">¶</a></h2>
 <p>If you need to process your data before it is uploaded, you can set up a pre-upload hook that will be run on any layer before it is sent to GeoServer. Instead of the original layer, the result of that hook will be uploaded.</p>
-<p>Pre-upload hooks are defined separately for raster and vector layers. In both cases, they are defined as the path to a processing model (<tt class="docutils literal"><span class="pre">.model</span></tt>) or script (<tt class="docutils literal"><span class="pre">.py</span></tt>) file. The algorithm defined by that hook file will be loaded and executed to obtain the final layer to upload.</p>
+<p>Pre-upload hooks are defined separately for raster and vector layers. In both cases, they are defined as the path to a processing model (<code class="docutils literal"><span class="pre">.model</span></code>) or script (<code class="docutils literal"><span class="pre">.py</span></code>) file. The algorithm defined by that hook file will be loaded and executed to obtain the final layer to upload.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Please refer to the <a class="reference external" href="http://docs.qgis.org/latest/en/docs/user_manual/processing/index.html">Processing chapter in the QGIS manual</a> to learn more about the creation of processing models and scripts.</p>

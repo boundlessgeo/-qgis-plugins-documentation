@@ -71,27 +71,47 @@
 <h1>For system administrators<a class="headerlink" href="#for-system-administrators" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="configure-the-repository-location">
 <span id="configure-repository-location"></span><h2>Configure the repository location<a class="headerlink" href="#configure-the-repository-location" title="Permalink to this headline">¶</a></h2>
-<p>The <em>Boundless Connect QGIS Plugin</em> can work with the standard remote <em>Boundless QGIS Plugin Repository</em>, use an internal repository (e.g. in Docker container) or install plugins from a local folder (useful for customers with special requirements, when connection to external resources is not possible).</p>
-<p>On its first run, the <em>Boundless Connect QGIS Plugin</em> will look for <tt class="docutils literal"><span class="pre">$HOME/.qgis2/repoUrl.txt</span></tt> file. If the file exists, the plugin will read the repository URL/path from it and use this as a location for the plugins repository. Otherwise, if the file is not found, the standard Boundless QGIS Plugins Repository URL will be used. After this, the file will be deleted.</p>
+<p>The <em>Boundless Connect QGIS Plugin</em> can work with the standard remote <em>Boundless QGIS Plugin
+Repository</em>, use an internal repository (e.g. in Docker container) or install
+plugins from a local folder (useful for customers with special requirements,
+when connection to external resources is not possible).</p>
+<p>On its first run, the <em>Boundless Connect QGIS Plugin</em> will look for <code class="docutils literal"><span class="pre">$HOME/.qgis2/repoUrl.txt</span></code>
+file. If the file exists, the plugin will read the repository URL/path from it
+and use this as a location for the plugins repository. Otherwise, if the file
+is not found, the standard Boundless QGIS Plugins Repository URL will be used.
+After this, the file will be deleted.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">Creating a new file after the first launch of <em>Boundless Connect QGIS Plugin</em> will have no effect whatsoever. The plugin will ignore the new file and will continue to use the already saved repository location.</p>
+<p class="last">Creating a new file after the first launch of <em>Boundless Connect QGIS Plugin</em> will have no
+effect whatsoever. The plugin will ignore the new file and will continue to
+use the already saved repository location.</p>
 </div>
-<p>The <tt class="docutils literal"><span class="pre">$HOME/.qgis2/repoUrl.txt</span></tt> file is an INI-like text file with single <tt class="docutils literal"><span class="pre">general</span></tt> section and only one key-value pair, for example:</p>
+<p>The <code class="docutils literal"><span class="pre">$HOME/.qgis2/repoUrl.txt</span></code> file is an INI-like text file with single
+<code class="docutils literal"><span class="pre">general</span></code> section and only one key-value pair, for example:</p>
 <div class="highlight-python"><div class="highlight"><pre>[general]
 repoUrl=https://qgis.boundlessgeo.com/plugins/plugins.xml
 </pre></div>
 </div>
-<p>The value of the <tt class="docutils literal"><span class="pre">repoUrl</span></tt> key with repository location can be:</p>
+<p>The value of the <code class="docutils literal"><span class="pre">repoUrl</span></code> key with repository location can be:</p>
 <ul class="simple">
-<li>A <strong>Repository URL</strong>. The plugin will add this URL to the list of available plugins repositories and QGIS <em>Plugin Manager</em> can be used to access it. This is the default.</li>
-<li>An <strong>absolute path to the plugins directory</strong>. In this case, the directory should contain plugins packages as well as repository description file <tt class="docutils literal"><span class="pre">plugins.xml</span></tt>. With this option, nothing is added to the QGIS settings, as QGIS <em>Plugin Manager</em> can not handle directories yet.</li>
+<li>A <strong>repository URL</strong>. The plugin will add this URL to the list of available
+plugins repositories and QGIS <em>Plugin Manager</em> can be used to access it.
+This is the default.</li>
+<li>An <strong>absolute path to the plugins directory</strong>. In this case, the directory
+should contain plugins packages as well as repository description file
+<code class="docutils literal"><span class="pre">plugins.xml</span></code>. With this option, nothing is added to the QGIS settings,
+as QGIS <em>Plugin Manager</em> can not handle directories yet.</li>
 </ul>
 </div>
 <div class="section" id="installing-additional-plugins-by-default">
 <span id="add-additional-plugins"></span><h2>Installing additional plugins by default<a class="headerlink" href="#installing-additional-plugins-by-default" title="Permalink to this headline">¶</a></h2>
-<p>If the system administrator wants to automatically install a bundle of additional plugins during the post-installation step, he can create a directory <tt class="docutils literal"><span class="pre">$HOME/.qgis2/first-run-plugins</span></tt> under the user folder and put all the desired plugins ZIP packages in it.</p>
-<p>The <em>First Run wizard</em> tool from <em>Boundless Connect QGIS Plugin</em> will check if the directory exists and will install all the ZIP packages from it. Notice that the packages will be removed after the installation.</p>
+<p>If the system administrator wants to automatically install a bundle of
+additional plugins during the post-installation step, he can create a directory
+<code class="docutils literal"><span class="pre">$HOME/.qgis2/first-run-plugins</span></code> under the user folder and put all the
+desired plugins ZIP packages in it.</p>
+<p>The <em>Boundless Connect Wizard</em> tool from <em>Boundless Connect QGIS Plugin</em> will check if the
+directory exists and will install all the ZIP packages from it. Notice that the
+packages will be removed after the installation.</p>
 </div>
 <div class="section" id="setting-up-repository-in-docker-container">
 <h2>Setting up repository in Docker container<a class="headerlink" href="#setting-up-repository-in-docker-container" title="Permalink to this headline">¶</a></h2>
@@ -104,7 +124,7 @@ repository.</p>
 cd qgis-plugin-repos/docker-plugins-xml
 </pre></div>
 </div>
-<p>Edit <cite>docker-compose.env</cite> file specifying your own user name and passford for
+<p>Edit <cite>docker-compose.env</cite> file specifying your own user name and password for
 SSH service and plugin repository domain. Then source this file using command</p>
 <div class="highlight-python"><div class="highlight"><pre>source docker-compose.env
 </pre></div>
