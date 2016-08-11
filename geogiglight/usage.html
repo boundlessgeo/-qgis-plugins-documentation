@@ -7,7 +7,7 @@
 <head>
   <meta charset="UTF-8">
   
-  <title>Boundless : QGIS GeoGig Plugin : Starting the GeoGig server</title>
+  <title>Boundless : QGIS GeoGig Plugin : Usage</title>
 
   <link rel="profile" href="http://gmpg.org/xfn/11">
   <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
@@ -63,12 +63,14 @@
   <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
   <a href="index.html">QGIS GeoGig Plugin</a>
   
-     &raquo; <a href="">Starting the GeoGig server</a>
+     &raquo; <a href="">Usage</a>
 </div>
 
   <div id="rightbar_main">
       
-  <p>The GeoGig QGIS plugin allow you to manage/view GeoGig (<a class="reference external" href="http://geogig.org/">http://geogig.org/</a>) repositories and layers as well as editing GeoGig layers using QGIS editing capabilities.</p>
+  <div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<p>The GeoGig QGIS plugin allow you to manage/view GeoGig (<a class="reference external" href="http://geogig.org/">http://geogig.org/</a>) repositories and layers as well as editing GeoGig layers using QGIS editing capabilities.</p>
 <p>This document describes a typical workflow with the GeoGig plugin, going through its main features.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
@@ -76,7 +78,7 @@
 <a class="reference external" href="http://ares.boundlessgeo.com/geogig/dev/geogig-dev-latest.zip">http://ares.boundlessgeo.com/geogig/dev/geogig-dev-latest.zip</a></p>
 </div>
 <div class="section" id="starting-the-geogig-server">
-<h1>Starting the GeoGig server<a class="headerlink" href="#starting-the-geogig-server" title="Permalink to this headline">¶</a></h1>
+<h2>Starting the GeoGig server<a class="headerlink" href="#starting-the-geogig-server" title="Permalink to this headline">¶</a></h2>
 <p>The GeoGig plugin connects to GeoGig using its WebAPI (<a class="reference external" href="http://geogig.org/docs/interaction/geoserver_web-api.html">http://geogig.org/docs/interaction/geoserver_web-api.html</a>).</p>
 <p>On <strong>Linux</strong> you can start GeoGig server by running</p>
 <div class="highlight-python"><div class="highlight"><pre>geogig serve -m
@@ -113,7 +115,7 @@
 </div>
 </div>
 <div class="section" id="connecting-to-a-repository-server">
-<h1>Connecting to a repository server<a class="headerlink" href="#connecting-to-a-repository-server" title="Permalink to this headline">¶</a></h1>
+<h2>Connecting to a repository server<a class="headerlink" href="#connecting-to-a-repository-server" title="Permalink to this headline">¶</a></h2>
 <p>The first step to work with the GeoGig plugin is to connect to a GeoGig WebAPI endpoint, which serves one or multiple repositories.</p>
 <p>Open the GeoGig navigator by selecting the <em>GeoGig/GeoGig Navigator</em> menu.</p>
 <img alt="_images/navigator.png" class="align-center" src="_images/navigator.png" />
@@ -128,26 +130,26 @@
 <p>To remove a GeoGig server from the list of available connections, select it in the repositories tree and click on the delete button in the navigator toolbar.</p>
 </div>
 <div class="section" id="creating-and-deleting-repositories">
-<h1>Creating and deleting repositories<a class="headerlink" href="#creating-and-deleting-repositories" title="Permalink to this headline">¶</a></h1>
+<h2>Creating and deleting repositories<a class="headerlink" href="#creating-and-deleting-repositories" title="Permalink to this headline">¶</a></h2>
 <p>New repositories can be added to a GeoGig server. To do it, select the server in the list of available ones in the navigator, and then click on the <em>Create new repository</em> icon.</p>
 <p>You will be prompted to enter the name of the repository. A repository with that name will be created in the GeoGig server and added to the navigator tree.</p>
 <p>To delete a repository (<strong>all its data will be removed from the server</strong>), select it and clik on the delete button in the navigator toolbar.</p>
 </div>
 <div class="section" id="adding-layers-from-a-repository-to-the-current-qgis-project">
-<h1>Adding layers from a repository to the current QGIS project<a class="headerlink" href="#adding-layers-from-a-repository-to-the-current-qgis-project" title="Permalink to this headline">¶</a></h1>
+<h2>Adding layers from a repository to the current QGIS project<a class="headerlink" href="#adding-layers-from-a-repository-to-the-current-qgis-project" title="Permalink to this headline">¶</a></h2>
 <p>To add a layer from a repository to the current project, select the repository in the navigator and go to the <em>Repository summary</em> tab in the lower part of the navigator.</p>
 <p>There you will find the list of layers in the repository, and for each one an <em>Add to QGIS</em> link. Use these links to add the layers to your project.</p>
 <p>If it is the first time you add that layer, it will be downloaded before opening it in QGIS. The most recent version of the layer in the master branch of the repository will be used.</p>
 <p>If the layer had been previously downloaded, but it is not currently loaded into your QGIS project, the downloaded file will be loaded.</p>
 </div>
 <div class="section" id="recovering-a-given-version-of-a-layer">
-<h1>Recovering a given version of a layer<a class="headerlink" href="#recovering-a-given-version-of-a-layer" title="Permalink to this headline">¶</a></h1>
+<h2>Recovering a given version of a layer<a class="headerlink" href="#recovering-a-given-version-of-a-layer" title="Permalink to this headline">¶</a></h2>
 <p>If you have a Geogig layer in your project, you can update its content to any existing version of that layer that is contained in the corresponding repository.</p>
 <p>To do so, select the <em>GeoGig/Change to a different version...</em> menu entry in the context menu of the layer. It will open the reference selector, and you will be able to select the version you want to update to.</p>
 <p>If you have local changes that haven&#8217;t been added to the repository yet, you will have to sync the layer or discard those changes, before being able to update it to a different version.</p>
 </div>
 <div class="section" id="adding-a-layer-to-a-repository">
-<h1>Adding a layer to a repository<a class="headerlink" href="#adding-a-layer-to-a-repository" title="Permalink to this headline">¶</a></h1>
+<h2>Adding a layer to a repository<a class="headerlink" href="#adding-a-layer-to-a-repository" title="Permalink to this headline">¶</a></h2>
 <p>To add a layer to a repository, select the repository in the repositories list and then click on the <em>Add layer to repository</em> button. You will see the following dialog.</p>
 <img alt="_images/addlayer.png" class="align-center" src="_images/addlayer.png" />
 <p>The dropdown list shows all the layers that you have loaded in your current QGIS project and can be added to the repository.</p>
@@ -169,7 +171,7 @@
 </div>
 </div>
 <div class="section" id="editing-a-geogig-layer-and-creating-a-new-version-in-the-repository">
-<h1>Editing a GeoGig layer and creating a new version in the repository<a class="headerlink" href="#editing-a-geogig-layer-and-creating-a-new-version-in-the-repository" title="Permalink to this headline">¶</a></h1>
+<h2>Editing a GeoGig layer and creating a new version in the repository<a class="headerlink" href="#editing-a-geogig-layer-and-creating-a-new-version-in-the-repository" title="Permalink to this headline">¶</a></h2>
 <p>To edit a GeoGig layer, just edit it normally, using the QGIS edit functionality. Once you are done editing, you can transfer your changes to the repository by selecting the <em>Syncronize with repository branch...</em> in the layer context menu. You will see the following dialog.</p>
 <img alt="_images/syncdialog.png" class="align-center" src="_images/syncdialog.png" />
 <p>You must enter a message to describe the new version to create (a message describing the changes that are going to be applied to the layer).</p>
@@ -183,7 +185,7 @@
 </div>
 </div>
 <div class="section" id="conflicts">
-<h1>Conflicts<a class="headerlink" href="#conflicts" title="Permalink to this headline">¶</a></h1>
+<h2>Conflicts<a class="headerlink" href="#conflicts" title="Permalink to this headline">¶</a></h2>
 <p>When you synchronize your local layer (uploading your local changes and fetching new remote ones), it might happen that the features that you have modified have also been modified in the repository by someone else. This causes a conflicting situation that has to be manually solved. For each feature in a conflicted situation (a feature that has been modified differently in your local layer and in the repository), you will have to decide which version of it you want to keep.</p>
 <p>When a sync operation results in conflicts, you will see a message like this one:</p>
 <img alt="_images/conflictsmessage.png" class="align-center" src="_images/conflictsmessage.png" />
@@ -208,15 +210,15 @@
 <p>Repeat the above steps for each conflicted feature before closing the dialog. After closing the conflicts window, and only if all conflicts were solved, the new version corresponding to the sync operation will be created and added to the history panel.</p>
 </div>
 <div class="section" id="creating-a-new-branch">
-<h1>Creating a new branch<a class="headerlink" href="#creating-a-new-branch" title="Permalink to this headline">¶</a></h1>
+<h2>Creating a new branch<a class="headerlink" href="#creating-a-new-branch" title="Permalink to this headline">¶</a></h2>
 <p>To create a new branch, you must select the version in the current history of the repository where the branch starts. In the history panel, expand the branch where that version is located, select the corresponding version and right&#8211;click on it. Select the <em>Create new branch at this version</em> option and you will be prompted to enter the name of the new branch. Enter the name of the branch and click on <em>OK</em>. The new branch will be created and added to the list of branches in the history panel.</p>
 </div>
 <div class="section" id="deleting-a-branch">
-<h1>Deleting a branch<a class="headerlink" href="#deleting-a-branch" title="Permalink to this headline">¶</a></h1>
+<h2>Deleting a branch<a class="headerlink" href="#deleting-a-branch" title="Permalink to this headline">¶</a></h2>
 <p>To delete a branch, right&#8211;click on it and select the <em>Delete this branch</em> option. The branch will be deleted.</p>
 </div>
 <div class="section" id="visualizing-changes-using-the-comparison-viewer">
-<h1>Visualizing changes using the comparison viewer<a class="headerlink" href="#visualizing-changes-using-the-comparison-viewer" title="Permalink to this headline">¶</a></h1>
+<h2>Visualizing changes using the comparison viewer<a class="headerlink" href="#visualizing-changes-using-the-comparison-viewer" title="Permalink to this headline">¶</a></h2>
 <p>To visualize the changes introduced by a given version (that is, the difference between that version and previous one in the history) in the comparison viewer, right-click on it and select the <em>Show changes introduced by this version</em> menu. This will open the comparison viewer.</p>
 <img alt="_images/comparisonviewer.png" class="align-center" src="_images/comparisonviewer.png" />
 <p>The compared versions are listed in the <em>Versions to Compare</em> section at the top of the dialog. When the dialog is opened, it compares the selected version with its parent. You can change any of the versions to be compared by clicking the button next to each text box, which will open the version selector dialog:</p>
@@ -230,17 +232,18 @@
 <img alt="_images/geometrychangesdialog.png" class="align-center" src="_images/geometrychangesdialog.png" />
 </div>
 <div class="section" id="removing-a-layer-from-a-repository">
-<h1>Removing a layer from a repository<a class="headerlink" href="#removing-a-layer-from-a-repository" title="Permalink to this headline">¶</a></h1>
+<h2>Removing a layer from a repository<a class="headerlink" href="#removing-a-layer-from-a-repository" title="Permalink to this headline">¶</a></h2>
 <p>If you no longer want to have a layer in your repository, you can remove it by right-clicking on it in the QGIS legend and selecting <em>Remove this layer from repository</em> in the <em>GeoGig</em> submenu.</p>
 <p>A new version will be added to the repository, which removes the selected layer.</p>
 <p>The layer will not be unloaded from QGIS and will still be part of you QGIS project, but it will not be tracked anymore. The layer file and the repository are now independent and not linked.</p>
 </div>
 <div class="section" id="tags">
-<h1>Tags<a class="headerlink" href="#tags" title="Permalink to this headline">¶</a></h1>
+<h2>Tags<a class="headerlink" href="#tags" title="Permalink to this headline">¶</a></h2>
 <p>You can add tags to any version in the repository history. To add a tag, select the version that you want to tag in the repository viewer, right-click on it and select <em>Create new tag at this version...</em>.You will be prompted to enter the name of the tag to create.</p>
 <p>When a version has a tag, it will be shown in the history tree</p>
 <img alt="_images/tagintree.png" class="align-center" src="_images/tagintree.png" />
 <p>To remove a tag from a version, right-click on the version item and select <em>Delete tags from this version</em>.</p>
+</div>
 </div>
 
 
@@ -261,7 +264,8 @@
       <div id="toc" class="section">
         <h4 class="pngfix">Table Of Contents</h4>
         <ul>
-<li><a class="reference internal" href="#">Starting the GeoGig server</a></li>
+<li><a class="reference internal" href="#">Usage</a><ul>
+<li><a class="reference internal" href="#starting-the-geogig-server">Starting the GeoGig server</a></li>
 <li><a class="reference internal" href="#connecting-to-a-repository-server">Connecting to a repository server</a></li>
 <li><a class="reference internal" href="#creating-and-deleting-repositories">Creating and deleting repositories</a></li>
 <li><a class="reference internal" href="#adding-layers-from-a-repository-to-the-current-qgis-project">Adding layers from a repository to the current QGIS project</a></li>
@@ -274,6 +278,8 @@
 <li><a class="reference internal" href="#visualizing-changes-using-the-comparison-viewer">Visualizing changes using the comparison viewer</a></li>
 <li><a class="reference internal" href="#removing-a-layer-from-a-repository">Removing a layer from a repository</a></li>
 <li><a class="reference internal" href="#tags">Tags</a></li>
+</ul>
+</li>
 </ul>
 
         <div class="section-footer"></div>
