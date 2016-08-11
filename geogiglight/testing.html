@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Manual and automatic tests of GeoGig QGIS Plugin &mdash; QGIS GeoGig Plugin 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="QGIS GeoGig Plugin 1.0 documentation" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">QGIS GeoGig Plugin 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="manual-and-automatic-tests-of-geogig-qgis-plugin">
+<h1>Manual and automatic tests of GeoGig QGIS Plugin<a class="headerlink" href="#manual-and-automatic-tests-of-geogig-qgis-plugin" title="Permalink to this headline">¶</a></h1>
+<p>The GeoGig QGIS plugin includes a set of manual and automatic tests to be run using the &#8220;Tester&#8221; QGIS plugin (<a class="reference external" href="https://github.com/boundlessgeo/qgis-tester-plugin">https://github.com/boundlessgeo/qgis-tester-plugin</a>).</p>
+<p>In order for the manual tests work you must ensure that:</p>
+<ul class="simple">
+<li>you have a working instance of GeoGig Server (ie: <a class="reference external" href="http://localhost:8182/">http://localhost:8182/</a>)</li>
+<li>you have created a</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre>~/geogig/server
+</pre></div>
+</div>
+<p>folder in order to allow the Tester plugin create the necessary temporary GeoGig repositories.</p>
+<p>This parameters can be eventually manually modified by editing the</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">geogig</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">__init__</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>file of the GeoGig QGIS Plugin, and specifically the lines</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">REPOS_SERVER_URL</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8182/&quot;</span>
+<span class="n">REPOS_FOLDER</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~/geogig/server&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>must be eventually changed to reflect your personal setup.</p>
+<p>Don&#8217;t forget to run GeoGig Server by specifying the repositories folder to be published, ie on Linux:</p>
+<div class="highlight-python"><div class="highlight"><pre>geogig serve -m ~/geogig/server
+</pre></div>
+</div>
+<p>or on Windows</p>
+<div class="highlight-python"><div class="highlight"><pre>geogig.bat serve -m c:\Users\yourusername\geogig\server
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/testing.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">QGIS GeoGig Plugin 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Victor Olaya.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+    </div>
+  </body>
+</html>
