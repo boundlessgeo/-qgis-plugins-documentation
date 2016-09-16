@@ -7,15 +7,14 @@
 <head>
   <meta charset="UTF-8">
   
-  <title>Boundless : QGIS what3words Plugin : Installation</title>
+  <title>Boundless : MIL-STD-2525 QGIS Plugin : Usage</title>
 
   <link rel="profile" href="http://gmpg.org/xfn/11">
   <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
   <link rel="stylesheet" href="_static/extra.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="top" title="QGIS what3words Plugin 1.0 documentation" href="index.html" />
-      <link rel="next" title="Configuration" href="configuration.html" />
-      <link rel="prev" title="What3words QGIS Plugin Documentation" href="index.html" />
+      <link rel="top" title="MIL-STD-2525 QGIS Plugin 1.0 documentation" href="index.html" />
+      <link rel="prev" title="Installation" href="installation.html" />
 <style>
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
@@ -55,61 +54,62 @@
 				</div>
 			</div><!--closes container-->
 
-		</header><div id="pageheading"><div class="contents"><h1>QGIS what3words Plugin</h1></div></div>
+		</header><div id="pageheading"><div class="contents"><h1>MIL-STD-2525 QGIS Plugin</h1></div></div>
 
   <div id="content" class="contents">
 <div id="breadcrumbs">
   <a href="http://boundlessgeo.com/">Home</a> &raquo;
   <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
-  <a href="index.html">QGIS what3words Plugin</a>
+  <a href="index.html">MIL-STD-2525 QGIS Plugin</a>
   
-     &raquo; <a href="">Installation</a>
+     &raquo; <a href="">Usage</a>
 </div>
 
   <div id="rightbar_main">
       
-  <div class="section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>The easiest way to install <em>What3words Plugin</em> is to use the <strong>Boundless Connect Plugin</strong>, a QGIS plugin that will provide you direct access to Boundless plugins and other content.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you are using <em>Boundless Desktop</em>, the <em>Boundless Connect plugin</em> should be installed by default in its QGIS. Otherwise, if you are using QGIS from one of the community&#8217;s installers, you can install the <em>Boundless Connect plugin</em> by setting up the <a class="reference external" href="http://qgis.boundlessgeo.com">Boundless QGIS Plugin Repository</a> in the QGIS plugin manager.</p>
+  <div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<p>The <em>MIL-STD-2525 plugin</em> adds support for MIL-STD-2525 - a standard for joint military symbology - in QGIS.</p>
+<p>̣This plugin adds two new capabilities to QGIS:</p>
+<ul class="simple">
+<li>A custom renderer for styling vector layers with SIDC codes in one of its attributes.</li>
+<li>Custom field edit widget for entering SIDC codes.</li>
+</ul>
+<div class="section" id="custom-renderer">
+<h2>Custom Renderer<a class="headerlink" href="#custom-renderer" title="Permalink to this headline">¶</a></h2>
+<p>The custom renderer will allow styling vector point layers using SIDC codes from one of the layer&#8217;s attributes.</p>
+<p>In the <span class="guilabel">Style</span> tab of the <span class="guilabel">Layer Properties</span> dialog, you will find a new renderer named <em>MIL-STD-2525</em>.</p>
+<div class="figure">
+<img alt="_images/rendererEntry.png" src="_images/rendererEntry.png" />
 </div>
-<div class="section" id="install-from-repository">
-<h2>Install from repository<a class="headerlink" href="#install-from-repository" title="Permalink to this headline">¶</a></h2>
-<p>If your organization works either with a remote or local directory-based repository, you can use the <em>First Run Wizard</em> tool. Go to the <span class="menuselection">Plugins ‣ Boundless Connect</span> menu and choose <span class="guilabel">First Run Wizard</span>. A Welcome dialog will open, click on the <span class="guilabel">Next</span> button.</p>
-<div class="figure" id="id1">
-<img alt="_images/connect_welcome.png" src="_images/connect_welcome.png" />
-<p class="caption"><span class="caption-text">First Run Wizard welcome dialog</span></p>
+<p>The renderer has two configuration parameters:</p>
+<ul class="simple">
+<li><span class="guilabel">SIDC code field</span>, to set the layer&#8217;s attribute with the SIDCs (Symbol identification code) to build the markers for each point feature. The field must be of the type String, with at least 20 characters.</li>
+<li><span class="guilabel">Symbol size</span>, to set rendering size of the markers, in pixels.</li>
+</ul>
+<div class="figure">
+<img alt="_images/symbologyDialog.png" src="_images/symbologyDialog.png" />
 </div>
-<p>If your organization works with a remote Boundless Plugins Repository, the wizard will ask you to enter credentials used to access the repository in the Boundless Credentials dialog, as shown below.</p>
-<div class="figure" id="id2">
-<img alt="_images/connect_autentication.png" src="_images/connect_autentication.png" />
-<p class="caption"><span class="caption-text">Wizard credentials dialog</span></p>
+<p>Once the renderer is active, the layer&#8217;s point features are rendered as markers using the codes from the selected attribute.</p>
+<div class="figure">
+<img alt="_images/renderedLayer.png" src="_images/renderedLayer.png" />
 </div>
-<p>If instead, Boundless Connect plugin was configured to use a local directory-based repository, this step will be skipped. Otherwise, if your organization does not have Boundless authentication credentials, for the <em>What3words Plugin</em>, this step can also be skipped.</p>
-<p>In the Plugin Installation dialog, select the last option <span class="guilabel">Open Plugin Manager (Boundless Plugins only)</span> and click the <span class="guilabel">finish</span> button, as shown in the following figure.</p>
-<div class="figure" id="id3">
-<img alt="_images/connect_options.png" src="_images/connect_options.png" />
-<p class="caption"><span class="caption-text">Wizard Plugin Installation dialog</span></p>
+<p>Features with a NULL or invalid SIDC code in the selected field, a default marker with a question mark is shown.</p>
 </div>
-<p>From the list of uninstalled plugins, choose <em>What3words Plugin</em>, and click on the <span class="guilabel">Install Plugin</span> button, as shown below.</p>
-<div class="figure" id="id4">
-<img alt="_images/w3w_install.png" src="_images/w3w_install.png" />
-<p class="caption"><span class="caption-text">QGIS plugin manager showing Boundless not installed plugins</span></p>
+<div class="section" id="custom-edit-widget">
+<h2>Custom edit widget<a class="headerlink" href="#custom-edit-widget" title="Permalink to this headline">¶</a></h2>
+<p>The custom field edit widget helps to enter SIDC codes in the feature form and attribute table, with a marker preview.</p>
+<p>To set the edit widget to a layer&#8217;s field, open the <span class="guilabel">Layer Properties</span> dialog of the layer, and go to the <span class="guilabel">Fields</span> tab. In the <span class="guilabel">Fields</span> group, for the field that you want to use to store SIDC codes, click on the button in the <span class="guilabel">Edit widget</span> column. The <span class="guilabel">Edit Widget Properties</span> dialog will open. Select the <span class="guilabel">SIDC code editor</span> option from the list of widgets and click <span class="guilabel">OK</span>. Finally, close the <span class="guilabel">Layer Properties</span> dialog by clicking <span class="guilabel">OK</span>.</p>
+<div class="figure">
+<img alt="_images/set_custom_widget.png" src="_images/set_custom_widget.png" />
 </div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If the <em>What3words Plugin</em> is not visible in the <em>Not Installed</em> list, maybe it was installed already. Check the <em>Installed</em> list and make sure the plugin is activated by selecting the respective checkbox.</p>
+<p>Now, if you open the attributes table of the layer and set the layer to edit mode, the SIDC field will have a text box to enter the code and a button.</p>
+<div class="figure">
+<img alt="_images/customWidget.png" src="_images/customWidget.png" />
 </div>
-</div>
-<div class="section" id="install-from-a-zip-package">
-<h2>Install from a ZIP package<a class="headerlink" href="#install-from-a-zip-package" title="Permalink to this headline">¶</a></h2>
-<p>If you have previously downloaded the plugin ZIP package from the <a class="reference external" href="http://qgis.boundlessgeo.com">Boundless QGIS Plugin Repository</a> page, you can easily install it using the <em>Install plugin from ZIP</em> tool.</p>
-<p>Go to <span class="menuselection">Plugins ‣ Boundless Connect</span> and click <span class="guilabel">Install plugin from ZIP</span>. Then, simply browse to the ZIP file location, select the file and open it. If  everything went well, you should see a message &#8220;Your plugin was successfuly installed&#8221; on the top of the map canvas.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">You can download Boundless QGIS plugins ZIP packages from the <em>Browse the Repository</em> section in the <a class="reference external" href="http://qgis.boundlessgeo.com">Boundless QGIS Plugin Repository</a> page.</p>
+<p>Clicking on the button will show the preview dialog, that you can use to enter a code and preview the corresponding marker.</p>
+<div class="figure">
+<img alt="_images/markerPreview.png" src="_images/markerPreview.png" />
 </div>
 </div>
 </div>
@@ -117,12 +117,11 @@
 
       <!-- Next/Prev -->
       <div class="selfclear pagination-nav">
-          <div class="left"><strong>Previous</strong>: <a href="index.html" title="previous chapter">What3words QGIS Plugin Documentation</a></div>
-          <div class="right"><strong>Next</strong>: <a href="configuration.html" title="next chapter">Configuration</a></div>
+          <div class="left"><strong>Previous</strong>: <a href="installation.html" title="previous chapter">Installation</a></div>
       </div>
 
   <!--
-    &copy; Copyright 2016, Victor Olaya
+    &copy; Copyright 2016, Boundless Spatial
   -->
 
   </div> <!-- rightbar_main -->
@@ -132,9 +131,9 @@
       <div id="toc" class="section">
         <h4 class="pngfix">Table Of Contents</h4>
         <ul>
-<li><a class="reference internal" href="#">Installation</a><ul>
-<li><a class="reference internal" href="#install-from-repository">Install from repository</a></li>
-<li><a class="reference internal" href="#install-from-a-zip-package">Install from a ZIP package</a></li>
+<li><a class="reference internal" href="#">Usage</a><ul>
+<li><a class="reference internal" href="#custom-renderer">Custom Renderer</a></li>
+<li><a class="reference internal" href="#custom-edit-widget">Custom edit widget</a></li>
 </ul>
 </li>
 </ul>
@@ -143,14 +142,13 @@
       </div>
         <div class="section">
           <h3>Continue Reading</h3>
-          <p style="margin-top:1em"><b>Previous:</b> <a href="index.html" title="previous chapter">What3words QGIS Plugin Documentation</a></p>
-          <p><b>Next:</b> <a href="configuration.html" title="next chapter">Configuration</a></p>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="installation.html" title="previous chapter">Installation</a></p>
           </ul>
         </div>
         <div class="section">
         <h4>This Page</h4>
         <ul class="this-page-menu">
-          <li><a href="_sources/installation.txt">Show Source</a></li>
+          <li><a href="_sources/usage.txt">Show Source</a></li>
         </ul>
         </div>
 
@@ -166,10 +164,7 @@
     <a href="genindex.html" title="General Index"
        accesskey="I">index</a></li>
   <li>
-    <a href="configuration.html" title="Configuration"
-       accesskey="N">next</a>|</li>
-  <li>
-    <a href="index.html" title="What3words QGIS Plugin Documentation"
+    <a href="installation.html" title="Installation"
        accesskey="P">previous</a>|</li>
 </ul> -->
   </div> <!-- rightbar_bar -->
@@ -248,7 +243,7 @@
 					<div class="menu-footer-menu-container">
 						<ul id="menu-footer-menu" class="menu">
 							<li>
-    <a href="http://boundlessgeo.com/">&copy; Copyright 2016, Victor Olaya</a>
+    <a href="http://boundlessgeo.com/">&copy; Copyright 2016, Boundless Spatial</a>
 							</li>
 							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
 						</ul>
