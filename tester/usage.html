@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Usage &mdash; QGIS Tester Plugin 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="QGIS Tester Plugin 1.0 documentation" href="index.html" />
+    <link rel="next" title="Writing tests" href="writing_tests.html" />
+    <link rel="prev" title="Welcome to QGIS Tester Plugin’s documentation!" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="writing_tests.html" title="Writing tests"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to QGIS Tester Plugin’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">QGIS Tester Plugin 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<p>This document explains how to execute tests using the tester plugin.</p>
+<div class="section" id="running-tests">
+<h2>Running tests<a class="headerlink" href="#running-tests" title="Permalink to this headline">¶</a></h2>
+<p>To start a test cycle, select the &#8220;Plugins/Tester/Start testing&#8221; menu</p>
+<p>A window will be shown with the available tests grouped in categories.</p>
+<img alt="_images/testselector.png" class="align-center" src="_images/testselector.png" />
+<p>The list of available tests depend on the active plugins. The tester plugin itself contains no tests. Tests are added by plugins when they are loaded.</p>
+<p>If a plugin is active but its tests are not available in the tester plugin, it might be because the plugin was activated before the tester plugin was loaded. Try disabling and enabling the plugin to add its tests again, and then reopen the tester plugin test selector.</p>
+<p>Select the tests that you want to be executed and then click on <em>Run selected tests</em></p>
+<p>In the upper part of the QGIS window you will see the testing panel.</p>
+<img alt="_images/testpanel_upload_dragdrop.png" class="align-center" src="_images/testpanel_upload_dragdrop.png" />
+<p>It has a single panel with a description of the current step in the current test. If the step is automated (that is, if no user interaction is expected during this step), the panel is disabled. Otherwise, the panel will show a description of the task that the test expects you to perform.</p>
+<p>All tests selected in the test selection dialog will be run sequentially. Tests can be of two types: automated and semi-automated. Each of them is described in the next sections, with indications about how to run the test in each case.</p>
+<div class="section" id="automated-tests">
+<h3>Automated tests<a class="headerlink" href="#automated-tests" title="Permalink to this headline">¶</a></h3>
+<p>Automated tests have no user interaction. The tester plugin will take care of running the test and checking that the conditions defined to pass the test are met.</p>
+</div>
+<div class="section" id="semi-automated-tests">
+<h3>Semi-automated tests<a class="headerlink" href="#semi-automated-tests" title="Permalink to this headline">¶</a></h3>
+<p>Semi-automated test contain steps that do not require user interaction (such as data preparation), along with others that require the user to perform a given task or checking that the result of a previous step is correct.</p>
+<p>Here are a couple examples of suchs test, to help understand how the user should interact with the plugin in these cases.</p>
+<p><strong>Example 1</strong>: A test to check correct uploading of styles to a GeoServer catalog. It has the following steps:</p>
+<ul class="simple">
+<li>Open a QGIS project and upload on of its layers (including its style) to a test GeoServer catalog.</li>
+<li>Create a WMS layer that connects to the layer uploaded to GeoServer on the previous step.</li>
+<li>Verify that the rendering of the WMS layer matches that of the original vector layer</li>
+</ul>
+<p>The two first steps are automated, so the user doesnt have to do anything. At the end of those steps, the project will have a vector layer with a symbology stored in the project, and a WMS layer with a symbology that is used client side.</p>
+<p>The third step is manual, and the test panel will show something like this.</p>
+<img alt="_images/testpanel_verify_rendering.png" class="align-center" src="_images/testpanel_verify_rendering.png" />
+<p>It tells the user to verify that symbology is correctly uploaded and used. Based on that, the user should indicate whether the test passes or not. Once the user clicks on any of the buttons to indicate that, the test is finished and the plugin will move to the neext test.</p>
+<p><strong>Example 2</strong>: A test to verify that a layer is correctly imported into GeServer by dragging and dropping. It has the following steps</p>
+<ul class="simple">
+<li>Create a GeoServer catalog and set it up in the GeoServer explorer. Open the GeoServer explorer.</li>
+<li>Drag a layer file from the QGIS browser into the item corresponding to that catalog in the GeoServer explorer</li>
+<li>Verify that a layer has been created in the GeoServer catalog</li>
+</ul>
+<p>In this case, the first step is automated. It leaves QGIS and GeoServer ready for the next step, which has to be performed by the user.</p>
+<p>The test panel will look like this.</p>
+<img alt="_images/testpanel_upload_dragdrop.png" class="align-center" src="_images/testpanel_upload_dragdrop.png" />
+<p>This is not the final step, so the &#8220;Test passes&#8221; and &#8220;Test fails&#8221; buttons are disabled. Instead, a &#8220;Next step&#8221; button is enabled. The user should click on it once he has performed the task indicated in the panel (that is, once the layer file has been dragged into the GeoServer explorer)</p>
+<p>The last step is automated. The plugin will decide if the test passes or not, by checking the layers in the catalog. The user interaction is not needed for that. Once checked, the plugin will move to the next test.</p>
+<p>Some tests might contain intermedate manual steps where something is to be verified by the user. In this case, the &#8220;Test passes&#8221; and &#8220;Test fails&#8221; button will be renamed to &#8220;Step passes&#8221; and &#8220;Step fails&#8221; and will be enabled. The &#8220;Next step&#8221; button will be disabled.</p>
+</div>
+</div>
+<div class="section" id="test-report">
+<h2>Test report<a class="headerlink" href="#test-report" title="Permalink to this headline">¶</a></h2>
+<p>Once all tests have been run (or skipped), the test panel is hidden and a test results dialog is shown.</p>
+<img alt="_images/testresults.png" class="align-center" src="_images/testresults.png" />
+<p>For those tests that have not passed correctly (displayed in red), you can click on their names and a detailed error trace will be shown in the lower panel</p>
+<img alt="_images/testresulttrace.png" class="align-center" src="_images/testresulttrace.png" />
+<p>Right-clicking on the test name in the list will open a context menu with a single menu entry: &#8220;Open issue page&#8221;. Select it to open the corresponding issue page for the test, in case it has be defined. If no issue page has been defined for that test, the context menu will not be shown.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Usage</a><ul>
+<li><a class="reference internal" href="#running-tests">Running tests</a><ul>
+<li><a class="reference internal" href="#automated-tests">Automated tests</a></li>
+<li><a class="reference internal" href="#semi-automated-tests">Semi-automated tests</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#test-report">Test report</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to QGIS Tester Plugin&#8217;s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="writing_tests.html"
+                        title="next chapter">Writing tests</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/usage.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="writing_tests.html" title="Writing tests"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to QGIS Tester Plugin’s documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">QGIS Tester Plugin 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Victor Olaya.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+    </div>
+  </body>
+</html>
