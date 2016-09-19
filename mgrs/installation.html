@@ -70,34 +70,33 @@
       
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>The easiest way to install <em>MGRS Tools Plugin</em> is to use the <strong>Boundless Connect Plugin</strong>, a QGIS plugin that will provide you direct access to Boundless plugins and other content.</p>
+<p>The easiest way to install the <em>MGRS Tools Plugin</em> is to use the <strong>Boundless Connect plugin</strong>, a QGIS plugin that will provide you access to Boundless&#8217;s plugins and other content.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If you are using <em>Bouldless Desktop</em>, the <em>Boundless Connect plugin</em> should be installed by default in its QGIS. Otherwise, if you are using QGIS from one of the community&#8217;s installers, you can install the <em>Boundless Connect plugin</em> by setting up the <a class="reference external" href="http://qgis.boundlessgeo.com">Boundless QGIS Plugin Repository</a> in the QGIS plugin manager.</p>
+<p class="last">If you are using <em>Bouldless Desktop</em>, the <em>Boundless Connect plugin</em> should be installed by default in its QGIS. Otherwise, if you are using QGIS from one of the community&#8217;s installers, you can install the <em>Boundless Connect plugin</em> by setting up the <a class="reference external" href="http://qgis.boundlessgeo.com">Boundless QGIS Plugin Repository</a> in QGIS&#8217;s plugin manager.</p>
 </div>
 <div class="section" id="install-from-repository">
 <h2>Install from repository<a class="headerlink" href="#install-from-repository" title="Permalink to this headline">¶</a></h2>
-<p>If your organization works either with a remote or local directory-based repository, you can use the <em>First Run Wizard</em> tool. Go to the <span class="menuselection">Plugins ‣ Boundless Connect</span> menu and choose <span class="guilabel">First Run Wizard</span>. A Welcome dialog will open, click on the <span class="guilabel">Next</span> button.</p>
+<p>If your organization works with Boundless&#8217;s remote plugin repository, you will need to enter your <a class="reference external" href="http://connect.boundlessgeo.com/">Boundless Connect</a> credentials using <em>Boundless Connect Login</em> tool. Go to the <span class="menuselection">Plugins ‣ Boundless Connect Login</span> menu. Enter your <span class="guilabel">Email</span> and <span class="guilabel">Password</span> and click <span class="guilabel">Login</span>.</p>
 <div class="figure" id="id1">
-<img alt="_images/connect_welcome.png" src="_images/connect_welcome.png" />
-<p class="caption"><span class="caption-text">First Run Wizard welcome dialog</span></p>
+<img alt="_images/connect-tool.png" src="_images/connect-tool.png" />
+<p class="caption"><span class="caption-text">Boundless Connect login dialog</span></p>
 </div>
-<p>If your organization works with a remote Boundless Plugins Repository, the wizard will ask you to enter credentials used to access the repository in the Boundless Credentials dialog, as shown below.</p>
+<p>After entering the Boundless Connect credentials, the QGIS Plugin Manager will open, showing only the uninstalled Boundless plugins available, which makes it easier to find and install Boundless&#8217;s plugins.</p>
 <div class="figure" id="id2">
-<img alt="_images/connect_autentication.png" src="_images/connect_autentication.png" />
-<p class="caption"><span class="caption-text">Wizard credentials dialog</span></p>
+<img alt="_images/not_installed_boundless.png" src="_images/not_installed_boundless.png" />
+<p class="caption"><span class="caption-text">QGIS plugin manager showing Boundless&#8217;s not installed plugins</span></p>
 </div>
-<p>If instead, Boundless Connect plugin was configured to use a local directory-based repository, this step will be skipped. Otherwise, if your organization does not have Boundless authentication credentials, for the <em>MGRS Tools Plugin</em>, this step can also be skipped.</p>
-<p>In the Plugin Installation dialog, select the last option <span class="guilabel">Open Plugin Manager (Boundless Plugins only)</span> and click the <span class="guilabel">finish</span> button, as shown in the following figure.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The latter process is a one-time operation for all Boundless&#8217;s plugins installation, as your credentials will be securely saved within QGIS authentication database for future use. For more information on this subject, please consult the <a class="reference external" href="https://connect.boundlessgeo.com/docs/desktop/plugins/connect/usage.html">Boundless Connect plugin&#8217;s usage documentation</a></p>
+</div>
+<p>If you have entered your Boundless Connect credentials before, or if Boundless Connect plugin was configured to use a local directory-based repository instead of the remote one, there is no need to use Boundless Connect Login tool. Instead, go directly to <span class="menuselection">Plugins ‣ Manage and install plugins</span>, click the <span class="guilabel">Not installed</span> tab, and start typing the <em>MGRS Tools Plugin</em> name in the <span class="guilabel">Search</span> field. Once you locate <em>MGRS Tools Plugin</em> in the list of uninstalled plugins, select it and click the <span class="guilabel">Install Plugin</span> button.</p>
 <div class="figure" id="id3">
-<img alt="_images/connect_options.png" src="_images/connect_options.png" />
-<p class="caption"><span class="caption-text">Wizard Plugin Installation dialog</span></p>
+<img alt="_images/current_plugin_install.png" src="_images/current_plugin_install.png" />
+<p class="caption"><span class="caption-text">QGIS plugin manager with <em>MGRS Tools Plugin</em> ready to install</span></p>
 </div>
-<p>From the list of uninstalled plugins, choose <em>MGRS Tools Plugin</em>, and click on the <span class="guilabel">Install Plugin</span> button, as shown below.</p>
-<div class="figure" id="id4">
-<img alt="_images/mgrstools_install.png" src="_images/mgrstools_install.png" />
-<p class="caption"><span class="caption-text">QGIS plugin manager showing Boundless not installed plugins</span></p>
-</div>
+<p>If everything goes well, you should see a message &#8220;Plugin installed successfully&#8221; on the top of the plugin manager.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">If the <em>MGRS Tools Plugin</em> is not visible in the <em>Not Installed</em> list, maybe it was installed already. Check the <em>Installed</em> list and make sure the plugin is activated by selecting the respective checkbox.</p>
@@ -105,8 +104,8 @@
 </div>
 <div class="section" id="install-from-a-zip-package">
 <h2>Install from a ZIP package<a class="headerlink" href="#install-from-a-zip-package" title="Permalink to this headline">¶</a></h2>
-<p>If you have previously downloaded the plugin ZIP package from the <a class="reference external" href="http://qgis.boundlessgeo.com">Boundless QGIS Plugin Repository</a> page, you can easily install it using the <em>Install plugin from ZIP</em> tool.</p>
-<p>Go to <span class="menuselection">Plugins ‣ Boundless Connect</span> and click <span class="guilabel">Install plugin from ZIP</span>. Then, simply browse to the ZIP file location, select the file and open it. If  everything went well, you should see a message &#8220;Your plugin was successfuly installed&#8221; on the top of the map canvas.</p>
+<p>If you have previously downloaded the plugin ZIP package from the <a class="reference external" href="http://qgis.boundlessgeo.com">Boundless QGIS Plugin Repository</a> page, you can easily install it using the <em>Install plugin from ZIP</em> tool, which is available with Boundless Connect plugin.</p>
+<p>Go to <span class="menuselection">Plugins ‣ Install plugin from ZIP</span> menu item. Then, browse to and select the ZIP file, and click <span class="guilabel">Open</span> it. If everything went well, you should see a message, on the top of the map canvas, stating that &#8220;Your plugin was successfully installed&#8221;.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">You can download Boundless QGIS plugins ZIP packages from the <em>Browse the Repository</em> section in the <a class="reference external" href="http://qgis.boundlessgeo.com">Boundless QGIS Plugin Repository</a> page.</p>
