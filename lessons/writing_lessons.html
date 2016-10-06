@@ -135,6 +135,15 @@
 <li><strong>endcheck</strong>: a function to check that the step has been correctly executed. This function will be run when the lesson moves to the next step. If should return true if the user has correctly performed the task for this step, or false otherwise. In this last case, the plugin will show a warning message and won&#8217;t let the user move to the next step until the step is correctly completed.</li>
 <li><strong>steptype</strong>: <code class="docutils literal"><span class="pre">`Step.MANUALSTEP`</span></code> if the step is to be performed manually by the user, or <code class="docutils literal"><span class="pre">`Step.AUTOMATEDSTEP`</span></code> if it&#8217;s an automated one. In this last case, the step will not be shown in the list of them in the lesson explorer, and it is required to pass a function using the <code class="docutils literal"><span class="pre">`function`</span></code> argument.</li>
 </ul>
+<p>Additionaly, you can add a cleanup method, that will be run when the lesson is finished or the user exits the lesson before finishing it.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">lesson</span><span class="o">.</span><span class="n">addCleanup</span><span class="p">(</span><span class="n">cleanupMethod</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If your lesson is related to other lessons, you can add them as recommended lesson to continue after the current one is finished.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">lesson</span><span class="o">.</span><span class="n">addNextLesson</span><span class="p">(</span><span class="s2">&quot;Lessons Group&quot;</span><span class="p">,</span> <span class="s2">&quot;Name of the lesson&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Name and group name must match the name and group name of the lesson that you want to add, which ideally should be in the same plugin, to ensure that it is installed as well when the current lesson is avaliable.</p>
 </div>
 <div class="section" id="convenience-methods-and-utils">
 <h2>Convenience methods and utils<a class="headerlink" href="#convenience-methods-and-utils" title="Permalink to this headline">¶</a></h2>
