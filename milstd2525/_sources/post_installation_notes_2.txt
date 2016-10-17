@@ -1,3 +1,0 @@
-.. warning::
-
-   Because this plugin adds a new renderer, after installation, you must **restart QGIS before you can use it**.
