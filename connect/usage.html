@@ -77,7 +77,7 @@
 additional plugins, both Boundless and 3rd party ones (depending on what have
 been configured by the system administrator).</p>
 <p>The tool will automatically run when QGIS is started for the first time with
-the <em>Boundless Connect Plugin</em> activated or whenever this plugin is updated.</p>
+the <em>Boundless Connect Plugin</em> activated.</p>
 <div class="figure align-center" id="id3">
 <img alt="_images/connect-tool.png" src="_images/connect-tool.png" />
 <p class="caption"><span class="caption-text">Boundless Connect tool</span></p>
@@ -94,9 +94,8 @@ you  will need to enter <a class="reference external" href="https://connect.boun
 credentials in the <span class="guilabel">email</span> and <span class="guilabel">password</span> fields, and press
 <span class="guilabel">OK</span> to have access to the repository.</p>
 <p>After pressing the <span class="guilabel">OK</span> button, <em>Boundless Connect Plugin</em> will try to validate
-your credentials in Boundless Connect portal (internet
-connection is needed). If the credentials are valid, it will save them in QGIS&#8217;s
-authentication database.</p>
+your credentials in Boundless Connect portal (internet connection is needed).
+If the credentials are valid, it will save them in QGIS&#8217;s authentication database.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>If you haven&#8217;t done this before, QGIS will ask you to set a <strong>master password</strong>.
@@ -128,27 +127,29 @@ a message dialog, asking you what to do.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Even with invalid credentials, you will be able to see a list available plugins
-in the Boundless Plugins repository. Also, you will be able
-to download plugins that don&#8217;t require authentication. But, if you
-try to download protected plugins, you will be asked for valid credentials.</p>
+in the Boundless Plugins repository. Also, you will be able to download plugins
+that don&#8217;t require authentication. But, if you try to download protected plugins,
+you will be asked for valid credentials.</p>
 </div>
 <p>If the <em>Boundless Connect Plugin</em> was configured to use a local directory-based
 repository (check this with your system administrator), you can leave
 <span class="guilabel">Email</span> and <span class="guilabel">Password</span> fields empty. Press <span class="guilabel">OK</span>
 to continue. (In this case you won&#8217;t be asked for a master password.)</p>
-<p>After entering the <em>Boundless Connect</em> credentials, the QGIS <em>Plugin Manager</em> will
-open only with Boundless plugins available. This makes it easier to find and install them.</p>
+<p>After entering the <em>Boundless Connect</em> credentials, the <em>Boundless plugins</em> dialog
+will open to help you install additional Boundless plugins.</p>
 <div class="figure align-center" id="id7">
 <img alt="_images/install-plugins.png" src="_images/install-plugins.png" />
-<p class="caption"><span class="caption-text">Not installed Boundless plugins in plugin manager</span></p>
+<p class="caption"><span class="caption-text">Boundless plugins dialog.</span></p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">In this case, <em>Plugin Manager</em> is opened in the <span class="guilabel">Not Installed</span>
-tab. At this tab, you will see only Boundless plugins available from the
-<em>Boundless QGIS Plugin Repository</em>. At the same time, in the <span class="guilabel">Installed</span>
-tab, you will see all core C++ plugins as well as all Python plugins
-(Boundless and 3rd party) already installed.</p>
+<p class="last">If you don&#8217;t want to install Boundless plugins now, you can safely close this
+dialog. You can install Boundless plugins later in any time by opening QGIS
+<em>Plugin Manager</em> from <span class="menuselection">Plugins ‣ Manage and instal plugins</span>
+and entering &#8220;Boundless&#8221; in the filter field in the top of the <em>Plugin Manager</em>
+dialog. Alternatively, you can start <em>Boundless Connect Login</em> tool again from
+menu <span class="menuselection">Plugins ‣ Boundless Connect Login</span> and press
+<span class="guilabel">Login</span> button to open <em>Boundless plugins</em> dialog again.</p>
 </div>
 <p>Beside the plugins installed by the user, if previously configured by the system
 administrator, <em>Boundless Connect Plugin</em> will install additional predefined plugins (see

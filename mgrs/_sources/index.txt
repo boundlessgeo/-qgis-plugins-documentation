@@ -18,4 +18,3 @@ Documentation content:
 
    installation
    usage
-
