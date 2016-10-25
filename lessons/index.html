@@ -7,14 +7,14 @@
 <head>
   <meta charset="UTF-8">
   
-  <title>Boundless : QGIS Lessons Plugin</title>
+  <title>Boundless : Lessons</title>
 
   <link rel="profile" href="http://gmpg.org/xfn/11">
   <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
   <link rel="stylesheet" href="_static/extra.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="top" title="QGIS Lessons Plugin 1.0 documentation" href="#" />
-      <link rel="next" title="QGIS Lessons plugin" href="intro.html" />
+      <link rel="top" title="Lessons 1.0.0 documentation" href="#" />
+      <link rel="next" title="Installation" href="installation.html" />
 <style>
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
@@ -54,48 +54,54 @@
 				</div>
 			</div><!--closes container-->
 
-		</header><div id="pageheading"><div class="contents"><h1>QGIS Lessons Plugin</h1></div></div>
+		</header><div id="pageheading"><div class="contents"><h1>Lessons</h1></div></div>
 
   <div id="content" class="contents">
 <div id="breadcrumbs">
   <a href="http://boundlessgeo.com/">Home</a> &raquo;
   <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
-  <a href="#">QGIS Lessons Plugin</a>
+  <a href="#">Lessons</a>
   
 </div>
 
   <div id="rightbar_main">
       
-  <div class="section" id="welcome-to-qgis-lessons-plugin-s-documentation">
-<h1>Welcome to QGIS Lessons Plugin&#8217;s documentation!<a class="headerlink" href="#welcome-to-qgis-lessons-plugin-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p>Contents:</p>
+  <div class="section" id="lessons-s-documentation">
+<h1>Lessons&#8217;s documentation<a class="headerlink" href="#lessons-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p><em>Lessons</em> is a plugin for QGIS to create and follow step-by-step lessons and tutorials within QGIS.</p>
+<p>For users, instruction on how to use the plugin to follow a lesson can be found at <a class="reference internal" href="usage.html#usage"><span>Usage</span></a>.</p>
+<p>For developers, instructions on how to write new lessons and add them to the plugin can be found at <a class="reference internal" href="writing_lessons.html#writing-lessons"><span>Writing Lessons</span></a></p>
+<p>Documentation content:</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="intro.html">QGIS Lessons plugin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#install-from-repository">Install from repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#install-from-a-zip-package">Install from a ZIP package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#post-installation-notes">Post installation notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#start-lessons">Start lessons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#lessons-panel">Lessons Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#following-a-lesson">Following a lesson</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="writing_lessons.html">Writing Lessons</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="writing_lessons.html#creating-a-lesson">Creating a lesson</a></li>
-<li class="toctree-l2"><a class="reference internal" href="writing_lessons.html#convenience-methods-and-utils">Convenience methods and utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="writing_lessons.html#lesson-s-file-structure">Lesson&#8217;s file structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="writing_lessons.html#creating-a-lesson-in-python">Creating a lesson in Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="writing_lessons.html#creating-simple-lessons-with-yaml-files">Creating simple lessons with YAML files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="writing_lessons.html#capturing-qgis-interaction-to-create-a-lesson">Capturing QGIS interaction to create a lesson</a></li>
+<li class="toctree-l2"><a class="reference internal" href="writing_lessons.html#deploy-lessons-as-a-plugin">Deploy Lessons as a plugin</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span>Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span>Module Index</span></a></li>
-<li><a class="reference internal" href="search.html"><span>Search Page</span></a></li>
-</ul>
-</div>
 
 
       <!-- Next/Prev -->
       <div class="selfclear pagination-nav">
-          <div class="right"><strong>Next</strong>: <a href="intro.html" title="next chapter">QGIS Lessons plugin</a></div>
+          <div class="right"><strong>Next</strong>: <a href="installation.html" title="next chapter">Installation</a></div>
       </div>
 
   <!--
@@ -106,18 +112,9 @@
 
   <div id="rightbar_bar">
     
-      <div id="toc" class="section">
-        <h4 class="pngfix">Table Of Contents</h4>
-        <ul>
-<li><a class="reference internal" href="#">Welcome to QGIS Lessons Plugin&#8217;s documentation!</a></li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
-</ul>
-
-        <div class="section-footer"></div>
-      </div>
         <div class="section">
           <h3>Continue Reading</h3>
-          <p><b>Next:</b> <a href="intro.html" title="next chapter">QGIS Lessons plugin</a></p>
+          <p><b>Next:</b> <a href="installation.html" title="next chapter">Installation</a></p>
           </ul>
         </div>
         <div class="section">
@@ -139,7 +136,7 @@
     <a href="genindex.html" title="General Index"
        accesskey="I">index</a></li>
   <li>
-    <a href="intro.html" title="QGIS Lessons plugin"
+    <a href="installation.html" title="Installation"
        accesskey="N">next</a>|</li>
 </ul> -->
   </div> <!-- rightbar_bar -->

@@ -7,15 +7,15 @@
 <head>
   <meta charset="UTF-8">
   
-  <title>Boundless : QGIS Lessons Plugin : Usage</title>
+  <title>Boundless : Lessons : Usage</title>
 
   <link rel="profile" href="http://gmpg.org/xfn/11">
   <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
   <link rel="stylesheet" href="_static/extra.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="top" title="QGIS Lessons Plugin 1.0 documentation" href="index.html" />
+      <link rel="top" title="Lessons 1.0.0 documentation" href="index.html" />
       <link rel="next" title="Writing Lessons" href="writing_lessons.html" />
-      <link rel="prev" title="QGIS Lessons plugin" href="intro.html" />
+      <link rel="prev" title="Installation" href="installation.html" />
 <style>
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
@@ -55,27 +55,78 @@
 				</div>
 			</div><!--closes container-->
 
-		</header><div id="pageheading"><div class="contents"><h1>QGIS Lessons Plugin</h1></div></div>
+		</header><div id="pageheading"><div class="contents"><h1>Lessons</h1></div></div>
 
   <div id="content" class="contents">
 <div id="breadcrumbs">
   <a href="http://boundlessgeo.com/">Home</a> &raquo;
   <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
-  <a href="index.html">QGIS Lessons Plugin</a>
+  <a href="index.html">Lessons</a>
   
      &raquo; <a href="">Usage</a>
 </div>
 
   <div id="rightbar_main">
       
-  <div class="section" id="id1">
-<h1>Usage<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="usage">
+<span id="id1"></span><h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="start-lessons">
+<h2>Start lessons<a class="headerlink" href="#start-lessons" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">To open a lesson, go to <span class="menuselection">Plugins ‣ Lessons ‣ Start Lesson</span>. The <span class="guilabel">Lesson selector</span> will show up.</p>
+<div class="figure">
+<img alt="_images/lesson_selector.png" src="_images/lesson_selector.png" />
+</div>
+</li>
+<li><p class="first">The lessons are organized in groups. If necessary, click the cross next to the group&#8217;s name to expand its lessons list.</p>
+</li>
+<li><p class="first">Click one of the lessons. On the right side of the dialog, a description of the lesson will show its purpose and objectives, the estimated time for completions and the lesson&#8217;s author.</p>
+<div class="figure">
+<img alt="_images/lesson_selected.png" src="_images/lesson_selected.png" />
+</div>
+</li>
+<li><p class="first">Click <span class="guilabel">OK</span> to start the selected lesson.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="lessons-panel">
+<h2>Lessons Panel<a class="headerlink" href="#lessons-panel" title="Permalink to this headline">¶</a></h2>
+<p>When a lesson starts, the <span class="guilabel">Lessons Panel</span> will be on the right side of the QGIS&#8217;s window. The <span class="guilabel">Lessons Panel</span> includes: a Lesson&#8217;s steps index (1) to track the lesson&#8217;s progress, a description window (2) to show the current step&#8217;s instructions, and a button bar (3).</p>
+<div class="figure">
+<img alt="_images/lesson_panel.png" src="_images/lesson_panel.png" />
+</div>
+<p>The following buttons compose the button bar:</p>
+<ul class="simple">
+<li><strong>Move to next step</strong> - To go to the next lesson&#8217;s step.</li>
+<li><strong>Run step</strong> - Helps performing the steps instructions (not always available).</li>
+<li><strong>Restart lesson</strong> - Resets the project and cleans all the lesson&#8217;s progress made so far.</li>
+<li><strong>Quit lesson</strong> - Cleans the lesson&#8217;s progress and closes the <span class="guilabel">Lessons Panel</span>, but keeps the project loaded.</li>
+</ul>
+</div>
+<div class="section" id="following-a-lesson">
+<h2>Following a lesson<a class="headerlink" href="#following-a-lesson" title="Permalink to this headline">¶</a></h2>
+<p>Generally, the lessons will open a prepared project with all the necessary data already prepared. Unless the lesson is about loading data, you should never need to add data yourself.</p>
+<p>For each lesson&#8217;s step, follow the instructions in the description window. When you have finished executing those instructions, click <span class="guilabel">Move to next step</span>.</p>
+<p>Some lessons&#8217; steps won&#8217;t let you move to the next step if you haven&#8217;t finished the current step&#8217;s instructions correctly. In those cases a message will pop up, asking you to review and execute the instructions.</p>
+<div class="figure">
+<img alt="_images/warning_message.png" src="_images/warning_message.png" />
+</div>
+<p>Some steps will move to the next step automatically as soon as you complete the instructions. The step’s description will inform you of that. Typically, this is used in steps that ask you to click a menu item.</p>
+<div class="figure">
+<img alt="_images/click_menu.png" src="_images/click_menu.png" />
+</div>
+<p>In some lessons&#8217; steps, if you get stuck while following the instructions, you can click <span class="guilabel">Run step</span>. This functionality will help you perform the step instructions, either by executing it for you or by showing how to do it.</p>
+<p>When you have finished all steps of the lesson, a dialog will show up congratulating you for the achievement. In that dialog, you can either start the following suggested lesson or close the dialog and the lessons panel.</p>
+<div class="figure">
+<img alt="_images/congratulations_message.png" src="_images/congratulations_message.png" />
+</div>
+</div>
 </div>
 
 
       <!-- Next/Prev -->
       <div class="selfclear pagination-nav">
-          <div class="left"><strong>Previous</strong>: <a href="intro.html" title="previous chapter">QGIS Lessons plugin</a></div>
+          <div class="left"><strong>Previous</strong>: <a href="installation.html" title="previous chapter">Installation</a></div>
           <div class="right"><strong>Next</strong>: <a href="writing_lessons.html" title="next chapter">Writing Lessons</a></div>
       </div>
 
@@ -87,9 +138,22 @@
 
   <div id="rightbar_bar">
     
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">Usage</a><ul>
+<li><a class="reference internal" href="#start-lessons">Start lessons</a></li>
+<li><a class="reference internal" href="#lessons-panel">Lessons Panel</a></li>
+<li><a class="reference internal" href="#following-a-lesson">Following a lesson</a></li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
         <div class="section">
           <h3>Continue Reading</h3>
-          <p style="margin-top:1em"><b>Previous:</b> <a href="intro.html" title="previous chapter">QGIS Lessons plugin</a></p>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="installation.html" title="previous chapter">Installation</a></p>
           <p><b>Next:</b> <a href="writing_lessons.html" title="next chapter">Writing Lessons</a></p>
           </ul>
         </div>
@@ -115,7 +179,7 @@
     <a href="writing_lessons.html" title="Writing Lessons"
        accesskey="N">next</a>|</li>
   <li>
-    <a href="intro.html" title="QGIS Lessons plugin"
+    <a href="installation.html" title="Installation"
        accesskey="P">previous</a>|</li>
 </ul> -->
   </div> <!-- rightbar_bar -->

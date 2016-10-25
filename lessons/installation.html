@@ -7,13 +7,15 @@
 <head>
   <meta charset="UTF-8">
   
-  <title>Boundless : Lessons : QGIS Lessons plugin</title>
+  <title>Boundless : Lessons : Installation</title>
 
   <link rel="profile" href="http://gmpg.org/xfn/11">
   <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
   <link rel="stylesheet" href="_static/extra.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="top" title="Lessons 1.0.0 documentation" href="index.html" />
+      <link rel="next" title="Usage" href="usage.html" />
+      <link rel="prev" title="Lessons’s documentation" href="index.html" />
 <style>
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
@@ -61,19 +63,69 @@
   <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
   <a href="index.html">Lessons</a>
   
-     &raquo; <a href="">QGIS Lessons plugin</a>
+     &raquo; <a href="">Installation</a>
 </div>
 
   <div id="rightbar_main">
       
-  <div class="section" id="qgis-lessons-plugin">
-<h1>QGIS Lessons plugin<a class="headerlink" href="#qgis-lessons-plugin" title="Permalink to this headline">¶</a></h1>
-<p>A QGIS plugin to create step-by-step lessons and tutorials.</p>
-<p>For users, instruction on how to use the plugin can be found at <a class="reference internal" href="usage.html#usage"><span>Usage</span></a>.</p>
-<p>For developers, instructions on how to write new lessons and add them to the plugin can be found at <a class="reference internal" href="writing_lessons.html#writing-lessons"><span>Writing Lessons</span></a></p>
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>The easiest way to install the <em>Lessons</em> is to use the <strong>Boundless Connect plugin</strong>, a QGIS plugin that will provide you access to Boundless&#8217;s plugins and other content.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are using <em>Boundless Desktop</em>, the <em>Boundless Connect plugin</em> should be installed by default in its QGIS. Otherwise, if you are using QGIS from one of the community&#8217;s installers, you can install the <em>Boundless Connect plugin</em> by setting up the <a class="reference external" href="http://qgis.boundlessgeo.com">Boundless QGIS Plugin Repository</a> in QGIS&#8217;s plugin manager.</p>
+</div>
+<div class="section" id="install-from-repository">
+<h2>Install from repository<a class="headerlink" href="#install-from-repository" title="Permalink to this headline">¶</a></h2>
+<p>If your organization works with Boundless&#8217;s remote plugin repository, you will need to enter your <a class="reference external" href="http://connect.boundlessgeo.com/">Boundless Connect</a> credentials using <em>Boundless Connect Login</em> tool. Go to the <span class="menuselection">Plugins ‣ Boundless Connect Login</span> menu. Enter your <span class="guilabel">Email</span> and <span class="guilabel">Password</span> and click <span class="guilabel">Login</span>.</p>
+<div class="figure" id="id1">
+<img alt="_images/connect-tool.png" src="_images/connect-tool.png" />
+<p class="caption"><span class="caption-text">Boundless Connect login dialog</span></p>
+</div>
+<p>After entering the Boundless Connect credentials, the QGIS Plugin Manager will open, showing only the uninstalled Boundless plugins available, which makes it easier to find and install Boundless&#8217;s plugins.</p>
+<div class="figure" id="id2">
+<img alt="_images/not_installed_boundless.png" src="_images/not_installed_boundless.png" />
+<p class="caption"><span class="caption-text">QGIS plugin manager showing Boundless&#8217;s not installed plugins</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The latter process is a one-time operation for all Boundless&#8217;s plugins installation, as your credentials will be securely saved within QGIS authentication database for future use. For more information on this subject, please consult the <a class="reference external" href="https://connect.boundlessgeo.com/docs/desktop/plugins/connect/usage.html">Boundless Connect plugin&#8217;s usage documentation</a></p>
+</div>
+<p>If you have entered your Boundless Connect credentials before, or if Boundless Connect plugin was configured to use a local directory-based repository instead of the remote one, there is no need to use Boundless Connect Login tool. Instead, go directly to <span class="menuselection">Plugins ‣ Manage and install plugins</span>, click the <span class="guilabel">Not installed</span> tab, and start typing the <em>Lessons</em> name in the <span class="guilabel">Search</span> field. Once you locate <em>Lessons</em> in the list of uninstalled plugins, select it and click the <span class="guilabel">Install Plugin</span> button.</p>
+<div class="figure" id="id3">
+<img alt="_images/current_plugin_install.png" src="_images/current_plugin_install.png" />
+<p class="caption"><span class="caption-text">QGIS plugin manager with <em>Lessons</em> ready to install</span></p>
+</div>
+<p>If everything goes well, you should see a message &#8220;Plugin installed successfully&#8221; on the top of the plugin manager.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If the <em>Lessons</em> is not visible in the <em>Not Installed</em> list, maybe it was installed already. Check the <em>Installed</em> list and make sure the plugin is activated by selecting the respective checkbox.</p>
+</div>
+</div>
+<div class="section" id="install-from-a-zip-package">
+<h2>Install from a ZIP package<a class="headerlink" href="#install-from-a-zip-package" title="Permalink to this headline">¶</a></h2>
+<p>If you have previously downloaded the plugin ZIP package from the <a class="reference external" href="http://qgis.boundlessgeo.com">Boundless QGIS Plugin Repository</a> page, you can easily install it using the <em>Install plugin from ZIP</em> tool, which is available with Boundless Connect plugin.</p>
+<p>Go to <span class="menuselection">Plugins ‣ Install plugin from ZIP</span> menu item. Then, browse to and select the ZIP file, and click <span class="guilabel">Open</span> it. If everything went well, you should see a message, on the top of the map canvas, stating that &#8220;Your plugin was successfully installed&#8221;.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can download Boundless QGIS plugins ZIP packages from the <em>Browse the Repository</em> section in the <a class="reference external" href="http://qgis.boundlessgeo.com">Boundless QGIS Plugin Repository</a> page.</p>
+</div>
+</div>
+<div class="section" id="post-installation-notes">
+<h2>Post installation notes<a class="headerlink" href="#post-installation-notes" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Because this plugin adds a new renderer, you will have to <strong>restart QGIS before you can use it</strong>.</p>
+</div>
+</div>
 </div>
 
 
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="index.html" title="previous chapter">Lessons&#8217;s documentation</a></div>
+          <div class="right"><strong>Next</strong>: <a href="usage.html" title="next chapter">Usage</a></div>
+      </div>
 
   <!--
     &copy; Copyright 2016 Boundless Spatial, Inc.
@@ -83,10 +135,29 @@
 
   <div id="rightbar_bar">
     
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#install-from-repository">Install from repository</a></li>
+<li><a class="reference internal" href="#install-from-a-zip-package">Install from a ZIP package</a></li>
+<li><a class="reference internal" href="#post-installation-notes">Post installation notes</a></li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="index.html" title="previous chapter">Lessons&#8217;s documentation</a></p>
+          <p><b>Next:</b> <a href="usage.html" title="next chapter">Usage</a></p>
+          </ul>
+        </div>
         <div class="section">
         <h4>This Page</h4>
         <ul class="this-page-menu">
-          <li><a href="_sources/intro.txt">Show Source</a></li>
+          <li><a href="_sources/installation.txt">Show Source</a></li>
         </ul>
         </div>
 
@@ -101,6 +172,12 @@
   <li class="first">
     <a href="genindex.html" title="General Index"
        accesskey="I">index</a></li>
+  <li>
+    <a href="usage.html" title="Usage"
+       accesskey="N">next</a>|</li>
+  <li>
+    <a href="index.html" title="Lessons’s documentation"
+       accesskey="P">previous</a>|</li>
 </ul> -->
   </div> <!-- rightbar_bar -->
 
