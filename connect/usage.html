@@ -72,28 +72,29 @@
 <h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="boundless-connect-login">
 <span id="connect-tool"></span><h2>Boundless Connect Login<a class="headerlink" href="#boundless-connect-login" title="Permalink to this headline">¶</a></h2>
-<p>The aim of the <em>Boundless Connect Login</em> tool is to help the user to setup the
+<p>The aim of the <em>Boundless Connect</em> is to help the user to setup the
 <a class="reference external" href="http://qgis.boundlessgeo.com">Boundless QGIS Plugin Repository</a> and install
 additional plugins, both Boundless and 3rd party ones (depending on what have
-been configured by the system administrator).</p>
+been configured by the system administrator). Also it acts as gateway for
+additional Boundless resources and services.</p>
 <p>The tool will automatically run when QGIS is started for the first time with
 the <em>Boundless Connect Plugin</em> activated.</p>
 <div class="figure align-center" id="id3">
-<img alt="_images/connect-tool.png" src="_images/connect-tool.png" />
-<p class="caption"><span class="caption-text">Boundless Connect tool</span></p>
+<img alt="img/connect-dock.png" src="img/connect-dock.png" />
+<p class="caption"><span class="caption-text">Boundless Connect Login</span></p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If at the time, you don&#8217;t want to enter your credentials and install plugins,
-you can safely close it. While the tool starts automatically only once, you can
-open it at any time from the <span class="menuselection">Plugins ‣ Boundless Connect Login</span>
+<p class="last">If at the time, you don&#8217;t want to enter your credentials and search for additional
+resources, you can safely close it. While the tool starts automatically only once,
+you can open it at any time from the <span class="menuselection">Plugins ‣ Boundless Connect Login</span>
 menu item.</p>
 </div>
 <p>If your organization works with the remote <em>Boundless QGIS Plugin Repository</em>,
 you  will need to enter <a class="reference external" href="https://connect.boundlessgeo.com/">Boundless Connect</a>
 credentials in the <span class="guilabel">email</span> and <span class="guilabel">password</span> fields, and press
-<span class="guilabel">OK</span> to have access to the repository.</p>
-<p>After pressing the <span class="guilabel">OK</span> button, <em>Boundless Connect Plugin</em> will try to validate
+<span class="guilabel">Login</span> to have access to the repository and additional resources.</p>
+<p>After pressing the <span class="guilabel">Login</span> button, <em>Boundless Connect Plugin</em> will try to validate
 your credentials in Boundless Connect portal (internet connection is needed).
 If the credentials are valid, it will save them in QGIS&#8217;s authentication database.</p>
 <div class="admonition note">
@@ -126,30 +127,47 @@ a message dialog, asking you what to do.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Even with invalid credentials, you will be able to see a list available plugins
-in the Boundless Plugins repository. Also, you will be able to download plugins
-that don&#8217;t require authentication. But, if you try to download protected plugins,
-you will be asked for valid credentials.</p>
+<p class="last">Even with invalid credentials, you will be able to use <em>Boundless Connect</em> and even
+perform search in the Boundless Connect portal. Also, you will be able to download plugins
+and other resources that don&#8217;t require authentication. But, if you try to download protected
+plugins, you will be asked for valid credentials.</p>
 </div>
 <p>If the <em>Boundless Connect Plugin</em> was configured to use a local directory-based
 repository (check this with your system administrator), you can leave
-<span class="guilabel">Email</span> and <span class="guilabel">Password</span> fields empty. Press <span class="guilabel">OK</span>
+<span class="guilabel">Email</span> and <span class="guilabel">Password</span> fields empty. Press <span class="guilabel">Login</span>
 to continue. (In this case you won&#8217;t be asked for a master password.)</p>
-<p>After entering the <em>Boundless Connect</em> credentials, the <em>Boundless plugins</em> dialog
-will open to help you install additional Boundless plugins.</p>
+<p>After entering the <em>Boundless Connect</em> credentials or just pressing <span class="guilabel">Login</span>
+without entering anything in the fields, you will see search panel which will
+be used to access Boundless plugins and additional content.</p>
 <div class="figure align-center" id="id7">
-<img alt="_images/install-plugins.png" src="_images/install-plugins.png" />
-<p class="caption"><span class="caption-text">Boundless plugins dialog.</span></p>
+<img alt="img/search-panel.png" src="img/search-panel.png" />
+<p class="caption"><span class="caption-text">Boundless Connect Search.</span></p>
 </div>
+<p>At the bottom of the search panel you can find information about your subscription
+level and <span class="guilabel">Sign out</span> button. Clicking on <span class="guilabel">Sign out</span> button will
+return you to the login page where you can enter another credentials.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If you don&#8217;t want to install Boundless plugins now, you can safely close this
-dialog. You can install Boundless plugins later in any time by opening QGIS
+<p class="last">Credentials you entered in the login dialog will be used also for accessing
+<em>Boundless Plugins Repository</em>.</p>
+</div>
+<p>To get any content you need to type some search text into search field and press
+<code class="docutils literal"><span class="pre">Enter</span></code> button on your keyboard.</p>
+<div class="figure align-center" id="id8">
+<img alt="img/search-results.png" src="img/search-results.png" />
+<p class="caption"><span class="caption-text">Search results</span></p>
+</div>
+<p>Each item has title and description. Description also contains tags, and information
+about subscription level, required to access this item. Clicking on the item title
+will open web browser with content or install corresponding plugin.</p>
+<p>If your subscription level is lower that required, you will be redirected to the
+subscription page.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Boundless plugins also can be installed in the usual way by opening QGIS
 <em>Plugin Manager</em> from <span class="menuselection">Plugins ‣ Manage and instal plugins</span>
 and entering &#8220;Boundless&#8221; in the filter field in the top of the <em>Plugin Manager</em>
-dialog. Alternatively, you can start <em>Boundless Connect Login</em> tool again from
-menu <span class="menuselection">Plugins ‣ Boundless Connect Login</span> and press
-<span class="guilabel">Login</span> button to open <em>Boundless plugins</em> dialog again.</p>
+dialog.</p>
 </div>
 <p>Beside the plugins installed by the user, if previously configured by the system
 administrator, <em>Boundless Connect Plugin</em> will install additional predefined plugins (see
@@ -159,8 +177,8 @@ administrator, <em>Boundless Connect Plugin</em> will install additional predefi
 <span id="id1"></span><h2>Updating plugins<a class="headerlink" href="#updating-plugins" title="Permalink to this headline">¶</a></h2>
 <p>By default <em>Boundless Connect Plugin</em> configure QGIS to check plugin updates every month.
 This check performed on QGIS start, and if updates found, you will see
-corresponding message in QGIS statusbar</p>
-<div class="figure align-center" id="id8">
+corresponding message in QGIS status bar</p>
+<div class="figure align-center" id="id9">
 <img alt="_images/update-available.png" src="_images/update-available.png" />
 <p class="caption"><span class="caption-text">Plugin update available</span></p>
 </div>
@@ -176,7 +194,7 @@ your master password after QGIS start. This is necessary to check updates in
 more frequently, open <em>Plugin Manager</em> from
 <span class="menuselection">Plugins ‣ Manage and Install Plugins...</span> menu, go to the
 <span class="guilabel">Settings</span> tab and edit options.</p>
-<div class="figure align-center" id="id9">
+<div class="figure align-center" id="id10">
 <img alt="_images/check-updates.png" src="_images/check-updates.png" />
 <p class="caption"><span class="caption-text">Configuring check for updates</span></p>
 </div>
@@ -194,8 +212,7 @@ different ways:</p>
 <span id="from-remote-repository"></span><h3>From a remote plugin repository<a class="headerlink" href="#from-a-remote-plugin-repository" title="Permalink to this headline">¶</a></h3>
 <p>This is the most common way to install plugins, whether from QGIS Official
 Plugins Repository, Boundless QGIS Plugins Repository or any other remote
-repository that you may have configured, using the <em>Plugin Manager</em> directly
-or through the <em>Boundless Connect</em> tool.</p>
+repository that you may have configured, using the <em>Plugin Manager</em> directly.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">If your organization works with the remote <em>Boundless QGIS Plugin Repository</em>
@@ -232,11 +249,11 @@ menu item.</p>
 <span id="from-zip-package"></span><h3>From a plugin ZIP package<a class="headerlink" href="#from-a-plugin-zip-package" title="Permalink to this headline">¶</a></h3>
 <p>If you have a plugin package (e.g. previously downloaded from any repository or
 GitHub) you can easily install it using the <em>Boundless Connect Plugin</em>, without the need
-to unpackage it. Go to <span class="menuselection">Plugins ‣ Install plugin from ZIP</span>,
+to unpack it. Go to <span class="menuselection">Plugins ‣ Install plugin from ZIP</span>,
 browse to the directory with plugin zip package and select the corresponding
 file. If the zip file is a valid QGIS plugin package it will be installed and
 activated.</p>
-<p>To deactivate or remove plugins installed whis way, like before, one can use
+<p>To deactivate or remove plugins installed this way, like before, one can use
 QGIS <em>Plugin Manager</em> from <span class="menuselection">Plugins ‣ Manage and Install Plugins...</span>
 menu item.</p>
 </div>
@@ -246,7 +263,7 @@ menu item.</p>
 <p>All plugins added by <em>Boundless Connect Plugin</em> can be deactivated, uninstalled or
 updated using QGIS <em>Plugin Manager</em>. You can access it via the
 <span class="menuselection">Plugins ‣ Manage and Install Plugins...</span> menu item.</p>
-<div class="figure align-center" id="id10">
+<div class="figure align-center" id="id11">
 <img alt="_images/managing-plugins.png" src="_images/managing-plugins.png" />
 <p class="caption"><span class="caption-text">Plugin Manager</span></p>
 </div>
