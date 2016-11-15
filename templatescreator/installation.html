@@ -7,14 +7,15 @@
 <head>
   <meta charset="UTF-8">
   
-  <title>Boundless : MIL-STD-2525 : Usage</title>
+  <title>Boundless : Print Templates Creator : Installation</title>
 
   <link rel="profile" href="http://gmpg.org/xfn/11">
   <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
   <link rel="stylesheet" href="_static/extra.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="top" title="MIL-STD-2525 1.0 documentation" href="index.html" />
-      <link rel="prev" title="Installation" href="installation.html" />
+      <link rel="top" title="Print Templates Creator 1.0 documentation" href="index.html" />
+      <link rel="next" title="Usage" href="usage.html" />
+      <link rel="prev" title="Print Templates Creator QGIS Plugin’s documentation" href="index.html" />
 <style>
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
@@ -54,72 +55,67 @@
 				</div>
 			</div><!--closes container-->
 
-		</header><div id="pageheading"><div class="contents"><h1>MIL-STD-2525</h1></div></div>
+		</header><div id="pageheading"><div class="contents"><h1>Print Templates Creator</h1></div></div>
 
   <div id="content" class="contents">
 <div id="breadcrumbs">
   <a href="http://boundlessgeo.com/">Home</a> &raquo;
   <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
-  <a href="index.html">MIL-STD-2525</a>
+  <a href="index.html">Print Templates Creator</a>
   
-     &raquo; <a href="">Usage</a>
+     &raquo; <a href="">Installation</a>
 </div>
 
   <div id="rightbar_main">
       
-  <div class="section" id="usage">
-<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
-<p>The <em>MIL-STD-2525</em> adds support for MIL-STD-2525 - a standard for joint military symbology - in QGIS. In MIL-STD-2525, marker symbols are composed of several levels of information (for example, <em>StandardIdentity1</em>, <em>Status</em>, <em>Icon</em>, and so on). Each level&#8217;s options are represented by a unique set of one or more digits. These codes are concatenated into a unique Symbol Identification Code (SIDC) that will determine the look of the final symbol.</p>
-<p>̣This plugin adds two new capabilities to QGIS:</p>
-<ul class="simple">
-<li>A custom renderer for styling point vector layers with SIDC codes in one of its attributes.</li>
-<li>Custom field edit widget for creating and entering SIDC codes, showing all levels of information and their respective options.</li>
-</ul>
-<div class="section" id="custom-renderer">
-<h2>Custom Renderer<a class="headerlink" href="#custom-renderer" title="Permalink to this headline">¶</a></h2>
-<p>The custom renderer will allow styling vector point layers using SIDC codes from one of the layer&#8217;s attributes.</p>
-<p>In the <span class="guilabel">Style</span> tab of the <span class="guilabel">Layer Properties</span> dialog, you will find a new renderer named <em>MIL-STD-2525</em>.</p>
-<div class="figure">
-<img alt="_images/rendererEntry.png" src="_images/rendererEntry.png" />
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>The easiest way to install the <em>Print Templates Creator</em> is to use the <strong>Boundless Connect plugin</strong>, a QGIS plugin that will provide you access to Boundless&#8217;s plugins and other content.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are using <em>Bouldless Desktop</em>, the <em>Boundless Connect plugin</em> should be installed by default in its QGIS. Otherwise, if you are using QGIS from one of the community&#8217;s installers, you can install the <em>Boundless Connect plugin</em> by setting up the <a class="reference external" href="http://qgis.boundlessgeo.com">Boundless QGIS Plugin Repository</a> in QGIS&#8217;s plugin manager.</p>
 </div>
-<p>The renderer has two configuration parameters:</p>
-<ul class="simple">
-<li><span class="guilabel">SIDC code field</span>, to set the layer&#8217;s attribute with the SIDCs (Symbol identification code) to build the markers for each point feature. The field must be of the type String, with at least 20 characters.</li>
-<li><span class="guilabel">Symbol size</span>, to set rendering size of the markers, in pixels.</li>
-</ul>
-<div class="figure">
-<img alt="_images/symbologyDialog.png" src="_images/symbologyDialog.png" />
+<div class="section" id="install-from-repository">
+<h2>Install from repository<a class="headerlink" href="#install-from-repository" title="Permalink to this headline">¶</a></h2>
+<p>If your organization works with Boundless&#8217;s remote plugin repository, you will need to enter your <a class="reference external" href="http://connect.boundlessgeo.com/">Boundless Connect</a> credentials using <em>Boundless Connect Login</em> tool. Go to the <span class="menuselection">Plugins ‣ Boundless Connect Login</span> menu. Enter your <span class="guilabel">Email</span> and <span class="guilabel">Password</span> and click <span class="guilabel">Login</span>.</p>
+<div class="figure" id="id1">
+<img alt="_images/connect-tool.png" src="_images/connect-tool.png" />
+<p class="caption"><span class="caption-text">Boundless Connect login dialog</span></p>
 </div>
-<p>Once the renderer is active, the layer&#8217;s point features are rendered as markers using the codes from the selected attribute.</p>
-<div class="figure">
-<img alt="_images/renderedLayer.png" src="_images/renderedLayer.png" />
+<p>After entering the Boundless Connect credentials, the QGIS Plugin Manager will open, showing only the uninstalled Boundless plugins available, which makes it easier to find and install Boundless&#8217;s plugins.</p>
+<div class="figure" id="id2">
+<img alt="_images/not_installed_boundless.png" src="_images/not_installed_boundless.png" />
+<p class="caption"><span class="caption-text">QGIS plugin manager showing Boundless&#8217;s not installed plugins</span></p>
 </div>
-<p>Features with a NULL or invalid SIDC code in the selected field, a default marker with a question mark is shown.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The latter process is a one-time operation for all Boundless&#8217;s plugins installation, as your credentials will be securely saved within QGIS authentication database for future use. For more information on this subject, please consult the <a class="reference external" href="https://connect.boundlessgeo.com/docs/desktop/plugins/connect/usage.html">Boundless Connect plugin&#8217;s usage documentation</a></p>
 </div>
-<div class="section" id="custom-edit-widget">
-<h2>Custom edit widget<a class="headerlink" href="#custom-edit-widget" title="Permalink to this headline">¶</a></h2>
-<p>The custom field edit widget helps to enter SIDC codes in the feature form and attribute table, with a marker preview.</p>
-<p>To set the edit widget to a layer&#8217;s field, open the <span class="guilabel">Layer Properties</span> dialog of the layer, and go to the <span class="guilabel">Fields</span> tab. In the <span class="guilabel">Fields</span> group, for the field that you want to use to store SIDC codes, click on the button in the <span class="guilabel">Edit widget</span> column. The <span class="guilabel">Edit Widget Properties</span> dialog will open. Select the <span class="guilabel">SIDC code editor</span> option from the list of widgets and click <span class="guilabel">OK</span>. Finally, close the <span class="guilabel">Layer Properties</span> dialog by clicking <span class="guilabel">OK</span>.</p>
-<div class="figure">
-<img alt="_images/set_custom_widget.png" src="_images/set_custom_widget.png" />
+<p>If you have entered your Boundless Connect credentials before, or if Boundless Connect plugin was configured to use a local directory-based repository instead of the remote one, there is no need to use Boundless Connect Login tool. Instead, go directly to <span class="menuselection">Plugins ‣ Manage and install plugins</span>, click the <span class="guilabel">Not installed</span> tab, and start typing the <em>Print Templates Creator</em> name in the <span class="guilabel">Search</span> field. Once you locate <em>Print Templates Creator</em> in the list of uninstalled plugins, select it and click the <span class="guilabel">Install Plugin</span> button.</p>
+<div class="figure" id="id3">
+<img alt="_images/current_plugin_install.png" src="_images/current_plugin_install.png" />
+<p class="caption"><span class="caption-text">QGIS plugin manager with <em>Print Templates Creator</em> ready to install</span></p>
 </div>
-<p>Now, if you open the attributes table of the layer and set the layer to edit mode, the SIDC field will have a text box to enter the code and a button.</p>
-<div class="figure">
-<img alt="_images/customWidget.png" src="_images/customWidget.png" />
+<p>If everything goes well, you should see a message &#8220;Plugin installed successfully&#8221; on the top of the plugin manager.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If the <em>Print Templates Creator</em> is not visible in the <em>Not Installed</em> list, maybe it was installed already. Check the <em>Installed</em> list and make sure the plugin is activated by selecting the respective checkbox.</p>
 </div>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">On OsX/macOS it is sometimes tricky to have QGIS edit widgets work as expected. In the context of the MIL-STD2525 plugin is sometimes hard to have the widget button work immediately. The workaround is first needed to double click in the table cell as if it would be necessary to manually edit the symbology code. The table cell gets then a blue frame, after that the widget button gets a blue background and becomes clickable.</p>
 </div>
-<div class="figure">
-<img alt="_images/mil_mac01.png" src="_images/mil_mac01.png" />
+<div class="section" id="install-from-a-zip-package">
+<h2>Install from a ZIP package<a class="headerlink" href="#install-from-a-zip-package" title="Permalink to this headline">¶</a></h2>
+<p>If you have previously downloaded the plugin ZIP package from the <a class="reference external" href="http://qgis.boundlessgeo.com">Boundless QGIS Plugin Repository</a> page, you can easily install it using the <em>Install plugin from ZIP</em> tool, which is available with Boundless Connect plugin.</p>
+<p>Go to <span class="menuselection">Plugins ‣ Install plugin from ZIP</span> menu item. Then, browse to and select the ZIP file, and click <span class="guilabel">Open</span> it. If everything went well, you should see a message, on the top of the map canvas, stating that &#8220;Your plugin was successfully installed&#8221;.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can download Boundless QGIS plugins ZIP packages from the <em>Browse the Repository</em> section in the <a class="reference external" href="http://qgis.boundlessgeo.com">Boundless QGIS Plugin Repository</a> page.</p>
 </div>
-<div class="figure">
-<img alt="_images/mil_mac02.png" src="_images/mil_mac02.png" />
 </div>
-<p>Clicking on the button will show the preview dialog, that you can use to enter a code and preview the corresponding marker.</p>
-<div class="figure">
-<img alt="_images/markerPreview.png" src="_images/markerPreview.png" />
+<div class="section" id="post-installation-notes">
+<h2>Post installation notes<a class="headerlink" href="#post-installation-notes" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Because this plugin adds a new renderer, you will have to <strong>restart QGIS before you can use it</strong>.</p>
 </div>
 </div>
 </div>
@@ -127,11 +123,12 @@
 
       <!-- Next/Prev -->
       <div class="selfclear pagination-nav">
-          <div class="left"><strong>Previous</strong>: <a href="installation.html" title="previous chapter">Installation</a></div>
+          <div class="left"><strong>Previous</strong>: <a href="index.html" title="previous chapter">Print Templates Creator QGIS Plugin&#8217;s documentation</a></div>
+          <div class="right"><strong>Next</strong>: <a href="usage.html" title="next chapter">Usage</a></div>
       </div>
 
   <!--
-    &copy; Copyright 2016 Boundless Spatial, Inc.
+    &copy; Copyright 2016, Boundless Spatial
   -->
 
   </div> <!-- rightbar_main -->
@@ -141,9 +138,10 @@
       <div id="toc" class="section">
         <h4 class="pngfix">Table Of Contents</h4>
         <ul>
-<li><a class="reference internal" href="#">Usage</a><ul>
-<li><a class="reference internal" href="#custom-renderer">Custom Renderer</a></li>
-<li><a class="reference internal" href="#custom-edit-widget">Custom edit widget</a></li>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#install-from-repository">Install from repository</a></li>
+<li><a class="reference internal" href="#install-from-a-zip-package">Install from a ZIP package</a></li>
+<li><a class="reference internal" href="#post-installation-notes">Post installation notes</a></li>
 </ul>
 </li>
 </ul>
@@ -152,13 +150,14 @@
       </div>
         <div class="section">
           <h3>Continue Reading</h3>
-          <p style="margin-top:1em"><b>Previous:</b> <a href="installation.html" title="previous chapter">Installation</a></p>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="index.html" title="previous chapter">Print Templates Creator QGIS Plugin&#8217;s documentation</a></p>
+          <p><b>Next:</b> <a href="usage.html" title="next chapter">Usage</a></p>
           </ul>
         </div>
         <div class="section">
         <h4>This Page</h4>
         <ul class="this-page-menu">
-          <li><a href="_sources/usage.txt">Show Source</a></li>
+          <li><a href="_sources/installation.txt">Show Source</a></li>
         </ul>
         </div>
 
@@ -174,7 +173,10 @@
     <a href="genindex.html" title="General Index"
        accesskey="I">index</a></li>
   <li>
-    <a href="installation.html" title="Installation"
+    <a href="usage.html" title="Usage"
+       accesskey="N">next</a>|</li>
+  <li>
+    <a href="index.html" title="Print Templates Creator QGIS Plugin’s documentation"
        accesskey="P">previous</a>|</li>
 </ul> -->
   </div> <!-- rightbar_bar -->
@@ -253,7 +255,7 @@
 					<div class="menu-footer-menu-container">
 						<ul id="menu-footer-menu" class="menu">
 							<li>
-    <a href="http://boundlessgeo.com/">Copyright &copy; 2016 Boundless Spatial, Inc.</a>
+    <a href="http://boundlessgeo.com/">&copy; Copyright 2016, Boundless Spatial</a>
 							</li>
 							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
 						</ul>

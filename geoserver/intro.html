@@ -172,7 +172,7 @@
 </ul>
 </li>
 <li>Vector layers<ul>
-<li>When converting from a GeoServer style to a QGIS style, the style is always defined as a <em>Rule-based</em> style. That means that, even if the style is created using another type, such as <em>Graduated</em>, when it is uploaded to a GeoServer catalog and then edited again from QGIS, it will not appear as a <em>Graduated</em> style. This is due to how QGIS handles SLD styles, always interpreting them as symbology of type <em>Rule-based</em></li>
+<li>When converting from a GeoServer style to a QGIS style, the style is always defined as a <em>Rule-based</em> style. That means that, even if the style is created using another type, such as <em>Graduated</em>, when it is uploaded to a GeoServer catalog and then edited again from QGIS, it will not appear as a <em>Graduated</em> style. This is due to how QGIS handles SLD styles, always interpreting them as symbology of type <em>Rule-based</em>. An example of this limitation is actually a consequence of an upstream QGIS issue (<a class="reference external" href="https://hub.qgis.org/issues/14170">https://hub.qgis.org/issues/14170</a>): <em>Graduated</em> or <em>Categorized</em> QGIS styles including a non-specific symbology class will be translated to an equivalent <em>Rule-based</em> where the rule representing the non-specific will miss an <em>ELSE</em> expression. This issue can be easily fixed by removing manually such symbology class, or adding to it manually the necessary <em>ELSE</em> expression.</li>
 <li>Basic labeling is supported, but not all labeling will be exported from QGIS to SLD and uploaded to GeoServer. In particular, advanced data-dependent labelling is not supported.</li>
 </ul>
 </li>
