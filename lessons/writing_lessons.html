@@ -146,8 +146,8 @@
 </pre></div>
 </div>
 <p>The <code class="docutils literal"><span class="pre">`addMenuClickStep()`</span></code> method is particularely useful when a step involves opening a modal dialog that will block QGIS&#8217;s main window, and will not allow the user to move to the next step and see its description.</p>
-<p>Another convenient method is the <code class="docutils literal"><span class="pre">`addCleanupMethod()`</span></code>. With it you can set up a cleanup method, which will run when the lesson is finished, or the user exits the lesson before completing it.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">lesson</span><span class="o">.</span><span class="n">addCleanup</span><span class="p">(</span><span class="n">cleanupMethod</span><span class="p">)</span>
+<p>Another convenient method is the <code class="docutils literal"><span class="pre">`setCleanup()`</span></code>. With it you can set up a cleanup method, which will run when the lesson is finished, or the user exits the lesson before completing it.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">lesson</span><span class="o">.</span><span class="n">setCleanup</span><span class="p">(</span><span class="n">cleanupMethod</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Yet another useful method is <code class="docutils literal"><span class="pre">`addNextLesson()`</span></code>. If your lesson is related to other lessons, you can add them as recommended lesson to continue after the current one is finished.</p>
