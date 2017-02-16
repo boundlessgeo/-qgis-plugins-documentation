@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="../_static/opengeo.css" type="text/css"/>
   <link rel="stylesheet" href="../_static/extra.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="index" title="Index" href="../genindex.html" />
+      <link rel="search" title="Search" href="../search.html" />
       <link rel="top" title="OpenGeo Suite QGIS plugin 1.0 documentation" href="../index.html" />
       <link rel="next" title="Available actions" href="../actions/index.html" />
       <link rel="prev" title="Tutorial" href="../tutorial/index.html" />
@@ -33,7 +35,7 @@
 	<div id="wrapper">
 				<header id="masthead" class="site-header" role="banner">
 			<div class="container">
-				<a href="/" rel="home" id="logo"><img src="../_static/logo.png"></a>
+				<a href="http://boundlessgeo.com" rel="home" id="logo"><img src="../_static/logo.png"></a>
 				<div class="pull-right">
 					<div class="pull-left">
 						<div class="menu-main-container">
@@ -59,8 +61,6 @@
 
   <div id="content" class="contents">
 <div id="breadcrumbs">
-  <a href="http://boundlessgeo.com/">Home</a> &raquo;
-  <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
   <a href="../index.html">OpenGeo Suite QGIS plugin</a>
   
      &raquo; <a href="">Usage</a>
@@ -70,7 +70,7 @@
       
   <div class="section" id="usage">
 <span id="id1"></span><h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
-<p>This page discusses the basics of interacting with OpenGeo Explorer. For common functionality, please see the <a class="reference internal" href="../tutorial/index.html#tutorial"><span>Tutorial</span></a> page. For a comprehensive reference of all possible options, please see the <a class="reference internal" href="../actions/index.html#actions"><span>Available actions</span></a> section.</p>
+<p>This page discusses the basics of interacting with OpenGeo Explorer. For common functionality, please see the <a class="reference internal" href="../tutorial/index.html#tutorial"><span class="std std-ref">Tutorial</span></a> page. For a comprehensive reference of all possible options, please see the <a class="reference internal" href="../actions/index.html#actions"><span class="std std-ref">Available actions</span></a> section.</p>
 <div class="section" id="main-panel">
 <h2>Main panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
 <p>OpenGeo Explorer is launched from the <span class="guilabel">OpenGeo</span> menu:</p>
@@ -179,7 +179,7 @@
 <p>Layers to upload sometimes require preprocessing. An example of this is when a layer is not in an optimal format for best performance once published. This preprocessing can be performed independently before publishing, but can also be included as part of the publishing operation itself.</p>
 <p>The OpenGeo Explorer integrates with the QGIS Processing Framework and allows you to define a process to be run on any layer before uploading it, publishing the resulting <em>processed</em> layer instead.</p>
 <p>Processes are defined using the QGIS processing graphical modeler or as python scripts.</p>
-<p>Preprocessing hooks can be set in the <a class="reference internal" href="../config/index.html#config"><span>Configuration</span></a> section, specifying <span class="guilabel">Vector preprocessing hook file</span> or <span class="guilabel">Raster preprocessing hook file</span>.</p>
+<p>Preprocessing hooks can be set in the <a class="reference internal" href="../config/index.html#config"><span class="std std-ref">Configuration</span></a> section, specifying <span class="guilabel">Vector preprocessing hook file</span> or <span class="guilabel">Raster preprocessing hook file</span>.</p>
 <p><a class="reference download internal" href="../_downloads/quickstart_data.zip" download=""><code class="xref download docutils literal"><span class="pre">The</span> <span class="pre">example</span> <span class="pre">data</span></code></a> contains a hook that can be used for vector layers. It will export selected features to a new layer, so only those features will be later uploaded. If no features are selected, the whole layer will be uploaded. This hook only will apply if the layer is open in QGIS.</p>
 </div>
 </div>
@@ -228,7 +228,7 @@
         <div class="section">
         <h4>This Page</h4>
         <ul class="this-page-menu">
-          <li><a href="../_sources/usage/index.txt">Show Source</a></li>
+          <li><a href="../_sources/usage/index.rst.txt">Show Source</a></li>
         </ul>
         </div>
 

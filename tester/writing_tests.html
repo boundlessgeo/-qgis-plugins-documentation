@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Writing tests &mdash; QGIS Tester Plugin 1.0 documentation</title>
+    <title>Writing tests &#8212; QGIS Tester Plugin 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,13 +17,15 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="QGIS Tester Plugin 1.0 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Usage" href="usage.html" /> 
   </head>
   <body role="document">
@@ -36,7 +38,7 @@
         <li class="right" >
           <a href="usage.html" title="Usage"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">QGIS Tester Plugin 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">QGIS Tester Plugin 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -51,8 +53,8 @@
 <p>To write a new set of tests, add a python module file in the <em>tests</em> folder of the plugin. The module can have two functions, to define unit tests (automated) and functional tests (semi-automated):  <em>functionalTests()</em> and <em>unitTests()</em>. None of these functions is mandatory. The plugin will look for them and, if found, will call them to retrieve the tests declared by the module.</p>
 <p>Plugins can add their tests suite to this tester plugin by using the addTestModule() function.</p>
 <p>In your plugin <em>__init__</em> method add something like this:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">qgistester.tests</span> <span class="kn">import</span> <span class="n">addTestModule</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">qgistester.tests</span> <span class="k">import</span> <span class="n">addTestModule</span>
     <span class="n">addTestModule</span><span class="p">(</span><span class="n">testmodule</span><span class="p">,</span> <span class="s2">&quot;Name_of_my_plugin&quot;</span><span class="p">)</span>
 <span class="k">except</span><span class="p">:</span>
     <span class="k">pass</span>
@@ -66,7 +68,7 @@
 <div class="section" id="functional-tests">
 <h2>Functional Tests<a class="headerlink" href="#functional-tests" title="Permalink to this headline">¶</a></h2>
 <p>Functional tests are defined using the <em>Test</em> class from the qgistester.test module. Here is an example of a test</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">vectorRenderingTest</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span><span class="s2">&quot;Verify rendering of uploaded style&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">vectorRenderingTest</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span><span class="s2">&quot;Verify rendering of uploaded style&quot;</span><span class="p">)</span>
 <span class="n">vectorRenderingTest</span><span class="o">.</span><span class="n">addStep</span><span class="p">(</span><span class="s2">&quot;Preparing data&quot;</span><span class="p">,</span> <span class="n">_openAndUpload</span><span class="p">)</span>
 <span class="n">vectorRenderingTest</span><span class="o">.</span><span class="n">addStep</span><span class="p">(</span><span class="s2">&quot;Check that WMS layer is correctly rendered&quot;</span><span class="p">)</span>
 <span class="n">vectorRenderingTest</span><span class="o">.</span><span class="n">setCleanup</span><span class="p">(</span><span class="n">_clean</span><span class="p">)</span>
@@ -106,21 +108,18 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/writing_tests.txt"
+      <li><a href="_sources/writing_tests.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -136,12 +135,12 @@
         <li class="right" >
           <a href="usage.html" title="Usage"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">QGIS Tester Plugin 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">QGIS Tester Plugin 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2016 Boundless Spatial, Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2016 Boundless Spatial, Inc..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
     </div>
   </body>
 </html>

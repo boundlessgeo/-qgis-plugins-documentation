@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
   <link rel="stylesheet" href="_static/extra.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="index" title="Index" href="genindex.html" />
+      <link rel="search" title="Search" href="search.html" />
       <link rel="top" title="QGIS Profiles Plugin 1.0 documentation" href="index.html" />
       <link rel="prev" title="QGIS Profiles plugin" href="plugin.html" />
 <style>
@@ -32,7 +34,7 @@
 	<div id="wrapper">
 				<header id="masthead" class="site-header" role="banner">
 			<div class="container">
-				<a href="/" rel="home" id="logo"><img src="_static/logo.png"></a>
+				<a href="http://boundlessgeo.com" rel="home" id="logo"><img src="_static/logo.png"></a>
 				<div class="pull-right">
 					<div class="pull-left">
 						<div class="menu-main-container">
@@ -58,8 +60,6 @@
 
   <div id="content" class="contents">
 <div id="breadcrumbs">
-  <a href="http://boundlessgeo.com/">Home</a> &raquo;
-  <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
   <a href="index.html">QGIS Profiles Plugin</a>
   
      &raquo; <a href="">Profile files</a>
@@ -84,13 +84,13 @@
 <p>To do that, just add a python file with the same name as the json file that contains the profile description, and add a function called <code class="docutils literal"><span class="pre">apply</span></code> to it. That function will be run when the profile is applied.</p>
 <p>Profiles files (both json and python files) must be saved into the <code class="docutils literal"><span class="pre">userprofiles</span></code> folder, in order to be used by the profiles plugin.</p>
 <p>Instead of writing profiles manually, helper methods can be used to write them based on the current QGIS configuration. First, customize your QGIS UI using the built-in functionality. Then run the following code</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">profiles.utils</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">profiles.utils</span> <span class="k">import</span> <span class="o">*</span>
 <span class="n">saveCurrentStatus</span><span class="p">(</span><span class="s2">&quot;path/to/file/to/create/&quot;</span><span class="p">,</span> <span class="s2">&quot;MyProfileName&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>An additional parameter with an array of constants can be passed to indicate what will be saved in the profile. Available constants are <em>PLUGINS, MENUS, BUTTONS</em> and <em>PANELS</em>.</p>
 <p>For instance, for creating a profile that only stores menus and buttons, the following can be executed:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">profiles.utils</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">profiles.utils</span> <span class="k">import</span> <span class="o">*</span>
 <span class="n">saveCurrentStatus</span><span class="p">(</span><span class="s2">&quot;path/to/file/to/create/&quot;</span><span class="p">,</span> <span class="s2">&quot;MyProfileName&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">MENUS</span><span class="p">,</span> <span class="n">BUTTONS</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -119,7 +119,7 @@
         <div class="section">
         <h4>This Page</h4>
         <ul class="this-page-menu">
-          <li><a href="_sources/profilefiles.txt">Show Source</a></li>
+          <li><a href="_sources/profilefiles.rst.txt">Show Source</a></li>
         </ul>
         </div>
 

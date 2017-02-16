@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="../_static/opengeo.css" type="text/css"/>
   <link rel="stylesheet" href="../_static/extra.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="index" title="Index" href="../genindex.html" />
+      <link rel="search" title="Search" href="../search.html" />
       <link rel="top" title="OpenGeo Suite QGIS plugin 1.0 documentation" href="../index.html" />
       <link rel="up" title="Available actions" href="index.html" />
       <link rel="next" title="PostGIS Connections actions" href="postgis.html" />
@@ -34,7 +36,7 @@
 	<div id="wrapper">
 				<header id="masthead" class="site-header" role="banner">
 			<div class="container">
-				<a href="/" rel="home" id="logo"><img src="../_static/logo.png"></a>
+				<a href="http://boundlessgeo.com" rel="home" id="logo"><img src="../_static/logo.png"></a>
 				<div class="pull-right">
 					<div class="pull-left">
 						<div class="menu-main-container">
@@ -60,8 +62,6 @@
 
   <div id="content" class="contents">
 <div id="breadcrumbs">
-  <a href="http://boundlessgeo.com/">Home</a> &raquo;
-  <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
   <a href="../index.html">OpenGeo Suite QGIS plugin</a>
      &raquo; <a href="index.html" accesskey="U">Available actions</a>
   
@@ -79,13 +79,13 @@
 </div>
 <p>Basic authentication is supported, as well as certificate-based authentication. Select the corresponding tab and enter the required parameters. The active tab in the window will define the type of authentication to use, even if the other tab has data in its text boxes.</p>
 <p>The certificate parameters should point at PEM files with certificates and keys. A CA root certificates file can be configured in the OpenGeo Explorer plugin setting dialog, which will be used along with the key and certificate files.</p>
-<p>There are certain limitations when using PKI authentication. See the <a class="reference internal" href="../caveats/index.html#pkilimitations"><span>PKI authentication limitations</span></a> section to know more about them.</p>
+<p>There are certain limitations when using PKI authentication. See the <a class="reference internal" href="../caveats/index.html#pkilimitations"><span class="std std-ref">PKI authentication limitations</span></a> section to know more about them.</p>
 <p>The GeoNode URL is needed if you want to publish a GeoServer layer to a GeoNode endpoint. Otherwise, it is optional, and you can leave the default value.</p>
-<p>The list of catalogs is empty by default when you start the OpenGeo Explorer. See the <a class="reference internal" href="../config/index.html#gs-connections"><span>Keep a list of previous GeoServer connections</span></a> section to know how to keep a list of previously opened catalogs, so you do not have to define them and connect to them in each session.</p>
+<p>The list of catalogs is empty by default when you start the OpenGeo Explorer. See the <a class="reference internal" href="../config/index.html#gs-connections"><span class="std std-ref">Keep a list of previous GeoServer connections</span></a> section to know how to keep a list of previously opened catalogs, so you do not have to define them and connect to them in each session.</p>
 <p>This is a detailed list of actions available for each item under the <span class="guilabel">GeoServer</span> branch.</p>
 <div class="section" id="geoserver-catalog">
 <h2>GeoServer catalog<a class="headerlink" href="#geoserver-catalog" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="non-responsive docutils">
+<table border="1" class="colwidths-given non-responsive docutils">
 <colgroup>
 <col width="20%" />
 <col width="80%" />
@@ -100,7 +100,7 @@
 <td>Updates the contents of the catalog.</td>
 </tr>
 <tr class="row-odd"><th class="stub">Remove</th>
-<td>Removes the catalog from the list of connected ones. This also removes it from the list that is stored between sessions <a class="reference internal" href="../config/index.html#gs-connections"><span>if enabled</span></a>, so it will not appear the next time QGIS is started and OpenGeo Explorer is run.</td>
+<td>Removes the catalog from the list of connected ones. This also removes it from the list that is stored between sessions <a class="reference internal" href="../config/index.html#gs-connections"><span class="std std-ref">if enabled</span></a>, so it will not appear the next time QGIS is started and OpenGeo Explorer is run.</td>
 </tr>
 <tr class="row-even"><th class="stub">Clean (remove unused elements)</th>
 <td>Cleans all styles in the catalog that are not used by any layer, and all stores that are not published through any layer.</td>
@@ -110,7 +110,7 @@
 </div>
 <div class="section" id="geoserver-workspaces">
 <h2>GeoServer Workspaces<a class="headerlink" href="#geoserver-workspaces" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="non-responsive docutils">
+<table border="1" class="colwidths-given non-responsive docutils">
 <colgroup>
 <col width="20%" />
 <col width="80%" />
@@ -132,7 +132,7 @@
 </div>
 <div class="section" id="geoserver-workspace">
 <h2>GeoServer workspace<a class="headerlink" href="#geoserver-workspace" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="non-responsive docutils">
+<table border="1" class="colwidths-given non-responsive docutils">
 <colgroup>
 <col width="20%" />
 <col width="80%" />
@@ -160,7 +160,7 @@
 </div>
 <div class="section" id="geoserver-layers">
 <h2>GeoServer Layers<a class="headerlink" href="#geoserver-layers" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="non-responsive docutils">
+<table border="1" class="colwidths-given non-responsive docutils">
 <colgroup>
 <col width="20%" />
 <col width="80%" />
@@ -179,7 +179,7 @@
 </div>
 <div class="section" id="geoserver-layer">
 <h2>GeoServer layer<a class="headerlink" href="#geoserver-layer" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="non-responsive docutils">
+<table border="1" class="colwidths-given non-responsive docutils">
 <colgroup>
 <col width="20%" />
 <col width="80%" />
@@ -201,7 +201,7 @@
 </td>
 </tr>
 <tr class="row-even"><th class="stub">Delete</th>
-<td>Deletes the layer from the catalog. The associated style or resource may also be deleted; see the <a class="reference internal" href="../config/index.html#config"><span>Configuration</span></a> section for more about how to set those parameters.</td>
+<td>Deletes the layer from the catalog. The associated style or resource may also be deleted; see the <a class="reference internal" href="../config/index.html#config"><span class="std std-ref">Configuration</span></a> section for more about how to set those parameters.</td>
 </tr>
 <tr class="row-odd"><th class="stub">Add to current QGIS project</th>
 <td>Adds to the current project, and includes the style information in the case of vector layers. Style is downloaded as an SLD file and configured for the corresponding QGIS layer. In the case of raster layers, there is no support for SLD styles, and for this reason the layer will use a default style.</td>
@@ -214,7 +214,7 @@
 </div>
 <div class="section" id="geoserver-groups">
 <h2>GeoServer Groups<a class="headerlink" href="#geoserver-groups" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="non-responsive docutils">
+<table border="1" class="colwidths-given non-responsive docutils">
 <colgroup>
 <col width="20%" />
 <col width="80%" />
@@ -233,7 +233,7 @@
 </div>
 <div class="section" id="geoserver-group">
 <h2>GeoServer group<a class="headerlink" href="#geoserver-group" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="non-responsive docutils">
+<table border="1" class="colwidths-given non-responsive docutils">
 <colgroup>
 <col width="20%" />
 <col width="80%" />
@@ -260,7 +260,7 @@
 </div>
 <div class="section" id="geoserver-styles">
 <h2>GeoServer Styles<a class="headerlink" href="#geoserver-styles" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="non-responsive docutils">
+<table border="1" class="colwidths-given non-responsive docutils">
 <colgroup>
 <col width="20%" />
 <col width="80%" />
@@ -289,7 +289,7 @@
 </div>
 <div class="section" id="geoserver-style">
 <h2>GeoServer style<a class="headerlink" href="#geoserver-style" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="non-responsive docutils">
+<table border="1" class="colwidths-given non-responsive docutils">
 <colgroup>
 <col width="20%" />
 <col width="80%" />
@@ -333,7 +333,7 @@
 </div>
 <div class="section" id="geowebcache-layers">
 <h2>GeoWebCache Layers<a class="headerlink" href="#geowebcache-layers" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="non-responsive docutils">
+<table border="1" class="colwidths-given non-responsive docutils">
 <colgroup>
 <col width="20%" />
 <col width="80%" />
@@ -357,7 +357,7 @@
 </div>
 <div class="section" id="geowebcache-layer">
 <h2>GeoWebCache layer<a class="headerlink" href="#geowebcache-layer" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="non-responsive docutils">
+<table border="1" class="colwidths-given non-responsive docutils">
 <colgroup>
 <col width="20%" />
 <col width="80%" />
@@ -404,7 +404,7 @@
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The description panel must be shown in order for these settings to be edited. It can be toggled on and off in the <a class="reference internal" href="../config/index.html#config"><span>Configuration</span></a>.</p>
+<p class="last">The description panel must be shown in order for these settings to be edited. It can be toggled on and off in the <a class="reference internal" href="../config/index.html#config"><span class="std std-ref">Configuration</span></a>.</p>
 </div>
 </div>
 </div>
@@ -456,7 +456,7 @@
         <div class="section">
         <h4>This Page</h4>
         <ul class="this-page-menu">
-          <li><a href="../_sources/actions/geoserver.txt">Show Source</a></li>
+          <li><a href="../_sources/actions/geoserver.rst.txt">Show Source</a></li>
         </ul>
         </div>
 

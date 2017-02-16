@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
   <link rel="stylesheet" href="_static/extra.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="index" title="Index" href="genindex.html" />
+      <link rel="search" title="Search" href="search.html" />
       <link rel="top" title="GeoServer Explorer 0.5 documentation" href="index.html" />
       <link rel="next" title="Available commands and actions" href="actions.html" />
       <link rel="prev" title="GeoServer Explorer Documentation" href="index.html" />
@@ -33,7 +35,7 @@
 	<div id="wrapper">
 				<header id="masthead" class="site-header" role="banner">
 			<div class="container">
-				<a href="/" rel="home" id="logo"><img src="_static/logo.png"></a>
+				<a href="http://boundlessgeo.com" rel="home" id="logo"><img src="_static/logo.png"></a>
 				<div class="pull-right">
 					<div class="pull-left">
 						<div class="menu-main-container">
@@ -59,8 +61,6 @@
 
   <div id="content" class="contents">
 <div id="breadcrumbs">
-  <a href="http://boundlessgeo.com/">Home</a> &raquo;
-  <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
   <a href="index.html">GeoServer Explorer</a>
   
      &raquo; <a href="">Usage</a>
@@ -92,7 +92,7 @@
 <img alt="_images/description_table.png" src="_images/description_table.png" />
 </div>
 <p>Most of the functionality of the explorer is accessed through context menus, right&#8211;clicking on the elements that for the Explorer tree. Also, when you select an element in the tree, buttons in the toolbar in the upper part of the explorer window are updated to show the available actions for that element. These actions correspond to the ones shown in the context menu when you right&#8211;click on the element, so you have different ways of accesing the same funcionality. As it was explained before, the <em>Description</em> panel is also interactive.</p>
-<p>For a more complete reference, a detailed description of all the available actions for each type of element in the Explorer tree is available at the <a class="reference internal" href="actions.html#actions"><span>Available commands and actions</span></a> section.</p>
+<p>For a more complete reference, a detailed description of all the available actions for each type of element in the Explorer tree is available at the <a class="reference internal" href="actions.html#actions"><span class="std std-ref">Available commands and actions</span></a> section.</p>
 <div class="section" id="configuration">
 <span id="id1"></span><h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <p>Along with the menu entry that starts the Explorer, you will find an entry that opens the configuration window, which looks as shown next.</p>
@@ -110,6 +110,17 @@
 <p>Retrieving information from each connection might take a long time and cause QGIS to take too long to start up. For this reason, catalog data is fetch on request and not automatically when starting the GeoServer Explorer. You should refresh the catalog item to populate it. Unpopulated catalogs are shown with a gray icon.</p>
 <p>If the catalog uses basic authentication and username and password are introduced using the basic authentication tab, the password is not stored. You will be prompted to enter it when you reconnect to the catalog. If the <a href="#id2"><span class="problematic" id="id3">*</span></a>Configurations&#8221; tab is used, connection data (wheter password or certificate-based) will be stored in the encrypted QGIS auth database. You will be prompted to enter the master password in case you haven&#8217;t used the auth database in the current QGIS session.</p>
 <p>To delete a catalog from the list of previous connections, use the <em>Remove</em> option of the catalog item in the Explorer tree.</p>
+</div>
+<div class="section" id="automatically-updating-styles">
+<h2>Automatically updating styles<a class="headerlink" href="#automatically-updating-styles" title="Permalink to this headline">¶</a></h2>
+<p>If the corresponding property is enabled, the GeoServer Explorer plugin will take care of updating styles on the server whenever a layer that has been previously uploaded changes its simbology.</p>
+<p>When a layer is uploaded to a GeoServer catalog, the plugin will start tracking it. If the simbology of a layer changes, you will see a message like the following one in the message bar.</p>
+<div class="figure align-center">
+<img alt="_images/tracking.png" src="_images/tracking.png" />
+</div>
+<p>Select <em>Update</em> to upload the new style. Click on <em>Stop tracking this layer</em> to avoid seeing more messages like that when the layer changes its simbology.</p>
+<p>The style update works as well if the GeoServer Explorer is not open, or if the corresponding catalog is not active or not even listed in the Explorer tree.</p>
+<p>Layer tracking is based on the source property of the layer (the filepath in the case of file-based layers), so renaming or moving the layer will deactivate the tracking mechanism for that layer. Layer tracking persist between QGIS sessions and is not linked to the QGIS project the layer might belong to.</p>
 </div>
 <div class="section" id="using-the-geoserver-importer-api">
 <h2>Using the GeoServer Importer API<a class="headerlink" href="#using-the-geoserver-importer-api" title="Permalink to this headline">¶</a></h2>
@@ -174,6 +185,7 @@
 <li>Vector layers<ul>
 <li>When converting from a GeoServer style to a QGIS style, the style is always defined as a <em>Rule-based</em> style. That means that, even if the style is created using another type, such as <em>Graduated</em>, when it is uploaded to a GeoServer catalog and then edited again from QGIS, it will not appear as a <em>Graduated</em> style. This is due to how QGIS handles SLD styles, always interpreting them as symbology of type <em>Rule-based</em>. An example of this limitation is actually a consequence of an upstream QGIS issue (<a class="reference external" href="https://hub.qgis.org/issues/14170">https://hub.qgis.org/issues/14170</a>): <em>Graduated</em> or <em>Categorized</em> QGIS styles including a non-specific symbology class will be translated to an equivalent <em>Rule-based</em> where the rule representing the non-specific will miss an <em>ELSE</em> expression. This issue can be easily fixed by removing manually such symbology class, or adding to it manually the necessary <em>ELSE</em> expression.</li>
 <li>Basic labeling is supported, but not all labeling will be exported from QGIS to SLD and uploaded to GeoServer. In particular, advanced data-dependent labelling is not supported.</li>
+<li>Importing a point layer with a SVG style from QGIS to Geoserver results in a WMS layer that respects such SVG symbol. The same is not supported for now if the layer is re-imported as WFS layer.</li>
 </ul>
 </li>
 </ul>
@@ -201,6 +213,7 @@
 <li><a class="reference internal" href="#">Usage</a><ul>
 <li><a class="reference internal" href="#configuration">Configuration</a></li>
 <li><a class="reference internal" href="#keeping-a-list-of-previous-geoserver-connections">Keeping a list of previous GeoServer connections</a></li>
+<li><a class="reference internal" href="#automatically-updating-styles">Automatically updating styles</a></li>
 <li><a class="reference internal" href="#using-the-geoserver-importer-api">Using the GeoServer Importer API</a></li>
 <li><a class="reference internal" href="#pre-upload-processing-hooks">Pre-upload Processing hooks</a></li>
 <li><a class="reference internal" href="#other-parameters">Other parameters</a></li>
@@ -221,7 +234,7 @@
         <div class="section">
         <h4>This Page</h4>
         <ul class="this-page-menu">
-          <li><a href="_sources/intro.txt">Show Source</a></li>
+          <li><a href="_sources/intro.rst.txt">Show Source</a></li>
         </ul>
         </div>
 

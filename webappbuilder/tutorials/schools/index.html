@@ -13,10 +13,9 @@
   <link rel="stylesheet" href="../../_static/opengeo.css" type="text/css"/>
   <link rel="stylesheet" href="../../_static/extra.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="index" title="Index" href="../../genindex.html" />
+      <link rel="search" title="Search" href="../../search.html" />
       <link rel="top" title="Web App Builder 0.5.1 documentation" href="../../index.html" />
-      <link rel="up" title="Tutorials" href="../index.html" />
-      <link rel="next" title="Mapping Paris bakeries" href="../bakeries/index.html" />
-      <link rel="prev" title="Tutorials" href="../index.html" />
 <style>
   @font-face { font-family: cantarell; src: url('../../_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
   @font-face { font-family: cantarell; src: url('../../_static/Cantarell-Bold.ttf'); font-weight:bold; }
@@ -34,7 +33,7 @@
 	<div id="wrapper">
 				<header id="masthead" class="site-header" role="banner">
 			<div class="container">
-				<a href="/" rel="home" id="logo"><img src="../../_static/logo.png"></a>
+				<a href="http://boundlessgeo.com" rel="home" id="logo"><img src="../../_static/logo.png"></a>
 				<div class="pull-right">
 					<div class="pull-left">
 						<div class="menu-main-container">
@@ -60,10 +59,7 @@
 
   <div id="content" class="contents">
 <div id="breadcrumbs">
-  <a href="http://boundlessgeo.com/">Home</a> &raquo;
-  <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
   <a href="../../index.html">Web App Builder</a>
-     &raquo; <a href="../index.html" accesskey="U">Tutorials</a>
   
      &raquo; <a href="">Mapping French schools</a>
 </div>
@@ -178,7 +174,7 @@
 <li><p class="first">Click the <span class="guilabel">Edit</span> link to open the text editor.</p>
 </li>
 <li><p class="first">The content of the panel is defined using HTML. Enter the following in the text editor:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Analysis of school names in France<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Analysis of school names in France<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This web app replicates the work described in
 <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://www.lemonde.fr/les-decodeurs/article/2015/04/18/de-jules-ferry-a-pierre-perret-l-etonnant-palmares-des-noms-d-ecoles-de-colleges-et-de-lycees-en-france_4613091_4355770.html&quot;</span><span class="p">&gt;</span>Le Monde<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>It allows for analyzing the naming of schools in France, findinf out the most common ones
@@ -246,19 +242,19 @@ and studying their distribution across the country.<span class="p">&lt;/</span><
 <li><p class="first">In a text editor, open <code class="file docutils literal"><span class="pre">resources/tools.js</span></code> from the directory where you stored the web app.</p>
 </li>
 <li><p class="first">Scroll down to around line 650, where you will see:</p>
-<div class="highlight-python"><div class="highlight"><pre>for (i = 0; i &lt; sorted.length; i++) {
-    columns[0].push(sorted[i][0]);
-    columns[1].push(sorted[i][1]);
-}
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">sorted</span><span class="o">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="nb">sorted</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="nb">sorted</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>The code takes all the count values and uses them for the chart bars. That might not be a good idea, since there might be too many of them, and in most cases would just be equal to 1 (since most names might just appear at a single school). It is more interesting to focus on those names that appear in several schools, meaning to focus on the categories that have larger count values.</p>
 </li>
 <li><p class="first">Replace the above code with the following:</p>
-<div class="highlight-python"><div class="highlight"><pre>for (i = 0; i &lt; Math.min(sorted.length, 30); i++) {
-    columns[0].push(sorted[i][0]);
-    columns[1].push(sorted[i][1]);
-}
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">Math</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="nb">sorted</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="nb">sorted</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="nb">sorted</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>This will generate more informative charts.</p>
@@ -285,7 +281,7 @@ and studying their distribution across the country.<span class="p">&lt;/</span><
 <p>French departments (<em>departements</em>) are usually referred to by a number. Paris for instance, is referred to as number 75. Postal codes on the department always start with the department number, so we can select all schools in Paris by selecting those ones in the form 75XXX.</p>
 <ol class="arabic">
 <li><p class="first">Open the Query tool and enter this in the filter field:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">floor</span><span class="p">(</span><span class="n">POSTCODE</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span> <span class="o">==</span> <span class="mi">75</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">floor</span><span class="p">(</span><span class="n">POSTCODE</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span> <span class="o">==</span> <span class="mi">75</span>
 </pre></div>
 </div>
 </li>
@@ -314,7 +310,7 @@ and studying their distribution across the country.<span class="p">&lt;/</span><
 <p>Here is a more complex example. Let&#8217;s select all public schools in the Ile-de-France region, which includes Paris. The department numbers in the region are 75, 77, 78, 91, 92, 93, 94, and 95.</p>
 <ol class="arabic">
 <li><p class="first">Enter the following expression in the Query tool and click <span class="guilabel">New selection</span>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">floor</span><span class="p">(</span><span class="n">POSTCODE</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">75</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="mi">78</span><span class="p">,</span><span class="mi">91</span><span class="p">,</span><span class="mi">92</span><span class="p">,</span><span class="mi">93</span><span class="p">,</span><span class="mi">94</span><span class="p">,</span><span class="mi">95</span><span class="p">)</span> <span class="ow">and</span> <span class="n">PUBLIC</span> <span class="o">==</span> <span class="s2">&quot;PU&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">floor</span><span class="p">(</span><span class="n">POSTCODE</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">75</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="mi">78</span><span class="p">,</span><span class="mi">91</span><span class="p">,</span><span class="mi">92</span><span class="p">,</span><span class="mi">93</span><span class="p">,</span><span class="mi">94</span><span class="p">,</span><span class="mi">95</span><span class="p">)</span> <span class="ow">and</span> <span class="n">PUBLIC</span> <span class="o">==</span> <span class="s2">&quot;PU&quot;</span>
 </pre></div>
 </div>
 </li>
@@ -332,7 +328,7 @@ and studying their distribution across the country.<span class="p">&lt;/</span><
 <p>The selected features are in a separate layer which is not shown in the Layers list. That means that if you turn off visibility for the schools layers the layer with selected elements will still be in the map.</p>
 <ol class="arabic">
 <li><p class="first">Enter the following in the query box and click <span class="guilabel">New selection</span>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">NAME</span> <span class="o">==</span> <span class="s2">&quot;JULES FERRY&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">NAME</span> <span class="o">==</span> <span class="s2">&quot;JULES FERRY&quot;</span>
 </pre></div>
 </div>
 </li>
@@ -348,11 +344,6 @@ and studying their distribution across the country.<span class="p">&lt;/</span><
 </div>
 
 
-      <!-- Next/Prev -->
-      <div class="selfclear pagination-nav">
-          <div class="left"><strong>Previous</strong>: <a href="../index.html" title="previous chapter">Tutorials</a></div>
-          <div class="right"><strong>Next</strong>: <a href="../bakeries/index.html" title="next chapter">Mapping Paris bakeries</a></div>
-      </div>
 
   <!--
     &copy; Copyright 2016 Boundless Spatial, Inc.
@@ -385,15 +376,9 @@ and studying their distribution across the country.<span class="p">&lt;/</span><
         <div class="section-footer"></div>
       </div>
         <div class="section">
-          <h3>Continue Reading</h3>
-          <p style="margin-top:1em"><b>Previous:</b> <a href="../index.html" title="previous chapter">Tutorials</a></p>
-          <p><b>Next:</b> <a href="../bakeries/index.html" title="next chapter">Mapping Paris bakeries</a></p>
-          </ul>
-        </div>
-        <div class="section">
         <h4>This Page</h4>
         <ul class="this-page-menu">
-          <li><a href="../../_sources/tutorials/schools/index.txt">Show Source</a></li>
+          <li><a href="../../_sources/tutorials/schools/index.rst.txt">Show Source</a></li>
         </ul>
         </div>
 
@@ -408,12 +393,6 @@ and studying their distribution across the country.<span class="p">&lt;/</span><
   <li class="first">
     <a href="../../genindex.html" title="General Index"
        accesskey="I">index</a></li>
-  <li>
-    <a href="../bakeries/index.html" title="Mapping Paris bakeries"
-       accesskey="N">next</a>|</li>
-  <li>
-    <a href="../index.html" title="Tutorials"
-       accesskey="P">previous</a>|</li>
 </ul> -->
   </div> <!-- rightbar_bar -->
 

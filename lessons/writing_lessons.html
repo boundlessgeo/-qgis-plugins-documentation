@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
   <link rel="stylesheet" href="_static/extra.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="index" title="Index" href="genindex.html" />
+      <link rel="search" title="Search" href="search.html" />
       <link rel="top" title="Lessons 1.0.0 documentation" href="index.html" />
       <link rel="prev" title="Usage" href="usage.html" />
 <style>
@@ -32,7 +34,7 @@
 	<div id="wrapper">
 				<header id="masthead" class="site-header" role="banner">
 			<div class="container">
-				<a href="/" rel="home" id="logo"><img src="_static/logo.png"></a>
+				<a href="http://boundlessgeo.com" rel="home" id="logo"><img src="_static/logo.png"></a>
 				<div class="pull-right">
 					<div class="pull-left">
 						<div class="menu-main-container">
@@ -58,8 +60,6 @@
 
   <div id="content" class="contents">
 <div id="breadcrumbs">
-  <a href="http://boundlessgeo.com/">Home</a> &raquo;
-  <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
   <a href="index.html">Lessons</a>
   
      &raquo; <a href="">Writing Lessons</a>
@@ -73,16 +73,17 @@
 <div class="section" id="lesson-s-file-structure">
 <span id="lesson-structure"></span><h2>Lesson&#8217;s file structure<a class="headerlink" href="#lesson-s-file-structure" title="Permalink to this headline">¶</a></h2>
 <p>Lessons are usually deployed in lessons groups or packages. Therefore is advisable to start by creating a new folder to hold your lessons and add an empty <code class="docutils literal"><span class="pre">`__init__.py`</span></code> file to it. Then, for each lesson, create a separate folder with the structure shown below:</p>
-<div class="highlight-python"><div class="highlight"><pre>lessons_group/
-|-- lesson_1/
-|   |-- __init__py (or lesson.yaml)
-|   |-- project.qgs
-|   |-- [html files and images describing the lesson and each step in it]
-|   |-- data/
-|   |   |-- [data files used in the lesson]
-|
-|-+ lesson_2/
-|-+ lesson_3/
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">lessons_group</span><span class="o">/</span>
+<span class="o">|--</span> <span class="n">lesson_1</span><span class="o">/</span>
+<span class="o">|</span>   <span class="o">|--</span> <span class="n">__init__py</span> <span class="p">(</span><span class="ow">or</span> <span class="n">lesson</span><span class="o">.</span><span class="n">yaml</span><span class="p">)</span>
+<span class="o">|</span>   <span class="o">|--</span> <span class="n">project</span><span class="o">.</span><span class="n">qgs</span>
+<span class="o">|</span>   <span class="o">|--</span> <span class="p">[</span><span class="n">html</span> <span class="ow">or</span> <span class="n">markdown</span> <span class="n">files</span> <span class="ow">and</span> <span class="n">images</span> <span class="n">describing</span> <span class="n">the</span> <span class="n">lesson</span> <span class="ow">and</span> <span class="n">each</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">it</span><span class="p">]</span>
+<span class="o">|</span>   <span class="o">|--</span> <span class="n">data</span><span class="o">/</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="p">[</span><span class="n">data</span> <span class="n">files</span> <span class="n">used</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">lesson</span><span class="p">]</span>
+<span class="o">|</span>
+<span class="o">|-+</span> <span class="n">lesson_2</span><span class="o">/</span>
+<span class="o">|-+</span> <span class="n">lesson_3</span><span class="o">/</span>
+<span class="o">|-+</span> <span class="n">group</span><span class="o">.</span><span class="n">html</span> <span class="p">(</span><span class="ow">or</span> <span class="n">group</span><span class="o">.</span><span class="n">md</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>All these elements are explained in the next sections of this document.</p>
@@ -91,22 +92,25 @@
 <h2>Creating a lesson in Python<a class="headerlink" href="#creating-a-lesson-in-python" title="Permalink to this headline">¶</a></h2>
 <p>If you have created a folder for each lesson as described above, the steps of the lesson and the content of each step should be defined in the <code class="docutils literal"><span class="pre">`__init__.py`</span></code> file.</p>
 <p>The <code class="docutils literal"><span class="pre">`_init__.py`</span></code> must start by importing the Lessons plugin&#8217;s methods.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">lessons.lesson</span> <span class="kn">import</span> <span class="n">Lesson</span><span class="p">,</span> <span class="n">Step</span>
-<span class="kn">from</span> <span class="nn">lessons.utils</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">qgis.utils</span> <span class="kn">import</span> <span class="n">iface</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lessons.lesson</span> <span class="k">import</span> <span class="n">Lesson</span><span class="p">,</span> <span class="n">Step</span>
+<span class="kn">from</span> <span class="nn">lessons.utils</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">qgis.utils</span> <span class="k">import</span> <span class="n">iface</span>
 </pre></div>
 </div>
 <p>Then, create a <code class="docutils literal"><span class="pre">`Lesson`</span></code> object, specifying its name, the group it belongs to (lessons can be grouped) and a detailed description.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">lesson</span> <span class="o">=</span> <span class="n">Lesson</span> <span class="p">(</span><span class="s2">&quot;Interpolating from a points layer&quot;</span><span class="p">,</span> <span class="s2">&quot;Analysis lessons&quot;</span><span class="p">,</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">lesson</span> <span class="o">=</span> <span class="n">Lesson</span> <span class="p">(</span><span class="s2">&quot;Interpolating from a points layer&quot;</span><span class="p">,</span> <span class="s2">&quot;Analysis lessons&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;This lesson shows how to use the interpolation capabilities of QGIS&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Instead of a string with the description, you can pass the name of an HTML file containing a richer description. For instance:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">lesson</span> <span class="o">=</span> <span class="n">Lesson</span> <span class="p">(</span><span class="s2">&quot;Interpolating from a points layer&quot;</span><span class="p">,</span> <span class="s2">&quot;Analysis lessons&quot;</span><span class="p">,</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">lesson</span> <span class="o">=</span> <span class="n">Lesson</span> <span class="p">(</span><span class="s2">&quot;Interpolating from a points layer&quot;</span><span class="p">,</span> <span class="s2">&quot;Analysis lessons&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;lesson.html&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>There is no need to add the full path to the HTML file. As long as the file is in the same folder as the <code class="docutils literal"><span class="pre">`__init__.py`</span></code> file, the full path will be correctly resolved at runtime.</p>
+<p>You can also use Markdown files (with the <code class="docutils literal"><span class="pre">`md`</span></code> extension) instead of HTML files. They will be converted to HTML code automatically by the lessons plugin itself.</p>
+<p>You can provide a group description using the <code class="docutils literal"><span class="pre">`addGroup(name,</span> <span class="pre">description)`</span></code> method from the <code class="docutils literal"><span class="pre">`lessons`</span></code> module. The description, as in the case of a lesson description, can be a text  block with html code, or the path to an existing HTML or Markdown file.</p>
+<p>You can also add a <code class="docutils literal"><span class="pre">`group.html`</span></code> or <code class="docutils literal"><span class="pre">`group.md`</span></code> file in the group folder, and it will be automatically asigned as the description file for the group. The group name is taken from the parent folder name (replacing underscores with spaces), so you should make sure that this folder name matches the declared group name of each of the lessons under it.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The HTML files used to describe the lesson or its steps can be formatted using the most common HTML tags and styling options, including titles, images, paragraphs, ordered lists, etc., but there are some limitations. Consult Qt4.8 framework documentation for more details on the <a class="reference external" href="http://doc.qt.io/qt-4.8/richtext-html-subset.html">supported HTML subset</a>.</p>
@@ -118,8 +122,8 @@
 <div class="section" id="adding-steps">
 <h3>Adding steps<a class="headerlink" href="#adding-steps" title="Permalink to this headline">¶</a></h3>
 <p>Now, you can add steps to your lesson using the <code class="docutils literal"><span class="pre">`addStep`</span></code> method, which has the following signature:</p>
-<div class="highlight-python"><div class="highlight"><pre>addStep(self, name, description, function=None, prestep=None, endsignal=None,
-            endsignalcheck=None, endcheck=lambda:True, steptype=1):
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">addStep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">function</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prestep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">endsignal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">endsignalcheck</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">endcheck</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="n">steptype</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 </pre></div>
 </div>
 <p>Here is a description of its arguments:</p>
@@ -138,20 +142,20 @@
 <h3>Convenience methods and utils<a class="headerlink" href="#convenience-methods-and-utils" title="Permalink to this headline">¶</a></h3>
 <p>To make it easier to create new lessons, you will find some convenience methods in the <code class="docutils literal"><span class="pre">`Lesson`</span></code> class and functions for performing common tasks in the <code class="docutils literal"><span class="pre">`lessons.utils`</span></code> module.</p>
 <p>The <code class="docutils literal"><span class="pre">`addMenuClickStep()`</span></code> method in the <code class="docutils literal"><span class="pre">`Lesson`</span></code> class will add a step that involves clicking a menu item. Its only mandatory argument is the path and name of the menu to click. This method will add a step with a standard name and description, and that will automatically move to the next step once that specified menu item is clicked.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">lesson</span><span class="o">.</span><span class="n">addMenuClickStep</span><span class="p">(</span><span class="s2">&quot;Layer/Create Layer/Create New Shapefile Layer...&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">lesson</span><span class="o">.</span><span class="n">addMenuClickStep</span><span class="p">(</span><span class="s2">&quot;Layer/Create Layer/Create New Shapefile Layer...&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Optionally, you can provide a custom description, either as a string of text or an HTML file.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">lesson</span><span class="o">.</span><span class="n">addMenuClickStep</span><span class="p">(</span><span class="s2">&quot;Layer/Create Layer/Create New Shapefile Layer...&quot;</span><span class="p">,</span> <span class="s2">&quot;create_shapefile.html&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">lesson</span><span class="o">.</span><span class="n">addMenuClickStep</span><span class="p">(</span><span class="s2">&quot;Layer/Create Layer/Create New Shapefile Layer...&quot;</span><span class="p">,</span> <span class="s2">&quot;create_shapefile.html&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal"><span class="pre">`addMenuClickStep()`</span></code> method is particularely useful when a step involves opening a modal dialog that will block QGIS&#8217;s main window, and will not allow the user to move to the next step and see its description.</p>
 <p>Another convenient method is the <code class="docutils literal"><span class="pre">`setCleanup()`</span></code>. With it you can set up a cleanup method, which will run when the lesson is finished, or the user exits the lesson before completing it.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">lesson</span><span class="o">.</span><span class="n">setCleanup</span><span class="p">(</span><span class="n">cleanupMethod</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">lesson</span><span class="o">.</span><span class="n">setCleanup</span><span class="p">(</span><span class="n">cleanupMethod</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Yet another useful method is <code class="docutils literal"><span class="pre">`addNextLesson()`</span></code>. If your lesson is related to other lessons, you can add them as recommended lesson to continue after the current one is finished.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">lesson</span><span class="o">.</span><span class="n">addNextLesson</span><span class="p">(</span><span class="s2">&quot;Lessons Group&quot;</span><span class="p">,</span> <span class="s2">&quot;Name of the lesson&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">lesson</span><span class="o">.</span><span class="n">addNextLesson</span><span class="p">(</span><span class="s2">&quot;Lessons Group&quot;</span><span class="p">,</span> <span class="s2">&quot;Name of the lesson&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The name and group name must match the name and group name of the lesson that you want to add. Ideally, those lessons should be in the same lessons group as the current lesson to ensure that they are installed and available as well.</p>
@@ -159,22 +163,16 @@
 <div class="section" id="python-example">
 <h3>Python example<a class="headerlink" href="#python-example" title="Permalink to this headline">¶</a></h3>
 <p>The <em>Lessons plugin</em> includes a simple lesson written in python. Here&#8217;s its <code class="file docutils literal"><span class="pre">__init__.py</span></code> file as an example.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">lessons.lesson</span> <span class="kn">import</span> <span class="n">Lesson</span><span class="p">,</span> <span class="n">Step</span>
-<span class="kn">from</span> <span class="nn">lessons.utils</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lessons.lesson</span> <span class="kn">import</span> <span class="n">Lesson</span><span class="p">,</span> <span class="n">Step</span>
+<span class="kn">from</span> <span class="nn">lessons.utils</span> <span class="kn">import</span> <span class="n">setActiveLayer</span><span class="p">,</span> <span class="n">layerActive</span>
 <span class="kn">from</span> <span class="nn">qgis.utils</span> <span class="kn">import</span> <span class="n">iface</span>
 <span class="kn">from</span> <span class="nn">lessons</span> <span class="kn">import</span> <span class="n">addLessonModule</span>
 
-<span class="k">def</span> <span class="nf">isLayerActive</span><span class="p">():</span>
-    <span class="n">layer</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">activeLayer</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">layer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">layer</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;points&quot;</span>
-
-<span class="k">def</span> <span class="nf">setActiveLayer</span><span class="p">():</span>
-    <span class="n">layer</span> <span class="o">=</span> <span class="n">layerFromName</span><span class="p">(</span><span class="s2">&quot;points&quot;</span><span class="p">)</span>
-    <span class="n">iface</span><span class="o">.</span><span class="n">setActiveLayer</span><span class="p">(</span><span class="n">layer</span><span class="p">)</span>
-
 <span class="n">lesson</span> <span class="o">=</span> <span class="n">Lesson</span><span class="p">(</span><span class="s2">&quot;Export to geojson&quot;</span><span class="p">,</span> <span class="s2">&quot;Basic lessons&quot;</span><span class="p">,</span> <span class="s2">&quot;lesson.html&quot;</span><span class="p">)</span>
-<span class="n">lesson</span><span class="o">.</span><span class="n">addStep</span><span class="p">(</span><span class="s2">&quot;Set &#39;points&#39; layer as active layer&quot;</span><span class="p">,</span> <span class="s2">&quot;activelayer.html&quot;</span><span class="p">,</span>
-               <span class="n">function</span> <span class="o">=</span> <span class="n">setActiveLayer</span><span class="p">,</span> <span class="n">endcheck</span><span class="o">=</span><span class="n">isLayerActive</span><span class="p">,</span> <span class="n">steptype</span><span class="o">=</span><span class="n">Step</span><span class="o">.</span><span class="n">MANUALSTEP</span><span class="p">)</span>
+<span class="n">lesson</span><span class="o">.</span><span class="n">addStep</span><span class="p">(</span><span class="s2">&quot;Set &#39;points&#39; layer as active layer&quot;</span><span class="p">,</span> <span class="s2">&quot;activelayer.md&quot;</span><span class="p">,</span>
+               <span class="n">function</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">setActiveLayer</span><span class="p">(</span><span class="s2">&quot;points&quot;</span><span class="p">),</span>
+               <span class="n">endcheck</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span><span class="n">layerActive</span><span class="p">(</span><span class="s2">&quot;points&quot;</span><span class="p">),</span>
+               <span class="n">steptype</span><span class="o">=</span><span class="n">Step</span><span class="o">.</span><span class="n">MANUALSTEP</span><span class="p">)</span>
 <span class="n">lesson</span><span class="o">.</span><span class="n">addMenuClickStep</span><span class="p">(</span><span class="s2">&quot;Layer/Save As...&quot;</span><span class="p">)</span>
 <span class="n">lesson</span><span class="o">.</span><span class="n">addStep</span><span class="p">(</span><span class="s2">&quot;Save the file as geojson&quot;</span><span class="p">,</span> <span class="s2">&quot;saveas.html&quot;</span><span class="p">,</span> <span class="n">steptype</span><span class="o">=</span><span class="n">Step</span><span class="o">.</span><span class="n">MANUALSTEP</span><span class="p">)</span>
 <span class="n">lesson</span><span class="o">.</span><span class="n">addNextLesson</span><span class="p">(</span><span class="s2">&quot;Basic lessons&quot;</span><span class="p">,</span> <span class="s2">&quot;Export to geojson (yaml example)&quot;</span><span class="p">)</span>
@@ -192,7 +190,7 @@
 <h3>YMAL example<a class="headerlink" href="#ymal-example" title="Permalink to this headline">¶</a></h3>
 <p>The Lessons plugin also includes a simple lesson based in a YAML file. It is actually the same lesson that is included as a Python example, although it doesn&#8217;t contain some of the elements in that one, such as automatically running some steps, since those are not available in this case, as explained before.</p>
 <p>Here&#8217;s the lesson YAML file, with comments to explain its content:</p>
-<div class="highlight-yaml"><div class="highlight"><pre><span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Export to geojson (yaml example)</span> <span class="c1">#The name of the lesson</span>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Export to geojson (yaml example)</span> <span class="c1">#The name of the lesson</span>
 <span class="l l-Scalar l-Scalar-Plain">group</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Basic lessons</span> <span class="c1">#The group the lesson belongs to</span>
 <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">lesson.html</span> <span class="c1">#the filename of the description page, which has to be in this same folder. You can also put the html code here directly</span>
 <span class="l l-Scalar l-Scalar-Plain">steps</span><span class="p p-Indicator">:</span> <span class="c1">#a list of steps in the lesson, in the correct order in which they have to be performed</span>
@@ -252,8 +250,8 @@
 <ol class="arabic simple" start="3">
 <li>In the init method of your plugin, register your plugin adding the following snippet:</li>
 </ol>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">lessons</span> <span class="kn">import</span> <span class="n">addLessonModule</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">lessons</span> <span class="k">import</span> <span class="n">addLessonModule</span>
     <span class="n">addLessonModule</span><span class="p">(</span><span class="n">lesson_module</span><span class="p">)</span>
 <span class="k">except</span><span class="p">:</span>
     <span class="k">pass</span>
@@ -262,8 +260,8 @@
 <p>Replace <em>lesson_module</em> with the reference to your lesson module (which you should have imported), and add as many entries as modules you have created in your set of lessons.</p>
 <p>If your plugin contains several lessons, there is no need to call the <code class="docutils literal"><span class="pre">`addLessonModule`</span></code> method repeatedly. You can use the <code class="docutils literal"><span class="pre">`addLessonsFolder`</span></code> method and pass the path to the folder that contains the lesson subfolders.</p>
 <p>In the <code class="docutils literal"><span class="pre">`unload`</span></code> method of your plugin, you should remove the lessons using the <code class="docutils literal"><span class="pre">`removeLessonModule`</span></code> or <code class="docutils literal"><span class="pre">`removeLessonsFolder`</span></code> methods :</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">lessons</span> <span class="kn">import</span> <span class="n">removeLessonsFolder</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">lessons</span> <span class="k">import</span> <span class="n">removeLessonsFolder</span>
 <span class="k">except</span><span class="p">:</span>
     <span class="k">return</span>
 
@@ -320,7 +318,7 @@
         <div class="section">
         <h4>This Page</h4>
         <ul class="this-page-menu">
-          <li><a href="_sources/writing_lessons.txt">Show Source</a></li>
+          <li><a href="_sources/writing_lessons.rst.txt">Show Source</a></li>
         </ul>
         </div>
 

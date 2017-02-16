@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="../_static/opengeo.css" type="text/css"/>
   <link rel="stylesheet" href="../_static/extra.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="index" title="Index" href="../genindex.html" />
+      <link rel="search" title="Search" href="../search.html" />
       <link rel="top" title="OpenGeo Suite QGIS plugin 1.0 documentation" href="../index.html" />
       <link rel="next" title="Usage" href="../usage/index.html" />
       <link rel="prev" title="Installation" href="../install.html" />
@@ -33,7 +35,7 @@
 	<div id="wrapper">
 				<header id="masthead" class="site-header" role="banner">
 			<div class="container">
-				<a href="/" rel="home" id="logo"><img src="../_static/logo.png"></a>
+				<a href="http://boundlessgeo.com" rel="home" id="logo"><img src="../_static/logo.png"></a>
 				<div class="pull-right">
 					<div class="pull-left">
 						<div class="menu-main-container">
@@ -59,8 +61,6 @@
 
   <div id="content" class="contents">
 <div id="breadcrumbs">
-  <a href="http://boundlessgeo.com/">Home</a> &raquo;
-  <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
   <a href="../index.html">OpenGeo Suite QGIS plugin</a>
   
      &raquo; <a href="">Tutorial</a>
@@ -73,7 +73,7 @@
 <p>This tutorial will guide you through some of the most common tasks that can be performed using OpenGeo Explorer.</p>
 <div class="section" id="prerequisites-and-data">
 <h2>Prerequisites and data<a class="headerlink" href="#prerequisites-and-data" title="Permalink to this headline">¶</a></h2>
-<p>This tutorial assumes that QGIS with OpenGeo Explorer has been already <a class="reference internal" href="../install.html#install"><span>installed</span></a>. It also assumes a local GeoServer instance and a PostGIS database installed with the parameters set by a standard OpenGeo Suite installation:</p>
+<p>This tutorial assumes that QGIS with OpenGeo Explorer has been already <a class="reference internal" href="../install.html#install"><span class="std std-ref">installed</span></a>. It also assumes a local GeoServer instance and a PostGIS database installed with the parameters set by a standard OpenGeo Suite installation:</p>
 <ul class="simple">
 <li>GeoServer running on port 8080 and responding on <code class="docutils literal"><span class="pre">http://localhost:8080/geoserver/</span></code></li>
 <li>PostGIS running on port 5432</li>
@@ -290,7 +290,7 @@
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>The details of this step are beyond the scope of this tutorial, as it must be done outside of QGIS using PostgreSQL command-line utilities like <code class="docutils literal"><span class="pre">psql</span></code> or the <code class="docutils literal"><span class="pre">pgAdmin</span></code> utility. An example using the command line would look like this:</p>
-<div class="last highlight-console"><div class="highlight"><pre><span class="go">createdb -U postgres quickstart</span>
+<div class="last highlight-console"><div class="highlight"><pre><span></span><span class="go">createdb -U postgres quickstart</span>
 <span class="go">psql -U postgres -d quickstart -c &quot;create extension postgis;&quot;</span>
 </pre></div>
 </div>
@@ -413,7 +413,7 @@
         <div class="section">
         <h4>This Page</h4>
         <ul class="this-page-menu">
-          <li><a href="../_sources/tutorial/index.txt">Show Source</a></li>
+          <li><a href="../_sources/tutorial/index.rst.txt">Show Source</a></li>
         </ul>
         </div>
 

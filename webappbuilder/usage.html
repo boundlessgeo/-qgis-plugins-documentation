@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
   <link rel="stylesheet" href="_static/extra.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="index" title="Index" href="genindex.html" />
+      <link rel="search" title="Search" href="search.html" />
       <link rel="top" title="Web App Builder 0.5.1 documentation" href="index.html" />
       <link rel="next" title="Controls" href="controls.html" />
       <link rel="prev" title="Web App Builder and WebSDK" href="wabandwebsdk.html" />
@@ -33,7 +35,7 @@
 	<div id="wrapper">
 				<header id="masthead" class="site-header" role="banner">
 			<div class="container">
-				<a href="/" rel="home" id="logo"><img src="_static/logo.png"></a>
+				<a href="http://boundlessgeo.com" rel="home" id="logo"><img src="_static/logo.png"></a>
 				<div class="pull-right">
 					<div class="pull-left">
 						<div class="menu-main-container">
@@ -59,8 +61,6 @@
 
   <div id="content" class="contents">
 <div id="breadcrumbs">
-  <a href="http://boundlessgeo.com/">Home</a> &raquo;
-  <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
   <a href="index.html">Web App Builder</a>
   
      &raquo; <a href="">Usage</a>
@@ -70,7 +70,7 @@
       
   <div class="section" id="usage">
 <span id="qgis-webappbuilder-usage"></span><h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
-<p>This page will detail how to use the Web App Builder (WAB). For more usage examples, please see the <a class="reference internal" href="tutorials/index.html#qgis-webappbuilder-tutorials"><span>Tutorials</span></a> page.</p>
+<p>This page will detail how to use the Web App Builder (WAB). For more usage examples, please see the <em>&#8220;Working with the Web App Builder plugin&#8221;</em> tutorial in <a class="reference external" href="https://connect.boundlessgeo.com/Learn/Boundless-Desktop-Learning">Desktop Learning Center</a>.</p>
 <p>The <em>Web App Builder</em> is started from the <span class="menuselection">Web ‣ Web App Builder ‣ Web App Builder</span> menu item.</p>
 <div class="figure" id="id1">
 <img alt="_images/menu.png" src="_images/menu.png" />
@@ -86,7 +86,7 @@
 <img alt="_images/builderbuttons.png" src="_images/builderbuttons.png" />
 <p class="caption"><span class="caption-text">App definition and management buttons</span></p>
 </div>
-<table border="1" class="non-responsive docutils">
+<table border="1" class="colwidths-given non-responsive docutils">
 <colgroup>
 <col width="25%" />
 <col width="75%" />
@@ -114,13 +114,10 @@
 </tr>
 </tbody>
 </table>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
 <p>To create a web app, you must define its characteristics using the definitions available in each dialog&#8217;s tab and then press the <span class="guilabel">Preview</span> or <span class="guilabel">Create App</span> button.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>The <span class="guilabel">Preview</span> button will create the web app in a temporary folder and open your default internet browser to load it. <strong>This preview web app is based on a precompiled version of Web SDK and is not ready for production</strong>, but only for preview and debug purposes. Please see <a class="reference internal" href="wabandwebsdk.html#qgis-webappbuilder-wabandwebsdk"><span>Web App Builder and WebSDK</span></a> for more details.</p>
+<p>The <span class="guilabel">Preview</span> button will create the web app in a temporary folder and open your default internet browser to load it. <strong>This preview web app is based on a precompiled version of Web SDK and is not ready for production</strong>, but only for preview and debug purposes. Please see <a class="reference internal" href="wabandwebsdk.html#qgis-webappbuilder-wabandwebsdk"><span class="std std-ref">Web App Builder and WebSDK</span></a> for more details.</p>
 <p class="last">The <span class="guilabel">Create App</span> button will create the files needed for building a web app using <em>Boundless WebSDK</em>. Those files will be saved in a folder specified by the user, and they are not the web app itself. They have to be built using Node.js and <em>Boundless WebSDK</em>. Usage of <em>Boundless WebSDK</em> is not explained here. Please refer to the WebSDK documentation for more details.</p>
 </div>
 <p>The following sections will explain each tab in the Web App Builder dialog, it&#8217;s contents and options.</p>
@@ -144,10 +141,10 @@
 <ul class="simple">
 <li>The check box before layer&#8217;s name controls whether the layer will be added to the web app or not.</li>
 <li>The <span class="guilabel">Visible on startup</span> check box controls whether the layer will be visible by default when the app is loaded.</li>
-<li>The <span class="guilabel">Show in overview map</span> check box specifies whether the layer will be added to the overview map (if added as a control. see <a class="reference internal" href="controls.html#qgis-webappbuilder-controls-overview"><span>Overview map</span></a> in the <a class="reference internal" href="controls.html#qgis-webappbuilder-controls"><span>Controls</span></a> page).</li>
+<li>The <span class="guilabel">Show in overview map</span> check box specifies whether the layer will be added to the overview map (if added as a control. see <a class="reference internal" href="controls.html#qgis-webappbuilder-controls-overview"><span class="std std-ref">Overview map</span></a> in the <a class="reference internal" href="controls.html#qgis-webappbuilder-controls"><span class="std std-ref">Controls</span></a> page).</li>
 <li>The <span class="guilabel">Show in controls</span> check box specifies whether the layer will be added to controls other than the overview map, such as the legend control or the layer list (if added as a control).</li>
 </ul>
-<p>The following sub-sections descrive he different options that you might find for each type of layer (<a class="reference internal" href="#qgis-webappbuilder-usage-vector"><span>Vector layers</span></a>, <a class="reference internal" href="#qgis-webappbuilder-usage-raster"><span>Raster layers</span></a> and <a class="reference internal" href="#qgis-webappbuilder-usage-wmswfs"><span>WMS/WFS layers</span></a>), and how the app builder deals with them.</p>
+<p>The following sub-sections descrive he different options that you might find for each type of layer (<a class="reference internal" href="#qgis-webappbuilder-usage-vector"><span class="std std-ref">Vector layers</span></a>, <a class="reference internal" href="#qgis-webappbuilder-usage-raster"><span class="std std-ref">Raster layers</span></a> and <a class="reference internal" href="#qgis-webappbuilder-usage-wmswfs"><span class="std std-ref">WMS/WFS layers</span></a>), and how the app builder deals with them.</p>
 <div class="section" id="vector-layers">
 <span id="qgis-webappbuilder-usage-vector"></span><h3>Vector layers<a class="headerlink" href="#vector-layers" title="Permalink to this headline">¶</a></h3>
 <p>For each vector layer, in addiction to the common option, the following options are available:</p>
@@ -184,7 +181,7 @@
 <p class="caption"><span class="caption-text">Popup info example</span></p>
 </div>
 </li>
-<li><p class="first"><span class="guilabel">Layer time info</span>. You can add time information for layers, which will be used by the <a class="reference internal" href="controls.html#qgis-webappbuilder-controls-timeline"><span>Timeline</span></a> control in case it is added. The rendering of layers with time information will be controlled by the <em>timeline</em> control. If the <em>Timeline</em> control is not added to the web app, the time information will be ignored, and the layer will be rendered normally.</p>
+<li><p class="first"><span class="guilabel">Layer time info</span>. You can add time information for layers, which will be used by the <a class="reference internal" href="controls.html#qgis-webappbuilder-controls-timeline"><span class="std std-ref">Timeline</span></a> control in case it is added. The rendering of layers with time information will be controlled by the <em>timeline</em> control. If the <em>Timeline</em> control is not added to the web app, the time information will be ignored, and the layer will be rendered normally.</p>
 <p>To configure the time information of the layer, click in the  <span class="guilabel">Edit</span> label. You will see the following dialog:</p>
 <div class="figure" id="id8">
 <img alt="_images/timeinfodialog.png" src="_images/timeinfodialog.png" />
@@ -223,7 +220,7 @@
 </div>
 <div class="section" id="handling-projections">
 <h3>Handling projections<a class="headerlink" href="#handling-projections" title="Permalink to this headline">¶</a></h3>
-<p>If needed, all layers will be automatically reprojected into the projection of the map to be created (by default, EPSG:3857, but can be set in the <a class="reference internal" href="#qgis-webappbuilder-usage-settings"><span>Settings</span></a> tab). Therefore, you can use input layers from any CRS.</p>
+<p>If needed, all layers will be automatically reprojected into the projection of the map to be created (by default, EPSG:3857, but can be set in the <a class="reference internal" href="#qgis-webappbuilder-usage-settings"><span class="std std-ref">Settings</span></a> tab). Therefore, you can use input layers from any CRS.</p>
 <p>File-based layers will be reprojected beforehand. Layers from OWS services will be reprojected on-the-fly in the web app, <strong>which might cause performance issues</strong>.</p>
 </div>
 </div>
@@ -240,7 +237,7 @@
 <p class="first admonition-title">Note</p>
 <p class="last">Selecting Base Layers or Overlays is entirely optional.</p>
 </div>
-<p><cite>Base Layers</cite>, by default, will be added to a group named &#8220;Base layers&#8221; in the app, which is set as the bottom layer and the user can&#8217;t reorder it. <cite>Overlays</cite> will be added to a group named &#8220;Overlays&#8221;, which is set by default as the top layer, but the web app user might be able to reorder it using the <cite>Layer List</cite> control if the <span class="guilabel">allowReordering</span> option is selected in its configuration. See <a class="reference internal" href="controls.html#qgis-webappbuilder-controls-layerlist"><span>Layers list</span></a> settings in the <a class="reference internal" href="controls.html#qgis-webappbuilder-controls"><span>Controls</span></a> page for more details.</p>
+<p><cite>Base Layers</cite>, by default, will be added to a group named &#8220;Base layers&#8221; in the app, which is set as the bottom layer and the user can&#8217;t reorder it. <cite>Overlays</cite> will be added to a group named &#8220;Overlays&#8221;, which is set by default as the top layer, but the web app user might be able to reorder it using the <cite>Layer List</cite> control if the <span class="guilabel">allowReordering</span> option is selected in its configuration. See <a class="reference internal" href="controls.html#qgis-webappbuilder-controls-layerlist"><span class="std std-ref">Layers list</span></a> settings in the <a class="reference internal" href="controls.html#qgis-webappbuilder-controls"><span class="std std-ref">Controls</span></a> page for more details.</p>
 <div class="figure" id="id11">
 <img alt="_images/baselayersselector.png" src="_images/baselayersselector.png" />
 <p class="caption"><span class="caption-text">Base layers in a web app</span></p>
@@ -259,11 +256,11 @@
 <img alt="_images/controlcontext.png" src="_images/controlcontext.png" />
 <p class="caption"><span class="caption-text">Right-click a control to access configuration</span></p>
 </div>
-<p>For a more detailed description of all available controls and their settings see the <a class="reference internal" href="controls.html#qgis-webappbuilder-controls"><span>Controls</span></a> page.</p>
+<p>For a more detailed description of all available controls and their settings see the <a class="reference internal" href="controls.html#qgis-webappbuilder-controls"><span class="std std-ref">Controls</span></a> page.</p>
 </div>
 <div class="section" id="deploy">
 <h2>Deploy<a class="headerlink" href="#deploy" title="Permalink to this headline">¶</a></h2>
-<p>The <cite>Deploy</cite> tab is used to specify where your data will be stored. It has two groups: <span class="guilabel">PostGIS</span> and <span class="guilabel">GeoServer</span>, where you should insert all the connection information on how to store data to each. They are used only if your data configuration uses PostGIS or GeoServer (as explained in the <a class="reference internal" href="#qgis-webappbuilder-usage-qgislayers"><span>QGIS Layers</span></a> section above).</p>
+<p>The <cite>Deploy</cite> tab is used to specify where your data will be stored. It has two groups: <span class="guilabel">PostGIS</span> and <span class="guilabel">GeoServer</span>, where you should insert all the connection information on how to store data to each. They are used only if your data configuration uses PostGIS or GeoServer (as explained in the <a class="reference internal" href="#qgis-webappbuilder-usage-qgislayers"><span class="std std-ref">QGIS Layers</span></a> section above).</p>
 <div class="figure" id="id14">
 <img alt="_images/deploy.png" src="_images/deploy.png" />
 <p class="caption"><span class="caption-text">Deploy tab</span></p>
@@ -276,7 +273,7 @@
 <img alt="_images/settings.png" src="_images/settings.png" />
 <p class="caption"><span class="caption-text">Settings tab</span></p>
 </div>
-<table border="1" class="non-responsive docutils">
+<table border="1" class="colwidths-given non-responsive docutils">
 <colgroup>
 <col width="20%" />
 <col width="80%" />
@@ -377,7 +374,7 @@
         <div class="section">
         <h4>This Page</h4>
         <ul class="this-page-menu">
-          <li><a href="_sources/usage.txt">Show Source</a></li>
+          <li><a href="_sources/usage.rst.txt">Show Source</a></li>
         </ul>
         </div>
 
