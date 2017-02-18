@@ -124,3 +124,18 @@ def deploy():
     sh("git push origin gh-pages")
     sh("git checkout master")
 
+@task
+def deployoffline():
+    cwd = os.getcwd()
+    tmpDir = os.path.join(cwd, 'tmp')
+    subfolders = [name for name in os.listdir(tmpDir)
+            if os.path.isdir(os.path.join(tmpDir, name))]
+    for folder in subfolders:
+        print "\nDeploying %s ..." % folder
+        src = os.path.join(tmpDir, folder, 'docs', 'build', 'html')
+        if os.path.exists(src):
+            dst = os.path.join(cwd, 'output',  folder.split("-")[1])
+            if os.path.exists(dst):
+                shutil.rmtree(dst)
+            shutil.copytree(src, dst)
+    shutil.copyfile(os.path.join(tmpDir, "index.html"), os.path.join(cwd, 'output', "index.html"))
