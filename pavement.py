@@ -139,4 +139,7 @@ def deployoffline():
                 shutil.rmtree(dst)
             shutil.copytree(src, dst)
     shutil.copyfile(os.path.join(tmpDir, 'index.html'), os.path.join(cwd, 'output', "index.html"))
-    shutil.copytree(os.path.join(cwd, '_static'), os.path.join(cwd, 'output', '_static'))
+    staticDir = os.path.join(cwd, 'output', '_static')
+    if os.path.exists(staticDir):
+        shutil.rmtree(staticDir)
+    shutil.copytree(os.path.join(cwd, '_static'), staticDir)
