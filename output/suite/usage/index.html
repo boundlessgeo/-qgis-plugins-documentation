@@ -1,0 +1,345 @@
+<!--
+ (c) 2016 Boundless, http://boundlessgeo.com
+ This work is licensed under CC-BY-SA 3.0 US License. 
+-->
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : OpenGeo Suite QGIS plugin : Usage</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="../_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="../_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="index" title="Index" href="../genindex.html" />
+      <link rel="search" title="Search" href="../search.html" />
+      <link rel="top" title="OpenGeo Suite QGIS plugin 1.0 documentation" href="../index.html" />
+      <link rel="next" title="Available actions" href="../actions/index.html" />
+      <link rel="prev" title="Tutorial" href="../tutorial/index.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('../_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('../_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('../_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="../_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="http://boundlessgeo.com" rel="home" id="logo"><img src="../_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="../search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>OpenGeo Suite QGIS plugin</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="../index.html">OpenGeo Suite QGIS plugin</a>
+  
+     &raquo; <a href="">Usage</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="usage">
+<span id="id1"></span><h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<p>This page discusses the basics of interacting with OpenGeo Explorer. For common functionality, please see the <a class="reference internal" href="../tutorial/index.html#tutorial"><span class="std std-ref">Tutorial</span></a> page. For a comprehensive reference of all possible options, please see the <a class="reference internal" href="../actions/index.html#actions"><span class="std std-ref">Available actions</span></a> section.</p>
+<div class="section" id="main-panel">
+<h2>Main panel<a class="headerlink" href="#main-panel" title="Permalink to this headline">¶</a></h2>
+<p>OpenGeo Explorer is launched from the <span class="guilabel">OpenGeo</span> menu:</p>
+<blockquote>
+<div><div class="figure" id="id2">
+<img alt="../_images/plugin_menu2.png" src="../_images/plugin_menu2.png" />
+<p class="caption"><span class="caption-text">OpenGeo Explorer menu</span></p>
+</div>
+</div></blockquote>
+<p>This brings up a panel in QGIS. The main element of this panel is the tree. It has the following main branches, each of which deals with a different component:</p>
+<ul class="simple">
+<li>The <strong>GeoServer Catalogs</strong> branch contains a list of the catalogs of all connected GeoServer instances. Once instances are added to this branch, you can interact with this GeoServer form within this panel, including publishing layers and styles, and creating caches.</li>
+<li>The <strong>PostGIS Databases</strong> branch contains a list of all connected PostGIS databases. Its functionality resembles that of the DB Manager in QGIS. Once databases are added here, you can interact with them from within this panel, including viewing and adding tables.</li>
+<li>The <strong>QGIS Project</strong> branch contains the elements of the current QGIS project.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The elements in the QGIS Project branch are presented with a structure that more resembles the elements in GeoServer, making publishing easier.</p>
+</div>
+<p>The lower part of the panel contains an information window showing the description of the currently selected item, and also contains links to actions that are related to the current element.</p>
+<div class="figure" id="id3">
+<img alt="../_images/description_panel.png" src="../_images/description_panel.png" />
+<p class="caption"><span class="caption-text">Description panel</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>When the panel is undocked, the information window appears to the right of the tree.</p>
+<div class="last figure">
+<img alt="../_images/undocked.png" src="../_images/undocked.png" />
+</div>
+</div>
+<p>The information window can also show tables where parameters can be edited. The one shown below corresponds to the <span class="guilabel">Settings</span> element of a GeoServer catalog.</p>
+<div class="figure">
+<img alt="../_images/description_table.png" src="../_images/description_table.png" />
+</div>
+<p>Accessing the functionality of OpenGeo Explorer is done through context menus (right-clicking), or through the buttons in the toolbar above the tree. These buttons change depending on what is selected, and are identical to the items found in the context menu.</p>
+</div>
+<div class="section" id="batch-processing-with-multiple-selections">
+<h2>Batch processing with multiple selections<a class="headerlink" href="#batch-processing-with-multiple-selections" title="Permalink to this headline">¶</a></h2>
+<p>You can select multiple elements of the same type (such as multiple QGIS layers or multiple GeoServer layers, etc.) to automate operations.</p>
+<p>Selecting multiple elements can be done by clicking while pressing <code class="kbd docutils literal"><span class="pre">Ctrl/Cmd</span></code> or <code class="kbd docutils literal"><span class="pre">Shift</span></code>. Selecting an action with multiple elements selected will set that action for every element.</p>
+<p>For example, to publish multiple QGIS layers at once, select them all, then select the <span class="guilabel">Publish</span> action. You will see a dialog like this:</p>
+<div class="figure" id="id4">
+<img alt="../_images/publish_layers_multiple_catalogs.png" src="../_images/publish_layers_multiple_catalogs.png" />
+<p class="caption"><span class="caption-text">Publishing multiple layers</span></p>
+</div>
+<p>This is similar to the dialog that appears when publishing a group to a GeoServer catalog, however, in this case, there is more flexibility, so an additional column is shown which can be used to select the catalog for each layer. Changing the selected catalog at a given row will automatically update the list of workspaces in that row, so it contains the workspaces of that catalog.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If only one catalog exists in the Explorer tree, the catalog column will not be shown.</p>
+</div>
+<p>Configure the catalog (if available) and workspace where you want to upload each layer, and then a multiple upload will be executed.</p>
+</div>
+<div class="section" id="double-clicking-items-to-edit">
+<h2>Double-clicking items to edit<a class="headerlink" href="#double-clicking-items-to-edit" title="Permalink to this headline">¶</a></h2>
+<p>If an element has an Edit action associated with it (such as a GeoServer group), this action can be invoked by double-clicking on the element in the tree.</p>
+</div>
+<div class="section" id="drag-and-drop-operations">
+<h2>Drag and drop operations<a class="headerlink" href="#drag-and-drop-operations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="inside-opengeo-explorer">
+<h3>Inside OpenGeo Explorer<a class="headerlink" href="#inside-opengeo-explorer" title="Permalink to this headline">¶</a></h3>
+<p>The OpenGeo Explorer tree supports drag and drop. You can use this to relocate elements, publish data or edit the configuration of an element.</p>
+<div class="figure" id="id5">
+<img alt="../_images/dragdrop.png" src="../_images/dragdrop.png" />
+<p class="caption"><span class="caption-text">Drag and drop</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Multiple elements can be selected and dragged, as long as they are of the same type.</p>
+</div>
+<p>Below are some of the actions that can be performed via drag and drop:</p>
+<ul class="simple">
+<li>Dragging a QGIS layer item onto a GeoServer item element will publish the layer to the workspace where the item was dropped, or the default workspace if not specified.</li>
+<li>Dragging a GeoServer layer item onto a GeoServer group element will add the layer to the group, using its default style.</li>
+<li>Dragging a style item onto a GeoServer layer will add the style to the list of alternative styles of the layer.</li>
+<li>Dragging a QGIS style into the Styles element of a catalog will add the style to that catalog.</li>
+<li>Dragging a QGIS group element into the Groups, Workspaces, or Layers of a GeoServer catalog will publish the group and its contents. If dropped on a workspace item, that workspace will be used as destination.</li>
+<li>Dragging a GeoServer layer item onto the <span class="guilabel">GeoWebCache layers</span> item of the same catalog will add the corresponding cached layer for the dragged layer.</li>
+<li>Dragging a QGIS layer into a PostGIS connection or schema item will import the layer into the corresponding PostGIS database. The import dialog will be shown before importing.</li>
+<li>Dragging a QGIS layer into a PostGIS table item will append the dragged layer to the existing table. No checking is performed, so the schema of the imported layer should match the schema of the table.</li>
+<li>Dragging a PostGIS table item into a GeoServer catalog or workspace item will publish a new layer based on that table, using the item workspace or the default workspace if not specified.</li>
+</ul>
+</div>
+<div class="section" id="from-qgis-to-opengeo-explorer">
+<h3>From QGIS to OpenGeo Explorer<a class="headerlink" href="#from-qgis-to-opengeo-explorer" title="Permalink to this headline">¶</a></h3>
+<p>You can also drag elements from outside of the OpenGeo Explorer itself. For instance, you can drag elements from the QGIS Browser directly into a PostGIS database or GeoServer catalog element. That will cause the data in those files to be imported into the corresponding database or catalog. Format conversion will be performed automatically if needed.</p>
+<div class="figure" id="id6">
+<img alt="../_images/dragdrop_external.png" src="../_images/dragdrop_external.png" />
+<p class="caption"><span class="caption-text">Drag and drop from an external source</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If the dragged files are not opened in the current QGIS project, no style will be uploaded when publishing to a GeoServer catalog.</p>
+</div>
+<p>In general, any operation that can be performed dragging a QGIS layer item within the Explorer tree can also be performed dragging an element in the QGIS browser that represents a layer.</p>
+</div>
+<div class="section" id="from-opengeo-explorer-to-qgis">
+<h3>From OpenGeo Explorer to QGIS<a class="headerlink" href="#from-opengeo-explorer-to-qgis" title="Permalink to this headline">¶</a></h3>
+<p>Elements from OpenGeo Explorer can also be dropped onto the QGIS canvas.</p>
+<p>GeoServer layers can be dropped onto the QGIS canvas to add them to the project. Because the connection will be using WFS or WCS, the style of the layer will not be used, and instead there will be a default style assigned to it.</p>
+<p>Dragging and dropping a PostGIS table will cause a new layer to be added to the QGIS project based on that table.</p>
+</div>
+</div>
+<div class="section" id="preprocessing-data">
+<h2>Preprocessing data<a class="headerlink" href="#preprocessing-data" title="Permalink to this headline">¶</a></h2>
+<p>Layers to upload sometimes require preprocessing. An example of this is when a layer is not in an optimal format for best performance once published. This preprocessing can be performed independently before publishing, but can also be included as part of the publishing operation itself.</p>
+<p>The OpenGeo Explorer integrates with the QGIS Processing Framework and allows you to define a process to be run on any layer before uploading it, publishing the resulting <em>processed</em> layer instead.</p>
+<p>Processes are defined using the QGIS processing graphical modeler or as python scripts.</p>
+<p>Preprocessing hooks can be set in the <a class="reference internal" href="../config/index.html#config"><span class="std std-ref">Configuration</span></a> section, specifying <span class="guilabel">Vector preprocessing hook file</span> or <span class="guilabel">Raster preprocessing hook file</span>.</p>
+<p><a class="reference download internal" href="../_downloads/quickstart_data.zip" download=""><code class="xref download docutils literal"><span class="pre">The</span> <span class="pre">example</span> <span class="pre">data</span></code></a> contains a hook that can be used for vector layers. It will export selected features to a new layer, so only those features will be later uploaded. If no features are selected, the whole layer will be uploaded. This hook only will apply if the layer is open in QGIS.</p>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="../tutorial/index.html" title="previous chapter">Tutorial</a></div>
+          <div class="right"><strong>Next</strong>: <a href="../actions/index.html" title="next chapter">Available actions</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2013, OpenGeo
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">Usage</a><ul>
+<li><a class="reference internal" href="#main-panel">Main panel</a></li>
+<li><a class="reference internal" href="#batch-processing-with-multiple-selections">Batch processing with multiple selections</a></li>
+<li><a class="reference internal" href="#double-clicking-items-to-edit">Double-clicking items to edit</a></li>
+<li><a class="reference internal" href="#drag-and-drop-operations">Drag and drop operations</a><ul>
+<li><a class="reference internal" href="#inside-opengeo-explorer">Inside OpenGeo Explorer</a></li>
+<li><a class="reference internal" href="#from-qgis-to-opengeo-explorer">From QGIS to OpenGeo Explorer</a></li>
+<li><a class="reference internal" href="#from-opengeo-explorer-to-qgis">From OpenGeo Explorer to QGIS</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#preprocessing-data">Preprocessing data</a></li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="../tutorial/index.html" title="previous chapter">Tutorial</a></p>
+          <p><b>Next:</b> <a href="../actions/index.html" title="next chapter">Available actions</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="../_sources/usage/index.rst.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="../genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="../actions/index.html" title="Available actions"
+       accesskey="N">next</a>|</li>
+  <li>
+    <a href="../tutorial/index.html" title="Tutorial"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">Copyright &copy; 2013, OpenGeo</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="../_static/dropdown.js"></script>-->
+
+  </body>
+</html>

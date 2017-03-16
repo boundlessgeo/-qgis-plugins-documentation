@@ -70,53 +70,140 @@
       
   <div class="section" id="usage">
 <span id="id1"></span><h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="start-lessons">
-<h2>Start lessons<a class="headerlink" href="#start-lessons" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic">
-<li><p class="first">To open a lesson, go to <span class="menuselection">Plugins ‣ Lessons ‣ Start Lesson</span>. The <span class="guilabel">Lesson selector</span> will show up.</p>
+<div class="section" id="the-lessons-library">
+<h2>The Lessons Library<a class="headerlink" href="#the-lessons-library" title="Permalink to this headline">¶</a></h2>
+<p>To open the <span class="guilabel">Lessons Library</span>, go to <span class="menuselection">Plugins ‣
+Lessons ‣ Open Lessons Library...</span>.</p>
 <div class="figure">
-<img alt="_images/lesson_selector.png" src="_images/lesson_selector.png" />
+<img alt="_images/lessons_library.png" src="_images/lessons_library.png" />
 </div>
-</li>
-<li><p class="first">The lessons are organized in groups. If necessary, click the cross next to the group&#8217;s name to expand its lessons list.</p>
-</li>
-<li><p class="first">Click one of the lessons. On the right side of the dialog, a description of the lesson will show its purpose and objectives, the estimated time for completions and the lesson&#8217;s author.</p>
+<p>The left-hand panel (1) lists all available lessons organized by thematic
+groups. If necessary, click the cross icon next to the group&#8217;s name to show
+the lessons inside.</p>
+<p>Upon selecting a lesson (by clicking its name in the list) the right-hand
+panel (2) shows a small description of the lesson&#8217;s content, estimated
+time of completion, and author.</p>
+<p>In the dialog&#8217;s bottom-right corner there is a set of buttons (3):</p>
+<ul class="simple">
+<li><strong>Add lessons...</strong> - To install lessons from ZIP package;</li>
+<li><strong>Uninstall lesson/group</strong> - Deletes the selected lesson or group of lessons;</li>
+<li><strong>Run lesson</strong> - Starts the selected lesson;</li>
+<li><strong>Close</strong> - Closes the <span class="guilabel">Lessons Library</span> dialog.</li>
+</ul>
+</div>
+<div class="section" id="install-new-lessons">
+<h2>Install new lessons<a class="headerlink" href="#install-new-lessons" title="Permalink to this headline">¶</a></h2>
+<p>There are three ways of adding new lessons to the <span class="guilabel">Lesson Library</span>:</p>
+<ul class="simple">
+<li>Using the Boundless Connect plugin;</li>
+<li>From a zip package;</li>
+<li>Through other plugins.</li>
+</ul>
+<div class="section" id="using-boundless-connect-plugin">
+<h3>Using Boundless Connect plugin<a class="headerlink" href="#using-boundless-connect-plugin" title="Permalink to this headline">¶</a></h3>
+<p>You can use the search feature of the <a class="reference external" href="https://connect.boundlessgeo.com/docs/desktop/plugins/connect/usage.html#searching-plugins-and-other-resources">Boundless Connect panel</a> to find, download and
+install lessons groups.</p>
+<p>Filter the search results by choosing <code class="docutils literal"><span class="pre">Lessons</span></code> in the <span class="guilabel">Search
+for</span> Drop-down menu.</p>
+<p>Type the name or subject of the lessons group you are seeking for (e.g.,
+<code class="docutils literal"><span class="pre">general</span></code>) and click <span class="guilabel">Search</span>. The list of matching lessons
+groups shows up. Click one of the listed items to install it in the
+<span class="guilabel">Lessons Library</span>.</p>
 <div class="figure">
-<img alt="_images/lesson_selected.png" src="_images/lesson_selected.png" />
+<img alt="_images/install_from_connect.png" src="_images/install_from_connect.png" />
 </div>
-</li>
-<li><p class="first">Click <span class="guilabel">OK</span> to start the selected lesson.</p>
-</li>
-</ol>
+<p>Once the download and installation finishes, a message in the top of
+the map canvas informs that <strong>&#8220;lessons were correctly installed&#8221;</strong>.</p>
+</div>
+<div class="section" id="from-zip-package">
+<h3>From ZIP package<a class="headerlink" href="#from-zip-package" title="Permalink to this headline">¶</a></h3>
+<p>In the <span class="guilabel">Lessons Library</span> (<span class="menuselection">Plugins ‣
+Lessons ‣ Open Lessons Library</span>), click the <span class="guilabel">Add lessons...</span>
+button. Browse to and select the ZIP package and click <span class="guilabel">Open</span>.
+After it, the lessons in the ZIP package will become available in the
+<span class="guilabel">Lessons Library</span>.</p>
+<div class="figure">
+<img alt="_images/install_from_zip.png" src="_images/install_from_zip.png" />
+</div>
+</div>
+<div class="section" id="through-other-plugins">
+<h3>Through other plugins<a class="headerlink" href="#through-other-plugins" title="Permalink to this headline">¶</a></h3>
+<p>Some plugins can automatically install new lessons. For example, upon
+installation of <a class="reference external" href="http://boundlessgeo.github.io/qgis-plugins-documentation/geogiglight/index.html">Boundless&#8217;s Geogig plugin</a>,
+a new group of lessons will become available in lessons library.</p>
+<div class="figure">
+<img alt="_images/geogig_lessons.png" src="_images/geogig_lessons.png" />
+</div>
+</div>
+</div>
+<div class="section" id="uninstall-lessons">
+<h2>Uninstall lessons<a class="headerlink" href="#uninstall-lessons" title="Permalink to this headline">¶</a></h2>
+<p>To uninstall a lesson, open the <span class="guilabel">Lessons
+Library</span> (<span class="menuselection">Plugins ‣ Lessons ‣ Open Lessons Library</span>),
+select a lesson from the list and click <span class="guilabel">Uninstall lesson</span>.</p>
+<div class="figure">
+<img alt="_images/uninstall_lesson.png" src="_images/uninstall_lesson.png" />
+</div>
+<p>A message requests you to confirm the uninstall action. Click <span class="guilabel">Yes</span>.</p>
+<div class="figure">
+<img alt="_images/uninstall_confirmation.png" src="_images/uninstall_confirmation.png" />
+</div>
+<p>You can also uninstall a group of lessons by selecting the group&#8217;s name in
+the lessons list panel and click <span class="guilabel">Uninstall lessons group</span>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Upon uninstall, the lesson or lessons group will be completely removed from
+your disk. Make sure you have a way to reinstall them if you need to.</p>
+</div>
 </div>
 <div class="section" id="lessons-panel">
 <h2>Lessons Panel<a class="headerlink" href="#lessons-panel" title="Permalink to this headline">¶</a></h2>
-<p>When a lesson starts, the <span class="guilabel">Lessons Panel</span> will be on the right side of the QGIS&#8217;s window. The <span class="guilabel">Lessons Panel</span> includes: a Lesson&#8217;s steps index (1) to track the lesson&#8217;s progress, a description window (2) to show the current step&#8217;s instructions, and a button bar (3).</p>
+<p>By default, when a lesson starts, the <span class="guilabel">Lessons Panel</span> will be on the
+right side of the QGIS&#8217;s window. The <span class="guilabel">Lessons Panel</span> includes a
+Lesson&#8217;s steps index (1) to track the lesson&#8217;s progress, a description
+window (2) to show the current step&#8217;s instructions, and a button bar (3).</p>
 <div class="figure">
 <img alt="_images/lesson_panel.png" src="_images/lesson_panel.png" />
 </div>
 <p>The following buttons compose the button bar:</p>
 <ul class="simple">
-<li><strong>Move to next step</strong> - To go to the next lesson&#8217;s step.</li>
-<li><strong>Run step</strong> - Helps performing the steps instructions (not always available).</li>
-<li><strong>Restart lesson</strong> - Resets the project and cleans all the lesson&#8217;s progress made so far.</li>
-<li><strong>Quit lesson</strong> - Cleans the lesson&#8217;s progress and closes the <span class="guilabel">Lessons Panel</span>, but keeps the project loaded.</li>
+<li><strong>Next step</strong> - To go to the next lesson&#8217;s step.</li>
+<li><strong>Solve step</strong> - Helps to perform the steps instructions (not always
+available).</li>
+<li><strong>Restart</strong> - Resets the project and cleans all the lesson&#8217;s progress made
+so far.</li>
+<li><strong>Quit</strong> - Cleans the lesson&#8217;s progress and closes the <span class="guilabel">Lessons
+Panel</span>, but keeps the project loaded.</li>
 </ul>
 </div>
 <div class="section" id="following-a-lesson">
 <h2>Following a lesson<a class="headerlink" href="#following-a-lesson" title="Permalink to this headline">¶</a></h2>
-<p>Generally, the lessons will open a prepared project with all the necessary data already prepared. Unless the lesson is about loading data, you should never need to add data yourself.</p>
-<p>For each lesson&#8217;s step, follow the instructions in the description window. When you have finished executing those instructions, click <span class="guilabel">Move to next step</span>.</p>
-<p>Some lessons&#8217; steps won&#8217;t let you move to the next step if you haven&#8217;t finished the current step&#8217;s instructions correctly. In those cases a message will pop up, asking you to review and execute the instructions.</p>
+<p>At the start, the lessons open a prepared project with all the necessary data.
+Unless the lesson is about loading data, you should never need to add data
+yourself.</p>
+<p>For each of the lesson&#8217;s steps, follow the instructions in the description
+window. When you have finished executing those instructions, click
+<span class="guilabel">Next step</span>.</p>
+<p>Some steps will not let you move to the next one until you finished the
+current step&#8217;s instructions correctly. In those cases a message pops up,
+asking you to review and execute the instructions.</p>
 <div class="figure">
 <img alt="_images/warning_message.png" src="_images/warning_message.png" />
 </div>
-<p>Some steps will move to the next step automatically as soon as you complete the instructions. The step’s description will inform you of that. Typically, this is used in steps that ask you to click a menu item.</p>
+<p>Some steps will move to the next step automatically as soon as you complete the
+instructions. The step’s description will inform you of that. Typically, this
+is used in steps that ask you to click a menu item, or will open a
+blocking dialog.</p>
 <div class="figure">
 <img alt="_images/click_menu.png" src="_images/click_menu.png" />
 </div>
-<p>In some lessons&#8217; steps, if you get stuck while following the instructions, you can click <span class="guilabel">Run step</span>. This functionality will help you perform the step instructions, either by executing it for you or by showing how to do it.</p>
-<p>When you have finished all steps of the lesson, a dialog will show up congratulating you for the achievement. In that dialog, you can either start the following suggested lesson or close the dialog and the lessons panel.</p>
+<p>In some lessons&#8217; steps, if you get stuck while following the instructions,
+you can click <span class="guilabel">Solve step</span>. This functionality will help you perform
+the step&#8217;s instructions, either by executing it for you or by showing how to
+do it.</p>
+<p>When you have finished all steps of a lesson, a dialog shows up congratulating
+you for the achievement. In that same dialog, you can either start one of the
+suggested lessons or close the dialog and the <span class="guilabel">Lessons panel</span>.</p>
 <div class="figure">
 <img alt="_images/congratulations_message.png" src="_images/congratulations_message.png" />
 </div>
@@ -142,7 +229,14 @@
         <h4 class="pngfix">Table Of Contents</h4>
         <ul>
 <li><a class="reference internal" href="#">Usage</a><ul>
-<li><a class="reference internal" href="#start-lessons">Start lessons</a></li>
+<li><a class="reference internal" href="#the-lessons-library">The Lessons Library</a></li>
+<li><a class="reference internal" href="#install-new-lessons">Install new lessons</a><ul>
+<li><a class="reference internal" href="#using-boundless-connect-plugin">Using Boundless Connect plugin</a></li>
+<li><a class="reference internal" href="#from-zip-package">From ZIP package</a></li>
+<li><a class="reference internal" href="#through-other-plugins">Through other plugins</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#uninstall-lessons">Uninstall lessons</a></li>
 <li><a class="reference internal" href="#lessons-panel">Lessons Panel</a></li>
 <li><a class="reference internal" href="#following-a-lesson">Following a lesson</a></li>
 </ul>
@@ -175,6 +269,9 @@
   <li class="first">
     <a href="genindex.html" title="General Index"
        accesskey="I">index</a></li>
+  <li>
+    <a href="py-modindex.html" title="Python Module Index"
+       accesskey="">modules</a>|</li>
   <li>
     <a href="writing_lessons.html" title="Writing Lessons"
        accesskey="N">next</a>|</li>

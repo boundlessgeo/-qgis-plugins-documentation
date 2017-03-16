@@ -1,0 +1,250 @@
+<!--
+ (c) 2016 Boundless, http://boundlessgeo.com
+ This work is licensed under CC-BY-SA 3.0 US License. 
+-->
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : MGRS Tools : Usage</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="index" title="Index" href="genindex.html" />
+      <link rel="search" title="Search" href="search.html" />
+      <link rel="top" title="MGRS Tools 1.3 documentation" href="index.html" />
+      <link rel="prev" title="Installation" href="installation.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="http://boundlessgeo.com" rel="home" id="logo"><img src="_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>MGRS Tools</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="index.html">MGRS Tools</a>
+  
+     &raquo; <a href="">Usage</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<p>The <em>MGRS tools plugin</em> contains two tools:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#mgrs-map-tool"><span class="std std-ref">MGRS Map Tool</span></a></li>
+<li><a class="reference internal" href="#zoom-to-mgrs"><span class="std std-ref">Zoom to MGRS coordinate</span></a></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The Military Grid Reference System (MGRS) was created as a geocoordinate standard used by NATO militaries for locating points on the earth. MGRS coordinates are given as single string composed of a pattern of letters and numbers and represent a grid square. The coordinates can be given with different precision levels, representing squares with different side sizes (100Km, 10km, 1km, 100m, 10m, 1m).</p>
+<p class="last">For more information about the MGRS system use the following the <a class="reference external" href="https://en.wikipedia.org/wiki/Military_grid_reference_system)">link</a>.</p>
+</div>
+<div class="section" id="mgrs-map-tool">
+<span id="id1"></span><h2>MGRS Map Tool<a class="headerlink" href="#mgrs-map-tool" title="Permalink to this headline">¶</a></h2>
+<p>To use the <em>MGRS map tool</em>, go to <span class="menuselection">Plugins ‣ MGRS ‣ MGRS map tool</span> or use the <em>MGRS map tool</em> button available in the <span class="guilabel">Plugin Toolbar</span>.</p>
+<p>The <em>MGRS map tool</em> will get activated. Now, when you move your mouse cursor over the QGIS map canvas, the corresponding MGRS coordinates will be displayed in the QGIS status bar (bottom left).</p>
+<div class="figure" id="id2">
+<img alt="_images/statusbar.png" src="_images/statusbar.png" />
+<p class="caption"><span class="caption-text">QGIS status bar showing the coordinate of the mouse cursor position.</span></p>
+</div>
+<p>Besides, with the <em>MGRS map tool</em> activated, the user can also click anywhere in the map canvas to get the MGRS coordinate (at 1m precision) copied to the clipboard.</p>
+</div>
+<div class="section" id="zoom-to-mgrs-coordinate">
+<span id="zoom-to-mgrs"></span><h2>Zoom to MGRS coordinate<a class="headerlink" href="#zoom-to-mgrs-coordinate" title="Permalink to this headline">¶</a></h2>
+<p>The <em>Zoom to MGRS coordinate</em> tool will allow you to zoom the map canvas to a given MGRS coordinate.</p>
+<p>The <em>Zoom to MGRS coordinate</em> tool is accessed trough the <span class="guilabel">MGRS Coordinate Zoom</span> panel. If the panel is not active yet, go to <span class="menuselection">Plugins ‣ MGRS</span> and click <span class="guilabel">Zoom to MGRS coordinate</span>.</p>
+<p>Insert the desired MGRS coordinate in the <span class="guilabel">MGRS coordinate</span> field (The coordinates can be inserted at any level of precision, from 100 km to 1 m), and press the <span class="guilabel">Zoom to</span> button. The map canvas will be centered and zoomed to the corresponding MGRS grid square, and a marker will be added to the corresponding position.</p>
+<div class="figure" id="id3">
+<img alt="_images/zoomto.png" src="_images/zoomto.png" />
+<p class="caption"><span class="caption-text">Map Canvas centered on inserted MGRS coordinate</span></p>
+</div>
+<p>To remove the marker, click the <span class="guilabel">Remove marker button</span> in the <span class="guilabel">MGRS Coordinate Zoom panel</span></p>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="installation.html" title="previous chapter">Installation</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2016 Boundless Spatial, Inc.
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">Usage</a><ul>
+<li><a class="reference internal" href="#mgrs-map-tool">MGRS Map Tool</a></li>
+<li><a class="reference internal" href="#zoom-to-mgrs-coordinate">Zoom to MGRS coordinate</a></li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="installation.html" title="previous chapter">Installation</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="_sources/usage.rst.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="installation.html" title="Installation"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">Copyright &copy; 2016 Boundless Spatial, Inc.</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="_static/dropdown.js"></script>-->
+
+  </body>
+</html>

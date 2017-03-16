@@ -1,0 +1,277 @@
+<!--
+ (c) 2016 Boundless, http://boundlessgeo.com
+ This work is licensed under CC-BY-SA 3.0 US License. 
+-->
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : Lessons : Usage</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="index" title="Index" href="genindex.html" />
+      <link rel="search" title="Search" href="search.html" />
+      <link rel="top" title="Lessons 1.0.0 documentation" href="index.html" />
+      <link rel="next" title="Writing Lessons" href="writing_lessons.html" />
+      <link rel="prev" title="Installation" href="installation.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="http://boundlessgeo.com" rel="home" id="logo"><img src="_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>Lessons</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="index.html">Lessons</a>
+  
+     &raquo; <a href="">Usage</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="usage">
+<span id="id1"></span><h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="start-lessons">
+<h2>Start lessons<a class="headerlink" href="#start-lessons" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">To open a lesson, go to <span class="menuselection">Plugins ‣ Lessons ‣ Start Lesson</span>. The <span class="guilabel">Lesson selector</span> will show up.</p>
+<div class="figure">
+<img alt="_images/lesson_selector.png" src="_images/lesson_selector.png" />
+</div>
+</li>
+<li><p class="first">The lessons are organized in groups. If necessary, click the cross next to the group&#8217;s name to expand its lessons list.</p>
+</li>
+<li><p class="first">Click one of the lessons. On the right side of the dialog, a description of the lesson will show its purpose and objectives, the estimated time for completions and the lesson&#8217;s author.</p>
+<div class="figure">
+<img alt="_images/lesson_selected.png" src="_images/lesson_selected.png" />
+</div>
+</li>
+<li><p class="first">Click <span class="guilabel">OK</span> to start the selected lesson.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="lessons-panel">
+<h2>Lessons Panel<a class="headerlink" href="#lessons-panel" title="Permalink to this headline">¶</a></h2>
+<p>When a lesson starts, the <span class="guilabel">Lessons Panel</span> will be on the right side of the QGIS&#8217;s window. The <span class="guilabel">Lessons Panel</span> includes: a Lesson&#8217;s steps index (1) to track the lesson&#8217;s progress, a description window (2) to show the current step&#8217;s instructions, and a button bar (3).</p>
+<div class="figure">
+<img alt="_images/lesson_panel.png" src="_images/lesson_panel.png" />
+</div>
+<p>The following buttons compose the button bar:</p>
+<ul class="simple">
+<li><strong>Move to next step</strong> - To go to the next lesson&#8217;s step.</li>
+<li><strong>Run step</strong> - Helps performing the steps instructions (not always available).</li>
+<li><strong>Restart lesson</strong> - Resets the project and cleans all the lesson&#8217;s progress made so far.</li>
+<li><strong>Quit lesson</strong> - Cleans the lesson&#8217;s progress and closes the <span class="guilabel">Lessons Panel</span>, but keeps the project loaded.</li>
+</ul>
+</div>
+<div class="section" id="following-a-lesson">
+<h2>Following a lesson<a class="headerlink" href="#following-a-lesson" title="Permalink to this headline">¶</a></h2>
+<p>Generally, the lessons will open a prepared project with all the necessary data already prepared. Unless the lesson is about loading data, you should never need to add data yourself.</p>
+<p>For each lesson&#8217;s step, follow the instructions in the description window. When you have finished executing those instructions, click <span class="guilabel">Move to next step</span>.</p>
+<p>Some lessons&#8217; steps won&#8217;t let you move to the next step if you haven&#8217;t finished the current step&#8217;s instructions correctly. In those cases a message will pop up, asking you to review and execute the instructions.</p>
+<div class="figure">
+<img alt="_images/warning_message.png" src="_images/warning_message.png" />
+</div>
+<p>Some steps will move to the next step automatically as soon as you complete the instructions. The step’s description will inform you of that. Typically, this is used in steps that ask you to click a menu item.</p>
+<div class="figure">
+<img alt="_images/click_menu.png" src="_images/click_menu.png" />
+</div>
+<p>In some lessons&#8217; steps, if you get stuck while following the instructions, you can click <span class="guilabel">Run step</span>. This functionality will help you perform the step instructions, either by executing it for you or by showing how to do it.</p>
+<p>When you have finished all steps of the lesson, a dialog will show up congratulating you for the achievement. In that dialog, you can either start the following suggested lesson or close the dialog and the lessons panel.</p>
+<div class="figure">
+<img alt="_images/congratulations_message.png" src="_images/congratulations_message.png" />
+</div>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="installation.html" title="previous chapter">Installation</a></div>
+          <div class="right"><strong>Next</strong>: <a href="writing_lessons.html" title="next chapter">Writing Lessons</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2016 Boundless Spatial, Inc.
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">Usage</a><ul>
+<li><a class="reference internal" href="#start-lessons">Start lessons</a></li>
+<li><a class="reference internal" href="#lessons-panel">Lessons Panel</a></li>
+<li><a class="reference internal" href="#following-a-lesson">Following a lesson</a></li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="installation.html" title="previous chapter">Installation</a></p>
+          <p><b>Next:</b> <a href="writing_lessons.html" title="next chapter">Writing Lessons</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="_sources/usage.rst.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="writing_lessons.html" title="Writing Lessons"
+       accesskey="N">next</a>|</li>
+  <li>
+    <a href="installation.html" title="Installation"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">Copyright &copy; 2016 Boundless Spatial, Inc.</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="_static/dropdown.js"></script>-->
+
+  </body>
+</html>

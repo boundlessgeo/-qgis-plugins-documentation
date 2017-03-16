@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Writing tests &#8212; QGIS Tester Plugin 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Usage" href="usage.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="usage.html" title="Usage"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">QGIS Tester Plugin 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="writing-tests">
+<h1>Writing tests<a class="headerlink" href="#writing-tests" title="Permalink to this headline">¶</a></h1>
+<p>Instructions to write new tests are described in this document</p>
+<p>To write a new set of tests, add a python module file in the <em>tests</em> folder of the plugin. The module can have two functions, to define unit tests (automated) and functional tests (semi-automated):  <em>functionalTests()</em> and <em>unitTests()</em>. None of these functions is mandatory. The plugin will look for them and, if found, will call them to retrieve the tests declared by the module.</p>
+<p>Plugins can add their tests suite to this tester plugin by using the addTestModule() function.</p>
+<p>In your plugin <em>__init__</em> method add something like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">qgistester.tests</span> <span class="k">import</span> <span class="n">addTestModule</span>
+    <span class="n">addTestModule</span><span class="p">(</span><span class="n">testmodule</span><span class="p">,</span> <span class="s2">&quot;Name_of_my_plugin&quot;</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<div class="section" id="unit-tests">
+<h2>Unit Tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline">¶</a></h2>
+<p>Unit tests are created wrapping a python test suite. Create your test suite in the usual Python way and then return it from the <em>unitTests()</em> method.</p>
+<p>The test description shown in the test selector dialog is taken from the test&#8217;s <code class="docutils literal"><span class="pre">shortDescription()</span></code> method, which takes the first line of the docstring, so if you want to add a name to your test, just add a one-line dosctring in it. If no docstring is present, the test method name is used.</p>
+</div>
+<div class="section" id="functional-tests">
+<h2>Functional Tests<a class="headerlink" href="#functional-tests" title="Permalink to this headline">¶</a></h2>
+<p>Functional tests are defined using the <em>Test</em> class from the qgistester.test module. Here is an example of a test</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">vectorRenderingTest</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span><span class="s2">&quot;Verify rendering of uploaded style&quot;</span><span class="p">)</span>
+<span class="n">vectorRenderingTest</span><span class="o">.</span><span class="n">addStep</span><span class="p">(</span><span class="s2">&quot;Preparing data&quot;</span><span class="p">,</span> <span class="n">_openAndUpload</span><span class="p">)</span>
+<span class="n">vectorRenderingTest</span><span class="o">.</span><span class="n">addStep</span><span class="p">(</span><span class="s2">&quot;Check that WMS layer is correctly rendered&quot;</span><span class="p">)</span>
+<span class="n">vectorRenderingTest</span><span class="o">.</span><span class="n">setCleanup</span><span class="p">(</span><span class="n">_clean</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To add a step to the test, the <em>addStep()</em> method is used. It accepts four parameters: <code class="docutils literal"><span class="pre">description,</span> <span class="pre">function,</span> <span class="pre">prestep,</span> <span class="pre">isVerifyStep</span></code>.</p>
+<p>The first one is mandatory and is a string with the description of the test. The second one is optional and should be a function. If this parameters is passed, the function will be executed at that step, and it will be an automated step. If no function is passed, the step will be considered a manual one. The description will be shown to the user and he will perform the step manually.</p>
+<p>If once the manual step has been performed, the tester has to verify something, the <code class="docutils literal"><span class="pre">isVerifyStep</span></code> parameter should receive True. That will cause the &#8220;Step passes&#8221; and &#8220;Step fails&#8221; buttons to be active, instead of the simple &#8220;Next step&#8221; one.</p>
+<p>If you require a prestep to be executed before actually entering this step, pass the corresponding function using the <code class="docutils literal"><span class="pre">prestep</span></code> parameters.</p>
+<p>You can add a cleanup task to be performed when the test is finished (or skipped), by using the <em>setCleanup()</em> method and passing a function where the cleanup is to be performed.</p>
+</div>
+<div class="section" id="issue-url">
+<h2>Issue URL<a class="headerlink" href="#issue-url" title="Permalink to this headline">¶</a></h2>
+<p>You can define a issue URL for each test, using the <code class="docutils literal"><span class="pre">Test.setIssueURL(url)</span></code> method, in case you are using a testinbg platform to keep track of test executions.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Writing tests</a><ul>
+<li><a class="reference internal" href="#unit-tests">Unit Tests</a></li>
+<li><a class="reference internal" href="#functional-tests">Functional Tests</a></li>
+<li><a class="reference internal" href="#issue-url">Issue URL</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="usage.html"
+                        title="previous chapter">Usage</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/writing_tests.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="usage.html" title="Usage"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">QGIS Tester Plugin 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016 Boundless Spatial, Inc..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

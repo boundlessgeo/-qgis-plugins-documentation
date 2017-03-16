@@ -1,0 +1,315 @@
+<!--
+ (c) 2016 Boundless, http://boundlessgeo.com
+ This work is licensed under CC-BY-SA 3.0 US License. 
+-->
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : Boundless Connect Plugin : For system administrators</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="index" title="Index" href="genindex.html" />
+      <link rel="search" title="Search" href="search.html" />
+      <link rel="top" title="Boundless Connect Plugin 1.0 documentation" href="index.html" />
+      <link rel="prev" title="Usage" href="usage.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="http://boundlessgeo.com" rel="home" id="logo"><img src="_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>Boundless Connect Plugin</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="index.html">Boundless Connect Plugin</a>
+  
+     &raquo; <a href="">For system administrators</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="for-system-administrators">
+<h1>For system administrators<a class="headerlink" href="#for-system-administrators" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="configure-the-repository-location">
+<span id="configure-repository-location"></span><h2>Configure the repository location<a class="headerlink" href="#configure-the-repository-location" title="Permalink to this headline">¶</a></h2>
+<p>The <em>Boundless Connect Plugin</em> can work with the standard remote <em>Boundless QGIS Plugin
+Repository</em>, use an internal repository (e.g. in Docker container) or install
+plugins from a local folder (useful for customers with special requirements,
+when connection to external resources is not possible).</p>
+<p>On its first run, the <em>Boundless Connect Plugin</em> will look for <code class="docutils literal"><span class="pre">$HOME/.qgis2/repoUrl.txt</span></code>
+file. If the file exists, the plugin will read the repository URL/path from it
+and use this as a location for the plugins repository. Otherwise, if the file
+is not found, the standard Boundless QGIS Plugins Repository URL will be used.
+After this, the file will be deleted.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Creating a new file after the first launch of <em>Boundless Connect Plugin</em> will have no
+effect whatsoever. The plugin will ignore the new file and will continue to
+use the already saved repository location.</p>
+</div>
+<p>The <code class="docutils literal"><span class="pre">$HOME/.qgis2/repoUrl.txt</span></code> file is an INI-like text file with single
+<code class="docutils literal"><span class="pre">general</span></code> section and only one key-value pair, for example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">general</span><span class="p">]</span>
+<span class="n">repoUrl</span><span class="o">=</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">qgis</span><span class="o">.</span><span class="n">boundlessgeo</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">plugins</span><span class="o">/</span><span class="n">plugins</span><span class="o">.</span><span class="n">xml</span>
+</pre></div>
+</div>
+<p>The value of the <code class="docutils literal"><span class="pre">repoUrl</span></code> key with repository location can be:</p>
+<ul class="simple">
+<li>A <strong>repository URL</strong>. The plugin will add this URL to the list of available
+plugins repositories and QGIS <em>Plugin Manager</em> can be used to access it.
+This is the default.</li>
+<li>An <strong>absolute path to the plugins directory</strong>. In this case, the directory
+should contain plugins packages as well as repository description file
+<code class="docutils literal"><span class="pre">plugins.xml</span></code>. With this option, nothing is added to the QGIS settings,
+as QGIS <em>Plugin Manager</em> can not handle directories yet.</li>
+</ul>
+</div>
+<div class="section" id="installing-additional-plugins-by-default">
+<span id="add-additional-plugins"></span><h2>Installing additional plugins by default<a class="headerlink" href="#installing-additional-plugins-by-default" title="Permalink to this headline">¶</a></h2>
+<p>If the system administrator wants to automatically install a bundle of
+additional plugins during the post-installation step, he can create a directory
+<code class="docutils literal"><span class="pre">$HOME/.qgis2/first-run-plugins</span></code> under the user folder and put all the
+desired plugins ZIP packages in it.</p>
+<p>The <em>Boundless Connect Plugin</em> will check if the directory exists and will install all the
+ZIP packages from it. Notice that the packages will be removed after the installation.</p>
+</div>
+<div class="section" id="setting-up-repository-in-docker-container">
+<h2>Setting up repository in Docker container<a class="headerlink" href="#setting-up-repository-in-docker-container" title="Permalink to this headline">¶</a></h2>
+<p>It is possible to create Docker-based plugin repository using our orchestrated
+setup from <a class="reference external" href="https://github.com/boundlessgeo/qgis-plugin-repos">qgis-plugin-repos</a>
+repository.</p>
+<p>To use our scripts you will need docker &gt;= 1.10 and docker-compose &gt;= 1.6.</p>
+<p>First you need to clone repository</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="o">--</span><span class="n">recursive</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">boundlessgeo</span><span class="o">/</span><span class="n">qgis</span><span class="o">-</span><span class="n">plugin</span><span class="o">-</span><span class="n">repos</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">qgis</span><span class="o">-</span><span class="n">plugin</span><span class="o">-</span><span class="n">repos</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">plugins</span><span class="o">-</span><span class="n">xml</span>
+</pre></div>
+</div>
+<p>Edit <cite>docker-compose.env</cite> file specifying your own user name and password for
+SSH service and plugin repository domain. Then source this file using command</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">docker</span><span class="o">-</span><span class="n">compose</span><span class="o">.</span><span class="n">env</span>
+</pre></div>
+</div>
+<p>and finally build Docker images</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">build</span>
+</pre></div>
+</div>
+<p>To start containers use following command</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span>  <span class="o">-</span><span class="n">d</span>
+</pre></div>
+</div>
+<p>More details available in <a class="reference external" href="https://github.com/boundlessgeo/qgis-plugin-repos/blob/master/docker-plugins-xml/README.md">README</a>
+file inside GitHub repository.</p>
+<p><em>NOTE</em>: our scripts are just sample and should not be used in production. Before
+deploying this repository in production it is necessary to perform additional
+configuration, namely improve security.</p>
+<div class="section" id="uploading-plugins-to-repository">
+<h3>Uploading plugins to repository<a class="headerlink" href="#uploading-plugins-to-repository" title="Permalink to this headline">¶</a></h3>
+<p>To add new plugin to the repository follow these steps:</p>
+<p># copy plugin&#8217;s package to server</p>
+<blockquote>
+<div><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">scp</span> <span class="n">plugin</span><span class="o">.</span><span class="n">zip</span> <span class="n">repository</span><span class="o">.</span><span class="n">domain</span><span class="p">:</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">repo</span><span class="o">-</span><span class="n">updater</span><span class="o">/</span><span class="n">uploads</span><span class="o">/</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p># run remote updater script on uploaded archive</p>
+<blockquote>
+<div><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">repository</span><span class="o">.</span><span class="n">domain</span> <span class="s2">&quot;/opt/repo-updater/plugins-xml/plugins-xml.sh update plugin.zip&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Run <cite>plugins-xml.sh &#8211;help</cite> to get information about script usage and subcommands.</p>
+<p>More details in <a class="reference external" href="https://github.com/boundlessgeo/qgis-plugins-xml/blob/master/README.md">README</a>
+file inside GitHub repository.</p>
+</div>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="usage.html" title="previous chapter">Usage</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2016 Boundless Spatial, Inc.
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">For system administrators</a><ul>
+<li><a class="reference internal" href="#configure-the-repository-location">Configure the repository location</a></li>
+<li><a class="reference internal" href="#installing-additional-plugins-by-default">Installing additional plugins by default</a></li>
+<li><a class="reference internal" href="#setting-up-repository-in-docker-container">Setting up repository in Docker container</a><ul>
+<li><a class="reference internal" href="#uploading-plugins-to-repository">Uploading plugins to repository</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="usage.html" title="previous chapter">Usage</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="_sources/sysadmins.rst.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="usage.html" title="Usage"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">Copyright &copy; 2016 Boundless Spatial, Inc.</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="_static/dropdown.js"></script>-->
+
+  </body>
+</html>
