@@ -15,7 +15,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="index" title="Index" href="genindex.html" />
       <link rel="search" title="Search" href="search.html" />
-      <link rel="top" title="Web App Builder 0.5.1 documentation" href="index.html" />
+      <link rel="top" title="Web App Builder 0.5.3 documentation" href="index.html" />
+      <link rel="next" title="Web App Builder and WebSDK" href="wabandwebsdk.html" />
       <link rel="prev" title="Usage" href="usage.html" />
 <style>
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
@@ -69,11 +70,15 @@
       
   <div class="section" id="controls">
 <span id="qgis-webappbuilder-controls"></span><h1>Controls<a class="headerlink" href="#controls" title="Permalink to this headline">¶</a></h1>
-<p>In this page, you can find the description of all the controls that can be added to a web app created by the <em>Web App Builder</em> and how to configure them.</p>
+<dl class="docutils">
+<dt>In this page, you can find the description of all the controls that can be</dt>
+<dd>added to a web app created by the <em>Web App Builder</em> and how to configure them.</dd>
+</dl>
 <div class="section" id="about-panel">
 <h2>About panel<a class="headerlink" href="#about-panel" title="Permalink to this headline">¶</a></h2>
-<p>Adds a button which toggles a translucent text panel over the map, usually for describing the app.</p>
-<div class="figure" id="id3">
+<p>Adds a translucent text panel over the map, usually for describing the app. A
+button allows to permanently close the panel.</p>
+<div class="figure" id="id2">
 <img alt="_images/aboutpanel.png" src="_images/aboutpanel.png" />
 <p class="caption"><span class="caption-text">About panel example</span></p>
 </div>
@@ -90,15 +95,24 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><th class="stub">content</th>
-<td>The content of the panel. Accepts HTML formatted text. Click <span class="guilabel">Edit</span> to open a text editor.</td>
+<td>The content of the panel. Accepts HTML formatted text. Click
+<span class="guilabel">Edit</span> to open a text editor.</td>
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Being in HTML format, the use of special characters in the about panel
+content must be handled accordingly using HTML code (e.g., quotation marks
+should be replaced by <code class="docutils literal"><span class="pre">&amp;quot;</span></code>).</p>
+</div>
 </div>
 <div class="section" id="add-layer">
 <h2>Add layer<a class="headerlink" href="#add-layer" title="Permalink to this headline">¶</a></h2>
-<p>Adds a menu entry named <em>upload</em> that can be used by the web app user to add a layer to the map. Only vector layers can be added. Supported formats for layers are <em>GeoJSON</em>, <em>GPX</em> and <em>KML</em>.</p>
-<div class="figure" id="id4">
+<p>Adds a menu entry named <em>upload</em> that can be used by the web app user to add
+a layer to the map. Only vector layers can be added. Supported formats for
+layers are <em>GeoJSON</em>, <em>GPX</em> and <em>KML</em>.</p>
+<div class="figure" id="id3">
 <img alt="_images/upload.png" src="_images/upload.png" />
 <p class="caption"><span class="caption-text">About panel configuration</span></p>
 </div>
@@ -106,19 +120,26 @@
 </div>
 <div class="section" id="attributes-table">
 <h2>Attributes table<a class="headerlink" href="#attributes-table" title="Permalink to this headline">¶</a></h2>
-<p>Adds a menu entry named <em>table</em> with the ability to display a table containing the attributes of the features in a given layer. Features can be selected/deselected clicking on the table rows. Multiple selection is available using the shift or ctrl keys. Selected features of layer are shown in a different color in the map view.</p>
-<div class="figure" id="id5">
+<p>Adds a menu entry (or a tab if in tabbed mode) named <em>table</em> with the ability
+to display a table containing the attributes of the features in a given layer.
+Features can be selected/deselected clicking on the table rows. Multiple
+selection is available using the shift or ctrl keys. Selected features of
+layer are shown in a different color in the map view.</p>
+<div class="figure" id="id4">
 <img alt="_images/attributestable.png" src="_images/attributestable.png" />
 <p class="caption"><span class="caption-text">Attributes table</span></p>
 </div>
 <p>The attributes table control came with several tools:</p>
 <ul class="simple">
-<li><span class="guilabel">Layer</span> combo box allows to choose what layer to list the attributes.</li>
-<li><span class="guilabel">Zoom</span> button will zoom the map view to the selected features.</li>
+<li><span class="guilabel">Layer</span> combo-box allows to choose what layer to list the
+attributes.</li>
+<li><span class="guilabel">Zoom to selected</span> button will zoom the map view to the selected
+features.</li>
 <li><span class="guilabel">Clear</span> will deselect any selected features.</li>
-<li><span class="guilabel">Move</span> button will move selected features attributes to the top of the table.</li>
-<li><span class="guilabel">Filter</span> field allows to filter the table using an expression, using the notation accepted by the <a class="reference external" href="https://github.com/joewalnes/filtrex#expressions">Filtrex</a> library.</li>
-<li>The <span class="guilabel">Show only selected features</span> checkbox will hide from the table unselected features.</li>
+<li><span class="guilabel">Filter</span> field allows to filter the table using an expression.</li>
+<li>From the <span class="guilabel">More options</span> button, enabling
+<span class="guilabel">Only show selected</span> option will hide unselected
+features from the table.</li>
 </ul>
 <p>The following properties can be configured for this control:</p>
 <table border="1" class="colwidths-given non-responsive docutils">
@@ -133,15 +154,17 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><th class="stub">Zoom level when zooming to a point feature</th>
-<td>If a single point feature is selected in the attributes table in the web app, and the Zoom to selected button is clicked, the map zoom will be set to this zoom level</td>
+<td>If a single point feature is selected in the attributes table in the
+web app, and the Zoom to selected button is clicked, the map zoom will
+be set to this zoom level</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="attribution">
 <h2>Attribution<a class="headerlink" href="#attribution" title="Permalink to this headline">¶</a></h2>
-<p>Adds an attribution note on the bottom right of the map.</p>
-<div class="figure" id="id6">
+<p>Adds an attribution note on the bottom right corner of the map.</p>
+<div class="figure" id="id5">
 <img alt="_images/attribution.png" src="_images/attribution.png" />
 <p class="caption"><span class="caption-text">Attribution</span></p>
 </div>
@@ -149,43 +172,71 @@
 </div>
 <div class="section" id="bookmarks">
 <h2>Bookmarks<a class="headerlink" href="#bookmarks" title="Permalink to this headline">¶</a></h2>
-<p>Adds the ability to create and retrieve spatial bookmarks. A spatial bookmark consists of a name, an extent and a description.</p>
-<p>The bookmarks are defined in the <cite>Bookmarks</cite> tab. There are two options for adding bookmarks:</p>
+<p>Adds the ability to create and retrieve spatial bookmarks. A spatial bookmark
+consists of a name, an spatial extent and a description.</p>
+<p>Under <span class="guilabel">Configure...</span>, the bookmarks are defined in the <cite>Bookmarks</cite>
+tab. There are two ways of adding bookmarks:</p>
 <ul>
-<li><p class="first"><em>Using QGIS bookmarks</em>. Click <span class="guilabel">Add from QGIS bookmarks</span> and in the dialog that will appear, select the bookmarks to use from the ones currently stored in the QGIS database. Since those bookmarks do not contain a description, but just name and extent, you should define the description manually, typing it in the <span class="guilabel">Description</span> box for each bookmark. Description accepts HTML formatted text.</p>
-<div class="figure" id="id7">
+<li><p class="first"><em>Using QGIS bookmarks</em>. Click <span class="guilabel">Add from QGIS bookmarks</span> and in
+the dialog that will appear, select the bookmarks to use from the ones
+currently stored in the QGIS database. Since those bookmarks do not contain
+a description, but just name and extent, you should define the description
+manually, typing it in the <span class="guilabel">Description</span> box for each bookmark.
+Description accepts HTML formatted text.</p>
+<div class="figure" id="id6">
 <img alt="_images/bookmark_bookmarks_tab.png" src="_images/bookmark_bookmarks_tab.png" />
 <p class="caption"><span class="caption-text">Bookmarks definition</span></p>
 </div>
 </li>
-<li><p class="first"><em>Using a vector layer</em>. A new bookmark will be added for each feature in the layer, using the bounding box of the feature geometry as the bookmark extent. The name and description of each bookmark will be taken from two attributes in the layer. Nevertheless, description can be edited afterward.</p>
-<div class="figure" id="id8">
+<li><p class="first"><em>Using a vector layer</em>. A new bookmark will be added for each feature in
+the layer, using the bounding box of the feature geometry as the bookmark
+extent. The name and description of each bookmark will be taken from two
+attributes in the layer. Nevertheless, description can be edited afterward.</p>
+<div class="figure" id="id7">
 <img alt="_images/bookmarks_from_layers.png" src="_images/bookmarks_from_layers.png" />
 <p class="caption"><span class="caption-text">Add Bookmarks from layer dialog</span></p>
 </div>
 </li>
 </ul>
-<p>The <span class="guilabel">Configuration tab</span> controls how the bookmarks will be displayed. If the <span class="guilabel">Show as story panel</span> box is not checked, bookmarks will be shown as menu entries in the navigation bar, under a <span class="guilabel">Bookmarks</span> menu.</p>
-<div class="figure" id="id9">
+<p>The <span class="guilabel">Configuration tab</span> controls how the bookmarks will be
+displayed. If the <span class="guilabel">Show as story panel</span> box is not checked,
+bookmarks will be shown as menu entries in the navigation bar, under a
+<span class="guilabel">Bookmarks</span> menu.</p>
+<div class="figure" id="id8">
 <img alt="_images/bookmarks_menu.png" src="_images/bookmarks_menu.png" />
 <p class="caption"><span class="caption-text">Bookmarks menu example</span></p>
 </div>
-<p>Otherwise, if the <span class="guilabel">Show as story panel</span> box is checked, a narrative map will be created, and a panel to browse across bookmarks will be added to the web app.</p>
-<div class="figure" id="id10">
+<p>Otherwise, if the <span class="guilabel">Show as story panel</span> box is checked, a
+narrative map will be created, and a panel to browse across bookmarks will
+be added to the web app.</p>
+<div class="figure" id="id9">
 <img alt="_images/bookmark_story_example.png" src="_images/bookmark_story_example.png" />
 <p class="caption"><span class="caption-text">Story panel</span></p>
 </div>
 <p>In story panel mode, several options are enabled in the configuration tab:</p>
 <ul class="simple">
 <li><span class="guilabel">Animation type</span>: Can choose between <cite>Pan</cite> and <cite>Go to</cite>.</li>
-<li><span class="guilabel">Move automatically each X seconds</span>: will cycle the bookmarks automatically in the web app.</li>
-<li><span class="guilabel">Show indicators</span> adds small dots to the panel to serve as reference for the relative position of each bookmark.</li>
-<li><span class="guilabel">Intro title</span> and <span class="guilabel">Intro description</span> allows adding a first panel without spatial bookmark.</li>
+<li><span class="guilabel">Move automatically each X seconds</span>: will cycle the bookmarks
+automatically in the web app.</li>
+<li><span class="guilabel">Show indicators</span> adds small dots to the panel to serve as
+reference for the relative position of each bookmark.</li>
+<li><span class="guilabel">Intro title</span> and <span class="guilabel">Intro description</span> allows adding a
+first panel without spatial bookmark. Both accept HTML formatted text.</li>
 </ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Being in HTML format, the use of special characters in the bookmark&#8217;s
+description must be handled accordingly using HTML code (e.g., quotation
+marks should be replaced by <code class="docutils literal"><span class="pre">&amp;quot;</span></code>).</p>
+</div>
 </div>
 <div class="section" id="charts">
 <h2>Charts<a class="headerlink" href="#charts" title="Permalink to this headline">¶</a></h2>
-<p>This control allows the creation and display of charts based on the selected features of a layer.</p>
+<p>This control allows the creation and display of charts based on the selected
+features of a layer.</p>
+<div class="figure">
+<img alt="_images/chart_example.png" src="_images/chart_example.png" />
+</div>
 <p>The following properties can be configured for this control:</p>
 <table border="1" class="colwidths-given non-responsive docutils">
 <colgroup>
@@ -202,11 +253,25 @@
 <td>The title of the chart.</td>
 </tr>
 <tr class="row-odd"><th class="stub">Display mode</th>
-<td><p class="first">Defines how the feature attributes will be used to create the chart. The following options are available:</p>
+<td><p class="first">Defines how the feature attributes will be used to create the chart.
+The following options are available:</p>
 <ul class="last simple">
-<li><strong>By feature</strong>. An element will be added in the chart for each selected feature, and it will display the values of attributes of the feature. The attributes to display are selected in the <span class="guilabel">Value fields</span> field. The attribute used to identify each feature in the chart is selected in the <span class="guilabel">Category field</span> field.</li>
-<li><strong>By category</strong>. Selected features will be grouped according to a category, and statistics for each category will be displayed. The attributes to compute statistics are selected in the <span class="guilabel">Value fields</span> field. The attribute used to group features into categories is selected in the <span class="guilabel">Category field</span> field. The statistic function to use is selected in the <em>Operation for aggregation</em> field.</li>
-<li><strong>Count by category</strong>. The chart will show the number of features in each category. The attribute used to group features into categories is selected in the <span class="guilabel">Category field</span> field.</li>
+<li><strong>By feature</strong>. An element will be added in the chart for each
+selected feature, and it will display the values of attributes of
+the feature. The attributes to display are selected in the
+<span class="guilabel">Value fields</span> field. The attribute used to identify each
+feature in the chart is selected in the <span class="guilabel">Category field</span>
+field.</li>
+<li><strong>By category</strong>. Selected features will be grouped according to a
+category, and statistics for each category will be displayed. The
+attributes to compute statistics are selected in the
+<span class="guilabel">Value fields</span> field. The attribute used to group features
+into categories is selected in the <span class="guilabel">Category field</span> field.
+The statistic function to use is selected in the <em>Operation for
+aggregation</em> field.</li>
+<li><strong>Count by category</strong>. The chart will show the number of features
+in each category. The attribute used to group features into
+categories is selected in the <span class="guilabel">Category field</span> field.</li>
 </ul>
 </td>
 </tr>
@@ -220,41 +285,47 @@
 <td>The attribute to use for the chart.</td>
 </tr>
 <tr class="row-odd"><th class="stub">Add/Modify</th>
-<td>After all the other fields have been populated, this button will add the chart to the defined charts list on the right side of the dialog.</td>
+<td>After all the other fields have been populated, this button will add
+the chart to the defined charts list on the right side of the dialog.</td>
 </tr>
 <tr class="row-even"><th class="stub">Remove</th>
 <td>Will remove selected chart from the defined charts list.</td>
 </tr>
 </tbody>
 </table>
-<div class="figure" id="id11">
+<div class="figure" id="id10">
 <img alt="_images/charttool_configure.png" src="_images/charttool_configure.png" />
 <p class="caption"><span class="caption-text">Chart Tool configuration Dialog</span></p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Since only selected features are used in graph, to use this control, you need to add the <a class="reference internal" href="#qgis-webappbuilder-controls-selection"><span class="std std-ref">Selection</span></a> control to the web app as well.</p>
+<p class="last">Since only selected features are used in graph, to use this control, you
+need to add the <a class="reference internal" href="#qgis-webappbuilder-controls-selection"><span class="std std-ref">Selection</span></a> control to
+the web app as well.</p>
 </div>
 </div>
 <div class="section" id="edit">
 <h2>Edit<a class="headerlink" href="#edit" title="Permalink to this headline">¶</a></h2>
-<p>The edit control allows users to add new layers and edit them by adding or modifying their features.</p>
+<p>The edit control allows users to add new layers and edit them by adding or
+modifying their features.</p>
 <p>It adds an <em>Edit</em> entry in the web app menu, which opens the edit panel.</p>
-<div class="figure" id="id12">
+<div class="figure" id="id11">
 <img alt="_images/editpanel.png" src="_images/editpanel.png" />
 <p class="caption"><span class="caption-text">Edit panel</span></p>
 </div>
 <p>The edit panel includes several tools:</p>
 <ul>
-<li><p class="first"><span class="guilabel">New layer</span>: Will allow the creation of a new layer using through the <em>Create empty layer</em> dialog.</p>
-<div class="figure" id="id13">
+<li><p class="first"><span class="guilabel">New layer</span>: Will allow the creation of a new layer using
+through the <em>Create empty layer</em> dialog.</p>
+<div class="figure" id="id12">
 <img alt="_images/edit-create-empty-layer.png" src="_images/edit-create-empty-layer.png" />
 <p class="caption"><span class="caption-text">Create empty layer dialog</span></p>
 </div>
 </li>
 <li><p class="first"><span class="guilabel">Layer</span> combo box: Allows the user to choose which layer to edit.</p>
 </li>
-<li><p class="first"><span class="guilabel">Enable edit mode</span> / <span class="guilabel">Disable edit mode</span>: Toggle edit mode for the current selected layer.</p>
+<li><p class="first"><span class="guilabel">Enable edit mode</span> / <span class="guilabel">Disable edit mode</span>: Toggle edit
+mode for the current selected layer.</p>
 </li>
 </ul>
 <p>There are no configurable properties for this control.</p>
@@ -262,7 +333,7 @@
 <div class="section" id="export-as-image">
 <h2>Export as image<a class="headerlink" href="#export-as-image" title="Permalink to this headline">¶</a></h2>
 <p>Adds an option to export the current map view to an image file.</p>
-<div class="figure" id="id14">
+<div class="figure" id="id13">
 <img alt="_images/export.png" src="_images/export.png" />
 <p class="caption"><span class="caption-text">Export as image menu</span></p>
 </div>
@@ -271,7 +342,7 @@
 <div class="section" id="full-screen">
 <h2>Full screen<a class="headerlink" href="#full-screen" title="Permalink to this headline">¶</a></h2>
 <p>Adds a button to the web app to toggle full-screen mode.</p>
-<div class="figure" id="id15">
+<div class="figure" id="id14">
 <img alt="_images/fullscreen.png" src="_images/fullscreen.png" />
 <p class="caption"><span class="caption-text">Full-screen button</span></p>
 </div>
@@ -279,21 +350,38 @@
 </div>
 <div class="section" id="geocoding">
 <h2>Geocoding<a class="headerlink" href="#geocoding" title="Permalink to this headline">¶</a></h2>
-<p>Adds geocoding functionality to locate geographic places by name.</p>
-<div class="figure" id="id16">
+<p>Adds a <span class="guilabel">Search placename...</span> field to locate geographic places by
+name. If the app uses the basic theme, the tool will be in the menu bar.</p>
+<div class="figure" id="id15">
 <img alt="_images/geocoding.png" src="_images/geocoding.png" />
-<p class="caption"><span class="caption-text">Geocoding tool</span></p>
+<p class="caption"><span class="caption-text">Geocoding tool in the menu</span></p>
+</div>
+<p>Otherwise, if the app uses the tabbed theme, the search tool will be
+located in a tab.</p>
+<div class="figure" id="id16">
+<img alt="_images/geocoding_tabbed.png" src="_images/geocoding_tabbed.png" />
+<p class="caption"><span class="caption-text">Geocoding tool in a tab</span></p>
 </div>
 <p>There are no configurable properties for this control.</p>
 </div>
 <div class="section" id="geolocation">
 <h2>Geolocation<a class="headerlink" href="#geolocation" title="Permalink to this headline">¶</a></h2>
-<p>Enable geolocation and shows the user current position on the map.</p>
+<p>Adds a button to enable geolocation and show the user&#8217;s current position on
+the map.</p>
+<div class="figure">
+<img alt="_images/geolocation.png" src="_images/geolocation.png" />
+</div>
 <p>There are no configurable properties for this control.</p>
 </div>
 <div class="section" id="help">
 <h2>Help<a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h2>
-<p>Adds a link on the menubar to a help page.</p>
+<p>Adds a <span class="guilabel">Help</span> button on the menu bar to a help page on how to use
+the Web App.</p>
+<p>The help page is generated automatically when the Web App is created,
+and will only contains information about the controls that are used in it.</p>
+<div class="figure">
+<img alt="_images/help_menu.png" src="_images/help_menu.png" />
+</div>
 <p>There are no configurable properties for this control.</p>
 </div>
 <div class="section" id="home-button">
@@ -325,12 +413,15 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><th class="stub">allowFiltering</th>
-<td><p class="first">Allows the user to set filters for conditional rendering. A filter button is added to each vector layer entry in the layers list, which opens the following dialog:</p>
+<td><p class="first">Allows the user to set filters for conditional rendering. A filter
+button is added to each vector layer entry in the layers list, which
+opens the following dialog:</p>
 <div class="figure" id="id19">
 <img alt="_images/layerfilters.png" src="_images/layerfilters.png" />
 <p class="caption"><span class="caption-text">Layer filters example</span></p>
 </div>
-<p class="last">Layer filters are added as filter expressions, using the notation accepted by the <a class="reference external" href="https://github.com/joewalnes/filtrex#expressions">Filtrex</a> library.</p>
+<p class="last">Layer filters are added as filter expressions, using the notation
+accepted by the <a class="reference external" href="https://github.com/joewalnes/filtrex#expressions">Filtrex</a> library.</p>
 </td>
 </tr>
 <tr class="row-odd"><th class="stub">allowReordering</th>
@@ -343,33 +434,56 @@
 <td>Show an opacity slider for each layer.</td>
 </tr>
 <tr class="row-even"><th class="stub">downloadFormat</th>
-<td>Choose the format to use for downloading vector layers. Only used if showDownload is enabled.</td>
+<td>Choose the format to use for downloading vector layers. Only used if
+showDownload is enabled.</td>
 </tr>
 <tr class="row-odd"><th class="stub">showZoomTo</th>
-<td>Show Zoom To button, so the user can adjust the extent of the map based on the extent of an individual layer.</td>
+<td>Show Zoom To button, so the user can adjust the extent of the map
+based on the extent of an individual layer.</td>
 </tr>
-<tr class="row-even"><th class="stub">expandOnHover</th>
-<td>Automatically open the layer list when the mouse hovers over the control&#8217;s button.</td>
-</tr>
-<tr class="row-odd"><th class="stub">tipLabel</th>
-<td>The tooltip to show when the mouse hovers over the layers list. Default is Layers.</td>
+<tr class="row-even"><th class="stub">tipLabel</th>
+<td>The tooltip to show when the mouse hovers over the layers list.
+Default is Layers.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="legend">
 <h2>Legend<a class="headerlink" href="#legend" title="Permalink to this headline">¶</a></h2>
-<p>Adds a legend explaining the symbology used in the web app layers.</p>
+<p>Adds a button to show a legend explaining the map&#8217;s symbology used in the web
+app layers.</p>
 <div class="figure" id="id20">
 <img alt="_images/legend.png" src="_images/legend.png" />
 <p class="caption"><span class="caption-text">Legend</span></p>
 </div>
-<p>A legend entry will be added for all vector and WMS/WFS layers. Raster layers will not have an entry in the legend.</p>
+<p>A legend entry will be added for all vector and WMS/WFS layers. Raster layers
+will not have an entry in the legend.</p>
+<p>The following properties can be configured for this control:</p>
+<table border="1" class="colwidths-given non-responsive docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head stub">Option</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><th class="stub">showExpandedOnStartup</th>
+<td>If enable shows the legend when the app is opened</td>
+</tr>
+<tr class="row-odd"><th class="stub">size</th>
+<td>Sets the size of the symbols in the legend.</td>
+</tr>
+</tbody>
+</table>
 <p>There are no configurable properties for this control.</p>
 </div>
 <div class="section" id="links">
 <h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
-<p>Adds links to external sites to the navigation bar. Each link is defined with a name (shown in the navigation bar) and a URL.</p>
+<p>Adds links to external sites to the menu bar. Each link is defined
+with a name (shown in the navigation bar) and an URL.</p>
 <div class="figure" id="id21">
 <img alt="_images/links_example.png" src="_images/links_example.png" />
 <p class="caption"><span class="caption-text">Links control example</span></p>
@@ -423,7 +537,8 @@
 </div>
 <div class="section" id="mouse-position">
 <h2>Mouse Position<a class="headerlink" href="#mouse-position" title="Permalink to this headline">¶</a></h2>
-<p>Adds a control that displays the current coordinates of the mouse as it moves over the web app map.</p>
+<p>Adds a control that displays the current coordinates of the mouse as it
+moves over the web app map.</p>
 <div class="figure" id="id26">
 <img alt="_images/mouseposition.png" src="_images/mouseposition.png" />
 <p class="caption"><span class="caption-text">Mouse Position</span></p>
@@ -441,29 +556,50 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><th class="stub">projection</th>
-<td>The CRS to use when determining the units. Default is <code class="docutils literal"><span class="pre">EPSG:4326</span></code>. Click the <em>Edit</em> link to choose another CRS.</td>
+<td>The CRS to use when determining the units. Default is <code class="docutils literal"><span class="pre">EPSG:4326</span></code>.
+Click the <em>Edit</em> link to choose another CRS.</td>
 </tr>
 <tr class="row-odd"><th class="stub">undefinedHTML</th>
-<td>The text to show when the coordinate cannot be computed. Default is <code class="docutils literal"><span class="pre">&amp;nbsp;</span></code> or a blank.</td>
+<td>The text to show when the coordinate cannot be computed. Default is
+<code class="docutils literal"><span class="pre">&amp;nbsp;</span></code> or a blank.</td>
 </tr>
 <tr class="row-even"><th class="stub">coordinateFormat</th>
-<td>OpenLayers string format. Default is <code class="docutils literal"><span class="pre">ol.coordinate.createStringXY(4)</span></code>. See <a class="reference external" href="http://openlayers.org/en/v3.15.1/apidoc/ol.coordinate.html#.createStringXY">Open layers API</a> for more details.</td>
+<td>Coordinate format. Default is <code class="docutils literal"><span class="pre">Lat/Lon</span></code>, but can also be set
+to <code class="docutils literal"><span class="pre">MGRS</span></code>.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="north-arrow">
 <h2>North arrow<a class="headerlink" href="#north-arrow" title="Permalink to this headline">¶</a></h2>
-<p>Add an arrow that indicates the north direction.</p>
+<p>Add an arrow button that indicates the north direction. The button can also be
+used to reset rotation.</p>
 <div class="figure" id="id27">
 <img alt="_images/northarrow.png" src="_images/northarrow.png" />
 <p class="caption"><span class="caption-text">North arrow</span></p>
 </div>
-<p>There are no configurable properties for this control.</p>
+<p>The following properties can be configured for this control:</p>
+<table border="1" class="colwidths-given non-responsive docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head stub">Option</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><th class="stub">autoHide</th>
+<td>north arrow button hides if rotation is <code class="docutils literal"><span class="pre">0</span></code></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="overview-map">
 <span id="qgis-webappbuilder-controls-overview"></span><h2>Overview map<a class="headerlink" href="#overview-map" title="Permalink to this headline">¶</a></h2>
-<p>Adds an additional map that shows a larger overview of the extent of the area covered by the app current map view.</p>
+<p>Adds an additional map that shows a larger overview of the extent of the area
+covered by the app current map view.</p>
 <div class="figure" id="id28">
 <img alt="_images/overviewmap.png" src="_images/overviewmap.png" />
 <p class="caption"><span class="caption-text">Overview map</span></p>
@@ -481,10 +617,13 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><th class="stub">Base layer</th>
-<td>Allows to choose a base map to the overview map. The user can choose between <em>Use main map base layer</em> or any of the base layers available in the Other Layers tab.</td>
+<td>Allows to choose a base map to the overview map. The user can choose
+between <em>Use main map base layer</em> or any of the base layers available
+in the Other Layers tab.</td>
 </tr>
 <tr class="row-odd"><th class="stub">Collapsed</th>
-<td>If checked, the overview map will not be shown when the app is launched. Default is checked.</td>
+<td>If checked, the overview map will not be shown when the app is
+launched. Default is checked.</td>
 </tr>
 </tbody>
 </table>
@@ -496,12 +635,22 @@
 <img alt="_images/print_example.png" src="_images/print_example.png" />
 <p class="caption"><span class="caption-text">Print menu example</span></p>
 </div>
-<p>Printing layouts are designed using the QGIS Print Composer. The Web App Builder will take the existing print compositions from the current project, and make them available to users of the web app. The web app will generate maps in PDF format using the layout designs created in QGIS, and allowing the user to configure certain parameters, such as the extent of the map of the content of text labels.</p>
-<p>Most elements are supported, including legend, arrow, shape, label and scalebar. If any of the print compositions in the current project contains an element that it is not supported (such as, for instance, an attributes table), a warning will be shown before the web app is created.</p>
+<p>Printing layouts are designed using the QGIS Print Composer. The Web App
+Builder will take the existing print compositions from the current project,
+and make them available to users of the web app. The web app will generate
+maps in PDF format using the layout designs created in QGIS, and allowing the
+user to configure certain parameters, such as the extent of the map or the
+content of text labels.</p>
+<p>Most elements are supported, including legend, arrow, shape, label and
+scalebar. If any of the print compositions in the current project contains
+an element that it is not supported (such as, for instance, an attributes
+table), a warning will be shown before the web app is created.</p>
 </div>
 <div class="section" id="query">
 <h2>Query<a class="headerlink" href="#query" title="Permalink to this headline">¶</a></h2>
-<p>Adds query tools to perform selections in layers. Queries are expressed using the notation accepted by the <a class="reference external" href="https://github.com/joewalnes/filtrex#expressions">Filtrex</a> library.</p>
+<p>Adds a query tools to perform selections in layers. The tools can be
+accessed by a Query button on the menu bar. Queries are expressed
+using the notation explained in the <a class="reference internal" href="#search-filter-notation"><span class="std std-ref">Search/filter notation</span></a> section.</p>
 <div class="figure" id="id30">
 <img alt="_images/query.png" src="_images/query.png" />
 <p class="caption"><span class="caption-text">Query tool</span></p>
@@ -510,21 +659,29 @@
 <ul class="simple">
 <li><span class="guilabel">Layer</span>: Layer to select from.</li>
 <li><span class="guilabel">Filter</span>: Where the user should put an valid expression.</li>
-<li><span class="guilabel">New Selection</span>: Will create a new selection a clear any previous selection on the layer.</li>
-<li><span class="guilabel">Add Selection</span>: Will add new features to already selected features. Works as an <em>OR</em> operator.</li>
-<li><span class="guilabel">Refine Selection</span> Will only keep features that meet both previous selection and the new expression. Works as an <em>AND</em> operator.</li>
+<li><span class="guilabel">New</span>: Will create a new selection and clear any
+previous selection on the layer.</li>
+<li><span class="guilabel">Add</span>: Will add new features to already selected
+features. Works as an <em>OR</em> operator.</li>
+<li><span class="guilabel">Refine</span> Will only keep features that meet both
+previous selection and the new expression. Works as an <em>AND</em> operator.</li>
 </ul>
 <p>There are no configurable properties for this control.</p>
 </div>
 <div class="section" id="refresh">
 <h2>Refresh<a class="headerlink" href="#refresh" title="Permalink to this headline">¶</a></h2>
-<p>This component has no visual element. Instead, it makes possible to define the refresh interval for each available WMS or WFS layers.</p>
-<p>To configure the layers to refresh, right-click on the component button and select &#8220;Configure...&#8221;. You will see a dialog similar to the one below:</p>
+<p>This component has no visual element. Instead, it makes possible to define
+the refresh interval for each available WMS or WFS layers.</p>
+<p>To configure the layers to refresh, right-click on the component button and
+select &#8220;Configure...&#8221;. You will see a dialog similar to the one below:</p>
 <div class="figure" id="id31">
 <img alt="_images/refresh.png" src="_images/refresh.png" />
 <p class="caption"><span class="caption-text">Refresh layers configuration example</span></p>
 </div>
-<p>The dialog will show a list of all the WMS or WFS layers that are currently in your project. If you want any of them to be refreshed, select it by checking the corresponding check box, and enter the refresh interval in milliseconds.</p>
+<p>The dialog will show a list of all the WMS or WFS layers that are currently
+in your project. If you want any of them to be refreshed, select it by
+checking the corresponding check box, and enter the refresh interval in
+milliseconds.</p>
 </div>
 <div class="section" id="scale-bar">
 <h2>Scale bar<a class="headerlink" href="#scale-bar" title="Permalink to this headline">¶</a></h2>
@@ -549,37 +706,45 @@
 <td>Minimum width, in pixels, of the scale bar. Default is <code class="docutils literal"><span class="pre">64</span></code>.</td>
 </tr>
 <tr class="row-odd"><th class="stub">units</th>
-<td>The units to be used in the scale bar. The available options are <em>metric</em>, <em>degrees</em>, <em>imperial</em>, <em>nautical</em>, and <em>us</em>. Default is <em>metric</em>.</td>
+<td>The units to be used in the scale bar. The available options are
+<em>metric</em>, <em>degrees</em>, <em>imperial</em>, <em>nautical</em>, and <em>us</em>. Default is
+<em>metric</em>.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="selection">
 <span id="qgis-webappbuilder-controls-selection"></span><h2>Selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h2>
-<p>Adds the ability to select features on the map in a few different ways. Two buttons are added to the web app: one to enable the selection mode and one to return to navigation mode.</p>
+<p>Adds the ability to select features on the map. Two buttons are added to the
+web app: one to enable the selection mode and one to return to navigation mode.</p>
 <div class="figure" id="id33">
 <img alt="_images/selection.png" src="_images/selection.png" />
 <p class="caption"><span class="caption-text">Selection options in the app</span></p>
 </div>
+<p>There are no configurable properties for this control.</p>
 </div>
 <div class="section" id="timeline">
 <span id="qgis-webappbuilder-controls-timeline"></span><h2>Timeline<a class="headerlink" href="#timeline" title="Permalink to this headline">¶</a></h2>
-<p>Adds a slider to the map that can be used to select a given date, and modifies the visibility of layers and features depending on their timestamp and the current time as set in the QGIS Layers Tab (see <em>Layer time info</em> option in the <a class="reference internal" href="usage.html#qgis-webappbuilder-usage-vector"><span class="std std-ref">Vector layers</span></a> section for more details).</p>
+<p>Adds a slider to the map that can be used to select a given date, and
+modifies the visibility of layers and features depending on their timestamp
+and the current time as set in the QGIS Layers Tab (see <em>Layer time info</em>
+option in the <a class="reference internal" href="usage.html#qgis-webappbuilder-usage-vector"><span class="std std-ref">Vector layers</span></a> section for more details).</p>
 <div class="figure" id="id34">
 <img alt="_images/timeline.png" src="_images/timeline.png" />
 <p class="caption"><span class="caption-text">Timeline slider</span></p>
 </div>
-<p>Clicking on the play button will cause the slider to advance automatically. The behaviour of the auto-play mode can be modified using the available options for this control:</p>
+<p>Clicking on the play button will cause the slider to advance automatically.
+The behaviour of the auto-play mode can be modified using the available
+options for this control:</p>
 <ul class="simple">
-<li><span class="guilabel">interval</span>. The time, in milliseconds, to wait in each position of the slider. Positions are defined by dividing the slider range by the number of intervals defined in the numIntervals parameter.</li>
-<li><span class="guilabel">autoPlayFromStartup</span>. Determines if the slider should automatically start when the web app opens.</li>
-<li><span class="guilabel">numInterval</span>. The number of intervals into which the full range of the slider is divided.</li>
+<li><span class="guilabel">interval</span>. The time, in milliseconds, to wait in each position
+of the slider. Positions are defined by dividing the slider range by the
+number of intervals defined in the numIntervals parameter.</li>
+<li><span class="guilabel">autoPlayFromStartup</span>. Determines if the slider should
+automatically start when the web app opens.</li>
+<li><span class="guilabel">numInterval</span>. The number of intervals into which the full range
+of the slider is divided.</li>
 </ul>
-</div>
-<div class="section" id="d-view">
-<h2>3D View<a class="headerlink" href="#d-view" title="Permalink to this headline">¶</a></h2>
-<p>Adds a button to toggle 3D mode.</p>
-<p>There are no configurable properties for this control.</p>
 </div>
 <div class="section" id="wfs-t">
 <h2>WFS-T<a class="headerlink" href="#wfs-t" title="Permalink to this headline">¶</a></h2>
@@ -606,16 +771,19 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><th class="stub">zoomOutTipLabel</th>
-<td>The text to display when hovering over the Zoom Out button. Default is <code class="docutils literal"><span class="pre">Zoom</span> <span class="pre">out</span></code>.</td>
+<td>The text to display when hovering over the Zoom Out button. Default
+is <code class="docutils literal"><span class="pre">Zoom</span> <span class="pre">out</span></code>.</td>
 </tr>
 <tr class="row-odd"><th class="stub">zoomInTipLabel</th>
-<td>The text to display when hovering over the Zoom In button. Default is <code class="docutils literal"><span class="pre">Zoom</span> <span class="pre">in</span></code>.</td>
+<td>The text to display when hovering over the Zoom In button. Default is
+<code class="docutils literal"><span class="pre">Zoom</span> <span class="pre">in</span></code>.</td>
 </tr>
 <tr class="row-even"><th class="stub">delta</th>
 <td>Default is <code class="docutils literal"><span class="pre">1.2</span></code>.</td>
 </tr>
 <tr class="row-odd"><th class="stub">duration</th>
-<td>Length of time (in milliseconds) it takes to perform a zoom change. Default is 250.</td>
+<td>Length of time (in milliseconds) it takes to perform a zoom change.
+Default is 250.</td>
 </tr>
 <tr class="row-even"><th class="stub">zoomInLabel</th>
 <td>The text to display on the Zoom In button. Default is <code class="docutils literal"><span class="pre">+</span></code>.</td>
@@ -635,16 +803,84 @@
 </div>
 <p>There are no configurable properties for this control.</p>
 </div>
+<div class="section" id="search-filter-notation">
+<span id="id1"></span><h2>Search/filter notation<a class="headerlink" href="#search-filter-notation" title="Permalink to this headline">¶</a></h2>
+<p>Controls like Query, Attributes, Layers List ca use expression to filter or
+search features in a layer. Expression can use the following notation.</p>
+<p>Type in a filter expression to narrow your search to one or more attributes.</p>
+<p>Examples:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">population</span> <span class="o">&gt;</span> <span class="mi">100000</span>
+</pre></div>
+</div>
+<p>All features with a population greater than 100000</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sovereignt</span> <span class="o">==</span> <span class="s2">&quot;United Kingdom&quot;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">subregion</span> <span class="n">like</span> <span class="s2">&quot;Europe&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>All british colonies not in Europe</p>
+<p>Expressions may contain attribute names, strings, numbers, and operators.
+Attribute names may be surrounded by single quotes (&#8216;) to reduce ambiguity.
+Strings must be surrounded by double quotes (&#8221;). Numbers and operators are
+unquoted.</p>
+<p>Supported operators are:</p>
+<table border="1" class="colwidths-given non-responsive docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head stub">Operator</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><th class="stub">a == a</th>
+<td>a exactly equals b</td>
+</tr>
+<tr class="row-odd"><th class="stub">a != a</th>
+<td>a does not equal b</td>
+</tr>
+<tr class="row-even"><th class="stub">a &lt; a</th>
+<td>a is less than b</td>
+</tr>
+<tr class="row-odd"><th class="stub">a &lt;= b</th>
+<td>a is less than or equal to b</td>
+</tr>
+<tr class="row-even"><th class="stub">a &gt; b</th>
+<td>a is greater than b</td>
+</tr>
+<tr class="row-odd"><th class="stub">a &gt;= b</th>
+<td>a is greater than or equal to b</td>
+</tr>
+<tr class="row-even"><th class="stub">a like b</th>
+<td>b contains a (case insensitive)</td>
+</tr>
+<tr class="row-odd"><th class="stub">a in (x,y,z)</th>
+<td>a is equal to one or more values in the list x,y,z</td>
+</tr>
+<tr class="row-even"><th class="stub">e and f</th>
+<td>Matches both expressions e and f</td>
+</tr>
+<tr class="row-odd"><th class="stub">e or f</th>
+<td>Matches either expression e or f</td>
+</tr>
+<tr class="row-even"><th class="stub">not e</th>
+<td>Returns all results that do not match the expression e</td>
+</tr>
+</tbody>
+</table>
+<p>Any expression may be surrounded by parentheses for clarity (e.g. when combining ands and ors).</p>
+</div>
 </div>
 
 
       <!-- Next/Prev -->
       <div class="selfclear pagination-nav">
           <div class="left"><strong>Previous</strong>: <a href="usage.html" title="previous chapter">Usage</a></div>
+          <div class="right"><strong>Next</strong>: <a href="wabandwebsdk.html" title="next chapter">Web App Builder and WebSDK</a></div>
       </div>
 
   <!--
-    &copy; Copyright 2016 Boundless Spatial, Inc.
+    &copy; Copyright 2017 Boundless Spatial, Inc.
   -->
 
   </div> <!-- rightbar_main -->
@@ -682,10 +918,10 @@
 <li><a class="reference internal" href="#scale-bar">Scale bar</a></li>
 <li><a class="reference internal" href="#selection">Selection</a></li>
 <li><a class="reference internal" href="#timeline">Timeline</a></li>
-<li><a class="reference internal" href="#d-view">3D View</a></li>
 <li><a class="reference internal" href="#wfs-t">WFS-T</a></li>
 <li><a class="reference internal" href="#zoom">Zoom</a></li>
 <li><a class="reference internal" href="#zoom-slider">Zoom slider</a></li>
+<li><a class="reference internal" href="#search-filter-notation">Search/filter notation</a></li>
 </ul>
 </li>
 </ul>
@@ -695,6 +931,7 @@
         <div class="section">
           <h3>Continue Reading</h3>
           <p style="margin-top:1em"><b>Previous:</b> <a href="usage.html" title="previous chapter">Usage</a></p>
+          <p><b>Next:</b> <a href="wabandwebsdk.html" title="next chapter">Web App Builder and WebSDK</a></p>
           </ul>
         </div>
         <div class="section">
@@ -715,6 +952,9 @@
   <li class="first">
     <a href="genindex.html" title="General Index"
        accesskey="I">index</a></li>
+  <li>
+    <a href="wabandwebsdk.html" title="Web App Builder and WebSDK"
+       accesskey="N">next</a>|</li>
   <li>
     <a href="usage.html" title="Usage"
        accesskey="P">previous</a>|</li>
@@ -795,7 +1035,7 @@
 					<div class="menu-footer-menu-container">
 						<ul id="menu-footer-menu" class="menu">
 							<li>
-    <a href="http://boundlessgeo.com/">Copyright &copy; 2016 Boundless Spatial, Inc.</a>
+    <a href="http://boundlessgeo.com/">Copyright &copy; 2017 Boundless Spatial, Inc.</a>
 							</li>
 							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
 						</ul>

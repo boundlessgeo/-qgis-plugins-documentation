@@ -7,7 +7,7 @@
 <head>
   <meta charset="UTF-8">
   
-  <title>Boundless : Web App Builder : Customizing Web App Builder base layersand WebSDK</title>
+  <title>Boundless : Web App Builder : Customizing Web App Builder base layers</title>
 
   <link rel="profile" href="http://gmpg.org/xfn/11">
   <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
@@ -15,7 +15,9 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="index" title="Index" href="genindex.html" />
       <link rel="search" title="Search" href="search.html" />
-      <link rel="top" title="Web App Builder 0.5.1 documentation" href="index.html" />
+      <link rel="top" title="Web App Builder 0.5.3 documentation" href="index.html" />
+      <link rel="next" title="Plugin settings" href="settingsconf.html" />
+      <link rel="prev" title="Web App Builder and WebSDK" href="wabandwebsdk.html" />
 <style>
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
@@ -61,54 +63,82 @@
 <div id="breadcrumbs">
   <a href="index.html">Web App Builder</a>
   
-     &raquo; <a href="">Customizing Web App Builder base layersand WebSDK</a>
+     &raquo; <a href="">Customizing Web App Builder base layers</a>
 </div>
 
   <div id="rightbar_main">
       
-  <div class="section" id="customizing-web-app-builder-base-layersand-websdk">
-<span id="qgis-webappbuilder-baselayers"></span><h1>Customizing Web App Builder base layersand WebSDK<a class="headerlink" href="#customizing-web-app-builder-base-layersand-websdk" title="Permalink to this headline">¶</a></h1>
-<p>A predefined set of base layers is available to be selected for a Web App, when creating it using WAB. Unlike regular layers, which is populated using the layers in the current QGIS project, base layers are harcoded, and the user has no way of modifying the list of available ones. However, it can be edited before starting QGIS and WAB, adding or removing new connections. This document describes how to do it.</p>
-<p>To edit the list of available base layers, follow these steps:</p>
+  <div class="section" id="customizing-web-app-builder-base-layers">
+<span id="qgis-webappbuilder-baselayers"></span><h1>Customizing Web App Builder base layers<a class="headerlink" href="#customizing-web-app-builder-base-layers" title="Permalink to this headline">¶</a></h1>
+<p>Using <em>Web App Builder</em>, a predefined set of base layers is available in the
+<span class="guilabel">Other layers</span> to be selected for a Web App. Unlike
+<span class="guilabel">QGIS layers</span>, which are populated using the layers in the current
+QGIS project, base layers are hardcoded, and the user has no way of modifying
+the list of available ones. However, it can be edited before starting QGIS and
+WAB, adding or removing new connections. This document describes how to do it.</p>
+<p>To edit the list of available base layers in <span class="guilabel">Other layers</span>,
+you can edit one of these two files in the WAB folder (<code class="docutils literal"><span class="pre">[user_home_folder]/</span>
+<span class="pre">.qgis2/python/plugins/webappbuilder/</span></code>):</p>
 <ul class="simple">
-<li>If you want to add a new base layer, open the <em>baselayers/baselayers.txt</em> file in the WAB folder. If you want to add a new overlay base layer, open the <em>baselayers/baseoverlays.txt</em> file.</li>
-<li>The structure in both files is the same. You will find blocks of text separated by empty lines. Each block of tests contains the information corresponding to a base layer or overlay. The first line is the name of the layer to display in the WAB interface, in the form</li>
+<li>If you want to add a new base layer, open the <code class="docutils literal"><span class="pre">baselayers/baselayers.txt</span></code>
+file in the WAB folder;</li>
+<li>If you want to add a new overlay base layer, open the
+<code class="docutils literal"><span class="pre">baselayers/baseoverlays.txt</span></code> file instead.</li>
 </ul>
+<p>The structure in both files is the same. You will find blocks of text
+separated by empty lines. Each block of text contains the information
+corresponding to a base layer or an overlay. The first line is the name of the
+layer to display in the WAB interface, in the following form:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/*</span><span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">layer</span><span class="o">*/</span>
 </pre></div>
 </div>
-<p>The remaining lines are the OL3 definition of the layer.</p>
+<p>The remaining lines are the Open Layers 3 (OL3) definition of the layer.</p>
 <p>Here is an example:</p>
-<p>/<em>CartoDB</em>/
-new ol.layer.Tile({</p>
-<blockquote>
-<div><p>type: &#8216;base&#8217;,
-title: &#8216;CartoDB light&#8217;,
-source: new ol.source.XYZ({</p>
-<blockquote>
-<div>url: &#8216;<a class="reference external" href="http://s.basemaps.cartocdn.com/light_all">http://s.basemaps.cartocdn.com/light_all</a>/{z}/{x}/{y}.png&#8217;,
-attributions: [new ol.Attribution({ html: &#8216;&amp;copy; &lt;a href=&#8221;<a class="reference external" href="http://www.openstreetmap.org/copyright">http://www.openstreetmap.org/copyright</a>&#8220;&gt;OpenStreetMap&lt;/a&gt; contributors, &amp;copy; &lt;a href=&#8221;<a class="reference external" href="http://cartodb.com/attributions">http://cartodb.com/attributions</a>&#8220;&gt;CartoDB&lt;/a&gt;&#8217;
-})]</div></blockquote>
-<p>}),
-projection: &#8216;EPSG:3857&#8217;</p>
-</div></blockquote>
-<p>})</p>
-<p>You can add new layers or remove the existing ones. editing the corresponding text file</p>
-<ul class="simple">
-<li>Each base layer must have an associated thumbnail image, in the <em>baselayers</em> folder (same one where the <em>baselayers.txt</em> file is located). Recommended size for thumbnails is 160x80 pixels. The name of the image file is created from the layer name, as defined in the <em>baselayers.txt</em> file, removing blank spaces and in lower case. Thumbnails files must be png files.</li>
-</ul>
+<div class="highlight-none"><div class="highlight"><pre><span></span>/*CartoDB light*/
+new ol.layer.Tile({
+    type: &#39;base&#39;,
+    title: &#39;CartoDB light&#39;,
+    source: new ol.source.XYZ({
+        url: &#39;http://s.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png&#39;,
+        attributions: [new ol.Attribution({ html: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; contributors, &amp;copy; &lt;a href=&quot;http://cartodb.com/attributions&quot;&gt;CartoDB&lt;/a&gt;&#39;
+        })]
+    }),
+    projection: &#39;EPSG:3857&#39;
+})
+</pre></div>
+</div>
+<p>You can add new layers or remove the existing ones editing the corresponding
+texts blocks.</p>
+<p>Each base layer must have an associated thumbnail image in the <code class="docutils literal"><span class="pre">baselayers/</span></code>
+folder (same place where the <code class="file docutils literal"><span class="pre">baselayers.txt</span></code> and <code class="file docutils literal"><span class="pre">baseoverlays.txt</span></code>
+file are located). Thumbnails should be in PNG format with a recommended
+size of 160x80 pixels. The name of the image file should match the layer
+name, as defined in the <em>baselayers.txt</em> file, removing any blank spaces and
+in lowercase. Using the example above, the file name should be named
+<code class="file docutils literal"><span class="pre">cartodblight.png</span></code>.</p>
 </div>
 
 
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="wabandwebsdk.html" title="previous chapter">Web App Builder and WebSDK</a></div>
+          <div class="right"><strong>Next</strong>: <a href="settingsconf.html" title="next chapter">Plugin settings</a></div>
+      </div>
 
   <!--
-    &copy; Copyright 2016 Boundless Spatial, Inc.
+    &copy; Copyright 2017 Boundless Spatial, Inc.
   -->
 
   </div> <!-- rightbar_main -->
 
   <div id="rightbar_bar">
     
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="wabandwebsdk.html" title="previous chapter">Web App Builder and WebSDK</a></p>
+          <p><b>Next:</b> <a href="settingsconf.html" title="next chapter">Plugin settings</a></p>
+          </ul>
+        </div>
         <div class="section">
         <h4>This Page</h4>
         <ul class="this-page-menu">
@@ -127,6 +157,12 @@ projection: &#8216;EPSG:3857&#8217;</p>
   <li class="first">
     <a href="genindex.html" title="General Index"
        accesskey="I">index</a></li>
+  <li>
+    <a href="settingsconf.html" title="Plugin settings"
+       accesskey="N">next</a>|</li>
+  <li>
+    <a href="wabandwebsdk.html" title="Web App Builder and WebSDK"
+       accesskey="P">previous</a>|</li>
 </ul> -->
   </div> <!-- rightbar_bar -->
 
@@ -204,7 +240,7 @@ projection: &#8216;EPSG:3857&#8217;</p>
 					<div class="menu-footer-menu-container">
 						<ul id="menu-footer-menu" class="menu">
 							<li>
-    <a href="http://boundlessgeo.com/">Copyright &copy; 2016 Boundless Spatial, Inc.</a>
+    <a href="http://boundlessgeo.com/">Copyright &copy; 2017 Boundless Spatial, Inc.</a>
 							</li>
 							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
 						</ul>
