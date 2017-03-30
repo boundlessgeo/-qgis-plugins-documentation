@@ -686,7 +686,7 @@ ol ul {
   margin-bottom: 0;
 }
 li {
-  line-height: 1.5em;
+  line-height: inherit;
 }
 ul.unstyled,
 ol.unstyled {
@@ -7044,4 +7044,16 @@ h5,
 }
 p {
   margin: 0 0 20px 0;
+}
+
+.guilabel, .menuselection {
+  color: #28718d;
+  text-shadow: 1px 1px 0 #dddddd;
+  padding: 0px 3px;
+  font-weight: bold;
+}
+
+.guilabel {
+  border: 1px solid #aaaaaa;
+  border-radius: 5px;
 }

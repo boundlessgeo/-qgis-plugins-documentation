@@ -71,10 +71,11 @@
   <div class="section" id="usage">
 <span id="qgis-webappbuilder-usage"></span><h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
 <p>This page will detail how to use the Web App Builder (WAB). For more usage
-examples, please see the <em>&#8220;Working with the Web App Builder plugin&#8221;</em> tutorial
-in <a class="reference external" href="https://connect.boundlessgeo.com/Learn/Boundless-Desktop-Learning">Desktop Learning Center</a>.</p>
-<p>The <em>Web App Builder</em> is started from the <span class="menuselection">Web ‣ Web App Builder ‣ Web App Builder</span>
-menu item or by clicking the button in the <span class="guilabel">Web toolbar</span>.</p>
+examples, please see the <em>&#8220;Working with the Web App Builder plugin&#8221;</em> tutorial in
+<a class="reference external" href="https://connect.boundlessgeo.com/Learn/Boundless-Desktop-Learning">Desktop Learning Center</a>.</p>
+<p>The <em>Web App Builder</em> is started from the <span class="menuselection">Web ‣ Web App Builder
+‣ Web App Builder</span> menu item or by clicking the button in the <span class="guilabel">Web
+toolbar</span>.</p>
 <div class="figure" id="id1">
 <img alt="_images/menu.png" src="_images/menu.png" />
 <p class="caption"><span class="caption-text">Menu path to launch the Web App Builder</span></p>
@@ -84,8 +85,8 @@ menu item or by clicking the button in the <span class="guilabel">Web toolbar</s
 <img alt="_images/maindialog.png" src="_images/maindialog.png" />
 <p class="caption"><span class="caption-text">Web App Builder main dialog - Description tab</span></p>
 </div>
-<p>At the bottom of the Web App Builder main dialog, there are six buttons that
-allow you to manage your app definitions, as shown below:</p>
+<p>At the bottom of the Web App Builder main dialog, there are six buttons
+allowing the user to manage your app definitions, as shown below:</p>
 <table border="1" class="colwidths-given non-responsive docutils">
 <colgroup>
 <col width="25%" />
@@ -117,27 +118,48 @@ allow you to manage your app definitions, as shown below:</p>
 </tr>
 </tbody>
 </table>
+<p>The following sections explain each tab in the Web App Builder dialog,
+its contents, and options.</p>
+<div class="section" id="generate-a-web-app">
+<h2>Generate a web app<a class="headerlink" href="#generate-a-web-app" title="Permalink to this headline">¶</a></h2>
 <p>To generate a web app, you must define its characteristics using the
 definitions available in each tab of the dialog and then press the
 <span class="guilabel">Preview</span> or <span class="guilabel">Create App</span> button.</p>
+<div class="section" id="preview">
+<h3>Preview<a class="headerlink" href="#preview" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="guilabel">Preview</span> button creates the web app in a temporary
+folder and loads it on your default internet browser.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>The <span class="guilabel">Preview</span> button will create the web app in a temporary
-folder and open your default internet browser to load it. <strong>This preview
-web app is based on a precompiled version of Web SDK and is not ready for
-production</strong>, but only for preview and debugging purposes.</p>
-<p>The <span class="guilabel">Create App</span> button will create a fully functional web app
-using <em>Boundless WebSDK</em> service. The web app is stored in a folder
-specified by the user.</p>
-<p class="last"><em>Boundless WebSDK</em> is offered as an online service to Boundless customers, so
-you will need to be connected to the internet and use your Boundless Connect
-credentials. You will be prompted to enter the credentials on the first time
-that you use WebSDK in each QGIS session.</p>
+<p class="last"><strong>This preview web app is based on a precompiled version of Web SDK and is
+not ready for production</strong>, but only for preview and debugging purposes.</p>
 </div>
-<p>The following sections will explain each tab in the Web App Builder dialog,
-its contents, and options.</p>
-<div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="create-app">
+<h3>Create App<a class="headerlink" href="#create-app" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="guilabel">Create App</span> button creates a fully functional web app
+using the <em>Boundless WebSDK</em> service.</p>
+<p>The user is prompt for a folder to store the web app. After the folder is
+chosen, an uncompiled version of the web app is stored in it.</p>
+<p><em>Boundless WebSDK</em> is offered as an online service to Boundless customers, so
+you will need to be connected to the internet and use your Boundless Connect
+credentials (for more information <a class="reference external" href="https://connect.boundlessgeo.com/docs/desktop/plugins/connect/usage.html#boundless-connect-panel">see</a> ).</p>
+<p>You will be prompted to enter the credentials on the first time you use
+WebSDK in a QGIS session.</p>
+<p>During compilation, a progress bar shows the compilation status. At any time,
+the user can cancel the compilation by clicking <span class="guilabel">Stop</span>.</p>
+<div class="figure">
+<img alt="_images/stop_compilation.png" src="_images/stop_compilation.png" />
+</div>
+<p>When the compilation process is successfully finished, a dialog opens
+informing so, and the user can find the compiled Web App in the chosen folder.</p>
+<div class="figure">
+<img alt="_images/compilation_sucess.png" src="_images/compilation_sucess.png" />
+</div>
+</div>
+</div>
+<div class="section" id="description-tab">
+<h2>Description tab<a class="headerlink" href="#description-tab" title="Permalink to this headline">¶</a></h2>
 <p>The elements in the <span class="guilabel">Description</span> tab control the basic structure
 of the app page.</p>
 <p>Set the title of the project in the <span class="guilabel">App Title</span> box. In case you want
@@ -156,8 +178,8 @@ appear visually.</p>
 <p class="caption"><span class="caption-text">Tabbed theme example</span></p>
 </div>
 </div>
-<div class="section" id="qgis-layers">
-<span id="qgis-webappbuilder-usage-qgislayers"></span><h2>QGIS Layers<a class="headerlink" href="#qgis-layers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="qgis-layers-tab">
+<span id="qgis-webappbuilder-usage-qgislayers"></span><h2>QGIS Layers tab<a class="headerlink" href="#qgis-layers-tab" title="Permalink to this headline">¶</a></h2>
 <p>This tab you should select which layers from your existing QGIS project that
 you would like to add to your web app.</p>
 <p>Vector layers will be exported to GeoJSON files and the app will use them
@@ -293,7 +315,7 @@ these layers won&#8217;t be visible.</p>
 <h3>Handling projections<a class="headerlink" href="#handling-projections" title="Permalink to this headline">¶</a></h3>
 <p>If needed, all layers will be automatically reprojected into the projection
 of the map to be created (by default, EPSG:3857, but can be set in the
-<a class="reference internal" href="#qgis-webappbuilder-usage-settings"><span class="std std-ref">Settings</span></a> tab). Therefore, you can use input
+<a class="reference internal" href="#qgis-webappbuilder-usage-settings"><span class="std std-ref">Settings tab</span></a> tab). Therefore, you can use input
 layers from any CRS.</p>
 <p>File-based layers will be reprojected beforehand. Layers from OWS services will
 be reprojected on-the-fly in the web app, <strong>which might cause performance issues</strong>.</p>
@@ -329,8 +351,8 @@ settings in the <a class="reference internal" href="controls.html#qgis-webappbui
 <p class="caption"><span class="caption-text">Base layers in a web app</span></p>
 </div>
 </div>
-<div class="section" id="controls">
-<h2>Controls<a class="headerlink" href="#controls" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="controls-tab">
+<h2>Controls tab<a class="headerlink" href="#controls-tab" title="Permalink to this headline">¶</a></h2>
 <p>The <cite>Controls</cite> tab allows you to select extra elements that you would like to
 add to your web app. These can be OpenLayers controls that act on the map
 and appear in it, or other elements that may or may not be directly related to
@@ -350,8 +372,8 @@ and selecting the <span class="guilabel">Configure</span> option.</p>
 <p>For a more detailed description of all available controls and their settings
 see the <a class="reference internal" href="controls.html#qgis-webappbuilder-controls"><span class="std std-ref">Controls</span></a> page.</p>
 </div>
-<div class="section" id="settings">
-<span id="qgis-webappbuilder-usage-settings"></span><h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="settings-tab">
+<span id="qgis-webappbuilder-usage-settings"></span><h2>Settings tab<a class="headerlink" href="#settings-tab" title="Permalink to this headline">¶</a></h2>
 <p>The <cite>Settings</cite> tab shows additional configuration for the application:</p>
 <div class="figure" id="id15">
 <img alt="_images/settings.png" src="_images/settings.png" />
@@ -444,16 +466,21 @@ it in the web app view.</td>
         <h4 class="pngfix">Table Of Contents</h4>
         <ul>
 <li><a class="reference internal" href="#">Usage</a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
-<li><a class="reference internal" href="#qgis-layers">QGIS Layers</a><ul>
+<li><a class="reference internal" href="#generate-a-web-app">Generate a web app</a><ul>
+<li><a class="reference internal" href="#preview">Preview</a></li>
+<li><a class="reference internal" href="#create-app">Create App</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#description-tab">Description tab</a></li>
+<li><a class="reference internal" href="#qgis-layers-tab">QGIS Layers tab</a><ul>
 <li><a class="reference internal" href="#vector-layers">Vector layers</a></li>
 <li><a class="reference internal" href="#wms-wfs-layers">WMS/WFS layers</a></li>
 <li><a class="reference internal" href="#handling-projections">Handling projections</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#other-layers">Other layers</a></li>
-<li><a class="reference internal" href="#controls">Controls</a></li>
-<li><a class="reference internal" href="#settings">Settings</a></li>
+<li><a class="reference internal" href="#controls-tab">Controls tab</a></li>
+<li><a class="reference internal" href="#settings-tab">Settings tab</a></li>
 </ul>
 </li>
 </ul>

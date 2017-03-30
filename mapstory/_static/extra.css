@@ -15,7 +15,7 @@ h2 {
 }
 
 
-p {
+p, table {
 	font-size: 14px !important;
 	margin-bottom: 30px !important;
 }
@@ -139,13 +139,13 @@ margin-bottom: 0.7em;
 ul,ol {
 margin-top: 1.0em;
 margin-bottom: 1.0em;
-list-style-type: none !important;
 }
 
 
 li {
 margin-bottom: 0em;
 margin-top: 0em;
+font-size: 14px !important;
 }
 
 
@@ -162,7 +162,7 @@ a.headerlink:hover {
 }
 
 #rightbar_main, #rightbar_bar {
-  font-size: 110%;
+  font-size: 100%;
 }
 
 pre {
@@ -178,6 +178,7 @@ pre {
 
 .figure {
   margin-bottom: 1em;
+  text-align: center;
 }
 
 .figure img {
@@ -197,13 +198,11 @@ margin: 0.5em 0 1em;
 
 .section img {
 width: auto;
-border: 1px solid #888;
--webkit-box-shadow: 0.33em 0.33em 0.17em #888, 0.33em 0.33em 1em rgba(0,0,0,0.3);
--o-box-shadow: 0.33em 0.33em 0.17em #888, 0.33em 0.33em 1em rgba(0,0,0,0.3);
--moz-box-shadow: 0.33em 0.33em 0.17em #888, 0.33em 0.33em 1em rgba(0,0,0,0.3);
-box-shadow: 0.33em 0.33em 0.17em #888, 0.33em 0.33em 1em rgba(0,0,0,0.3);
+border: 1px solid #aaaaaa;
 max-width: 100%;
 margin: 0.5em 0 1em;
+padding: 2px;
+border-radius: 5px;
 }
 
 .section {
