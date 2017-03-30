@@ -88,6 +88,7 @@ def builddocs():
                     continue # in case no tags exist yet
                 sh("git checkout %s" % tag)
             print ("\nBuilding %s") % title
+            sh("rm -rf build")
             sh("make html")
             if getattr(options, 'stable', False):
                 sh("git checkout master")
