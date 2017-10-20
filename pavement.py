@@ -20,6 +20,13 @@ def pluginNames():
         r.raise_for_status()
         repos = r.json()    
         names.extend([repo["name"] for repo in repos  if  repo["name"].startswith("qgis-") and repo["name"].endswith("-plugin")])
+
+    # Add private repos
+    private_repos = ['qgis-imagediscovery-plugin',
+                     'qgis-terrainanalysis-plugin',
+                     'qgis-navigation-plugin',
+                     ]
+    names += private_repos
     return names
 
 @task
