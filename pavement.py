@@ -71,7 +71,7 @@ def builddocs():
     for folder in subfolders:
         docFolder = os.path.join(folder, 'docs')
         if os.path.exists(docFolder):
-            os.chdir(docFolder)
+            os.chdir(folder)
             helpFile = os.path.join(folder, "README.rst")
             if not os.path.exists(helpFile):
                 helpFile = os.path.join(folder, "README.md")
@@ -95,8 +95,7 @@ def builddocs():
                     continue # in case no tags exist yet
                 sh("git checkout %s" % tag)
             print ("\nBuilding %s") % title
-            sh("rm -rf build")
-            sh("make html")
+            sh("paver builddocs -c")
             if getattr(options, 'stable', False):
                 sh("git checkout master")
     
