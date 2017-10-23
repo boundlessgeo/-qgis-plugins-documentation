@@ -25,6 +25,7 @@ def pluginNames():
     private_repos = ['qgis-imagediscovery-plugin',
                      'qgis-terrainanalysis-plugin',
                      'qgis-navigation-plugin',
+                     'qgis-master-pass-cxxplugin'
                      ]
     names += private_repos
     return names
