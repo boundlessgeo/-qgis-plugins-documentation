@@ -60,7 +60,8 @@ def fetch(options):
 
 @task
 @cmdopts([
-    ('stable', 's', 'build docs for latest stable version')
+    ('stable', 's', 'build docs for latest stable version'),
+    ('released', 'r', 'build docs for the released version'),
 ])
 def builddocs():
     '''create html docs from sphinx files'''     
@@ -95,9 +96,20 @@ def builddocs():
                 except:
                     continue # in case no tags exist yet
                 sh("git checkout %s" % tag)
+            if getattr(options, 'released', False):
+                buildFolder = os.path.join(docFolder, 'build')
+                if os.path.exists(buildFolder):
+                    shutil.rmtree(buildFolder)
+                try:
+                    sh("git ls-remote --exit-code --heads origin "
+                       "release_docs", capture=True)
+                    sh("git checkout release_docs")
+                except:
+                    continue # in case no release_docs exist yet
+
             print ("\nBuilding %s") % title
             sh("paver builddocs -c")
-            if getattr(options, 'stable', False):
+            if getattr(options, 'stable', False) or getattr(options, 'release', False):
                 sh("git checkout master")
     
     os.chdir(cwd)
