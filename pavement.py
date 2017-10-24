@@ -6,6 +6,11 @@ import shutil
 import requests
 
 def pluginNames():
+    # TODO: Get a personal access token for the Boundless dummy github account user.
+    #       Then, it can be used via URL parameter to pull in all repos, including private ones.
+    # scope needed: only 'repo' (as deploy task as can use it to write as well)
+    # Need to add token as paramater to tasks, so it is not hardcoded here. Later in Jenkins, it can be added by using the 'Use secret text(s) or file(s)' option.
+    # see: https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/
     url = "https://api.github.com/orgs/boundlessgeo/repos"
     r = requests.get(url)
     r.raise_for_status()
@@ -32,19 +37,26 @@ def pluginNames():
 
 @task
 @cmdopts([
-    ('stable', 's', 'build docs for latest stable version')
+    ('stable', 's', 'build docs for latest stable version'),
+    ('gitssh', 'g', 'connect to github using ssh (or set GITHUB_USE_SSH env var)')
 ])
 def all(options):
-    fetch()
+    fetch(options)
     builddocs(options)
-    deploy()
-@task
+    deploy(options)
 
+@task
+@cmdopts([
+    ('gitssh', 'g', 'connect to github using ssh (or set GITHUB_USE_SSH env var)')
+])
 def fetch(options):
     '''clone all plugin repos'''
     plugins = pluginNames()
     cwd = os.getcwd()
     tmpDir = os.path.join(cwd, 'tmp')
+    gitscheme = 'https://github.com/'
+    if getattr(options, 'gitssh', True) or 'GITHUB_USE_SSH' in os.environ:
+        gitscheme = 'git@github.com:'
     if not os.path.exists(tmpDir):
         os.mkdir(tmpDir)
     for plugin in plugins:
@@ -55,7 +67,7 @@ def fetch(options):
             sh("git pull")
             sh("git submodule update --init --remote")
         else:
-            sh("git clone --recursive https://github.com/boundlessgeo/%s.git %s" % (plugin, repoPath))
+            sh("git clone --recursive {0}boundlessgeo/{1}.git {2}".format(gitscheme, plugin, repoPath))
     os.chdir(cwd)
 
 @task
