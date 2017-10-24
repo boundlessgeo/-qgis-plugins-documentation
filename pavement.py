@@ -108,7 +108,7 @@ def builddocs():
                     continue # in case no release_docs exist yet
 
             print ("\nBuilding %s") % title
-            if getattr(options, 'stable', False) or getattr(options, 'release', False):
+            if getattr(options, 'stable', False) or getattr(options, 'released', False):
                 sh("paver builddocs -c -s boundless_product")
                 sh("git checkout master")
             else:
