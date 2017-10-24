@@ -38,7 +38,7 @@ def pluginNames():
 @task
 @cmdopts([
     ('stable', 's', 'build docs for latest stable version'),
-    ('gitssh', 'g', 'connect to github using ssh (or set GITHUB_USE_SSH env var)')
+    ('githttps', 'h', 'connect to github using HTTPS instead of SSH')
 ])
 def all(options):
     fetch(options)
@@ -47,16 +47,16 @@ def all(options):
 
 @task
 @cmdopts([
-    ('gitssh', 'g', 'connect to github using ssh (or set GITHUB_USE_SSH env var)')
+    ('githttps', 'h', 'connect to github using HTTPS instead of SSH')
 ])
 def fetch(options):
     '''clone all plugin repos'''
     plugins = pluginNames()
     cwd = os.getcwd()
     tmpDir = os.path.join(cwd, 'tmp')
-    gitscheme = 'https://github.com/'
-    if getattr(options, 'gitssh', True) or 'GITHUB_USE_SSH' in os.environ:
-        gitscheme = 'git@github.com:'
+    gitscheme = 'git@github.com:'
+    if getattr(options, 'githttps', False):
+        gitscheme = 'https://github.com/'
     if not os.path.exists(tmpDir):
         os.mkdir(tmpDir)
     for plugin in plugins:
