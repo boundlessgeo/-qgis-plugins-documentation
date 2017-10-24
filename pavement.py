@@ -9,16 +9,16 @@ def pluginNames():
     url = "https://api.github.com/orgs/boundlessgeo/repos"
     r = requests.get(url)
     r.raise_for_status()
-    repos = r.json()    
+    repos = r.json()
     names = [repo["name"] for repo in repos  if  repo["name"].startswith("qgis-") and repo["name"].endswith("-plugin")]
     while True:
         links = r.headers["link"].split(",")
         if "next" not in links[0]:
             break
-        next = links[0].split(";")[0][1:-1]        
+        next = links[0].split(";")[0][1:-1]
         r = requests.get(next)
         r.raise_for_status()
-        repos = r.json()    
+        repos = r.json()
         names.extend([repo["name"] for repo in repos  if  repo["name"].startswith("qgis-") and repo["name"].endswith("-plugin")])
 
     # Add private repos
@@ -50,7 +50,7 @@ def fetch(options):
     for plugin in plugins:
         print "\nFetching %s" % plugin
         repoPath = os.path.join(tmpDir, plugin)
-        if os.path.exists(repoPath):            
+        if os.path.exists(repoPath):
             os.chdir(repoPath)
             sh("git pull")
             sh("git submodule update --init --remote")
@@ -64,7 +64,7 @@ def fetch(options):
     ('released', 'r', 'build docs for the released version'),
 ])
 def builddocs():
-    '''create html docs from sphinx files'''     
+    '''create html docs from sphinx files'''
     pluginsIndex = []
     cwd = os.getcwd()
     tmpDir = os.path.join(cwd, 'tmp')
@@ -113,19 +113,19 @@ def builddocs():
                 sh("git checkout master")
             else:
                 sh("paver builddocs -c")
-    
+
     os.chdir(cwd)
     '''build index'''
 
     with open("index_template.html") as f:
         s = f.read()
     pluginsIndex.sort()
-    indexItems = "\n".join(["<li><a href='%s/index.html'>%s</a></li>" % (a[0], a[1]) for a in pluginsIndex])    
+    indexItems = "\n".join(["<li><a href='%s/index.html'>%s</a></li>" % (a[0], a[1]) for a in pluginsIndex])
     s = s.replace("[PLUGINS]", indexItems)
     with open("tmp/index.html", "w") as f:
         f.write(s)
 
-@task    
+@task
 def deploy():
     sh("git checkout gh-pages")
     cwd = os.getcwd()
