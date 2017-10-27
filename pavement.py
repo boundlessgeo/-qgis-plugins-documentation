@@ -38,7 +38,7 @@ def pluginNames():
 @task
 @cmdopts([
     ('stable', 's', 'build docs for latest stable version'),
-    ('githttps', 'h', 'connect to github using HTTPS instead of SSH')
+    ('githttps', 'g', 'connect to github using HTTPS instead of SSH')
 ])
 def all(options):
     fetch(options)
@@ -47,7 +47,7 @@ def all(options):
 
 @task
 @cmdopts([
-    ('githttps', 'h', 'connect to github using HTTPS instead of SSH')
+    ('githttps', 'g', 'connect to github using HTTPS instead of SSH')
 ])
 def fetch(options):
     '''clone all plugin repos'''
