@@ -125,6 +125,7 @@ def builddocs():
                 sh("git checkout master")
             else:
                 sh("paver builddocs -c")
+            pluginsIndex.append((os.path.basename(folder).split("-")[1], title))
 
     os.chdir(cwd)
     '''build index'''
