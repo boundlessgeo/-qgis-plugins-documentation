@@ -1,0 +1,46 @@
+Geopackage layers and live layers
+==================================
+
+There are two ways of adding a layer from a GeoGig repository to the current QGIS project: using a geopackage file and using a live connection. Although functionality is very similar, each of them represent different approaches with their own pros and cons - described in the sections below.
+
+Geopackage layers
+------------------
+
+A geopackage layer is an extract of the layer in the GeoGig repository, stored as a geopackage file. Once the layer has been downloaded from the server, connection to that server is not needed, unless changes to the layer want to be committed.
+
+The geopackage is opened and it behaves in QGIS just like any other file-based layer, allowing off-line work.
+
+The extent of the layer can defined when downloading it, in a dialog like the one shown below.  The entire dataset can, also, be downloaded.
+
+.. figure:: img/gpkgextent.png
+
+The extent can be changed at any time, provided that there is connection to the server. Right-click on the layer in the QGIS layers list and select :guilabel:`Change layer extent`. The extent selection dialog will be sown and you will be able to select a new extent.  You can also update the geopackage with any changes from the server.
+
+If there are local changes not committed to the repository, the extent cannot be changed.
+
+The geopackage files that are created with the repository data are stored at `[base_gpkg_folder]/[username]/[repository_name]/[layer_name]/[id]/[layer_name].gpkg`
+
+That means that, if adding the same layer from a repository to a QGIS project (or different projects) several times, multiple files are created. The `id` part of the filename is an arbitrary string assigned when creating the file.
+
+The base geopackage folder can be configured in the plugin options (open :guilabel:`Plugins/GeoGig/Plugin settings`). If not configured, it defaults to `[user_folder]/geogig`
+
+The geopackage tracks changes made to it so they can easily be committed to the GeoGig repository at any time.
+
+Live layers
+-----------
+
+A live layer requires a constant connection to the GeoGig server. The content of the layer depends on the extent currently displayed in the QGIS map canvas and the layer configuration, so any change in the canvas extent (and also in the layer symbology) will cause the layer content to change. A query to the server is required for this, and the server connection is therefore mandatory. Live layers are not valid for off-line use.
+
+The mechanism is similar to what happens with a PostGIS database connection.
+
+For a given resolution and extent, not all data within that extent is retrieved from the server. The download is optimized, so only data relevant at that resolution is downloaded - features will be generalized and small features removed.  Only features relevant to the current style will be retreived.
+
+When editing a live layer, you will want to have the real geometries instead of the simplified ones. For that reason, when you start editing a live layer, the GeoGig plugin will update that layer to get the full geometries (non-generalized), and it will inform you with a message like the one shown below.
+
+.. figure:: img/gpkgextent.png
+
+You can switch between the full detail mode and the simplified geometries mode by right-clicking on the layer in the QGIS layers list and selecting :guilabel:`Change data optimizations`
+
+When using a live layer, local changes, if they are not committed, can only be stored if the project is saved.
+
+If a live layer is saved as part of a project, the project will automatically connect the layer to the server, so data is downloaded when the layer is first rendered. However, if you haven't connected to the corresponding repo using the GeoGig Navigator and with the same user, you will have to enter the username and password. Once you are connected to the server, you won't need to re-enter your credentials during your QGIS session when opening layers that use that connection.

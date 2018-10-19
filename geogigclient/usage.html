@@ -1,0 +1,424 @@
+<!--
+ (c) 2016 Boundless, http://boundlessgeo.com
+ This work is licensed under CC-BY-SA 3.0 US License. 
+-->
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : GeoGig Plugin : Usage</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="top" title="GeoGig Plugin 1.0.0 documentation" href="index.html" />
+      <link rel="next" title="Geopackage layers and live layers" href="gpkgandlivelayers.html" />
+      <link rel="prev" title="GeoGig Client plugin documentation" href="index.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="/" rel="home" id="logo"><img src="_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>GeoGig Plugin</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="http://boundlessgeo.com/">Home</a> &raquo;
+  <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
+  <a href="index.html">GeoGig Plugin</a>
+  
+     &raquo; <a href="">Usage</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<p>The GeoGig QGIS plugin allows you to manage/view GeoGig (<a class="reference external" href="http://geogig.org/">http://geogig.org/</a>)
+repositories and layers as well as editing GeoGig layers using QGIS editing
+capabilities.</p>
+<p>This document describes the GeoGig plugin interface and tools, and shows how to perform typical workflows with the GeoGig plugin, going through its main features.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>To install the plugin in QGIS (version 3.x is required), do the following:</p>
+<ul class="simple">
+<li>Clone this repository.</li>
+<li>Open a console in the cloned repository folder and type <tt class="docutils literal"><span class="pre">paver</span> <span class="pre">setup</span></tt>. That will install all required dependencies.</li>
+<li>Type <tt class="docutils literal"><span class="pre">paver</span> <span class="pre">install</span></tt>. That will move the plugin code to the plugin folder of the <tt class="docutils literal"><span class="pre">default</span></tt> user or create a symlink (depending on your OS). To install the plugin for a different user profile, you will have to move the code manually to the corresponding plugin folder.</li>
+</ul>
+<p>GeoGig and the GeoGig Web API are required to use the plugin. To install them, follow the instructions in this repository: <a class="reference external" href="https://github.com/boundlessgeo/geogig-web">https://github.com/boundlessgeo/geogig-web</a></p>
+</div>
+<div class="section" id="geogig-plugin-interface">
+<h2>GeoGig plugin interface<a class="headerlink" href="#geogig-plugin-interface" title="Permalink to this headline">¶</a></h2>
+<p>The <em class="guilabel">GeoGig navigator</em> panel is the plugin&#8217;s primary tool to interact
+with the GeoGig repositories. If the <em class="guilabel">GeoGig navigator</em> panel is not
+visible, you can open it from QGIS&#8217;s main menu - <em class="menuselection">Plugins ‣
+GeoGig ‣ GeoGig Navigator</em>.</p>
+<div class="figure">
+<img alt="_images/navigator.png" src="_images/navigator.png" />
+<p class="caption">GeoGig Navigator panel</p>
+</div>
+<p>The navigator contains a tree with the GeoGgig WebAPI servers that are already defined. To define a connection to an existing GeoGig WebAPI server, right-click on the <em class="guilabel">Servers</em> item and then select <em class="guilabel">Add new server</em>. You will see the following dialog:</p>
+<div class="figure">
+<img alt="_images/add_server.png" src="_images/add_server.png" />
+<p class="caption">Server definition dialog</p>
+</div>
+<p>Enter the URL of the server and the name to identify it. Click on OK and the server will be added to the navigator.</p>
+<div class="figure">
+<img alt="img/server_in_navigator.png" src="img/server_in_navigator.png" />
+<p class="caption">Server item in Navigator</p>
+</div>
+<p>To see the content of the server and start working with its data, you must first connect to it. Right-click on the server item and select <em class="guilabel">Connect</em>. You will be prompted to enter your user name and password. If no users have been defined, you can log in using the admin credentials.</p>
+<p>Once connected, the navigator will show the contents of that server under its item.</p>
+<div class="figure">
+<img alt="img/server_content.png" src="img/server_content.png" />
+<p class="caption">Server content in navigator</p>
+</div>
+<p>Working with the GeoGig plugin is mostly done using the right-click context menus of the different items in the navigator tree. We will now describe some common workflows and explain the required commands for each of them.</p>
+</div>
+<div class="section" id="basic-workflow-single-user-single-repo">
+<h2>Basic workflow (single user / single repo)<a class="headerlink" href="#basic-workflow-single-user-single-repo" title="Permalink to this headline">¶</a></h2>
+<p>In the simplest case, you can use GeoGig to track the changes to one or several layers, using a single repository that won&#8217;t share its data with other repositories (no collaboration from other users and similar repositories).</p>
+<p>To do this, you must follow the steps described next:</p>
+<ol class="arabic simple">
+<li>To create a new repository, right-click on the <em class="guilabel">My repos</em> item and select <em class="guilabel">Create repository</em>. Enter the repository name and click on OK. The repository will be added to the tree.</li>
+<li>In QGIS, open the layer you want to store in the repository. Only vector layers are supported. All formats are supported.</li>
+<li>Right-click on the repository item in the GeoGig Navigator and select <em class="guilabel">Add layer...</em>. You will be prompted to select the QGIS layer that you want to add and the commit message that you want to use to describe the change that will be made in the repository (in this case, something like &#8216;Added layer [your layer name] from [...]&#8217;). Click on OK and the layer will be uploaded to the repository.</li>
+<li>The original layer can now be discarded, since it is now a GeoGig layer. To work with a GeoGig layer (that is, a layer that is managed by the GeoGig plugin and will update the corresponding repository whenever you edit it), you have to connect to it. Right-click on the layer name under the <em class="guilabel">Layers</em> item and select <em class="guilabel">Add to QGIS project (geopackage)</em> or <em class="guilabel">Add to QGIS project (live link)</em>. To know more about the differences between geopackage and live layers, see <a class="reference external" href="gpkgandlivelayers.html">here</a>.</li>
+<li>Once the layer is added to the QGIS project from the repository, you can edit it normally using the QGIS editing functionalities. When you close the editing session, the plugin will ask you if you want to add those changes to the repository.</li>
+<li>Enter a commit message, and a new message will be created. If you do not want to commit your changes to you repo, select the corresponding option. When you do not commit the changes, they will only be stored locally in the layer, and can be committed the next time you edit the layer.</li>
+<li>You can commit pending local changes to the repo at anytime, right-clicking on the layer in the QGIS layers-list (not in the GeoGig Navigator) and selecting <em class="menuselection">GeoGig ‣ Commit local changes</em></li>
+<li>Local changes are stored along with the QGIS project, so, if you have saved your project, when you reopen it, and the GeoGig plugin will still know the modified features in your layer are not yet committed in the repository.</li>
+</ol>
+</div>
+<div class="section" id="collaboration-workflow-multiple-users-original-repo-forked-repos">
+<h2>Collaboration workflow (multiple users / original repo + forked repos)<a class="headerlink" href="#collaboration-workflow-multiple-users-original-repo-forked-repos" title="Permalink to this headline">¶</a></h2>
+<p>Several users can work on the same layer (or set of layers contained in a repo), and share their changes. Here is a description of the workflow in that case.</p>
+<ol class="arabic simple">
+<li>Start with a repository which already contains one or more layers, belonging to a given user (user A). You can collaborate with that repo if you can access the corresponding server, even without having permission to edit the repository.</li>
+<li>Log in to the server with your user credentials and find the repository (belonging to user A) to work on. Right-click on it in the Navigator tree and select <em class="guilabel">Fork repo</em> to create a repo where you can make independent modifications. You will be prompted to enter the name of your new repository. Enter it and click on OK. The new repository will be added under your <em class="guilabel">My repos</em> item, with a note indicating that it is a forked repository.</li>
+</ol>
+<div class="figure">
+<img alt="img/forked_repo.png" src="img/forked_repo.png" />
+<p class="caption">Forked repository</p>
+</div>
+<ol class="arabic simple" start="3">
+<li>Connect to the layer you want to work on from the forked repository into your current QGIS project (see the basic workflow, above).</li>
+<li>Edit the layer normally and add the changes to the repository (your repository fork) as explained in the basic workflow.</li>
+</ol>
+<ul class="simple">
+<li>If you are using a live layer, it should be up to date with the repository, since the layer content is updated each time the layer features have to be rendered. For geopackage layers, there might be changes in the repository (if other people can edit it), so it&#8217;s recommended to update to the current latest version. To do so, right-click on the layer in the QGIS layers list and select <em class="guilabel">Update to latest revision from server</em>.  Most of this is handled automatically when committing your changes.</li>
+</ul>
+<ol class="arabic simple" start="5">
+<li>Once you have finished editing the layer and you want to &#8220;move&#8221; those changes to the original repository (it might include several commits), click on the forked repository item and select <em class="guilabel">Create Pull Request...</em>. You will see the following dialog.</li>
+</ol>
+<div class="figure">
+<img alt="img/pull_requests_dialog.png" src="img/pull_requests_dialog.png" />
+<p class="caption">Pull Requests dialog</p>
+</div>
+<ol class="arabic simple" start="6">
+<li>In the dropdown list in the upper part of the dialog, the target repository has to be selected. This is the repository to which you want to contribute the changes. When a target repository is selected, the panel below the dropdown list shows the set of commits that are in the local repository but not in the target one. Clicking on any of the commits will display the changes it contains.</li>
+<li>Enter a name for the Pull Request (PR). Click on OK. That will create the PR, and it will appear in the list of current ones for the target PR.</li>
+<li>The changes included in the PR are not yet added to the original repository. Its owner (user A or any other user with enough permission to edit the repository) has to accept the PR. To accept a PR, find its corresponding item under the <em class="guilabel">Pull requests</em> item, right-click on it and select <em class="guilabel">Show details</em>.</li>
+</ol>
+<div class="figure">
+<img alt="img/pull_request_details.png" src="img/pull_request_details.png" />
+<p class="caption">Pull Request details</p>
+</div>
+<ol class="arabic simple" start="9">
+<li>You can explore the content of the PR using the <em class="guilabel">Commits</em> and <em class="guilabel">Combined changes</em> tabs. If you agree with it, you can add its changes to the repository by clicking on the <em class="guilabel">Merge PR</em> button.  You can also click <em class="guilabel">Close PR</em> to delete the PR without incorporating its changes.</li>
+</ol>
+</div>
+<div class="section" id="the-constellation-viewer">
+<h2>The constellation viewer<a class="headerlink" href="#the-constellation-viewer" title="Permalink to this headline">¶</a></h2>
+<p>When working with several repositories, a helpful tool is the Constellation Viewer. It shows a global view of all the repositories that are related (forked).  It makes it easy to view difference between related repositories and move changes between them.</p>
+<p>Repositories in a constellation can belong to different users.</p>
+<p>To open the Constellation Viewer with the constellation corresponding to a given repository, right-click on the repository item and select <em class="guilabel">Show repo constellation</em></p>
+<div class="figure">
+<img alt="img/constellation_viewer.png" src="img/constellation_viewer.png" />
+<p class="caption">Constellation Viewer</p>
+</div>
+<p>You can operate with repositories and layers in the Constellation Viewer much like you do in the Navigator; both have similar functionality.</p>
+<p>The repository that you selected in the Navigator is displayed with a red border. Repositories that belong to the logged user are displayed with a green border.</p>
+<p>Repositories belonging to the logged user have more functionality enabled than those that belong to a different user.</p>
+</div>
+<div class="section" id="using-a-layer-from-a-commit-other-that-the-most-recent-one-in-the-repository">
+<h2>Using a layer from a commit other that the most recent one in the repository<a class="headerlink" href="#using-a-layer-from-a-commit-other-that-the-most-recent-one-in-the-repository" title="Permalink to this headline">¶</a></h2>
+<p>When a layer is exported from the Navigator tree or from the Constellation Viewer, it will contain the features corresponding to the latest revision. In the case of a live layer, it will be updated whenever the map canvas extent changes, so you will always see the most recent data in your view. For geopkg layers, new changes in the server will not be fetched unless the user explicitly requests that to be done.</p>
+<p>You can recover a layer not just at its most recent revision, but at any other one of its history, using the log dialog.</p>
+<ol class="arabic simple">
+<li>Select the layer in the Navigator. Right-click on it and select <em class="guilabel">Show log</em>. That will open the layer log, which shows a list of all commits that affect the selected layer.</li>
+</ol>
+<div class="figure">
+<img alt="img/log_dialog.png" src="img/log_dialog.png" />
+<p class="caption">GeoGig log dialog</p>
+</div>
+<ol class="arabic simple" start="2">
+<li>Select the commit from which you want to connect to. The changes introduced by the commit will be displayed in the lower part of the dialog.</li>
+<li>Right-click on the commit and in the context menu you will see two menus to add the layer to the project at the selected commit: as a geopackage layer and as a live layer.</li>
+</ol>
+<p>In the case of selecting a live layer, the layer will still fetch its content from the server each time the extent is changed, but it will not get it from the latest revision (which might be different to the latest one at the time of exporting the layer), as it happens when adding from the navigator, but always from the selected revision.</p>
+<p>Notice that you can open the log for the whole repository, which will include all its commits, not just those that modify a given layer. To do this, right-click on the server repo, (not the layer item), and select <em class="guilabel">Show log</em> In this case, you will see more export options in the context menu, corresponding to all the layers in the repository.</p>
+</div>
+<div class="section" id="solving-conflicts">
+<h2>Solving conflicts<a class="headerlink" href="#solving-conflicts" title="Permalink to this headline">¶</a></h2>
+<p>Conflicts might appear when contributing changes to a repo using a Pull Request, or when committing to a repository in case that other people have modified that repository while you where doing your edits, adding changes that are in conflict with your ones (edited the same feature in a different way).</p>
+<p>When conflicts arise, the GeoGig plugin will show you the conflict resolution dialog, which looks as shown below.</p>
+<div class="figure">
+<img alt="img/conflicts_dialog.png" src="img/conflicts_dialog.png" />
+<p class="caption">Conflict resolution dialog</p>
+</div>
+<p>Depending on the case, conflicts can happen in one or several layers.</p>
+<p>On the left side of the dialog, you will find a list of all the conflicting
+features, grouped by layer. Clicking a feature item will display the conflicting
+values in the table and the canvas on the right side.</p>
+<div class="figure">
+<img alt="img/singleconflict.png" src="img/singleconflict.png" />
+</div>
+<p>In the table, all the feature&#8217;s attributes are shown in rows, and the
+corresponding values for the two conflicting versions are shown in columns:</p>
+<ul class="simple">
+<li><em class="guilabel">Remote</em>: The feature as it was modified in the remote repository.</li>
+<li><em class="guilabel">Local</em>: The feature as it was modified in the local layer.</li>
+</ul>
+<p>If conflicts have appeared when merging a Pull Request, the above column names will be <em>Current</em> and <em>PR</em>.</p>
+<p>There are three additional columns in the table:</p>
+<ul class="simple">
+<li><em class="guilabel">Before changes</em>: shows the <strong>original</strong> values from which both edits
+came, that is, the last common version of the feature.</li>
+<li><em class="guilabel">ATTRIBUTES</em>: shows the name of the attributes.</li>
+<li><em class="guilabel">Merged</em>: shows the resolution value for each attribute.</li>
+</ul>
+<p>Conflicting values will be highlighted in a <em>bright yellow</em> background, and the
+corresponding cell in the <em class="guilabel">Merged</em> column will be empty. If an
+attribute has no conflict, its values will be displayed in a <em>white</em> background,
+and will also be shown in the <em class="guilabel">Merged</em> column.</p>
+<p>Solving an attribute conflict is done by selecting the value to use from any of
+the three columns (<em>Remote</em>,  <em>Local</em>, <em>Origin</em>). Click the version to use, and
+its value will be put in the <em>Merged</em> column.</p>
+<div class="figure">
+<img alt="img/conflictunsolved.png" src="img/conflictunsolved.png" />
+<p class="caption">DESCRIPTIO attribute with an unsolved conflict</p>
+</div>
+<p>The row will not be shown as conflicted anymore.</p>
+<div class="figure">
+<img alt="img/conflictsolved.png" src="img/conflictsolved.png" />
+<p class="caption">DESCRIPTIO attribute with solved conflict</p>
+</div>
+<p>Once the conflict for a given attribute has been solved, you can still click a
+cell to use its value in the merged feature. You can even do it for attributes
+that have no conflicts.</p>
+<p>Once you have solved all conflicts (that is, all the cells in the
+<em class="guilabel">Merged</em> column are filled and there are no yellow cells in the
+attribute table), the <em class="guilabel">Solve with merged feature</em> button will be
+enabled. When you click it, the conflict for the current feature will be solved.</p>
+<div class="figure">
+<img alt="img/all_conflicts_solved.png" src="img/all_conflicts_solved.png" />
+</div>
+<p>If for the selected feature conflict you want to use all the values from
+either the <em class="guilabel">Remote</em> or the <em class="guilabel">Local</em> columns, you can use the
+<em class="guilabel">Solve with local version</em> or <em class="guilabel">Solve with remote version</em>
+buttons, respectively, to solve the conflict without having to select
+the value manually for each conflicted attribute.</p>
+<p>On the other hand, if for all conflicting features, in all layers, you wish to
+keep either all the remote or all the local changes, next to <em class="guilabel">Resolve
+all conflicts with</em>, click <em class="guilabel">Remote</em> or <em class="guilabel">Local</em>, respectively.</p>
+<p>Use any of the above steps to resolve all conflicted features before closing the
+<em class="guilabel">Merge conflicts</em> dialog.</p>
+<p>After closing the conflicts window, the commit or PR merge operation will be finished.</p>
+<p>In the case of conflicts while committing, if you close the dialog before solving all conflicts, the changes will be kept in the edit buffer, and you will have to re-commit them later to add them to the repository. The conflict resolution dialog will be shown when you try to commit the conflicted changes again, and you will have to solve all of them.</p>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="index.html" title="previous chapter">GeoGig Client plugin documentation</a></div>
+          <div class="right"><strong>Next</strong>: <a href="gpkgandlivelayers.html" title="next chapter">Geopackage layers and live layers</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2016 Boundless Spatial, Inc.
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">Usage</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#geogig-plugin-interface">GeoGig plugin interface</a></li>
+<li><a class="reference internal" href="#basic-workflow-single-user-single-repo">Basic workflow (single user / single repo)</a></li>
+<li><a class="reference internal" href="#collaboration-workflow-multiple-users-original-repo-forked-repos">Collaboration workflow (multiple users / original repo + forked repos)</a></li>
+<li><a class="reference internal" href="#the-constellation-viewer">The constellation viewer</a></li>
+<li><a class="reference internal" href="#using-a-layer-from-a-commit-other-that-the-most-recent-one-in-the-repository">Using a layer from a commit other that the most recent one in the repository</a></li>
+<li><a class="reference internal" href="#solving-conflicts">Solving conflicts</a></li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="index.html" title="previous chapter">GeoGig Client plugin documentation</a></p>
+          <p><b>Next:</b> <a href="gpkgandlivelayers.html" title="next chapter">Geopackage layers and live layers</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="_sources/usage.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="gpkgandlivelayers.html" title="Geopackage layers and live layers"
+       accesskey="N">next</a>|</li>
+  <li>
+    <a href="index.html" title="GeoGig Client plugin documentation"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">Copyright &copy; 2016 Boundless Spatial, Inc.</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="_static/dropdown.js"></script>-->
+
+  </body>
+</html>
