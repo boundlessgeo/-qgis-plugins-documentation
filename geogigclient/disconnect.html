@@ -1,0 +1,267 @@
+<!--
+ (c) 2016 Boundless, http://boundlessgeo.com
+ This work is licensed under CC-BY-SA 3.0 US License. 
+-->
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : GeoGig Plugin : Disconnected Editing</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="index" title="Index" href="genindex.html" />
+      <link rel="search" title="Search" href="search.html" />
+      <link rel="top" title="GeoGig Plugin 1.0.0 documentation" href="index.html" />
+      <link rel="next" title="Plugin settings" href="settingsconf.html" />
+      <link rel="prev" title="Synchronization" href="synch.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="http://boundlessgeo.com" rel="home" id="logo"><img src="_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>GeoGig Plugin</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="index.html">GeoGig Plugin</a>
+  
+     &raquo; <a href="">Disconnected Editing</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="disconnected-editing">
+<h1>Disconnected Editing<a class="headerlink" href="#disconnected-editing" title="Permalink to this headline">¶</a></h1>
+<iframe src="https://player.vimeo.com/video/296739298?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<center><a href="https://vimeo.com/295261790">GeoGig WebAPI - Disconnected Editing Workflow</a></center><br>
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+var iframe = document.querySelector('iframe');
+var player = new Vimeo.Player(iframe);
+player.play().then( player.pause() );
+</script><p>Disconnected editing is editing a GeoGig layer when you are not connected to GeoGig (or are using tools that aren’t GeoGig aware).  The typical situation for disconnected editing is contractors editing layers while not connected to (or aware of) GeoGig.</p>
+<p>The GeoGig GeoPackage tracks changes made to it.  When you re-integrate the GeoPackage with GeoGig, you can commit those changes to the repository.</p>
+<p>The basic process is to download data from GeoGig to a GeoPackage, send the GeoPackage to the contractor to modify, then commit the changes back to GeoGig.</p>
+<div class="figure" id="id1">
+<img alt="_images/disc2.png" src="_images/disc2.png" />
+<p class="caption"><span class="caption-text">Outline of the disconnected editing example in the video</span></p>
+</div>
+<div class="section" id="disconnected-editing-process">
+<h2>Disconnected Editing Process<a class="headerlink" href="#disconnected-editing-process" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Create a repository to hold your contractor’s changes (“fork”)</li>
+<li>Download a GeoPackage for the layer to be edited (either the entire dataset or a sub-extent).</li>
+<li>Find the location of the GeoPackage on your file-system. You can do that by hovering over the layer in the QGIS <span class="guilabel">Layers</span> panel (see figure below). The folder into which GeoGig GeoPackage.layers are stored can be configured in the <a class="reference external" href="settingsconf.html">GeoGig settings</a>.</li>
+<li>Quit QGIS (so its not connected to the GeoPackage anymore).</li>
+<li>Send the GeoPackage to your contractor (or edit with non-QGIS tools).<ul>
+<li>NOTE: the contractor should only use the main layer (i.e. “buildings”, not any of the meta-datasets that start with “geogig.”).</li>
+</ul>
+</li>
+<li>When the contractor is finished, re-start QGIS (with the GeoGig Plugin).</li>
+<li>Add the GeoPackage the contractor returned to QGIS (<span class="guilabel">Layer -&gt; Add Layer -&gt; Add Vector Layer…</span>).</li>
+<li>GeoGig will notice this is a GeoGig layer and re-integrate it (you will likely have to logon to the GeoGig Server).</li>
+<li>Right-Click on the GeoPackage layer in QGIS <span class="guilabel">Layers</span> panel and choose <span class="guilabel">GeoGig -&gt; Commit Local Changes…</span></li>
+<li>Give a commit message for this commit.</li>
+<li>Wait for the changes to be moved to the server (and the GeoPackage updated with changes from the server) - this can take some time.</li>
+<li>Once the changes are committed, use the <span class="guilabel">Constellation Viewer</span> to move the changes through the Workflow.</li>
+</ol>
+<p>NOTE: do not modify the contractor’s repository outside of the steps above</p>
+<div class="figure" id="id2">
+<img alt="_images/disc1.png" src="_images/disc1.png" />
+<p class="caption"><span class="caption-text">Hover over a GeoPackage layer to find it’s location on your computer</span></p>
+</div>
+<div class="figure" id="id3">
+<img alt="_images/disc3.png" src="_images/disc3.png" />
+<p class="caption"><span class="caption-text">Commit the contractor’s changes to their repository</span></p>
+</div>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="synch.html" title="previous chapter">Synchronization</a></div>
+          <div class="right"><strong>Next</strong>: <a href="settingsconf.html" title="next chapter">Plugin settings</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2016 Boundless Spatial, Inc.
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">Disconnected Editing</a><ul>
+<li><a class="reference internal" href="#disconnected-editing-process">Disconnected Editing Process</a></li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="synch.html" title="previous chapter">Synchronization</a></p>
+          <p><b>Next:</b> <a href="settingsconf.html" title="next chapter">Plugin settings</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="_sources/disconnect.rst.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="settingsconf.html" title="Plugin settings"
+       accesskey="N">next</a>|</li>
+  <li>
+    <a href="synch.html" title="Synchronization"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">Copyright &copy; 2016 Boundless Spatial, Inc.</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="_static/dropdown.js"></script>-->
+
+  </body>
+</html>

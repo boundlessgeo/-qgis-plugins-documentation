@@ -1,0 +1,139 @@
+.. (c) 2016 Boundless, http://boundlessgeo.com
+   This code is licensed under the GPL 2.0 license.
+
+.. _imagediscovery_usage:
+
+Usage
+=====
+
+Setting up the plugin
+---------------------
+
+Before using the *Image discovery* plugin, you must have a Planet
+Labs API key. Then you must set it up in the Plugins settings in
+:menuselection:`Raster --> Image discovery --> Plugin settings...`.
+
+While in the :guilabel:`Configuration options` dialog, you should also set
+the path for where to save Thumbnails and Imagery.
+
+.. figure:: img/configuration_options.png
+
+For other options details, check the :ref:`imagediscovery_plugin_settings`.
+
+Imagery Discovery Panel
+-----------------------
+
+The :guilabel:`Image discovery` panel is the main interface of the
+*Image discovery*. You can enable it in :menuselection:`Raster --> Image
+discovery --> Image discovery` or, like with any other QGIS panel, in
+:menuselection:`View --> Panels --> Image discovery`
+
+.. figure:: img/image_discovery_panel.png
+
+The Image discovery panel is composed by a toolbar at the top and several
+filtering widgets below.
+
+The toolbar has the following buttons:
+
+- |select_area| **Select Extent on Map** : To draw a rectangle around the
+  area of interest from where you want to search images.
+- |search| **Search for imagery** : Searches for available images using the
+  requirements set below.
+- |footprints| **Download footprints** : Creates a Catalog layer with the
+  footprints and details of all images found in the previous search.
+- |thumbnails| **Download thumbnails** : Download previews of images in the
+  catalog layer. If the catalog layer has selected features, only the
+  corresponding previews are downloaded.
+- |download| **Download imagery** : Download full resolution images in the
+  Catalog layer. If the catalog layer has selected features, only the corresponding images
+  are downloaded.
+
+Below the toolbar, it's possible to set the imagery search requirements.
+
+The :guilabel:`Area of interest` allows defining the search extent.You can
+use the :guilabel:`Select Extent on Map` button to draw a rectangle around
+the area of interest. If nothing is selected, the extent of the current map
+canvas is used instead.
+
+The :guilabel:`Start date` and :guilabel:`End date` allows defining a
+search range for the date and time of the images acquisition.
+
+:guilabel:`Cloud percentage` sets the maximum value (in percentage) of
+clouds covering the image allowed.
+
+:guilabel:`Nadir angle` sets the maximum acquisition angle allowed(in degrees),
+where 0 degrees would be looking straight down (the lower this value, the
+fewer images will be available).
+
+:guilabel:`GSD` sets the maximum Ground Sampled Distance, which represents the
+distance between adjacent pixels centers in ground measures (in meters).
+
+Below the imagery search requirements the :guilabel:`Cancel` stops any download
+operation.
+
+Common workflow
+---------------
+
+In the :guilabel:`Image Discovery` panel:
+
+#. Either Zoom the map canvas to the area of interest or select it using
+   the Select Extent on Map tool.
+
+#. To narrow down the search results, set your requirements for
+   the :guilabel:`Start date` and :guilabel:`End date`.
+
+#. When ready, click the :guilabel:`Search for images` button.
+
+#. If you get too many results, try narrowing down the search scope by setting
+   other requirements.
+
+#. Click the :guilabel:`Download footprint` button to create the image catalog
+   from your findings. A layer called *Planet catalog* loads in the map canvas, which
+   contains the found images footprints and metadata.
+
+#. Open the layer attribute table and check the results details. Remember
+   that you can resize the attribute table rows to show all the details in the
+   *metadata* column.
+
+   You can also use ``metadataValue()`` function in expressions to retrieve
+   specific attributes from the metadata column. For example, you can use
+   ``metadataValue('satelite_id')`` to get the satellite that acquired the
+   image.
+
+#. Using the :kbd:`Ctrl` key select as many images as you
+   like. You can also use the *Select by expression* to select the desired
+   images. For example, to select all images acquired by *RapidEye-5*, you
+   can use the following expression::
+
+     metadataValue('satelite_id') = 'RapidEye-5'
+
+#. If you want to preview the selected images, you can click
+   :guilabel:`Download thumbnails`.
+
+#. Once the download finishes, you can enable QGIS Map tips tool and hold
+   your mouse above the images footprints to see the images thumbnails.
+
+#. Finally, once you have decided what images you want to acquire, refine the
+   selection in the *Planet Catalog* attribute table, and click the
+   :guilabel:`Download Imagery` button.
+
+.. note::
+
+   Some images may not be ready for download right away and require
+   activation. In that case, a message will be shown.
+
+   .. figure:: img/image_activation.png
+
+   You will need to wait for Planet Labs to process them and try downloading
+   them later.
+
+.. |select_area| image:: img/select_area.png
+   :width: 1.2em
+.. |search| image:: img/search.png
+   :width: 1.2em
+.. |footprints| image:: img/footprints.png
+   :width: 1.2em
+.. |thumbnails| image:: img/thumbnails.png
+   :width: 1.2em
+.. |download| image:: img/imagery.png
+   :width: 1.2em

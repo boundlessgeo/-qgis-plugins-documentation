@@ -1,0 +1,333 @@
+<!--
+ (c) 2016 Boundless, http://boundlessgeo.com
+ This work is licensed under CC-BY-SA 3.0 US License. 
+-->
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : GeoGig Plugin : Synchronization</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="index" title="Index" href="genindex.html" />
+      <link rel="search" title="Search" href="search.html" />
+      <link rel="top" title="GeoGig Plugin 1.0.0 documentation" href="index.html" />
+      <link rel="next" title="Disconnected Editing" href="disconnect.html" />
+      <link rel="prev" title="10. Terminology" href="usermanual/terms.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="http://boundlessgeo.com" rel="home" id="logo"><img src="_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>GeoGig Plugin</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="index.html">GeoGig Plugin</a>
+  
+     &raquo; <a href="">Synchronization</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="synchronization">
+<h1>Synchronization<a class="headerlink" href="#synchronization" title="Permalink to this headline">¶</a></h1>
+<iframe src="https://player.vimeo.com/video/296981752?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<center><a href="https://vimeo.com/295261790">GeoGig WebAPI - Synchronization</a></center><br>
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+var iframe = document.querySelector('iframe');
+var player = new Vimeo.Player(iframe);
+player.play().then( player.pause() );
+</script><p>The Synchronization video goes through, in detail, about Synchronization (including conflict resolution and interpreting history).  Please view it for more details.</p>
+<p>Synchronization is similar to a Pull Request - it’s moving changes between repositories.  The big difference is a Pull Request is sending change to someone else, while Synchronization is about taking changes from someone else.  It’s also where conflict resolution is done - that’s when two people inconsistently edit the same feature.  Synchronization a bit more esoteric than Pull Requests, but it’s quite useful in many situations.</p>
+<div class="section" id="when-to-use-synchronization">
+<h2>When to Use Synchronization<a class="headerlink" href="#when-to-use-synchronization" title="Permalink to this headline">¶</a></h2>
+<p>The two main reasons to do synchronization is updating a child repository (with changes from the parent) and conflict resolution.  These are detailed, below.</p>
+<p>The Synchronization video, above, goes into detail on several other situations where synchronization is useful.</p>
+<div class="section" id="updating-a-child-repository">
+<h3>Updating a Child Repository<a class="headerlink" href="#updating-a-child-repository" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes the parent repository has changes that the child repository does not.  Typically this is because the parent repository accepted a Pull Request after the child repository was created.  Typically, you do not have to synchronize because GeoGig can handle Pull Requests for out-of-sync repositories.  However, there are a few reasons to do this;</p>
+<ul class="simple">
+<li>The changes in your repository should be checked against the current state of the Parent (to make sure there aren’t any unexpected problems with the un-synced changes)</li>
+<li>While creating a Pull Request, there is more information available if the Parent-Child are synchronized (the information is always available after the PR is created)</li>
+</ul>
+<p>Please see the synchronization video, above, for other (more complex situations).</p>
+</div>
+<div class="section" id="conflict-resolution">
+<h3>Conflict Resolution<a class="headerlink" href="#conflict-resolution" title="Permalink to this headline">¶</a></h3>
+<p>When you try to create or merge a Pull Request and there are conflicts - you <em>must</em> synchronize and resolve the conflicts.  When you synchronize, conflicts will be detected and you will need to resolve them using the provided tools.  A conflict will typically occur when two people both modify the same attribute of the same feature at approximately the same time.  The first person to move their changes to the Parent repository will have no problems.  This conflict resolution is rarely needed.</p>
+<p>Please see the synchronization video, above, for and example of this.</p>
+<p>In order to do conflict resolution -</p>
+<ol class="arabic simple">
+<li>Start the Synchronization process.  It will indicate that conflicts need to be resolved.  Press <span class="guilabel">Synchronize</span></li>
+<li>Resolve the conflicts<ul>
+<li>Use the Tree (left) to navigate between all the features that are in conflict</li>
+<li>The main part of the panel show four version of the feature:<ul>
+<li>The feature, before it was modified by either person</li>
+<li>The feature, as modified by the parent (the repository being synched <em>from</em>)</li>
+<li>The feature, as modified by the child (the repository being synched <em>to</em>)</li>
+<li>The feature, final (resolved) version (this is what the feature will look like <em>after</em> synch)</li>
+</ul>
+</li>
+<li>To choose a resolution for the feature:<ul>
+<li>Press <span class="guilabel">Solve from Upstream Repo feature</span> (top right) to resolve this feature with the parent’s version</li>
+<li>Press <span class="guilabel">Solve from Child Repo feature</span> (top right) to resolve this feature with the Child’s version</li>
+<li>Click on a value in the <span class="guilabel">Before</span> feature column to undo all conflicting changes to the feature</li>
+<li>Click on a value in the <span class="guilabel">Upstream Repo</span> feature column to accept the feature as it is in the Parent</li>
+<li>Click on a value in the <span class="guilabel">Child Repo</span> feature column to accept the feature as it is in the Child</li>
+<li>Press <span class="guilabel">Upstream Repo</span> (bottom left) to solve ALL conflicted features as in the Parent’s repository</li>
+<li>Press <span class="guilabel">Child Repo</span> (bottom left) to solve ALL conflicted features as in the Child’s repository</li>
+</ul>
+</li>
+<li>The <span class="guilabel">Merged</span> (resolved) feature on the right will reflect what the feature will look like <em>after</em> synchronization</li>
+</ul>
+</li>
+<li>Once all conflicts are correctly resolved, press the <span class="guilabel">Merge Changes</span> button and the synchronized repository will be updated with changes from the parent and conflicts resolved</li>
+</ol>
+<div class="figure" id="id1">
+<img alt="_images/sync1.png" src="_images/sync1.png" />
+<p class="caption"><span class="caption-text">Synchronization Dialog indicating conflicts need to be resolved</span></p>
+</div>
+<div class="figure" id="id2">
+<img alt="_images/sync2.png" src="_images/sync2.png" />
+<p class="caption"><span class="caption-text">Conflict Resolution Tool</span></p>
+</div>
+<p>NOTE: Conflict Resolution only detects conflicts when two people both modify the same attribute of the same feature.  It does not detect other types of conflicts (i.e. two people both adding the same new building).</p>
+</div>
+</div>
+<div class="section" id="how-to-synchronize">
+<h2>How to Synchronize<a class="headerlink" href="#how-to-synchronize" title="Permalink to this headline">¶</a></h2>
+<p>There are several places where you can initiate synchronization:</p>
+<ol class="arabic simple">
+<li>From the Constellation Viewer<ul>
+<li>Press the icon in the <span class="guilabel">Status</span> section next to <span class="guilabel">X commits behind parent</span></li>
+</ul>
+</li>
+<li>From the Navigator<ul>
+<li>Right-Click on a repository and choose <span class="guilabel">Pull changes from another repo…</span></li>
+</ul>
+</li>
+<li>From a Pull Request<ul>
+<li>Press <span class="guilabel">Click here to synchronize now</span></li>
+</ul>
+</li>
+</ol>
+<div class="figure" id="id3">
+<img alt="_images/sync3.png" src="_images/sync3.png" />
+<p class="caption"><span class="caption-text">Where to start a synchronization</span></p>
+</div>
+<div class="figure" id="id4">
+<img alt="_images/sync4.png" src="_images/sync4.png" />
+<p class="caption"><span class="caption-text">The Synchronization Dialog</span></p>
+</div>
+</div>
+<div class="section" id="interpreting-synchronization-history">
+<h2>Interpreting Synchronization History<a class="headerlink" href="#interpreting-synchronization-history" title="Permalink to this headline">¶</a></h2>
+<p>Please see the Synchronization video - this goes into depth describing what history looks like after synchronizing.  Sometimes the history in the child looks a little different than the history in the parent.  Lets look at the example in the video.</p>
+<div class="figure" id="id5">
+<img alt="_images/sync5.png" src="_images/sync5.png" />
+<p class="caption"><span class="caption-text">Synchronization History</span></p>
+</div>
+<p>The history after a synchronization is a bit difficult to understand if you’re not familiar with it.  Once you get used to it, its easy.  Above is an example from the first demo in the video.  At the top is the parent - and its showing a change that’s in the parent (but not the child) on the black line.</p>
+<p>The bottom left is the child after it’s synchronized in these changes.  And the bottom right is the parent after the child has “Pull Requested” its changes to it (standard workflow).  You can see the synchronization marked in the commit message and, in the parent, it’s shown as a dashed pink line.</p>
+<p>The two at the bottom are showing pretty much these same changes - just from two different perspectives.  The Child - on the left - is getting new changes from the parent brought into it (a change to Lammert building).  Its history looks like similar to a Pull Request. It looks a little complicated because the changes it’s bringing in is also a Pull Request (the black line from the top).</p>
+<p>Here’s the trick for reading GeoGig histories - ignore most of it and first look at what is happening to the red line (this is main line for the repository).  In this case there are two things - we see the “change building next door’s type” commit (that’s where the arrow’s pointing), and then - at the very top - it synchronizing with the parent.  Then, if we want details of the synchronization, we look at the black line and see it was merging in a Pull Request (orange line with the “Merge Pull Request…” commit message).  If we want more detail we look at the orange line and we can see that the Pull Request was to change the Lammert’s building to type “commercial”.  If we were to look at the dataset we would see both the Lammert building change and the change to the building next door.  It looks complicated, but its actually quite simple.</p>
+<p>However, the vast majority of the times you’re going to see history like on the bottom right.  And this is even easier to understand because that orange line looks like a normal Pull Request with the pink dashed line showing that a synchronization was done.  Since the synchronization changes are already in the parent, the pink line just shows the state of the parent when the child was synchronized.</p>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="usermanual/terms.html" title="previous chapter">10. Terminology</a></div>
+          <div class="right"><strong>Next</strong>: <a href="disconnect.html" title="next chapter">Disconnected Editing</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2016 Boundless Spatial, Inc.
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">Synchronization</a><ul>
+<li><a class="reference internal" href="#when-to-use-synchronization">When to Use Synchronization</a><ul>
+<li><a class="reference internal" href="#updating-a-child-repository">Updating a Child Repository</a></li>
+<li><a class="reference internal" href="#conflict-resolution">Conflict Resolution</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#how-to-synchronize">How to Synchronize</a></li>
+<li><a class="reference internal" href="#interpreting-synchronization-history">Interpreting Synchronization History</a></li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="usermanual/terms.html" title="previous chapter">10. Terminology</a></p>
+          <p><b>Next:</b> <a href="disconnect.html" title="next chapter">Disconnected Editing</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="_sources/synch.rst.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="disconnect.html" title="Disconnected Editing"
+       accesskey="N">next</a>|</li>
+  <li>
+    <a href="usermanual/terms.html" title="10. Terminology"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">Copyright &copy; 2016 Boundless Spatial, Inc.</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="_static/dropdown.js"></script>-->
+
+  </body>
+</html>

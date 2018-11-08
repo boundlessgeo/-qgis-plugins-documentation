@@ -1,0 +1,352 @@
+.. (c) 2016 Boundless, http://boundlessgeo.com
+   This code is licensed under the GPL 2.0 license.
+
+.. _usage:
+
+Usage
+=====
+
+The *Terrain Analysis* plugin adds a new toolbar and a similar menu entry with
+fast access to several terrain analysis tools.
+
+To see the menu items go to :menuselection:`Raster --> Boundless Terrain Analysis`.
+
+.. figure:: img/menu_items.png
+
+To enable (or disable) the :guilabel:`Boundless Terrain Analysis` toolbar, go to
+:menuselection:`View --> Toolbars --> Boundless Terrain Analysis` or , in
+alternative, right-click somewhere in a toolbar area.
+
+.. figure:: img/enable_toolbar.png
+
+If enabled, the :guilabel:`Boundless Terrain Analysis` toolbar shows in the
+toolbars area.
+
+.. figure:: img/terrain_analysis_toolbar.png
+
+The following sections of this document describe each tool's usage.
+
+|slope| Slope
+-------------
+
+The Slope tool calculates the terrain's slope for each cell of a Digital
+Elevation Model (DEM) raster.
+
+To use the Slope tool, go to :menuselection:`Raster --> Boundless Terrain Analysis -->
+Slope` or click the |slope| :guilabel:`Slope` button in the toolbar. The
+:guilabel:`Slope` dialog box opens.
+
+.. figure:: img/slope_dialog.png
+
+The tool's parameters are:
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 20 60
+   :class: non-responsive
+
+   * - Option
+     - Description
+   * - Input Layer
+     - Selects the raster layer (DEM) from available layers. Clicking the
+       :guilabel:`...` button allows selecting a raster file from disk.
+   * - Band number
+     - Band to use in case the :guilabel:`Input Layer` is a multiband raster.
+   * - Compute edges
+     - Do the computation at raster edges and near nodata values.
+   * - Use Zevenbergergen formula
+     - Use Zevenbergen & Thorne formula, instead of Horn's formula (the
+       default), to compute slope. The literature suggests Zevenbergen &
+       Thorne to be more suited to smooth landscapes, whereas Horn's formula to
+       perform better on rougher terrain.
+   * - Slope Expressed as percent
+     - Sets output to return slope in percent instead of degrees.
+   * - Scale
+     - ratio of vertical units to horizontal. If the horizontal unit of the
+       source DEM is degrees (e.g., Lat/Long WGS84 projection), you can use
+       scale=111120 if the vertical units are meters (or scale=370400 if they
+       are in feet).
+   * - Slope
+     - The output raster file produced. If you don't provide a name is
+       provided, it is saved in a temporary file. Otherwise, the user can
+       click the :guilabel:`...` button and choose :guilabel:`Save to file`
+       to provide a path and name for a permanent file.
+   * - Open output file after running algorithm
+     - Load output slope raster in QGIS.
+
+The :guilabel:`GDAL/OGR console call` shows the GDAL command that will be
+used. This command can be used directly on Boundless Desktop's *Command
+Shell* or included in a command line script.
+
+Click :guilabel:`Run` to run the tool and calculate the slope. If the
+:guilabel:`Open output file after running the algorithm` is selected, the
+output raster loads in QGIS's map canvas.
+
+For more information, see the `GDAL gdaldem module's help <gdaldem>`_.
+
+|hillshade| Hillshade
+---------------------
+
+The Hillshade tool creates a shading raster normally used as a way to
+simulate relief from a Digital Elevation Model (DEM) raster.
+
+To use the Hillshade tool, go to :menuselection:`Raster --> Boundless Terrain Analysis
+--> Hillshade` or click the |hillshade| :guilabel:`Hillshade` button in the
+toolbar. The :guilabel:`Hillshade` dialog box opens.
+
+.. figure:: img/hillshade_dialog.png
+
+The tool's parameters are:
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 20 60
+   :class: non-responsive
+
+   * - Option
+     - Description
+   * - Input Layer
+     - Selects the raster layer (DEM) from available layers. Clicking the
+       :guilabel:`...` button allows selecting a raster file from disk.
+   * - Band number
+     - Band to use in case the :guilabel:`Input Layer` is a multiband raster.
+   * - Compute edges
+     - Do the computation at raster edges and near nodata values.
+   * - Use Zevenbergergen formula
+     - Use Zevenbergen & Thorne formula, instead of Horn's formula (the
+       default), to compute slope. The literature suggests Zevenbergen &
+       Thorne to be more suited to smooth landscapes, whereas Horn's formula to
+       perform better on rougher terrain.
+   * - Z factor
+     - vertical exaggeration used to pre-multiply the elevations.
+   * - Scale
+     - ratio of vertical units to horizontal. If the horizontal unit of the
+       source DEM is degrees (e.g.,Lat/Long WGS84 projection), you can use
+       scale=111120 if the vertical units are meters (or scale=370400 if they
+       are in feet).
+   * - Azimuth of the light
+     - azimuth of the light, in degrees. 0 if it comes from the top of the
+       raster, 90 from the east, ... The default value, 315, should rarely be
+       changed as it is the value generally used to generate shaded maps.
+   * - Altitude of the light
+     - altitude of the light, in degrees. 90 if the light comes from above
+       the DEM, 0 if it is raking light.
+   * - Hillshade
+     - The output raster file produced. If you don't provide a name is
+       provided, it is saved in a temporary file. Otherwise, you can click the
+       :guilabel:`...` button and choose :guilabel:`Save to file` to provide
+       a path and name for a permanent file.
+   * - Open output file after running algorithm
+     - Load output hillshade raster in QGIS.
+
+The :guilabel:`GDAL/OGR console call` shows the GDAL command that will be
+used. This command can be used directly on Boundless Desktop's *Command
+Shell* or included in a command line script.
+
+Click :guilabel:`Run` to run the tool and calculate the hillshade. If the
+:guilabel:`Open output file after running the algorithm` is selected, the
+output raster loads in QGIS's map canvas.
+
+For more information, see the `GDAL gdaldem module's help <gdaldem>`_.
+
+.. tip::
+
+   In the *Hillshade* layer style properties, you can set the
+   :guilabel:`Blending mode` to ``Multiply`` to create a strong shadow
+   effect over other layers without losing color saturation, which is the
+   case when you use transparency instead.
+
+
+|extract| Clip
+--------------
+The clip tool allows extracting a portion of a raster file using a
+particular extent.
+
+To use the Clip tool, go to :menuselection:`Raster --> Boundless Terrain Analysis -->
+Clip` or click the |extract| :guilabel:`Clip` button in the toolbar. The
+:guilabel:`Clip raster by extent` dialog box opens.
+
+.. figure:: img/extract_dialog.png
+
+The tool's parameters are:
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 20 60
+   :class: non-responsive
+
+   * - Option
+     - Description
+   * - Input Layer
+     - Selects the raster layer (DEM) from available layers. Clicking the
+       :guilabel:`...` button allows selecting a raster file from disk.
+   * - Nodata value
+     - Assign a specified nodata value to output bands. If not set the tool
+       uses, if any, the nodata values from the input file.
+   * - Clipping extent
+     - Defines the output extent. Clicking the :guilabel:`...` button
+       shows several options for determining the extent:
+
+       * :guilabel:`Use layer/canvas extent` - opens a dialog where you
+         can choose between getting the extent coordinates from the current map
+         canvas or a specific loaded layer specific layer using a
+         drop-down menu.
+       * :guilabel:`Select extent on canvas` - hides the tool's dialog
+         allowing you to draw a rectangle by click-and-drag on the map
+         canvas.
+       * :guilabel:`Use min covering extent from input layers` - uses inputs
+         extents (not useful for this tool)
+   * - Advanced Parameters
+     - Several parameters for controlling the output's format. For more
+       information, see the `GDAL gdal_translate module's help
+       <gdal_translate>`_.
+   * - Clipped
+     - The output raster file produced. If you don't provide a name is
+       provided, it is saved in a temporary file. Otherwise, you can click the
+       :guilabel:`...` button and choose :guilabel:`Save to file` to provide
+       a path and name for a permanent file.
+   * - Open output file after running algorithm
+     - Load output clipped raster in QGIS.
+
+The :guilabel:`GDAL/OGR console call` shows the GDAL command that will be
+used. This command can be used directly on Boundless Desktop's *Command
+Shell* or included in a command line script.
+
+Click :guilabel:`Run` to run the tool and clip the raster. If the
+:guilabel:`Open output file after running the algorithm` is selected, the
+output raster loads in QGIS's map canvas.
+
+For more information, see the `GDAL gdal_translate module help <gdaldem_help_>`_.
+
+
+|aspect| Aspect
+---------------
+
+The Aspect tool calculates the terrain's slope direction for each cell of a
+Digital Elevation Model (DEM) raster.
+
+To use the Aspect tool, go to :menuselection:`Raster --> Boundless Terrain Analysis -->
+Aspect` or click the |aspect| :guilabel:`Aspect` button in the toolbar. The
+:guilabel:`Aspect` dialog box opens.
+
+.. figure:: img/slope_dialog.png
+
+The tool's parameters are:
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 20 60
+   :class: non-responsive
+
+   * - Option
+     - Description
+   * - Input Layer
+     - Selects the raster layer (DEM) from available layers. Clicking the
+       :guilabel:`...` button allows selecting a raster file from disk.
+   * - Band number
+     - Band to use in case the :guilabel:`Input Layer` is a multiband raster.
+   * - Compute edges
+     - Do the computation at raster edges and near nodata values.
+   * - Use Zevenbergergen formula
+     - Use Zevenbergen & Thorne formula, instead of Horn's formula (the
+       default), to compute slope. The literature suggests Zevenbergen &
+       Thorne to be more suited to smooth landscapes, whereas Horn's formula to
+       perform better on rougher terrain.
+   * - Return trigonometric angle
+     - Return trigonometric angle instead of azimuth. Thus 0° means East, 90°
+       North, 180° West, 270° South.
+   * - Return 0 for flat
+     - return 0 for flat areas with slope=0, instead of -9999.
+   * - Aspect
+     - The output raster file produced. If you don't provide a name is
+       provided, it is saved in a temporary file. Otherwise, you can click the
+       :guilabel:`...` button and choose :guilabel:`Save to file` to provide
+       a path and name for a permanent file.
+   * - Open output file after running algorithm
+     - Load output aspect raster in QGIS.
+
+The :guilabel:`GDAL/OGR console call` shows the GDAL command that will be
+used. This command can be used directly on Boundless Desktop's *Command
+Shell* or included in a command line script.
+
+Click :guilabel:`Run` to run the tool and calculate the slope. If the
+:guilabel:`Open output file after running the algorithm` is selected, the
+output raster loads in QGIS's map canvas.
+
+For more information, see the `GDAL gdaldem module help <gdal_translate_help_>`_.
+
+
+|viewshed| Viewshed
+-------------------
+
+The Viewshed tool provides an easy way do determine the viewshed or visible
+areas around an observation point taking in consideration a Digital Elevation
+Model.
+
+To use the Viewshed tool, in the :guilabel:`Layers panel`, start by selecting a
+Digital Elevation Model (DEM) raster layer in the Layers Panel, setting it to be
+the active layers. Then, go to :menuselection:`Raster --> Boundless Terrain Analysis
+--> Viewshed` or click the |viewshed| :guilabel:`Viewshed` button in the
+toolbar.
+
+Then, click on map canvas, over the DEM layer, to determine the position of
+the observation point.
+
+.. figure:: img/viewshed_set_observation_point.png
+
+   Capturing the observation point
+
+The tool computes the viewshed and loads it the map canvas styling it
+automatically. The result is a binary raster, where values of 0 (red) represent
+places not visible from the observation point, and values of 1 (green)
+represent places visible from it.
+
+.. figure:: img/viewshed_result.png
+
+   Loaded and styled result
+
+
+|profile| Profile
+-----------------
+
+The profile tool creates a terrain profile from a line drawn over a DEM in the
+map canvas.
+
+To use the Profile tool, in the :guilabel:`Layers panel`, select a Digital
+Elevation Model (DEM) raster layer. Then, go to :menuselection:`Raster -->
+Boundless Terrain Analysis --> Profile` or click the |profile| :guilabel:`Profile` button
+in the toolbar.
+
+Once the tool is activated, you can draw a line over the DEM layer. Click the
+map canvas to add a vertex. You must add two or more vertexes. While drawing,
+right-click the map canvas to reset the line. Double-click to finish the line.
+
+.. figure:: img/profile_draw_line.png
+
+When you finish the line, it's saved as a temporary layer. The profile is then
+computed and opens in you default internet browser.
+
+.. figure:: img/profile_result.png
+
+.. substituitions
+.. |slope|  image:: img/slope.png
+   :width: 1.5em
+.. |aspect|  image:: img/aspect.png
+   :width: 1.5em
+.. |hillshade|  image:: img/hillshade.png
+   :width: 1.5em
+.. |extract|  image:: img/extract.png
+   :width: 1.5em
+.. |viewshed|  image:: img/viewshed.png
+   :width: 1.5em
+.. |profile|  image:: img/profile.png
+   :width: 1.5em
+
+.. External Links
+
+.. _gdaldem_help: http://www.gdal.org/gdaldem.html
+.. _gdal_translate_help: http://www.gdal.org/gdal_translate.html

@@ -1,0 +1,338 @@
+<!--
+ (c) 2016 Boundless, http://boundlessgeo.com
+ This work is licensed under CC-BY-SA 3.0 US License. 
+-->
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : Image Discovery : Usage</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="index" title="Index" href="genindex.html" />
+      <link rel="search" title="Search" href="search.html" />
+      <link rel="top" title="Image Discovery 1.0 documentation" href="index.html" />
+      <link rel="next" title="Plugin settings" href="settingsconf.html" />
+      <link rel="prev" title="Installation" href="installation.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="http://boundlessgeo.com" rel="home" id="logo"><img src="_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>Image Discovery</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="index.html">Image Discovery</a>
+  
+     &raquo; <a href="">Usage</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="usage">
+<span id="imagediscovery-usage"></span><h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="setting-up-the-plugin">
+<h2>Setting up the plugin<a class="headerlink" href="#setting-up-the-plugin" title="Permalink to this headline">¶</a></h2>
+<p>Before using the <em>Image discovery</em> plugin, you must have a Planet
+Labs API key. Then you must set it up in the Plugins settings in
+<span class="menuselection">Raster ‣ Image discovery ‣ Plugin settings…</span>.</p>
+<p>While in the <span class="guilabel">Configuration options</span> dialog, you should also set
+the path for where to save Thumbnails and Imagery.</p>
+<div class="figure">
+<img alt="_images/configuration_options.png" src="_images/configuration_options.png" />
+</div>
+<p>For other options details, check the <a class="reference internal" href="settingsconf.html#imagediscovery-plugin-settings"><span class="std std-ref">Plugin settings</span></a>.</p>
+</div>
+<div class="section" id="imagery-discovery-panel">
+<h2>Imagery Discovery Panel<a class="headerlink" href="#imagery-discovery-panel" title="Permalink to this headline">¶</a></h2>
+<p>The <span class="guilabel">Image discovery</span> panel is the main interface of the
+<em>Image discovery</em>. You can enable it in <span class="menuselection">Raster ‣ Image
+discovery ‣ Image discovery</span> or, like with any other QGIS panel, in
+<span class="menuselection">View ‣ Panels ‣ Image discovery</span></p>
+<div class="figure">
+<img alt="_images/image_discovery_panel.png" src="_images/image_discovery_panel.png" />
+</div>
+<p>The Image discovery panel is composed by a toolbar at the top and several
+filtering widgets below.</p>
+<p>The toolbar has the following buttons:</p>
+<ul class="simple">
+<li><a class="reference internal" href="_images/select_area.png"><img alt="select_area" src="_images/select_area.png" style="width: 1.2em;" /></a> <strong>Select Extent on Map</strong> : To draw a rectangle around the
+area of interest from where you want to search images.</li>
+<li><a class="reference internal" href="_images/search.png"><img alt="search" src="_images/search.png" style="width: 1.2em;" /></a> <strong>Search for imagery</strong> : Searches for available images using the
+requirements set below.</li>
+<li><a class="reference internal" href="_images/footprints.png"><img alt="footprints" src="_images/footprints.png" style="width: 1.2em;" /></a> <strong>Download footprints</strong> : Creates a Catalog layer with the
+footprints and details of all images found in the previous search.</li>
+<li><a class="reference internal" href="_images/thumbnails.png"><img alt="thumbnails" src="_images/thumbnails.png" style="width: 1.2em;" /></a> <strong>Download thumbnails</strong> : Download previews of images in the
+catalog layer. If the catalog layer has selected features, only the
+corresponding previews are downloaded.</li>
+<li><a class="reference internal" href="_images/imagery.png"><img alt="download" src="_images/imagery.png" style="width: 1.2em;" /></a> <strong>Download imagery</strong> : Download full resolution images in the
+Catalog layer. If the catalog layer has selected features, only the corresponding images
+are downloaded.</li>
+</ul>
+<p>Below the toolbar, it’s possible to set the imagery search requirements.</p>
+<p>The <span class="guilabel">Area of interest</span> allows defining the search extent.You can
+use the <span class="guilabel">Select Extent on Map</span> button to draw a rectangle around
+the area of interest. If nothing is selected, the extent of the current map
+canvas is used instead.</p>
+<p>The <span class="guilabel">Start date</span> and <span class="guilabel">End date</span> allows defining a
+search range for the date and time of the images acquisition.</p>
+<p><span class="guilabel">Cloud percentage</span> sets the maximum value (in percentage) of
+clouds covering the image allowed.</p>
+<p><span class="guilabel">Nadir angle</span> sets the maximum acquisition angle allowed(in degrees),
+where 0 degrees would be looking straight down (the lower this value, the
+fewer images will be available).</p>
+<p><span class="guilabel">GSD</span> sets the maximum Ground Sampled Distance, which represents the
+distance between adjacent pixels centers in ground measures (in meters).</p>
+<p>Below the imagery search requirements the <span class="guilabel">Cancel</span> stops any download
+operation.</p>
+</div>
+<div class="section" id="common-workflow">
+<h2>Common workflow<a class="headerlink" href="#common-workflow" title="Permalink to this headline">¶</a></h2>
+<p>In the <span class="guilabel">Image Discovery</span> panel:</p>
+<ol class="arabic">
+<li><p class="first">Either Zoom the map canvas to the area of interest or select it using
+the Select Extent on Map tool.</p>
+</li>
+<li><p class="first">To narrow down the search results, set your requirements for
+the <span class="guilabel">Start date</span> and <span class="guilabel">End date</span>.</p>
+</li>
+<li><p class="first">When ready, click the <span class="guilabel">Search for images</span> button.</p>
+</li>
+<li><p class="first">If you get too many results, try narrowing down the search scope by setting
+other requirements.</p>
+</li>
+<li><p class="first">Click the <span class="guilabel">Download footprint</span> button to create the image catalog
+from your findings. A layer called <em>Planet catalog</em> loads in the map canvas, which
+contains the found images footprints and metadata.</p>
+</li>
+<li><p class="first">Open the layer attribute table and check the results details. Remember
+that you can resize the attribute table rows to show all the details in the
+<em>metadata</em> column.</p>
+<p>You can also use <code class="docutils literal notranslate"><span class="pre">metadataValue()</span></code> function in expressions to retrieve
+specific attributes from the metadata column. For example, you can use
+<code class="docutils literal notranslate"><span class="pre">metadataValue('satelite_id')</span></code> to get the satellite that acquired the
+image.</p>
+</li>
+<li><p class="first">Using the <kbd class="kbd docutils literal notranslate">Ctrl</kbd> key select as many images as you
+like. You can also use the <em>Select by expression</em> to select the desired
+images. For example, to select all images acquired by <em>RapidEye-5</em>, you
+can use the following expression:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">metadataValue</span><span class="p">(</span><span class="s1">&#39;satelite_id&#39;</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;RapidEye-5&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">If you want to preview the selected images, you can click
+<span class="guilabel">Download thumbnails</span>.</p>
+</li>
+<li><p class="first">Once the download finishes, you can enable QGIS Map tips tool and hold
+your mouse above the images footprints to see the images thumbnails.</p>
+</li>
+<li><p class="first">Finally, once you have decided what images you want to acquire, refine the
+selection in the <em>Planet Catalog</em> attribute table, and click the
+<span class="guilabel">Download Imagery</span> button.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Some images may not be ready for download right away and require
+activation. In that case, a message will be shown.</p>
+<div class="figure">
+<img alt="_images/image_activation.png" src="_images/image_activation.png" />
+</div>
+<p class="last">You will need to wait for Planet Labs to process them and try downloading
+them later.</p>
+</div>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="installation.html" title="previous chapter">Installation</a></div>
+          <div class="right"><strong>Next</strong>: <a href="settingsconf.html" title="next chapter">Plugin settings</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2017, Boundless Spatial
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">Usage</a><ul>
+<li><a class="reference internal" href="#setting-up-the-plugin">Setting up the plugin</a></li>
+<li><a class="reference internal" href="#imagery-discovery-panel">Imagery Discovery Panel</a></li>
+<li><a class="reference internal" href="#common-workflow">Common workflow</a></li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="installation.html" title="previous chapter">Installation</a></p>
+          <p><b>Next:</b> <a href="settingsconf.html" title="next chapter">Plugin settings</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="_sources/usage.rst.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="settingsconf.html" title="Plugin settings"
+       accesskey="N">next</a>|</li>
+  <li>
+    <a href="installation.html" title="Installation"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">Copyright &copy; 2017, Boundless Spatial</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="_static/dropdown.js"></script>-->
+
+  </body>
+</html>

@@ -1,0 +1,14 @@
+.. (c) 2016 Boundless, http://boundlessgeo.com
+   This code is licensed under the GPL 2.0 license.
+
+Terrain Analysis Documentation
+==============================
+
+*Terrain Analysis* is a QGIS plugin that eases the access to several raster
+analysis tools: Slope, Hillshade, Clip, Aspect, Viewshed, and Profile.
+
+.. toctree::
+   :maxdepth: 2
+
+   installation
+   usage

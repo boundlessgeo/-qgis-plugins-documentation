@@ -1,0 +1,466 @@
+<!--
+ (c) 2016 Boundless, http://boundlessgeo.com
+ This work is licensed under CC-BY-SA 3.0 US License. 
+-->
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : GeoGig Plugin : 5. Editing and Workflow</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="../_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="../_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="index" title="Index" href="../genindex.html" />
+      <link rel="search" title="Search" href="../search.html" />
+      <link rel="top" title="GeoGig Plugin 1.0.0 documentation" href="../index.html" />
+      <link rel="up" title="User Manual" href="usermanual.html" />
+      <link rel="next" title="6. Adding Your Own Data to GeoGig" href="newdata.html" />
+      <link rel="prev" title="4. Viewing Data and Exploring History" href="addexplore.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('../_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('../_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('../_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="../_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="http://boundlessgeo.com" rel="home" id="logo"><img src="../_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="../search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>GeoGig Plugin</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="../index.html">GeoGig Plugin</a>
+     &raquo; <a href="usermanual.html" accesskey="U">User Manual</a>
+  
+     &raquo; <a href="">5. Editing and Workflow</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="editing-and-workflow">
+<h1>5. Editing and Workflow<a class="headerlink" href="#editing-and-workflow" title="Permalink to this headline">¶</a></h1>
+<center><iframe src="https://player.vimeo.com/video/298415397#t=23m46s?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<br><a href="https://vimeo.com/295261790">GeoGig Quick Start - Editing </a></center><br>
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+var iframe = document.querySelector('iframe');
+var player = new Vimeo.Player(iframe);
+player.play().then( player.pause() );
+</script><p>To learn more about moving a change through the QA/QC workflow see the <a class="reference external" href="https://vimeo.com/295261790">Introduction to GeoGig</a>  and <a class="reference external" href="https://vimeo.com/298415397">Quick Start</a> videos.</p>
+<div class="section" id="editing">
+<h2>5.1. Editing<a class="headerlink" href="#editing" title="Permalink to this headline">¶</a></h2>
+<p>Editing a GeoGig layer is almost exactly the same as editing any vector data in QGIS.  However, when you finish a QGIS editing session (from pressing the QGIS pencil icon to start editing until pressing it again to stop editing) you will be prompted to commit your changes to your GeoGig repository.  You can either commit immediately or you can accumulate a bunch of changes before committing.  We recommend having fewer (larger) commits as it makes the history shorter/easier to understand.</p>
+<div class="figure" id="id6">
+<img alt="../_images/edit1.png" src="../_images/edit1.png" />
+<p class="caption"><span class="caption-text">The Two Edit Buffers (QGIS and GeoGig)</span></p>
+</div>
+<p>If a layer has local changes, the hovering over a layer (in the QGIS <span class="guilabel">Layers</span> panel) shows information about un-committed changes (as well as other information about the layer).</p>
+<p>For a GeoPKG layer, these changes are part of the GeoPKG.  For a Live layer, these changes are saved to a <code class="docutils literal notranslate"><span class="pre">.changes</span></code> file in the same directory as your QGIS project file (.qgz).  In order to save uncommitted Live layer changes, your project <em>must</em> be first saved before making changes.</p>
+<div class="figure" id="id7">
+<img alt="../_images/edit3.png" src="../_images/edit3.png" />
+<p class="caption"><span class="caption-text">Layer Hover - popup show information about the GeoGig layer, including information about local changes</span></p>
+</div>
+<p>If you have uncommitted local changes in your layer, right-clicking on the layer allows three options:</p>
+<div class="figure" id="id8">
+<img alt="../_images/edit2.png" src="../_images/edit2.png" />
+<p class="caption"><span class="caption-text">Layer right-click menu - has options if there are local changes</span></p>
+</div>
+<ul class="simple">
+<li>Revert Local Changes - Un-does the local changes (your local changes will be lost)</li>
+<li>Show Local Changes - Shows a history-like window showing the details of the uncommitted changes</li>
+<li>Commit Local Changes - Commits the un-committed local changes (will ask you for a commit message) to the repository</li>
+</ul>
+</div>
+<div class="section" id="creating-a-pull-request">
+<h2>5.2. Creating a Pull Request<a class="headerlink" href="#creating-a-pull-request" title="Permalink to this headline">¶</a></h2>
+<p>When you’ve finished your editing work (perhaps over several days and several commits) and you want to move those changes to the (parent) QA/QC repository, you create a Pull Request.</p>
+<p>You can create a PR from either the <span class="guilabel">Constellation Viewer</span> or the <span class="guilabel">Navigator</span>.</p>
+<ul class="simple">
+<li>On the <span class="guilabel">Constellation Viewer</span>, <span class="guilabel">Status</span> section press the icon next to the <span class="guilabel">X commits ahead of parent</span> line</li>
+<li>On the <span class="guilabel">Navigator</span>, select the repository then press <span class="guilabel">Create pull request</span></li>
+</ul>
+<p>When the <span class="guilabel">Create Pull Request</span> window appears:</p>
+<ol class="arabic simple">
+<li>Verify your work (see the <a class="reference external" href="../synch.html">Synchronization</a> section if GeoGig is recommending a synchronization)<ul>
+<li>On the <span class="guilabel">Info</span> (summary) tab, verify that the changes are what you expect (you can <a class="reference external" href="addexplore.html#exporting-a-commit-diff">“Export Diff”</a> to see all the changes)</li>
+<li>On the <span class="guilabel">Commits</span> tab, verify that the commits are the ones you expect</li>
+<li>On the <span class="guilabel">Commits</span> tab, dig into the commits to see the changes (either use the <span class="guilabel">Attributes</span> tab or you can <a class="reference external" href="addexplore.html#exporting-a-commit-diff">“Export Diff”</a> for that single commit)</li>
+</ul>
+</li>
+<li>Give your PR a name</li>
+<li>Press <span class="guilabel">Create PR</span></li>
+<li>You will see the Pull Request associated with the QA/QC repository in the <span class="guilabel">Constellation Viewer</span> and <span class="guilabel">Navigator</span>.</li>
+</ol>
+<div class="figure" id="id9">
+<img alt="../_images/workflow9.png" src="../_images/workflow9.png" />
+<p class="caption"><span class="caption-text">Creating a Pull Request</span></p>
+</div>
+<div class="figure" id="id10">
+<img alt="../_images/edit4.png" src="../_images/edit4.png" />
+<p class="caption"><span class="caption-text">Once the PR is created, it is connected to the parent’s repository in the Navigator and Constellation view</span></p>
+</div>
+</div>
+<div class="section" id="evaluating-a-pull-request">
+<h2>5.3. Evaluating a Pull Request<a class="headerlink" href="#evaluating-a-pull-request" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Login as QAQC (or whomever owns the repo the PR is attempting to update)</li>
+<li>Open the PR (either via the <span class="guilabel">Constellation Viewer</span> or <span class="guilabel">Navigator</span> - see above)</li>
+<li>Verify the PR<ul>
+<li>On the <span class="guilabel">Info</span> (summary) tab, use <a class="reference external" href="addexplore.html#exporting-a-commit-diff">“Export Diff”</a> to see the changes in context.  You can also use the <span class="guilabel">Combined Changes</span> tab to see the changes (only for PRs with less that 1500 feature changes)</li>
+<li>On the <span class="guilabel">Commits</span> tab, look through the commits to get an overview of what’s changed</li>
+<li>On the <span class="guilabel">Commits</span> tab, dig into the commits to see the changes (either use the <span class="guilabel">Attributes</span> tab or you can <a class="reference external" href="addexplore.html#exporting-a-commit-diff">“Export Diff”</a> for that single commit)</li>
+<li>Run any QA/QC checks you would normally perform</li>
+</ul>
+</li>
+<li>Press <span class="guilabel">Merge PR</span></li>
+</ol>
+<div class="figure" id="id11">
+<img alt="../_images/workflow12.png" src="../_images/workflow12.png" />
+<p class="caption"><span class="caption-text">Evaluating a Pull Request</span></p>
+</div>
+</div>
+<div class="section" id="outline-of-the-qa-qc-workflow">
+<h2>5.4. Outline of the QA/QC Workflow<a class="headerlink" href="#outline-of-the-qa-qc-workflow" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Create a repository to do our work</li>
+<li>Add the layer to QGIS</li>
+<li>Edit the layer</li>
+<li>Commit the change to GeoGig</li>
+<li>Create a Pull Request to move the change to the (parent) QA/QC repository</li>
+<li>Accept the Pull Request (QA/QC)</li>
+</ol>
+</div>
+<div class="section" id="example-workflow-for-the-geogig-server-vm">
+<h2>5.5. Example Workflow for the GeoGig Server VM<a class="headerlink" href="#example-workflow-for-the-geogig-server-vm" title="Permalink to this headline">¶</a></h2>
+<p>We will work through an example using the GeoGig Server VM datasets and repositories.</p>
+<p>To see more about moving a change through the QA/QC workflow see the <a class="reference external" href="https://vimeo.com/295261790">Introduction to GeoGig</a>  and <a class="reference external" href="https://vimeo.com/298415397">Quick Start</a> videos.</p>
+<div class="section" id="create-a-repository-to-do-our-work">
+<h3>5.5.1. Create a repository to do our work<a class="headerlink" href="#create-a-repository-to-do-our-work" title="Permalink to this headline">¶</a></h3>
+<p>The first step is to create a Repository to do our work in.</p>
+<ol class="arabic simple">
+<li>Logon as the GISAnalyst User</li>
+<li>Using the <span class="guilabel">Navigator</span>, open the <span class="guilabel">Constellation Viewer</span></li>
+<li>On the “QAQC.osm_missouri” repository click on <span class="guilabel">Fork this repository</span></li>
+<li>Enter a name for the repository (“osm_missouri.demo”)</li>
+</ol>
+<div class="figure" id="id12">
+<img alt="../_images/workflow1.png" src="../_images/workflow1.png" />
+<p class="caption"><span class="caption-text">Fork the QAQC repository</span></p>
+</div>
+<p>NOTE: you can do this directly from the <span class="guilabel">Navigator</span> by selecting <span class="menuselection">User ‣ QAQC ‣ QAQC.osm_missouri</span>, then <span class="guilabel">Fork repository…</span>.</p>
+</div>
+<div class="section" id="add-the-buildings-layer-to-qgis">
+<h3>5.5.2. Add the buildings layer to QGIS<a class="headerlink" href="#add-the-buildings-layer-to-qgis" title="Permalink to this headline">¶</a></h3>
+<p>The second step is to add the layer from the repository you just created to QGIS. Add both the <code class="docutils literal notranslate"><span class="pre">buildings</span></code> and <code class="docutils literal notranslate"><span class="pre">water_area</span></code> layers.</p>
+<p>We add the <code class="docutils literal notranslate"><span class="pre">water_area</span></code> layer because the <code class="docutils literal notranslate"><span class="pre">buildings</span></code> layer does not draw buildings until you are quite zoomed in (closer than 1:60k).  Adding the <code class="docutils literal notranslate"><span class="pre">water_area</span></code> layer lets us find the St. Louis area to zoom into.</p>
+<div class="figure" id="id13">
+<img alt="../_images/workflow2.png" src="../_images/workflow2.png" />
+<p class="caption"><span class="caption-text">Add the layer (from the new repository) to QGIS (Live)</span></p>
+</div>
+</div>
+<div class="section" id="edit-a-building-in-the-buildings-layer">
+<h3>5.5.3. Edit a building in the Buildings layer<a class="headerlink" href="#edit-a-building-in-the-buildings-layer" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Zoom into downtown St. Louis and find the Lammert Building</li>
+<li>Start editing the layer (select the layer in the layer list then press the pencil icon to “Start Editing”)<ul>
+<li>You will be given a warning that rendering optimizations will be turned off - press <span class="guilabel">OK</span>.</li>
+</ul>
+</li>
+<li>Use the “Identify Features” tool to select the Lammert Building</li>
+<li>Change the “type” to “Office”</li>
+<li>Stop editing the layer (select the layer in the layer list then press the pencil icon to “Stop Editing”)</li>
+</ol>
+<div class="figure" id="id14">
+<img alt="../_images/workflow3.png" src="../_images/workflow3.png" />
+<p class="caption"><span class="caption-text">Locating the Lammert Building in St. Louise</span></p>
+</div>
+<div class="figure" id="id15">
+<img alt="../_images/workflow4.png" src="../_images/workflow4.png" />
+<p class="caption"><span class="caption-text">Change the type to “Office”</span></p>
+</div>
+<div class="figure" id="id16">
+<img alt="../_images/workflow5.png" src="../_images/workflow5.png" />
+<p class="caption"><span class="caption-text">Stop Editing the layer and “Save” the changes</span></p>
+</div>
+</div>
+<div class="section" id="commit-the-change-to-geogig">
+<h3>5.5.4. Commit the change to GeoGig<a class="headerlink" href="#commit-the-change-to-geogig" title="Permalink to this headline">¶</a></h3>
+<p>After you’ves stopped editing the <code class="docutils literal notranslate"><span class="pre">buildings</span></code> layer and saved your changes (QGIS edit buffer), you will be prompted to commit the changes the GeoGig repository.  You can either commit now or commit later (select <span class="guilabel">Do not commit.  Keep changes in the local edit buffer</span> to commit later).</p>
+<p>If you commit now, type in a commit message (“change lammert building to ‘office’”) and press <span class="guilabel">OK</span>.  If you choose to commit later, right click on the layer (QGIS’s <span class="guilabel">Layers</span> panel) and choose <span class="guilabel">GeoGig –&gt; Commit Local Changes</span> and type in a commit message (“change lammert building to ‘office’”) and press <span class="guilabel">OK</span>.</p>
+<p>If you view the history for the layer, you should see this commit.  To see the history, select the repository (“osm_missouri.demo” in the <span class="guilabel">Navigator</span> and select <span class="guilabel">Show log (diff viewer)…</span>)</p>
+<div class="figure" id="id17">
+<img alt="../_images/workflow6.png" src="../_images/workflow6.png" />
+<p class="caption"><span class="caption-text">Stop Editing the layer and “Commit” the changes</span></p>
+</div>
+<div class="figure" id="id18">
+<img alt="../_images/workflow7.png" src="../_images/workflow7.png" />
+<p class="caption"><span class="caption-text">The change is now in the history for the repository.</span></p>
+</div>
+</div>
+<div class="section" id="create-a-pull-request-to-move-the-change-to-the-qa-qc-repository">
+<h3>5.5.5. Create a Pull Request to move the change to the QA/QC repository<a class="headerlink" href="#create-a-pull-request-to-move-the-change-to-the-qa-qc-repository" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Open the Constellation View by either:<ul>
+<li><span class="guilabel">Navigator</span>: select the repository (“osm_missouri.demo”) and press <span class="guilabel">Show repo constellation…</span></li>
+<li>Right-Click on the layer (in the QGIS layers list) and select <span class="menuselection">GeoGig ‣ Show Repo Constellation…</span></li>
+</ul>
+</li>
+<li>Look in our repository (it should be highlighted in red)</li>
+<li>The <span class="guilabel">Status</span> section should say <span class="guilabel">1 commit ahead of parent</span> (that’s the commit we just made)</li>
+<li>Press the <span class="guilabel">Create a PR</span> button</li>
+<li>Give a title for the PR and press <span class="guilabel">Create PR</span></li>
+<li>In the <span class="guilabel">Constellation Viewer</span>, the QAQC repository should have a Pull Request</li>
+</ol>
+<div class="figure" id="id19">
+<img alt="../_images/workflow8.png" src="../_images/workflow8.png" />
+<p class="caption"><span class="caption-text">Our repository - press the button next to “1 commit ahead of parent”</span></p>
+</div>
+<div class="figure" id="id20">
+<img alt="../_images/workflow9.png" src="../_images/workflow9.png" />
+<p class="caption"><span class="caption-text">Creating the Pull Request</span></p>
+</div>
+<div class="figure" id="id21">
+<img alt="../_images/workflow10.png" src="../_images/workflow10.png" />
+<p class="caption"><span class="caption-text">The QA/QC repository has a Pull Request to evaluate</span></p>
+</div>
+</div>
+<div class="section" id="accept-the-pull-request">
+<h3>5.5.6. Accept the Pull Request<a class="headerlink" href="#accept-the-pull-request" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Logon as the QAQC user<ul>
+<li>Right click on the server in the <span class="guilabel">Navigator</span></li>
+<li>Select <span class="guilabel">Change User…</span></li>
+<li>Login as the “QAQC” user (password qaqaqa)</li>
+</ul>
+</li>
+<li>Open the constellation viewer<ul>
+<li>In the navigator, select the “QAQC.osm_missouri” repo</li>
+<li>Right-click and select <span class="guilabel">Show repo constellation…</span></li>
+</ul>
+</li>
+<li>Press the <span class="guilabel">View PRs</span> button (the eye icon next to “1 pull request”)</li>
+<li>You can press the <span class="guilabel">Combined Changes</span> tab to see the single feature changed in this PR (this option is not available for large PRs)</li>
+<li>If you want you can press <span class="guilabel">Export Diff</span> to see the diff representing all the changes in the PR.  A diff layer will be added to the project showing changes - red (delete), green (add), yellow (modified). See <a class="reference external" href="addexplore.html#exporting-a-commit-diff">Exporting a Commit Diff</a></li>
+<li>Go back to the PR (via the <span class="guilabel">Constellation Viewer</span>) and press <span class="guilabel">Merge PR</span></li>
+<li>Open the history for the QAQC layer and you should see your PR changes</li>
+<li>(Optional) You can now delete the work repository (“osm_missouri.demo”) since it is no longer needed</li>
+</ol>
+<div class="figure" id="id22">
+<img alt="../_images/workflow11.png" src="../_images/workflow11.png" />
+<p class="caption"><span class="caption-text">Change user to QAQC (password qaqaqa)</span></p>
+</div>
+<div class="figure" id="id23">
+<img alt="../_images/workflow10.png" src="../_images/workflow10.png" />
+<p class="caption"><span class="caption-text">The QA/QC repository has a Pull Request to evaluate - press the eye icon</span></p>
+</div>
+<div class="figure" id="id24">
+<img alt="../_images/workflow12.png" src="../_images/workflow12.png" />
+<p class="caption"><span class="caption-text">Reviewing and accepting the PR</span></p>
+</div>
+<div class="figure" id="id25">
+<img alt="../_images/workflow13.png" src="../_images/workflow13.png" />
+<p class="caption"><span class="caption-text">History of QA/QC repository after merging the PR</span></p>
+</div>
+<div class="figure" id="id26">
+<img alt="../_images/workflow14.png" src="../_images/workflow14.png" />
+<p class="caption"><span class="caption-text">Optionally - you can delete the work repository (“osm_missouri.demo”)</span></p>
+</div>
+</div>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="addexplore.html" title="previous chapter">4. Viewing Data and Exploring History</a></div>
+          <div class="right"><strong>Next</strong>: <a href="newdata.html" title="next chapter">6. Adding Your Own Data to GeoGig</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2016 Boundless Spatial, Inc.
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">5. Editing and Workflow</a><ul>
+<li><a class="reference internal" href="#editing">5.1. Editing</a></li>
+<li><a class="reference internal" href="#creating-a-pull-request">5.2. Creating a Pull Request</a></li>
+<li><a class="reference internal" href="#evaluating-a-pull-request">5.3. Evaluating a Pull Request</a></li>
+<li><a class="reference internal" href="#outline-of-the-qa-qc-workflow">5.4. Outline of the QA/QC Workflow</a></li>
+<li><a class="reference internal" href="#example-workflow-for-the-geogig-server-vm">5.5. Example Workflow for the GeoGig Server VM</a><ul>
+<li><a class="reference internal" href="#create-a-repository-to-do-our-work">5.5.1. Create a repository to do our work</a></li>
+<li><a class="reference internal" href="#add-the-buildings-layer-to-qgis">5.5.2. Add the buildings layer to QGIS</a></li>
+<li><a class="reference internal" href="#edit-a-building-in-the-buildings-layer">5.5.3. Edit a building in the Buildings layer</a></li>
+<li><a class="reference internal" href="#commit-the-change-to-geogig">5.5.4. Commit the change to GeoGig</a></li>
+<li><a class="reference internal" href="#create-a-pull-request-to-move-the-change-to-the-qa-qc-repository">5.5.5. Create a Pull Request to move the change to the QA/QC repository</a></li>
+<li><a class="reference internal" href="#accept-the-pull-request">5.5.6. Accept the Pull Request</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="addexplore.html" title="previous chapter">4. Viewing Data and Exploring History</a></p>
+          <p><b>Next:</b> <a href="newdata.html" title="next chapter">6. Adding Your Own Data to GeoGig</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="../_sources/usermanual/workflow.rst.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="../genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="newdata.html" title="6. Adding Your Own Data to GeoGig"
+       accesskey="N">next</a>|</li>
+  <li>
+    <a href="addexplore.html" title="4. Viewing Data and Exploring History"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">Copyright &copy; 2016 Boundless Spatial, Inc.</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="../_static/dropdown.js"></script>-->
+
+  </body>
+</html>

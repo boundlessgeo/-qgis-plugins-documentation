@@ -16,6 +16,7 @@
       <link rel="index" title="Index" href="genindex.html" />
       <link rel="search" title="Search" href="search.html" />
       <link rel="top" title="GeoServer Explorer 0.5 documentation" href="index.html" />
+      <link rel="next" title="Plugin settings" href="settingsconf.html" />
       <link rel="prev" title="Usage" href="intro.html" />
 <style>
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
@@ -102,7 +103,7 @@
 <li><p class="first">GeoServer workspaces item.</p>
 <blockquote>
 <div><ul class="simple">
-<li><em>New workspace...</em>. Adds a new workspace.</li>
+<li><em>New workspace…</em>. Adds a new workspace.</li>
 <li><em>Clean (remove unused stores)</em>. Removes all data stores that are not published through any layer in the catalog.</li>
 </ul>
 </div></blockquote>
@@ -124,7 +125,7 @@
 <li><p class="first"><em>Add style to layer</em>. Adds a new style to the layer from the list of available ones in the catalog. The style is selected from the dialog shown below</p>
 <blockquote>
 <div><img alt="_images/add_style.png" class="align-center" src="_images/add_style.png" />
-<p>If the layer is under a layer group item, the available commands can be used to re&#8211;order layers in the group or remove them.</p>
+<p>If the layer is under a layer group item, the available commands can be used to re–order layers in the group or remove them.</p>
 <blockquote>
 <div><img alt="_images/order_in_group.png" class="align-center" src="_images/order_in_group.png" />
 </div></blockquote>
@@ -136,7 +137,7 @@
 <li><p class="first">GeoServer layer group item.</p>
 <blockquote>
 <div><ul class="simple">
-<li><em>Edit...</em>. Layers in a group can be configured through the following dialog.</li>
+<li><em>Edit…</em>. Layers in a group can be configured through the following dialog.</li>
 </ul>
 <img alt="_images/define_group.png" class="align-center" src="_images/define_group.png" />
 </div></blockquote>
@@ -156,7 +157,7 @@
 <li><p class="first">GeoServer style item.</p>
 <blockquote>
 <div><ul>
-<li><p class="first"><em>Edit...</em>. Opens the QGIS symbology editor to edit the style of the layer. Create your symbology and accept the dialog to close. This will cause the style to be updated. Notice that the QGIS interface for defining a symbology is used to edit a GeoServer style, but since the layer that uses the style is not available, some restrictions exist:</p>
+<li><p class="first"><em>Edit…</em>. Opens the QGIS symbology editor to edit the style of the layer. Create your symbology and accept the dialog to close. This will cause the style to be updated. Notice that the QGIS interface for defining a symbology is used to edit a GeoServer style, but since the layer that uses the style is not available, some restrictions exist:</p>
 <blockquote>
 <div><p>If the style item is under a layer item, the Explorer will get the attribute names of the layer, so you can use them for defining your symbology rules. The min and max values of those attributes in the layer are, however, not available, so you will not be able to use them to define ranges or categories.</p>
 <p>If the style item is not under the layer item, the Explorer  will try to find out if the style is used by any layer, and will use that layer in case it can find it. If several layers are using a style, the first one of them will be used. If no layer is found (no layer is using that style), the style will be opened for editing, but no field names will be available. You will be editing the style as if it corresponded to a QGIS layer with no attributes.</p>
@@ -164,7 +165,7 @@
 <p>Editing a style using the QGIS symbology editor is only supported for vector styles. If you try to edit a raster style this way, the Explorer will show a warning message telling you that those styles cannot be edited.</p>
 </div></blockquote>
 </li>
-<li><p class="first"><em>Edit SLD...</em> option. By clicking on it you can directly edit the content of the corresponding SLD, using a dialog with an XML editor, such as the one shown below.</p>
+<li><p class="first"><em>Edit SLD…</em> option. By clicking on it you can directly edit the content of the corresponding SLD, using a dialog with an XML editor, such as the one shown below.</p>
 <blockquote>
 <div><img alt="_images/editsld.png" class="align-center" src="_images/editsld.png" />
 <p>Clicking on <em>OK</em> will update the corresponding SLD body in the catalog, with the current text of the editor. No validation is performed on the client side, but if the content of the editor is not a valid SLD, GeoServer will refuse to update it. The corresponding error message returned by GeoServer will be shown in the QGIS message bar.</p>
@@ -190,7 +191,7 @@
 <li><p class="first">GeoWebCache layers</p>
 <blockquote>
 <div><ul class="simple">
-<li><em>New GWC layer...</em>. Adds a new GWC layer from an existing layer in the GeoServer catalog. The properties of the cached layer are defined in a dialog like the one shown below.</li>
+<li><em>New GWC layer…</em>. Adds a new GWC layer from an existing layer in the GeoServer catalog. The properties of the cached layer are defined in a dialog like the one shown below.</li>
 </ul>
 <img alt="_images/define_gwc.png" class="align-center" src="_images/define_gwc.png" />
 </div></blockquote>
@@ -200,13 +201,13 @@
 <div><ul>
 <li><p class="first"><em>Delete</em>. Removes the cached layer</p>
 </li>
-<li><p class="first"><em>Edit...</em>. Allows to change the properties of the GWC layer, by opening the same dialog used to define them when creating the layer.</p>
+<li><p class="first"><em>Edit…</em>. Allows to change the properties of the GWC layer, by opening the same dialog used to define them when creating the layer.</p>
 </li>
-<li><p class="first"><em>Seed...</em>. Launches a seeding operation for the cached layer. The operation is defined through the following dialog.</p>
+<li><p class="first"><em>Seed…</em>. Launches a seeding operation for the cached layer. The operation is defined through the following dialog.</p>
 <blockquote>
 <div><img alt="_images/seed.png" class="align-center" src="_images/seed.png" />
 <p>The area to seed has to be entered in the box in the bottom part of the dialog, with a string of 4 comma-separated values (xmin, xmax, ymin, ymax). If no values are entered, the full extent of the layer to seed is used.</p>
-<p>Another way of setting the seeding region is to click on the <em>Define on canvas</em> button on the right&#8211;hand side of the extent box. This will cause the dialog to temporarily this appear and show the QGIS canvas. Just click and drag on the canvas to define the desired seeding region, and the dialog will show up again, containing the coordinates of the region.</p>
+<p>Another way of setting the seeding region is to click on the <em>Define on canvas</em> button on the right–hand side of the extent box. This will cause the dialog to temporarily this appear and show the QGIS canvas. Just click and drag on the canvas to define the desired seeding region, and the dialog will show up again, containing the coordinates of the region.</p>
 <img alt="_images/extent_drag.png" class="align-center" src="_images/extent_drag.png" />
 </div></blockquote>
 </li>
@@ -226,7 +227,7 @@
 </div>
 <div class="section" id="multiple-selection">
 <h2>Multiple selection<a class="headerlink" href="#multiple-selection" title="Permalink to this headline">¶</a></h2>
-<p>You can select multiple elements of the same type (i.e. multiple layers), to automate operations. For instance, you can create a new group with a set of selected layers. Just select a set of layers, right&#8211;click on them and select <em>Create group...</em>. A new group will be created with those layers, using the default style of each of them. For a more fine-grained definition of the group, remember that you can use the <em>Create new group...</em> option in the <em>Groups</em> item</p>
+<p>You can select multiple elements of the same type (i.e. multiple layers), to automate operations. For instance, you can create a new group with a set of selected layers. Just select a set of layers, right–click on them and select <em>Create group…</em>. A new group will be created with those layers, using the default style of each of them. For a more fine-grained definition of the group, remember that you can use the <em>Create new group…</em> option in the <em>Groups</em> item</p>
 </div>
 <div class="section" id="double-clicking-on-tree-items">
 <h2>Double-clicking on tree items<a class="headerlink" href="#double-clicking-on-tree-items" title="Permalink to this headline">¶</a></h2>
@@ -247,7 +248,7 @@
 <img alt="_images/dragdrop_external.png" class="align-center" src="_images/dragdrop_external.png" />
 <p>If the dragged files are not opened in the current QGIS project, no style will be uploaded along with them when publishing to a GeoServer catalog.</p>
 <p>To upload a layer and its style, you can drag and drop an element in the QGIS Layers panel.</p>
-<p>Also, elements from the explorer can be dropped onto the QGIS canvas. GeoServer layers can be dropped onto the QGIS canvas to add them to the project. The corresponding WFS/WCS layer will be created as in the case of using the <em>Add to QGIS project</em> menu option, already described. If a group element is dragged from the Explorer and into the canvas, a WMS layer corresponding to that layer group will be added to the tproject.</p>
+<p>Also, elements from the explorer can be dropped onto the QGIS canvas. GeoServer layers can be dropped onto the QGIS canvas to add them to the project. The corresponding WFS/WCS layer will be created as in the case of using the <em>Add to QGIS project</em> menu option, already described. If a group element is dragged from the Explorer and into the canvas, a WMS layer corresponding to that layer group will be added to the project.</p>
 </div>
 </div>
 
@@ -255,6 +256,7 @@
       <!-- Next/Prev -->
       <div class="selfclear pagination-nav">
           <div class="left"><strong>Previous</strong>: <a href="intro.html" title="previous chapter">Usage</a></div>
+          <div class="right"><strong>Next</strong>: <a href="settingsconf.html" title="next chapter">Plugin settings</a></div>
       </div>
 
   <!--
@@ -285,6 +287,7 @@
         <div class="section">
           <h3>Continue Reading</h3>
           <p style="margin-top:1em"><b>Previous:</b> <a href="intro.html" title="previous chapter">Usage</a></p>
+          <p><b>Next:</b> <a href="settingsconf.html" title="next chapter">Plugin settings</a></p>
           </ul>
         </div>
         <div class="section">
@@ -305,6 +308,9 @@
   <li class="first">
     <a href="genindex.html" title="General Index"
        accesskey="I">index</a></li>
+  <li>
+    <a href="settingsconf.html" title="Plugin settings"
+       accesskey="N">next</a>|</li>
   <li>
     <a href="intro.html" title="Usage"
        accesskey="P">previous</a>|</li>

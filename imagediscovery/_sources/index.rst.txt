@@ -1,0 +1,17 @@
+.. (c) 2016 Boundless, http://boundlessgeo.com
+   This code is licensed under the GPL 2.0 license.
+
+Image Discovery QGIS Plugin documentation
+=========================================
+
+The *Image discovery* is a QGIS plugin that allows to browse and download Planet
+Labs imagery.
+
+Documentation contents:
+
+.. toctree::
+   :maxdepth: 2
+
+   installation
+   usage
+   settingsconf

@@ -1,0 +1,475 @@
+<!--
+ (c) 2016 Boundless, http://boundlessgeo.com
+ This work is licensed under CC-BY-SA 3.0 US License. 
+-->
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : GeoGig Plugin : 4. Viewing Data and Exploring History</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="../_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="../_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="index" title="Index" href="../genindex.html" />
+      <link rel="search" title="Search" href="../search.html" />
+      <link rel="top" title="GeoGig Plugin 1.0.0 documentation" href="../index.html" />
+      <link rel="up" title="User Manual" href="usermanual.html" />
+      <link rel="next" title="5. Editing and Workflow" href="workflow.html" />
+      <link rel="prev" title="3. UI Basics" href="uioverview.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('../_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('../_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('../_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="../_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="http://boundlessgeo.com" rel="home" id="logo"><img src="../_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="../search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>GeoGig Plugin</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="../index.html">GeoGig Plugin</a>
+     &raquo; <a href="usermanual.html" accesskey="U">User Manual</a>
+  
+     &raquo; <a href="">4. Viewing Data and Exploring History</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="viewing-data-and-exploring-history">
+<h1>4. Viewing Data and Exploring History<a class="headerlink" href="#viewing-data-and-exploring-history" title="Permalink to this headline">¶</a></h1>
+<center><iframe src="https://player.vimeo.com/video/298415397#t=17m12s?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<br><a href="https://vimeo.com/295261790">GeoGig Quick Start - Looking At Data</a></center><br>
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+var iframe = document.querySelector('iframe');
+var player = new Vimeo.Player(iframe);
+player.play().then( player.pause() );
+</script><p>In this section, we will be looking at adding GeoGig layers to QGIS and viewing the history of a repository.</p>
+<div class="section" id="geogig-server-vm-sample-data">
+<h2>4.1. GeoGig Server VM sample Data<a class="headerlink" href="#geogig-server-vm-sample-data" title="Permalink to this headline">¶</a></h2>
+<p>The GeoGig Server VM comes with several layers of <a class="reference external" href="http://openstreetmap.org">Open Street Map Data (OSM)</a> from <a class="reference external" href="http://download.geofabrik.de/">Geofabrik.de</a>.</p>
+<p>The dataset consists of these layers for the state of Missouri:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Layer</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Buildings</td>
+<td>Building footprints</td>
+</tr>
+<tr class="row-odd"><td>Roads</td>
+<td>Roads and highways</td>
+</tr>
+<tr class="row-even"><td>water_area</td>
+<td>polygons representing lakes and large rivers</td>
+</tr>
+<tr class="row-odd"><td>water_line</td>
+<td>lines representing rivers</td>
+</tr>
+<tr class="row-even"><td>landuse</td>
+<td>polygons representing primary use of land by humans</td>
+</tr>
+</tbody>
+</table>
+<p>It also contains snapshots of the OSM dataset at 10 points in time:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Snapshot Date</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>January 1, 2014</td>
+</tr>
+<tr class="row-odd"><td>January 1, 2015</td>
+</tr>
+<tr class="row-even"><td>January 1, 2016</td>
+</tr>
+<tr class="row-odd"><td>January 1, 2017</td>
+</tr>
+<tr class="row-even"><td>January 1, 2018</td>
+</tr>
+<tr class="row-odd"><td>July 1, 2018</td>
+</tr>
+<tr class="row-even"><td>August 1, 2018</td>
+</tr>
+<tr class="row-odd"><td>August 16, 2018</td>
+</tr>
+<tr class="row-even"><td>September 1, 2018</td>
+</tr>
+</tbody>
+</table>
+<p>NOTE: these are the state of the actual OSM dataset at these points in time.  The OSM dataset was started in 2004 and is continuously updated.</p>
+</div>
+<div class="section" id="add-a-geogig-layer-to-qgis">
+<h2>4.2. Add a GeoGig Layer to QGIS<a class="headerlink" href="#add-a-geogig-layer-to-qgis" title="Permalink to this headline">¶</a></h2>
+<p>You can add a GeoGig layer to your QGIS project very easily through either the <span class="guilabel">Navigator</span> or the <span class="guilabel">Constellation Viewer</span>.</p>
+<p>You can, also, add an older revision of the dataset using the <span class="guilabel">History Viewer</span> (see below).</p>
+<div class="section" id="in-the-navigator">
+<h3>4.2.1. In the Navigator<a class="headerlink" href="#in-the-navigator" title="Permalink to this headline">¶</a></h3>
+<div class="figure">
+<img alt="../_images/addlayer2.png" src="../_images/addlayer2.png" />
+</div>
+<ol class="arabic simple">
+<li>Use the Navigator’s tree to open the repository that contains the layer you want.</li>
+<li>Look in the <span class="guilabel">Layers</span> folder.</li>
+<li>Either<ul>
+<li>Click either <span class="guilabel">Add to QGIS project (live link)</span> or <span class="guilabel">Add to QGIS project (geopackage)</span> in the info section (below the tree)</li>
+<li>Right-click on the layer you want to add and select either <span class="guilabel">Add to QGIS project (live link)</span> or <span class="guilabel">Add to QGIS project (geopackage)</span>.</li>
+</ul>
+</li>
+</ol>
+<p>See <a class="reference external" href="gpkgandlivelayers.html">GeoPKG Layers</a> for more information about the difference between GeoPKG and Live layers.  See below for how to add historical versions of the dataset.</p>
+</div>
+<div class="section" id="in-the-constellation-viewer">
+<h3>4.2.2. In the Constellation Viewer<a class="headerlink" href="#in-the-constellation-viewer" title="Permalink to this headline">¶</a></h3>
+<div class="figure">
+<img alt="../_images/addLayerConst.png" src="../_images/addLayerConst.png" />
+</div>
+<ol class="arabic simple">
+<li>Use the Navigator to open the <span class="guilabel">Constellation Viewer</span> (right-click on a repository and choose <span class="guilabel">Show Repo Constellation</span>).</li>
+<li>In the the <span class="guilabel">Constellation Viewer</span>, find the repository you want the layer to come from.</li>
+<li>In the Repository’s <span class="guilabel">Layer</span> section, find the layer you are interested in.</li>
+<li>Either<ul>
+<li>Click on the <span class="guilabel">Add as Live Link</span> icon (document connected to network).</li>
+<li>Click on the <span class="guilabel">Download GeoPKG</span> icon (cloud with a arrow pointing down).</li>
+</ul>
+</li>
+</ol>
+<p>See <a class="reference external" href="gpkgandlivelayers.html">GeoPKG Layers</a> for more information about the difference between GeoPKG and Live layers.  See below for how to add historical versions of the dataset.</p>
+</div>
+</div>
+<div class="section" id="viewing-history">
+<h2>4.3. Viewing History<a class="headerlink" href="#viewing-history" title="Permalink to this headline">¶</a></h2>
+<center><iframe id="no2" src="https://player.vimeo.com/video/298415397#t=20m10s?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<br><a href="https://vimeo.com/295261790">GeoGig Quick Start - Viewing History</a></center><br>
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+var iframe = document.querySelector('iframe#no2');
+var player = new Vimeo.Player(iframe);
+player.play().then( player.pause() );
+</script><p>The <span class="guilabel">History Viewer</span> lets you see all the changes made to a repository or layer.  It also allows you to “travel in time” and see what the dataset looked like in the past.</p>
+<p>You can open the <span class="guilabel">History Viewer</span> either from the <span class="guilabel">Navigator</span> window or the <span class="guilabel">Constellation Viewer</span>.
+The history viewer can be either opened at the repository level (showing all changes for all layers) or at an individual layer level (only showing changes that affect a single layer).</p>
+<div class="section" id="the-history-viewer">
+<h3>4.3.1. The History Viewer<a class="headerlink" href="#the-history-viewer" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id3">
+<img alt="../_images/history1.png" src="../_images/history1.png" />
+<p class="caption"><span class="caption-text">The History Viewer</span></p>
+</div>
+<p>The <span class="guilabel">History Viewer</span> has two main parts;</p>
+<ul class="simple">
+<li>Commit Viewer (at the top) - this shows all the commits (changesets) made to the repository/layer</li>
+<li>Commit Details (at the bottom) - there are three tools for looking at a commit’s details (<span class="guilabel">Commit Summary</span>, <span class="guilabel">Map</span>, <span class="guilabel">Attributes</span>)</li>
+</ul>
+</div>
+<div class="section" id="the-history-commit-graph-list">
+<h3>4.3.2. The History (Commit) Graph/List<a class="headerlink" href="#the-history-commit-graph-list" title="Permalink to this headline">¶</a></h3>
+<p>The Commit Graph/List is at the top of the <span class="guilabel">History Viewer</span>.  The main portion has a list of each commit, as well as a graph showing the connection between commits.</p>
+<p>Each commit has the following information:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Graph</td>
+<td>graphical history of commits (i.e. Pull Requests)</td>
+</tr>
+<tr class="row-even"><td>Description</td>
+<td>the description the user entered when making the commit</td>
+</tr>
+<tr class="row-odd"><td>Author</td>
+<td>who made the commit</td>
+</tr>
+<tr class="row-even"><td>Date</td>
+<td>when the commit was made</td>
+</tr>
+<tr class="row-odd"><td>CommitID</td>
+<td>GeoGig unique ID used to identify this commit</td>
+</tr>
+</tbody>
+</table>
+<p>Typically, the branching/merging of the graph indicates what the state of the datasets were when an independent workspace (repository) was created to hold changes for a workflow.  A merging commit in the graph indicates that a Pull Request was made and accepted.  See the <a class="reference external" href="workflow.html">workflow</a> and <a class="reference external" href="../synch.html">synchronization</a> sections and the <a class="reference external" href="https://vimeo.com/295261790">Introduction to GeoGig</a>, <a class="reference external" href="https://vimeo.com/298415397">Quick Start</a>, and <a class="reference external" href="https://vimeo.com/296981752">Synchronization</a> videos for details of interpreting commit history graphs.</p>
+<p>There are also two tools, at the very top;</p>
+<ul class="simple">
+<li>Search Box - this is to help find commits.  Type in some text here to filter the commit list</li>
+<li><span class="guilabel">Show Simplified History</span> - this shows the history as a simple list of changes (all the workflow - merge - commits are not shown)</li>
+</ul>
+</div>
+<div class="section" id="exploring-a-commit">
+<h3>4.3.3. Exploring a Commit<a class="headerlink" href="#exploring-a-commit" title="Permalink to this headline">¶</a></h3>
+<p>The bottom section of the History window shows details about the commit selected in the top (Graph/List) section.</p>
+<p>There are three ways to look at this commit - <span class="guilabel">Commit Summary</span> tab, <span class="guilabel">Map</span> tab, and the <span class="guilabel">Attributes</span> tab.</p>
+<p>The <span class="guilabel">Map</span> and <span class="guilabel">Attributes</span> tab are only available if the commit modified less than 1500 features (for large commits, use the tools available in the <span class="guilabel">Commit Summary</span> tab).</p>
+<div class="section" id="summary-tab">
+<h4>4.3.3.1. Summary Tab<a class="headerlink" href="#summary-tab" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id4">
+<img alt="../_images/history2.png" src="../_images/history2.png" />
+<p class="caption"><span class="caption-text">The Commit Summary tab</span></p>
+</div>
+<p>The <span class="guilabel">Summary</span> tab gives more information about a single commit selected in the Graph/List.  For each layer, it gives you the number of features that that this commit added, deleted, and modified.  It also allows you to;</p>
+<ul class="simple">
+<li><span class="guilabel">Add Live</span> - add a live layer to QGIS that will show the layer as it was after this commit was made (time-travel)</li>
+<li><span class="guilabel">Add GeoPKG</span> - download a GeoPKG layer to QGIS that will show the layer as it was after this commit was made (time-travel)</li>
+<li><span class="guilabel">Export Diff</span> - Add a layer to QGIS that details all the changes to the layer introduced by this commit (see below)</li>
+</ul>
+<p>There is also an <span class="guilabel">Export commit’s DIFF for all layer</span> button that will add a diff layer for each layer modified in the commit (see below).</p>
+</div>
+<div class="section" id="attribute-tab">
+<h4>4.3.3.2. Attribute Tab<a class="headerlink" href="#attribute-tab" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id5">
+<img alt="../_images/history3.png" src="../_images/history3.png" />
+<p class="caption"><span class="caption-text">The Attribute Tab</span></p>
+</div>
+<p>The <span class="guilabel">Attribute</span> tab shows the details of all features changed in a single commit.  It has two parts - the feature tree (left) and change details (right).</p>
+<p>Select a feature in the feature tree and the change details section will show the feature before the commit (<span class="guilabel">Old Value</span>) and after the commit (<span class="guilabel">New Value</span>). This allows you to dive deep into the changes introduced during a commit.</p>
+<p>NOTE: this tab is only available if less than 1500 features were modified by the commit.</p>
+</div>
+<div class="section" id="map-tab">
+<h4>4.3.3.3. Map Tab<a class="headerlink" href="#map-tab" title="Permalink to this headline">¶</a></h4>
+<p>The map view shows an overview map of all the features modified in this commit.</p>
+<p>NOTE: this tab is only available if less than 1500 features were modified by the commit.</p>
+</div>
+</div>
+<div class="section" id="exporting-a-commit-diff">
+<span id="refexportdiff"></span><h3>4.3.4. Exporting a Commit Diff<a class="headerlink" href="#exporting-a-commit-diff" title="Permalink to this headline">¶</a></h3>
+<p>If a commit has a lot of changes, it is beneficial to export the Diff (“Difference”).  This can be done in two ways;</p>
+<ul class="simple">
+<li>Single Commit Diff - press the <span class="guilabel">Export Diff</span> or <span class="guilabel">Export commit’s DIFF for all layer</span> button.  This will show the differences made by a single commit.</li>
+<li>Select two commits in the Graph/List, right-click and select <span class="guilabel">Add DIFF layers to QGIS for these commits</span>.  This will show the differences made between any two commits.</li>
+</ul>
+<div class="figure" id="id6">
+<img alt="../_images/history4.png" src="../_images/history4.png" />
+<p class="caption"><span class="caption-text">Selecting any two commits then right-click to see the differences between them</span></p>
+</div>
+<div class="figure" id="id7">
+<img alt="../_images/history5.png" src="../_images/history5.png" />
+<p class="caption"><span class="caption-text">The resulting diff layer</span></p>
+</div>
+<p>The diff layer will show all the changes in three colors:</p>
+<ul class="simple">
+<li>Adds - in green</li>
+<li>Deletes - in red</li>
+<li>Modification - in two shades of yellow (both the before-change and after-change feature will be shown)</li>
+</ul>
+<div class="figure" id="id8">
+<img alt="../_images/history6.png" src="../_images/history6.png" />
+<p class="caption"><span class="caption-text">Attribute table for the diff layer</span></p>
+</div>
+<p>View the diff layer’s attribute table for more details.  The attribute table will show, for each changed feature, what kind of change was done (Add, Delete, or Modify) - in the “GeoGig.ChangeType” column.  It also shows all the attributes for the feature.  For a modification, there are two entry rows in the attribute table - the feature as it was before the change and the feature as it was after the change.</p>
+<p>NOTE: exporting a large diff can take some time (several minutes).</p>
+</div>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="uioverview.html" title="previous chapter">3. UI Basics</a></div>
+          <div class="right"><strong>Next</strong>: <a href="workflow.html" title="next chapter">5. Editing and Workflow</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2016 Boundless Spatial, Inc.
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">4. Viewing Data and Exploring History</a><ul>
+<li><a class="reference internal" href="#geogig-server-vm-sample-data">4.1. GeoGig Server VM sample Data</a></li>
+<li><a class="reference internal" href="#add-a-geogig-layer-to-qgis">4.2. Add a GeoGig Layer to QGIS</a><ul>
+<li><a class="reference internal" href="#in-the-navigator">4.2.1. In the Navigator</a></li>
+<li><a class="reference internal" href="#in-the-constellation-viewer">4.2.2. In the Constellation Viewer</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#viewing-history">4.3. Viewing History</a><ul>
+<li><a class="reference internal" href="#the-history-viewer">4.3.1. The History Viewer</a></li>
+<li><a class="reference internal" href="#the-history-commit-graph-list">4.3.2. The History (Commit) Graph/List</a></li>
+<li><a class="reference internal" href="#exploring-a-commit">4.3.3. Exploring a Commit</a><ul>
+<li><a class="reference internal" href="#summary-tab">4.3.3.1. Summary Tab</a></li>
+<li><a class="reference internal" href="#attribute-tab">4.3.3.2. Attribute Tab</a></li>
+<li><a class="reference internal" href="#map-tab">4.3.3.3. Map Tab</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#exporting-a-commit-diff">4.3.4. Exporting a Commit Diff</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="uioverview.html" title="previous chapter">3. UI Basics</a></p>
+          <p><b>Next:</b> <a href="workflow.html" title="next chapter">5. Editing and Workflow</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="../_sources/usermanual/addexplore.rst.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="../genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="workflow.html" title="5. Editing and Workflow"
+       accesskey="N">next</a>|</li>
+  <li>
+    <a href="uioverview.html" title="3. UI Basics"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">Copyright &copy; 2016 Boundless Spatial, Inc.</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="../_static/dropdown.js"></script>-->
+
+  </body>
+</html>

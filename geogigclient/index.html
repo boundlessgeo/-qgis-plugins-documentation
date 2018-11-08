@@ -15,8 +15,10 @@
   <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
   <link rel="stylesheet" href="_static/extra.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="index" title="Index" href="genindex.html" />
+      <link rel="search" title="Search" href="search.html" />
       <link rel="top" title="GeoGig Plugin 1.0.0 documentation" href="#" />
-      <link rel="next" title="Usage" href="usage.html" />
+      <link rel="next" title="User Manual" href="usermanual/usermanual.html" />
 <style>
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
@@ -34,7 +36,7 @@
 	<div id="wrapper">
 				<header id="masthead" class="site-header" role="banner">
 			<div class="container">
-				<a href="/" rel="home" id="logo"><img src="_static/logo.png"></a>
+				<a href="http://boundlessgeo.com" rel="home" id="logo"><img src="_static/logo.png"></a>
 				<div class="pull-right">
 					<div class="pull-left">
 						<div class="menu-main-container">
@@ -60,8 +62,6 @@
 
   <div id="content" class="contents">
 <div id="breadcrumbs">
-  <a href="http://boundlessgeo.com/">Home</a> &raquo;
-  <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
   <a href="#">GeoGig Plugin</a>
   
 </div>
@@ -70,52 +70,37 @@
       
   <div class="section" id="geogig-client-plugin-documentation">
 <h1>GeoGig Client plugin documentation<a class="headerlink" href="#geogig-client-plugin-documentation" title="Permalink to this headline">¶</a></h1>
-<p><em>Geogig client</em> is a plugin for QGIS to work with GeoGig repositories using the
-GeoGig Web API.</p>
-<p>GeoGig is an open source tool that draws inspiration from Git, but adapts its
-core concepts to handle distributed versioning of geospatial data. GeoGig is a
-<a class="reference external" href="https://www.locationtech.org/">Locationtech</a>  project, for which Boundless
+<iframe src="https://player.vimeo.com/video/295261790?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<center><a href="https://vimeo.com/295261790">GeoGig WebAPI - Introduction and Basic Workflow</a></center><br><p><em>Geogig client</em> is a plugin for QGIS to work with GeoGig repositories using the
+GeoGig Web API.  GeoGig enables managing, controlling, and understanding change
+for GeoSpatial datasets.  It also provides provides high-level workflows for managing change processes as well as lower level geospatial versioning (drawing inspiration from <em>Git</em>).</p>
+<p>GeoGig-Core is a <a class="reference external" href="https://www.locationtech.org/">Locationtech</a>  project, for which Boundless
 (<a class="reference external" href="http://boundlessgeo.com/">http://boundlessgeo.com/</a>) contributes actively. For more information about
 GeoGig see <a class="reference external" href="http://geogig.org/">http://geogig.org/</a></p>
-<p>Documentation contents:</p>
+<p>The GeoGig-WebAPI and GeoGig-QGIS-plugin are <a class="reference external" href="https://boundlessgeo.com/">Boundless Geo</a> projects.</p>
 <div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#geogig-plugin-interface">GeoGig plugin interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#basic-workflow-single-user-single-repo">Basic workflow (single user / single repo)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#collaboration-workflow-multiple-users-original-repo-forked-repos">Collaboration workflow (multiple users / original repo + forked repos)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#the-constellation-viewer">The constellation viewer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#using-a-layer-from-a-commit-other-that-the-most-recent-one-in-the-repository">Using a layer from a commit other that the most recent one in the repository</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#solving-conflicts">Solving conflicts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usermanual/usermanual.html">User Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usermanual/usermanual.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usermanual/usermanual.html#user-manual-contents">User Manual Contents</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="gpkgandlivelayers.html">Geopackage layers and live layers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="gpkgandlivelayers.html#geopackage-layers">Geopackage layers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gpkgandlivelayers.html#live-layers">Live layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="synch.html">Synchronization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="synch.html#when-to-use-synchronization">When to Use Synchronization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="synch.html#how-to-synchronize">How to Synchronize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="synch.html#interpreting-synchronization-history">Interpreting Synchronization History</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#what-is-geogig">What is GeoGig</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#what-you-need">What you need</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#connecting-to-the-server">Connecting to the server</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#using-a-repository-layer">Using a repository layer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#making-changes">Making changes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#exploring-changes">Exploring changes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#recovering-a-previous-version">Recovering a previous version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#creating-a-repository">Creating a repository</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#adding-data-to-a-repository">Adding data to a repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="disconnect.html">Disconnected Editing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="disconnect.html#disconnected-editing-process">Disconnected Editing Process</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="settingsconf.html">Plugin settings</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="settingsconf.html#general">General</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="vm.html">Install the virtual Machine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="vm.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vm.html#installation">Installation</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="attribution.html">Attribution</a></li>
 </ul>
 </div>
 </div>
@@ -123,7 +108,7 @@ GeoGig see <a class="reference external" href="http://geogig.org/">http://geogig
 
       <!-- Next/Prev -->
       <div class="selfclear pagination-nav">
-          <div class="right"><strong>Next</strong>: <a href="usage.html" title="next chapter">Usage</a></div>
+          <div class="right"><strong>Next</strong>: <a href="usermanual/usermanual.html" title="next chapter">User Manual</a></div>
       </div>
 
   <!--
@@ -136,13 +121,13 @@ GeoGig see <a class="reference external" href="http://geogig.org/">http://geogig
     
         <div class="section">
           <h3>Continue Reading</h3>
-          <p><b>Next:</b> <a href="usage.html" title="next chapter">Usage</a></p>
+          <p><b>Next:</b> <a href="usermanual/usermanual.html" title="next chapter">User Manual</a></p>
           </ul>
         </div>
         <div class="section">
         <h4>This Page</h4>
         <ul class="this-page-menu">
-          <li><a href="_sources/index.txt">Show Source</a></li>
+          <li><a href="_sources/index.rst.txt">Show Source</a></li>
         </ul>
         </div>
 
@@ -158,7 +143,7 @@ GeoGig see <a class="reference external" href="http://geogig.org/">http://geogig
     <a href="genindex.html" title="General Index"
        accesskey="I">index</a></li>
   <li>
-    <a href="usage.html" title="Usage"
+    <a href="usermanual/usermanual.html" title="User Manual"
        accesskey="N">next</a>|</li>
 </ul> -->
   </div> <!-- rightbar_bar -->

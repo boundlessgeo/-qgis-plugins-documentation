@@ -106,10 +106,21 @@ file containing a richer description. For instance:
    lesson = Lesson ("Interpolating from a points layer", "Analysis lessons",
                     "lesson.html")
 
-
 There is no need to add the full path to the description file. As long as the
 file is in the same folder as the :file:`__init__.py` file, the full path
 will be correctly resolved at runtime.
+
+The ``Lesson`` object accepts a tuple with the min/max QGIS version numbers required 
+for the lessons, like this:
+
+.. code-block:: python
+
+   lesson = Lesson ("Interpolating from a points layer", "Analysis lessons",
+                    "lesson.html", version=(2.11, 2.14))
+
+If the current version doesnt match these versions, the lessons will be disabled in the
+lessons selector. If no version information is provided, the lessons will already be
+shown as enabled.
 
 You can also use Markdown files (with the ``md`` extension) instead of HTML
 files. They will be converted to HTML code automatically by the lessons plugin
@@ -175,9 +186,11 @@ Here is a description of its arguments:
 - **endcheck**: a function to check that the step has been executed correctly.
   This function will be run when the lesson moves to the next step. It should
   return ``True`` if the user has correctly performed the task for this
-  step, or false otherwise. In this last case, the plugin will show a
+  step, or ``False`` otherwise. In this last case, the plugin will show a
   warning message and won't let the user move to the next step until the
-  step is correctly completed.
+  step is correctly completed. You can also return a string, in which case, it 
+  will be considered as an error message, and will be shown to the user, without
+  letting him move to the next step.
 - **steptype**: ``Step.MANUALSTEP`` if the step is to be performed
   manually by the user, or ``Step.AUTOMATEDSTEP`` if it's an automated one.
   In this last case, the step will not be shown in the lesson panel's index,
@@ -232,12 +245,12 @@ The name and group name must match the name and group name of the lesson that
 you want to add. Ideally, those lessons should be in the same lessons group as
 the current lesson to ensure that they are installed and available as well.
 
-The ``lessons.utils`` module also include a couple of methods to use in
+The ``lessons.utils`` module also include a few methods to use in ``prestep``,
 ``endsignals``, ``endsignalchecks``, and ``endcheck`` arguments of the
 ``addStep()``:
 
-.. automodule:: utils
-   :members: layerActive, setActiveLayer, layerExists, checkLayerCrs
+.. automodule:: lessons.utils
+   :members: loadLayer, loadLayerNoCrsDialog, copyLessonData, layerActive, setActiveLayer, layerExists, checkLayerCrs
 
 Python example
 ..............

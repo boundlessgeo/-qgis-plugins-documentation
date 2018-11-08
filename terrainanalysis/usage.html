@@ -1,0 +1,567 @@
+<!--
+ (c) 2016 Boundless, http://boundlessgeo.com
+ This work is licensed under CC-BY-SA 3.0 US License. 
+-->
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : Terrain Analysis : Usage</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="index" title="Index" href="genindex.html" />
+      <link rel="search" title="Search" href="search.html" />
+      <link rel="top" title="Terrain Analysis Plugin" href="index.html" />
+      <link rel="prev" title="Installation" href="installation.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="http://boundlessgeo.com" rel="home" id="logo"><img src="_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>Terrain Analysis</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="index.html">Terrain Analysis</a>
+  
+     &raquo; <a href="">Usage</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="usage">
+<span id="id1"></span><h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<p>The <em>Terrain Analysis</em> plugin adds a new toolbar and a similar menu entry with
+fast access to several terrain analysis tools.</p>
+<p>To see the menu items go to <span class="menuselection">Raster ‣ Boundless Terrain Analysis</span>.</p>
+<div class="figure">
+<img alt="_images/menu_items.png" src="_images/menu_items.png" />
+</div>
+<p>To enable (or disable) the <span class="guilabel">Boundless Terrain Analysis</span> toolbar, go to
+<span class="menuselection">View ‣ Toolbars ‣ Boundless Terrain Analysis</span> or , in
+alternative, right-click somewhere in a toolbar area.</p>
+<div class="figure">
+<img alt="_images/enable_toolbar.png" src="_images/enable_toolbar.png" />
+</div>
+<p>If enabled, the <span class="guilabel">Boundless Terrain Analysis</span> toolbar shows in the
+toolbars area.</p>
+<div class="figure">
+<img alt="_images/terrain_analysis_toolbar.png" src="_images/terrain_analysis_toolbar.png" />
+</div>
+<p>The following sections of this document describe each tool’s usage.</p>
+<div class="section" id="slope-slope">
+<h2><a class="reference internal" href="_images/slope.png"><img alt="slope" src="_images/slope.png" style="width: 1.5em;" /></a> Slope<a class="headerlink" href="#slope-slope" title="Permalink to this headline">¶</a></h2>
+<p>The Slope tool calculates the terrain’s slope for each cell of a Digital
+Elevation Model (DEM) raster.</p>
+<p>To use the Slope tool, go to <span class="menuselection">Raster ‣ Boundless Terrain Analysis ‣
+Slope</span> or click the <a class="reference internal" href="_images/slope.png"><img alt="slope" src="_images/slope.png" style="width: 1.5em;" /></a> <span class="guilabel">Slope</span> button in the toolbar. The
+<span class="guilabel">Slope</span> dialog box opens.</p>
+<div class="figure">
+<img alt="_images/slope_dialog.png" src="_images/slope_dialog.png" />
+</div>
+<p>The tool’s parameters are:</p>
+<table border="1" class="colwidths-given non-responsive docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head stub">Option</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><th class="stub">Input Layer</th>
+<td>Selects the raster layer (DEM) from available layers. Clicking the
+<span class="guilabel">…</span> button allows selecting a raster file from disk.</td>
+</tr>
+<tr class="row-odd"><th class="stub">Band number</th>
+<td>Band to use in case the <span class="guilabel">Input Layer</span> is a multiband raster.</td>
+</tr>
+<tr class="row-even"><th class="stub">Compute edges</th>
+<td>Do the computation at raster edges and near nodata values.</td>
+</tr>
+<tr class="row-odd"><th class="stub">Use Zevenbergergen formula</th>
+<td>Use Zevenbergen &amp; Thorne formula, instead of Horn’s formula (the
+default), to compute slope. The literature suggests Zevenbergen &amp;
+Thorne to be more suited to smooth landscapes, whereas Horn’s formula to
+perform better on rougher terrain.</td>
+</tr>
+<tr class="row-even"><th class="stub">Slope Expressed as percent</th>
+<td>Sets output to return slope in percent instead of degrees.</td>
+</tr>
+<tr class="row-odd"><th class="stub">Scale</th>
+<td>ratio of vertical units to horizontal. If the horizontal unit of the
+source DEM is degrees (e.g., Lat/Long WGS84 projection), you can use
+scale=111120 if the vertical units are meters (or scale=370400 if they
+are in feet).</td>
+</tr>
+<tr class="row-even"><th class="stub">Slope</th>
+<td>The output raster file produced. If you don’t provide a name is
+provided, it is saved in a temporary file. Otherwise, the user can
+click the <span class="guilabel">…</span> button and choose <span class="guilabel">Save to file</span>
+to provide a path and name for a permanent file.</td>
+</tr>
+<tr class="row-odd"><th class="stub">Open output file after running algorithm</th>
+<td>Load output slope raster in QGIS.</td>
+</tr>
+</tbody>
+</table>
+<p>The <span class="guilabel">GDAL/OGR console call</span> shows the GDAL command that will be
+used. This command can be used directly on Boundless Desktop’s <em>Command
+Shell</em> or included in a command line script.</p>
+<p>Click <span class="guilabel">Run</span> to run the tool and calculate the slope. If the
+<span class="guilabel">Open output file after running the algorithm</span> is selected, the
+output raster loads in QGIS’s map canvas.</p>
+<p>For more information, see the <a class="reference external" href="gdaldem">GDAL gdaldem module’s help</a>.</p>
+</div>
+<div class="section" id="hillshade-hillshade">
+<h2><a class="reference internal" href="_images/hillshade.png"><img alt="hillshade" src="_images/hillshade.png" style="width: 1.5em;" /></a> Hillshade<a class="headerlink" href="#hillshade-hillshade" title="Permalink to this headline">¶</a></h2>
+<p>The Hillshade tool creates a shading raster normally used as a way to
+simulate relief from a Digital Elevation Model (DEM) raster.</p>
+<p>To use the Hillshade tool, go to <span class="menuselection">Raster ‣ Boundless Terrain Analysis
+‣ Hillshade</span> or click the <a class="reference internal" href="_images/hillshade.png"><img alt="hillshade" src="_images/hillshade.png" style="width: 1.5em;" /></a> <span class="guilabel">Hillshade</span> button in the
+toolbar. The <span class="guilabel">Hillshade</span> dialog box opens.</p>
+<div class="figure">
+<img alt="_images/hillshade_dialog.png" src="_images/hillshade_dialog.png" />
+</div>
+<p>The tool’s parameters are:</p>
+<table border="1" class="colwidths-given non-responsive docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head stub">Option</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><th class="stub">Input Layer</th>
+<td>Selects the raster layer (DEM) from available layers. Clicking the
+<span class="guilabel">…</span> button allows selecting a raster file from disk.</td>
+</tr>
+<tr class="row-odd"><th class="stub">Band number</th>
+<td>Band to use in case the <span class="guilabel">Input Layer</span> is a multiband raster.</td>
+</tr>
+<tr class="row-even"><th class="stub">Compute edges</th>
+<td>Do the computation at raster edges and near nodata values.</td>
+</tr>
+<tr class="row-odd"><th class="stub">Use Zevenbergergen formula</th>
+<td>Use Zevenbergen &amp; Thorne formula, instead of Horn’s formula (the
+default), to compute slope. The literature suggests Zevenbergen &amp;
+Thorne to be more suited to smooth landscapes, whereas Horn’s formula to
+perform better on rougher terrain.</td>
+</tr>
+<tr class="row-even"><th class="stub">Z factor</th>
+<td>vertical exaggeration used to pre-multiply the elevations.</td>
+</tr>
+<tr class="row-odd"><th class="stub">Scale</th>
+<td>ratio of vertical units to horizontal. If the horizontal unit of the
+source DEM is degrees (e.g.,Lat/Long WGS84 projection), you can use
+scale=111120 if the vertical units are meters (or scale=370400 if they
+are in feet).</td>
+</tr>
+<tr class="row-even"><th class="stub">Azimuth of the light</th>
+<td>azimuth of the light, in degrees. 0 if it comes from the top of the
+raster, 90 from the east, … The default value, 315, should rarely be
+changed as it is the value generally used to generate shaded maps.</td>
+</tr>
+<tr class="row-odd"><th class="stub">Altitude of the light</th>
+<td>altitude of the light, in degrees. 90 if the light comes from above
+the DEM, 0 if it is raking light.</td>
+</tr>
+<tr class="row-even"><th class="stub">Hillshade</th>
+<td>The output raster file produced. If you don’t provide a name is
+provided, it is saved in a temporary file. Otherwise, you can click the
+<span class="guilabel">…</span> button and choose <span class="guilabel">Save to file</span> to provide
+a path and name for a permanent file.</td>
+</tr>
+<tr class="row-odd"><th class="stub">Open output file after running algorithm</th>
+<td>Load output hillshade raster in QGIS.</td>
+</tr>
+</tbody>
+</table>
+<p>The <span class="guilabel">GDAL/OGR console call</span> shows the GDAL command that will be
+used. This command can be used directly on Boundless Desktop’s <em>Command
+Shell</em> or included in a command line script.</p>
+<p>Click <span class="guilabel">Run</span> to run the tool and calculate the hillshade. If the
+<span class="guilabel">Open output file after running the algorithm</span> is selected, the
+output raster loads in QGIS’s map canvas.</p>
+<p>For more information, see the <a class="reference external" href="gdaldem">GDAL gdaldem module’s help</a>.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">In the <em>Hillshade</em> layer style properties, you can set the
+<span class="guilabel">Blending mode</span> to <code class="docutils literal notranslate"><span class="pre">Multiply</span></code> to create a strong shadow
+effect over other layers without losing color saturation, which is the
+case when you use transparency instead.</p>
+</div>
+</div>
+<div class="section" id="extract-clip">
+<h2><a class="reference internal" href="_images/extract.png"><img alt="extract" src="_images/extract.png" style="width: 1.5em;" /></a> Clip<a class="headerlink" href="#extract-clip" title="Permalink to this headline">¶</a></h2>
+<p>The clip tool allows extracting a portion of a raster file using a
+particular extent.</p>
+<p>To use the Clip tool, go to <span class="menuselection">Raster ‣ Boundless Terrain Analysis ‣
+Clip</span> or click the <a class="reference internal" href="_images/extract.png"><img alt="extract" src="_images/extract.png" style="width: 1.5em;" /></a> <span class="guilabel">Clip</span> button in the toolbar. The
+<span class="guilabel">Clip raster by extent</span> dialog box opens.</p>
+<div class="figure">
+<img alt="_images/extract_dialog.png" src="_images/extract_dialog.png" />
+</div>
+<p>The tool’s parameters are:</p>
+<table border="1" class="colwidths-given non-responsive docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head stub">Option</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><th class="stub">Input Layer</th>
+<td>Selects the raster layer (DEM) from available layers. Clicking the
+<span class="guilabel">…</span> button allows selecting a raster file from disk.</td>
+</tr>
+<tr class="row-odd"><th class="stub">Nodata value</th>
+<td>Assign a specified nodata value to output bands. If not set the tool
+uses, if any, the nodata values from the input file.</td>
+</tr>
+<tr class="row-even"><th class="stub">Clipping extent</th>
+<td><p class="first">Defines the output extent. Clicking the <span class="guilabel">…</span> button
+shows several options for determining the extent:</p>
+<ul class="last simple">
+<li><span class="guilabel">Use layer/canvas extent</span> - opens a dialog where you
+can choose between getting the extent coordinates from the current map
+canvas or a specific loaded layer specific layer using a
+drop-down menu.</li>
+<li><span class="guilabel">Select extent on canvas</span> - hides the tool’s dialog
+allowing you to draw a rectangle by click-and-drag on the map
+canvas.</li>
+<li><span class="guilabel">Use min covering extent from input layers</span> - uses inputs
+extents (not useful for this tool)</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><th class="stub">Advanced Parameters</th>
+<td>Several parameters for controlling the output’s format. For more
+information, see the <a class="reference external" href="gdal_translate">GDAL gdal_translate module’s help</a>.</td>
+</tr>
+<tr class="row-even"><th class="stub">Clipped</th>
+<td>The output raster file produced. If you don’t provide a name is
+provided, it is saved in a temporary file. Otherwise, you can click the
+<span class="guilabel">…</span> button and choose <span class="guilabel">Save to file</span> to provide
+a path and name for a permanent file.</td>
+</tr>
+<tr class="row-odd"><th class="stub">Open output file after running algorithm</th>
+<td>Load output clipped raster in QGIS.</td>
+</tr>
+</tbody>
+</table>
+<p>The <span class="guilabel">GDAL/OGR console call</span> shows the GDAL command that will be
+used. This command can be used directly on Boundless Desktop’s <em>Command
+Shell</em> or included in a command line script.</p>
+<p>Click <span class="guilabel">Run</span> to run the tool and clip the raster. If the
+<span class="guilabel">Open output file after running the algorithm</span> is selected, the
+output raster loads in QGIS’s map canvas.</p>
+<p>For more information, see the <a class="reference external" href="http://www.gdal.org/gdaldem.html">GDAL gdal_translate module help</a>.</p>
+</div>
+<div class="section" id="aspect-aspect">
+<h2><a class="reference internal" href="_images/aspect.png"><img alt="aspect" src="_images/aspect.png" style="width: 1.5em;" /></a> Aspect<a class="headerlink" href="#aspect-aspect" title="Permalink to this headline">¶</a></h2>
+<p>The Aspect tool calculates the terrain’s slope direction for each cell of a
+Digital Elevation Model (DEM) raster.</p>
+<p>To use the Aspect tool, go to <span class="menuselection">Raster ‣ Boundless Terrain Analysis ‣
+Aspect</span> or click the <a class="reference internal" href="_images/aspect.png"><img alt="aspect" src="_images/aspect.png" style="width: 1.5em;" /></a> <span class="guilabel">Aspect</span> button in the toolbar. The
+<span class="guilabel">Aspect</span> dialog box opens.</p>
+<div class="figure">
+<img alt="_images/slope_dialog.png" src="_images/slope_dialog.png" />
+</div>
+<p>The tool’s parameters are:</p>
+<table border="1" class="colwidths-given non-responsive docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head stub">Option</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><th class="stub">Input Layer</th>
+<td>Selects the raster layer (DEM) from available layers. Clicking the
+<span class="guilabel">…</span> button allows selecting a raster file from disk.</td>
+</tr>
+<tr class="row-odd"><th class="stub">Band number</th>
+<td>Band to use in case the <span class="guilabel">Input Layer</span> is a multiband raster.</td>
+</tr>
+<tr class="row-even"><th class="stub">Compute edges</th>
+<td>Do the computation at raster edges and near nodata values.</td>
+</tr>
+<tr class="row-odd"><th class="stub">Use Zevenbergergen formula</th>
+<td>Use Zevenbergen &amp; Thorne formula, instead of Horn’s formula (the
+default), to compute slope. The literature suggests Zevenbergen &amp;
+Thorne to be more suited to smooth landscapes, whereas Horn’s formula to
+perform better on rougher terrain.</td>
+</tr>
+<tr class="row-even"><th class="stub">Return trigonometric angle</th>
+<td>Return trigonometric angle instead of azimuth. Thus 0° means East, 90°
+North, 180° West, 270° South.</td>
+</tr>
+<tr class="row-odd"><th class="stub">Return 0 for flat</th>
+<td>return 0 for flat areas with slope=0, instead of -9999.</td>
+</tr>
+<tr class="row-even"><th class="stub">Aspect</th>
+<td>The output raster file produced. If you don’t provide a name is
+provided, it is saved in a temporary file. Otherwise, you can click the
+<span class="guilabel">…</span> button and choose <span class="guilabel">Save to file</span> to provide
+a path and name for a permanent file.</td>
+</tr>
+<tr class="row-odd"><th class="stub">Open output file after running algorithm</th>
+<td>Load output aspect raster in QGIS.</td>
+</tr>
+</tbody>
+</table>
+<p>The <span class="guilabel">GDAL/OGR console call</span> shows the GDAL command that will be
+used. This command can be used directly on Boundless Desktop’s <em>Command
+Shell</em> or included in a command line script.</p>
+<p>Click <span class="guilabel">Run</span> to run the tool and calculate the slope. If the
+<span class="guilabel">Open output file after running the algorithm</span> is selected, the
+output raster loads in QGIS’s map canvas.</p>
+<p>For more information, see the <a class="reference external" href="http://www.gdal.org/gdal_translate.html">GDAL gdaldem module help</a>.</p>
+</div>
+<div class="section" id="viewshed-viewshed">
+<h2><a class="reference internal" href="_images/viewshed.png"><img alt="viewshed" src="_images/viewshed.png" style="width: 1.5em;" /></a> Viewshed<a class="headerlink" href="#viewshed-viewshed" title="Permalink to this headline">¶</a></h2>
+<p>The Viewshed tool provides an easy way do determine the viewshed or visible
+areas around an observation point taking in consideration a Digital Elevation
+Model.</p>
+<p>To use the Viewshed tool, in the <span class="guilabel">Layers panel</span>, start by selecting a
+Digital Elevation Model (DEM) raster layer in the Layers Panel, setting it to be
+the active layers. Then, go to <span class="menuselection">Raster ‣ Boundless Terrain Analysis
+‣ Viewshed</span> or click the <a class="reference internal" href="_images/viewshed.png"><img alt="viewshed" src="_images/viewshed.png" style="width: 1.5em;" /></a> <span class="guilabel">Viewshed</span> button in the
+toolbar.</p>
+<p>Then, click on map canvas, over the DEM layer, to determine the position of
+the observation point.</p>
+<div class="figure" id="id3">
+<img alt="_images/viewshed_set_observation_point.png" src="_images/viewshed_set_observation_point.png" />
+<p class="caption"><span class="caption-text">Capturing the observation point</span></p>
+</div>
+<p>The tool computes the viewshed and loads it the map canvas styling it
+automatically. The result is a binary raster, where values of 0 (red) represent
+places not visible from the observation point, and values of 1 (green)
+represent places visible from it.</p>
+<div class="figure" id="id4">
+<img alt="_images/viewshed_result.png" src="_images/viewshed_result.png" />
+<p class="caption"><span class="caption-text">Loaded and styled result</span></p>
+</div>
+</div>
+<div class="section" id="profile-profile">
+<h2><a class="reference internal" href="_images/profile.png"><img alt="profile" src="_images/profile.png" style="width: 1.5em;" /></a> Profile<a class="headerlink" href="#profile-profile" title="Permalink to this headline">¶</a></h2>
+<p>The profile tool creates a terrain profile from a line drawn over a DEM in the
+map canvas.</p>
+<p>To use the Profile tool, in the <span class="guilabel">Layers panel</span>, select a Digital
+Elevation Model (DEM) raster layer. Then, go to <span class="menuselection">Raster ‣
+Boundless Terrain Analysis ‣ Profile</span> or click the <a class="reference internal" href="_images/profile.png"><img alt="profile" src="_images/profile.png" style="width: 1.5em;" /></a> <span class="guilabel">Profile</span> button
+in the toolbar.</p>
+<p>Once the tool is activated, you can draw a line over the DEM layer. Click the
+map canvas to add a vertex. You must add two or more vertexes. While drawing,
+right-click the map canvas to reset the line. Double-click to finish the line.</p>
+<div class="figure">
+<img alt="_images/profile_draw_line.png" src="_images/profile_draw_line.png" />
+</div>
+<p>When you finish the line, it’s saved as a temporary layer. The profile is then
+computed and opens in you default internet browser.</p>
+<div class="figure">
+<img alt="_images/profile_result.png" src="_images/profile_result.png" />
+</div>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="installation.html" title="previous chapter">Installation</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2016, Boundless Spatial
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">Usage</a><ul>
+<li><a class="reference internal" href="#slope-slope"> Slope</a></li>
+<li><a class="reference internal" href="#hillshade-hillshade"> Hillshade</a></li>
+<li><a class="reference internal" href="#extract-clip"> Clip</a></li>
+<li><a class="reference internal" href="#aspect-aspect"> Aspect</a></li>
+<li><a class="reference internal" href="#viewshed-viewshed"> Viewshed</a></li>
+<li><a class="reference internal" href="#profile-profile"> Profile</a></li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="installation.html" title="previous chapter">Installation</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="_sources/usage.rst.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="installation.html" title="Installation"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">Copyright &copy; 2016, Boundless Spatial</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="_static/dropdown.js"></script>-->
+
+  </body>
+</html>

@@ -13,8 +13,9 @@
   <link rel="stylesheet" href="_static/opengeo.css" type="text/css"/>
   <link rel="stylesheet" href="_static/extra.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="index" title="Index" href="genindex.html" />
+      <link rel="search" title="Search" href="search.html" />
       <link rel="top" title="GeoGig Plugin 1.0.0 documentation" href="index.html" />
-      <link rel="prev" title="Plugin settings" href="settingsconf.html" />
 <style>
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
   @font-face { font-family: cantarell; src: url('_static/Cantarell-Bold.ttf'); font-weight:bold; }
@@ -32,7 +33,7 @@
 	<div id="wrapper">
 				<header id="masthead" class="site-header" role="banner">
 			<div class="container">
-				<a href="/" rel="home" id="logo"><img src="_static/logo.png"></a>
+				<a href="http://boundlessgeo.com" rel="home" id="logo"><img src="_static/logo.png"></a>
 				<div class="pull-right">
 					<div class="pull-left">
 						<div class="menu-main-container">
@@ -58,8 +59,6 @@
 
   <div id="content" class="contents">
 <div id="breadcrumbs">
-  <a href="http://boundlessgeo.com/">Home</a> &raquo;
-  <a href="http://boundlessgeo.com/resources/">Resources</a> &raquo;
   <a href="index.html">GeoGig Plugin</a>
   
      &raquo; <a href="">Install the virtual Machine</a>
@@ -68,8 +67,8 @@
   <div id="rightbar_main">
       
   <div class="section" id="install-the-virtual-machine">
-<h1>Install the virtual Machine<a class="headerlink" href="#install-the-virtual-machine" title="Permalink to this headline">¶</a></h1>
-<p>This document contains instrucions for installing the GeoGig virtual machine.</p>
+<span id="ref-vm"></span><h1>Install the virtual Machine<a class="headerlink" href="#install-the-virtual-machine" title="Permalink to this headline">¶</a></h1>
+<p>This document contains instructions for installing the GeoGig virtual machine.</p>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -90,35 +89,35 @@
 </div>
 </li>
 <li><p class="first">Download and install the latest <a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a>. You may keep all defaults during the install.</p>
-<div class="figure">
+<div class="figure" id="id1">
 <img alt="_images/vbox.png" src="_images/vbox.png" />
-<p class="caption">Installing VirtualBox for Windows</p>
+<p class="caption"><span class="caption-text">Installing VirtualBox for Windows</span></p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>During install on Windows, you may see a warning about your network interfaces. <strong>This is expected.</strong> Your network connections will be <em>temporarily</em> disconnected, and automatically reset after installation has completed. So be aware that you don&#8217;t want to be utilizing your network connection (for example, downloading something) during the installation of VirtualBox.</p>
-<div class="last figure">
+<p>During install on Windows, you may see a warning about your network interfaces. <strong>This is expected.</strong> Your network connections will be <em>temporarily</em> disconnected, and automatically reset after installation has completed. So be aware that you don’t want to be utilizing your network connection (for example, downloading something) during the installation of VirtualBox.</p>
+<div class="last figure" id="id2">
 <img alt="_images/vbox_network.png" src="_images/vbox_network.png" />
-<p class="caption">Network Interfaces warning</p>
+<p class="caption"><span class="caption-text">Network Interfaces warning</span></p>
 </div>
 </div>
 </li>
-<li><p class="first">Double-click the VM image file that you downloaded above (with the <tt class="file docutils literal"><span class="pre">.ova</span></tt> file extension). This will import the virtual machine into VirtualBox.</p>
-<div class="figure">
+<li><p class="first">Double-click the VM image file that you downloaded above (with the <code class="file docutils literal notranslate"><span class="pre">.ova</span></code> file extension). This will import the virtual machine into VirtualBox.</p>
+<div class="figure" id="id3">
 <img alt="_images/vbox_import.png" src="_images/vbox_import.png" />
-<p class="caption">Virtual machine details</p>
+<p class="caption"><span class="caption-text">Virtual machine details</span></p>
 </div>
 </li>
-<li><p class="first">Click <em class="guilabel">Import</em> to accept the defaults.</p>
-<div class="figure">
-<img alt="img/vbox_importing.png" src="img/vbox_importing.png" />
-<p class="caption">Importing the virtual machine into VirtualBox</p>
+<li><p class="first">Click <span class="guilabel">Import</span> to accept the defaults.</p>
+<div class="figure" id="id4">
+<img alt="_images/vbox_importing.png" src="_images/vbox_importing.png" />
+<p class="caption"><span class="caption-text">Importing the virtual machine into VirtualBox</span></p>
 </div>
 </li>
-<li><p class="first">You will now see the <em class="guilabel">Boundless GeoGig Dem Server</em> entry in the list of virtual machines in VirtualBox.</p>
-<div class="figure">
+<li><p class="first">You will now see the <span class="guilabel">Boundless GeoGig Dem Server</span> entry in the list of virtual machines in VirtualBox.</p>
+<div class="figure" id="id5">
 <img alt="_images/vbox_imported.png" src="_images/vbox_imported.png" />
-<p class="caption">A successful import of the training virtual machine</p>
+<p class="caption"><span class="caption-text">A successful import of the training virtual machine</span></p>
 </div>
 </li>
 </ol>
@@ -130,27 +129,27 @@
 <div class="admonition-exercise admonition">
 <p class="first admonition-title">Exercise</p>
 <ol class="last arabic">
-<li><p class="first">With the VM successfully imported into VirtualBox, click the <em class="guilabel">General</em> setting link at the top of the VirtualBox Manager window.</p>
+<li><p class="first">With the VM successfully imported into VirtualBox, click the <span class="guilabel">General</span> setting link at the top of the VirtualBox Manager window.</p>
 </li>
-<li><p class="first">In the dialog box that displays, check the value of the <em class="guilabel">Version</em> of the operating system (under the <em class="guilabel">Basic</em> tab). It should say <em class="guilabel">Ubuntu (64-bit)</em>.</p>
-<div class="figure">
+<li><p class="first">In the dialog box that displays, check the value of the <span class="guilabel">Version</span> of the operating system (under the <span class="guilabel">Basic</span> tab). It should say <span class="guilabel">Ubuntu (64-bit)</span>.</p>
+<div class="figure" id="id6">
 <img alt="_images/vbox_hwvirt.png" src="_images/vbox_hwvirt.png" />
-<p class="caption">The version should say &#8220;64-bit&#8221;</p>
+<p class="caption"><span class="caption-text">The version should say “64-bit”</span></p>
 </div>
 </li>
-<li><p class="first">If the field says <em class="guilabel">Ubuntu (64-bit)</em>, then everything is set up properly. Click <em class="guilabel">OK</em> to exit out of the Settings dialog, and <strong>you may skip the next Explore</strong>.</p>
+<li><p class="first">If the field says <span class="guilabel">Ubuntu (64-bit)</span>, then everything is set up properly. Click <span class="guilabel">OK</span> to exit out of the Settings dialog, and <strong>you may skip the next Explore</strong>.</p>
 </li>
-<li><p class="first">If the field says <em class="guilabel">Ubuntu (32-bit)</em> then <em>most likely</em> hardware virtualization is not enabled for your system. Click <em class="guilabel">OK</em> to exit out of the Settings dialog and <strong>continue on to the next Explore</strong>.</p>
-<div class="figure">
+<li><p class="first">If the field says <span class="guilabel">Ubuntu (32-bit)</span> then <em>most likely</em> hardware virtualization is not enabled for your system. Click <span class="guilabel">OK</span> to exit out of the Settings dialog and <strong>continue on to the next Explore</strong>.</p>
+<div class="figure" id="id7">
 <img alt="_images/vbox_hwvirtfail.png" src="_images/vbox_hwvirtfail.png" />
-<p class="caption">If you see &#8220;32-bit&#8221;, then you will need to enable hardware virtualization below</p>
+<p class="caption"><span class="caption-text">If you see “32-bit”, then you will need to enable hardware virtualization below</span></p>
 </div>
 </li>
 </ol>
 </div>
 <div class="admonition-explore admonition">
 <p class="first admonition-title">Explore</p>
-<p>This exercise is only required if you determined that &#8220;hardware virtualization&#8221; is not enabled for your system.</p>
+<p>This exercise is only required if you determined that “hardware virtualization” is not enabled for your system.</p>
 <ol class="arabic">
 <li><p class="first">Reboot your machine and enter your system BIOS.</p>
 <div class="admonition note">
@@ -158,46 +157,46 @@
 <p class="last">Please check with your hardware manufacturer for how to enter your system BIOS.</p>
 </div>
 </li>
-<li><p class="first">Search through the settings and look for an option titled one of &#8220;Hardware Virtualization&#8221;, &#8220;Intel Virtualization&#8221;, &#8220;Virtualization Technology&#8221;, &#8220;Intel VT-x&#8221; or similar setting.</p>
+<li><p class="first">Search through the settings and look for an option titled one of “Hardware Virtualization”, “Intel Virtualization”, “Virtualization Technology”, “Intel VT-x” or similar setting.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">It may be under an &#8220;Advanced&#8221; section.</p>
+<p class="last">It may be under an “Advanced” section.</p>
 </div>
 </li>
-<li><p class="first">Switch the setting to <em class="guilabel">Enabled</em>.</p>
-<div class="figure">
+<li><p class="first">Switch the setting to <span class="guilabel">Enabled</span>.</p>
+<div class="figure" id="id8">
 <img alt="_images/bios.png" src="_images/bios.png" />
-<p class="caption">Sample BIOS image. Your BIOS will likely look different.</p>
+<p class="caption"><span class="caption-text">Sample BIOS image. Your BIOS will likely look different.</span></p>
 </div>
 </li>
 <li><p class="first">Save changes to the BIOS and reboot your computer.</p>
 </li>
-<li><p class="first">Back in your system, remove the VM from your listing by right-clicking the VM and selecting <em class="guilabel">Remove</em>.</p>
-<div class="figure">
+<li><p class="first">Back in your system, remove the VM from your listing by right-clicking the VM and selecting <span class="guilabel">Remove</span>.</p>
+<div class="figure" id="id9">
 <img alt="_images/vbox_remove.png" src="_images/vbox_remove.png" />
-<p class="caption">Removing the VM</p>
+<p class="caption"><span class="caption-text">Removing the VM</span></p>
 </div>
 </li>
-<li><p class="first">When asked what to do with existing files, select <em class="guilabel">Delete all files</em>.</p>
-<div class="figure">
+<li><p class="first">When asked what to do with existing files, select <span class="guilabel">Delete all files</span>.</p>
+<div class="figure" id="id10">
 <img alt="_images/vbox_removedelete.png" src="_images/vbox_removedelete.png" />
-<p class="caption">Deleting VM files</p>
+<p class="caption"><span class="caption-text">Deleting VM files</span></p>
 </div>
 </li>
 <li><p class="first">Double-click the original VM file downloaded to reimport it into Virtualbox.</p>
 </li>
-<li><p class="first">When finished, click the <em class="guilabel">General</em> setting link at the top of the VirtualBox Manager window.</p>
+<li><p class="first">When finished, click the <span class="guilabel">General</span> setting link at the top of the VirtualBox Manager window.</p>
 </li>
-<li><p class="first">In the dialog box that displays, check the value of the <em class="guilabel">Version</em> of the operating system (under the <em class="guilabel">Basic</em> tab). It should say <em class="guilabel">Ubuntu (64-bit)</em>.</p>
-<div class="figure">
+<li><p class="first">In the dialog box that displays, check the value of the <span class="guilabel">Version</span> of the operating system (under the <span class="guilabel">Basic</span> tab). It should say <span class="guilabel">Ubuntu (64-bit)</span>.</p>
+<div class="figure" id="id11">
 <img alt="_images/vbox_hwvirt.png" src="_images/vbox_hwvirt.png" />
-<p class="caption">The version should say &#8220;64-bit&#8221;</p>
+<p class="caption"><span class="caption-text">The version should say “64-bit”</span></p>
 </div>
 </li>
 </ol>
 <div class="last admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If it still does not display &#8220;64-bit&#8221;, then either hardware virtualization was not successfully installed, or there is another issue. Please contact us at <a class="reference external" href="mailto:training-support&#37;&#52;&#48;boundlessgeo&#46;com">training-support<span>&#64;</span>boundlessgeo<span>&#46;</span>com</a> for assistance.</p>
+<p class="last">If it still does not display “64-bit”, then either hardware virtualization was not successfully installed, or there is another issue. Please contact us at <a class="reference external" href="mailto:training-support&#37;&#52;&#48;boundlessgeo&#46;com">training-support<span>&#64;</span>boundlessgeo<span>&#46;</span>com</a> for assistance.</p>
 </div>
 </div>
 </div>
@@ -205,10 +204,6 @@
 </div>
 
 
-      <!-- Next/Prev -->
-      <div class="selfclear pagination-nav">
-          <div class="left"><strong>Previous</strong>: <a href="settingsconf.html" title="previous chapter">Plugin settings</a></div>
-      </div>
 
   <!--
     &copy; Copyright 2016 Boundless Spatial, Inc.
@@ -234,14 +229,9 @@
         <div class="section-footer"></div>
       </div>
         <div class="section">
-          <h3>Continue Reading</h3>
-          <p style="margin-top:1em"><b>Previous:</b> <a href="settingsconf.html" title="previous chapter">Plugin settings</a></p>
-          </ul>
-        </div>
-        <div class="section">
         <h4>This Page</h4>
         <ul class="this-page-menu">
-          <li><a href="_sources/vm.txt">Show Source</a></li>
+          <li><a href="_sources/vm.rst.txt">Show Source</a></li>
         </ul>
         </div>
 
@@ -256,9 +246,6 @@
   <li class="first">
     <a href="genindex.html" title="General Index"
        accesskey="I">index</a></li>
-  <li>
-    <a href="settingsconf.html" title="Plugin settings"
-       accesskey="P">previous</a>|</li>
 </ul> -->
   </div> <!-- rightbar_bar -->
 

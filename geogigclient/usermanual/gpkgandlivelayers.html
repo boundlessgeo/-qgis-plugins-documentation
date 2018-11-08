@@ -1,0 +1,301 @@
+<!--
+ (c) 2016 Boundless, http://boundlessgeo.com
+ This work is licensed under CC-BY-SA 3.0 US License. 
+-->
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : GeoGig Plugin : 7. Geopackage layers and live layers</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="../_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="../_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="index" title="Index" href="../genindex.html" />
+      <link rel="search" title="Search" href="../search.html" />
+      <link rel="top" title="GeoGig Plugin 1.0.0 documentation" href="../index.html" />
+      <link rel="up" title="User Manual" href="usermanual.html" />
+      <link rel="next" title="8. Styles for GeoGig Layers" href="style.html" />
+      <link rel="prev" title="6. Adding Your Own Data to GeoGig" href="newdata.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('../_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('../_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('../_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="../_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="http://boundlessgeo.com" rel="home" id="logo"><img src="../_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="../search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>GeoGig Plugin</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="../index.html">GeoGig Plugin</a>
+     &raquo; <a href="usermanual.html" accesskey="U">User Manual</a>
+  
+     &raquo; <a href="">7. Geopackage layers and live layers</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="geopackage-layers-and-live-layers">
+<h1>7. Geopackage layers and live layers<a class="headerlink" href="#geopackage-layers-and-live-layers" title="Permalink to this headline">¶</a></h1>
+<p>There are two ways of adding a layer from a GeoGig repository to the current QGIS project: using a GeoPackage file and using a Live connection. Although functionality is very similar, each of them represent different approaches with their own pros and cons - described in the sections below.</p>
+<div class="section" id="which-one-should-you-use">
+<h2>7.1. Which one should you use?<a class="headerlink" href="#which-one-should-you-use" title="Permalink to this headline">¶</a></h2>
+<p>In most cases we recommend a Live connection.</p>
+<p>However, you may want to use a GeoPackage if;</p>
+<ul class="simple">
+<li>The Attribute Table difference is important for your analysis (see below)</li>
+<li>Your connection to the GeoGig server is slow</li>
+<li>You want to do <a class="reference external" href="../disconnect.html">Disconnected Editing</a></li>
+</ul>
+</div>
+<div class="section" id="geopackage-layers">
+<h2>7.2. Geopackage layers<a class="headerlink" href="#geopackage-layers" title="Permalink to this headline">¶</a></h2>
+<p>A geopackage layer is an extract of the layer in the GeoGig repository, stored as a GeoPackage file. Once the layer has been downloaded from the server, a connection to that server is not needed, unless changes to the layer want to be committed to the repository.</p>
+<p>The GeoPackage is opened and it behaves in QGIS just like any other file-based layer, allowing both off-line and on-line work.</p>
+<p>The extent of the layer can defined when downloading it, in a dialog like the one shown below.  The entire dataset can, also, be downloaded.</p>
+<div class="figure" id="id1">
+<img alt="../_images/geopkg1.png" src="../_images/geopkg1.png" />
+<p class="caption"><span class="caption-text">Selecting to download the entire dataset or part of it</span></p>
+</div>
+<div class="figure" id="id2">
+<img alt="../_images/geopkg2.png" src="../_images/geopkg2.png" />
+<p class="caption"><span class="caption-text">Right-Click on layer for a GeoPackage layer</span></p>
+</div>
+<p>The extent can be changed at any time, provided that there is connection to the server. Right-click on the layer in the QGIS layers list and select <span class="guilabel">Change layer extent…</span>. The extent selection dialog will be shown and you will be able to select a new extent.  You can also update the geopackage with any changes from the server by using <span class="guilabel">Update to latest revision on server…</span>.</p>
+<p>If there are local uncommitted changes to the GeoPackage, the extent cannot be changed nor can it be updated.</p>
+<div class="figure" id="id3">
+<img alt="../_images/disc11.png" src="../_images/disc11.png" />
+<p class="caption"><span class="caption-text">Hover over a GeoPackage layer to find it’s location on your computer</span></p>
+</div>
+<p>The geopackage files that are created with the repository data are stored at <cite>[base_gpkg_folder]/[username]/[repository_name]/[layer_name]/[id]/[layer_name].gpkg</cite></p>
+<p>That means that, if adding the same layer from a repository to a QGIS project (or different projects) several times, multiple files are created. The <cite>id</cite> part of the filename is an arbitrary string assigned when creating the file.</p>
+<p>The base geopackage folder can be configured in the plugin options (open <span class="guilabel">Plugins/GeoGig/Plugin settings</span>). If not configured, it defaults to <cite>[user_folder]/geogig</cite></p>
+<p>The GeoPackage tracks changes made to it so they can easily be committed to the GeoGig repository at any time.</p>
+</div>
+<div class="section" id="live-layers">
+<h2>7.3. Live layers<a class="headerlink" href="#live-layers" title="Permalink to this headline">¶</a></h2>
+<p>A live layer requires a constant connection to the GeoGig server. The content of the layer depends on the extent currently displayed in the QGIS map canvas and the layer configuration.  Any change in the canvas extent (and also in the layer symbology) will cause the layer content to change. A query to the server is required for this, and the server connection is therefore mandatory. Live layers are not valid for off-line use.</p>
+<p>The mechanism is similar to what happens with a PostGIS database connection.</p>
+<p>For a given resolution and extent, not all data within that extent is retrieved from the server. The download is optimized, so only data relevant at that resolution is downloaded - features will be generalized and some small features removed.  Only features relevant to the current style will be retrieved.</p>
+<p>When editing a live layer, you need to have the real (full-resolution) geometries instead of the simplified ones. For that reason, when you start editing a live layer, the GeoGig plugin will update that layer to get the full geometries (non-generalized), and it will inform you with a message like the one shown below.</p>
+<div class="figure" id="id4">
+<img alt="../_images/geopkg5.png" src="../_images/geopkg5.png" />
+<p class="caption"><span class="caption-text">Warning when starting to edit a Live GeoGig layer</span></p>
+</div>
+<p>You can switch between the full detail mode and the optimized (geometry generalization and some small geometries removed) mode by right-clicking on the layer in the QGIS layers list and selecting <span class="guilabel">Change data optimizations</span>.  In most cases this is not necessary to change, however, if you need the full resolution geometries for analysis then you will need to change this setting to “Full Details.”</p>
+<div class="figure" id="id5">
+<img alt="../_images/geopkg3.png" src="../_images/geopkg3.png" />
+<p class="caption"><span class="caption-text">Live layer data optimizations</span></p>
+</div>
+<p>When using a live layer, local changes - if they are not committed - can only be stored if the project is saved.</p>
+<p>If a live layer is saved as part of a project, the project will automatically connect the layer to the server when re-loaded, so data is downloaded when the layer is first rendered. However, if you haven’t connected to the corresponding repo using the GeoGig Navigator and with the same user, you will have to enter a username and password. Once you are connected to the server, you won’t need to re-enter your credentials during your QGIS session when opening layers that use that connection.</p>
+<div class="section" id="live-layers-and-the-attribute-table">
+<h3>7.3.1. Live layers and the Attribute Table<a class="headerlink" href="#live-layers-and-the-attribute-table" title="Permalink to this headline">¶</a></h3>
+<p>There is a difference between a normal QGIS layer and a GeoGig Live layer.  If you open the Attribute Table for a normal QGIS layer (or a GeoGig GeoPackage layer), you will see ALL the features for the layer.  However, for a Live GeoGig layer you will only see the features that are actually being drawn - those are features that match the style, are visible on the map’s extents, and some small features maybe removed.  Some types of analysis may need all the features - if so, use a GeoPackage connection.</p>
+<p>A GeoGig GeoPackage connection behaves like a normal QGIS layer.</p>
+<div class="figure" id="id6">
+<img alt="../_images/geopkg4.png" src="../_images/geopkg4.png" />
+<p class="caption"><span class="caption-text">Zoomed in on a layer - the Live layer’s Attribute Table only shows a few features</span></p>
+</div>
+<p>The Quick Start video shows this issue:</p>
+<center><iframe frameborder="1" src="https://player.vimeo.com/video/298415397#t=34m30s?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<br><a href="https://vimeo.com/295261790">GeoGig Quick Start - GeoPKG and Live</a></center><br>
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+var iframe = document.querySelector('iframe');
+var player = new Vimeo.Player(iframe);
+player.play().then( player.pause() );
+</script></div>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="newdata.html" title="previous chapter">6. Adding Your Own Data to GeoGig</a></div>
+          <div class="right"><strong>Next</strong>: <a href="style.html" title="next chapter">8. Styles for GeoGig Layers</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2016 Boundless Spatial, Inc.
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">7. Geopackage layers and live layers</a><ul>
+<li><a class="reference internal" href="#which-one-should-you-use">7.1. Which one should you use?</a></li>
+<li><a class="reference internal" href="#geopackage-layers">7.2. Geopackage layers</a></li>
+<li><a class="reference internal" href="#live-layers">7.3. Live layers</a><ul>
+<li><a class="reference internal" href="#live-layers-and-the-attribute-table">7.3.1. Live layers and the Attribute Table</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="newdata.html" title="previous chapter">6. Adding Your Own Data to GeoGig</a></p>
+          <p><b>Next:</b> <a href="style.html" title="next chapter">8. Styles for GeoGig Layers</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="../_sources/usermanual/gpkgandlivelayers.rst.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="../genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="style.html" title="8. Styles for GeoGig Layers"
+       accesskey="N">next</a>|</li>
+  <li>
+    <a href="newdata.html" title="6. Adding Your Own Data to GeoGig"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">Copyright &copy; 2016 Boundless Spatial, Inc.</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="../_static/dropdown.js"></script>-->
+
+  </body>
+</html>

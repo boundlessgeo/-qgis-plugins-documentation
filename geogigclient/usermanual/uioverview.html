@@ -1,0 +1,333 @@
+<!--
+ (c) 2016 Boundless, http://boundlessgeo.com
+ This work is licensed under CC-BY-SA 3.0 US License. 
+-->
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : GeoGig Plugin : 3. UI Basics</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="../_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="../_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="index" title="Index" href="../genindex.html" />
+      <link rel="search" title="Search" href="../search.html" />
+      <link rel="top" title="GeoGig Plugin 1.0.0 documentation" href="../index.html" />
+      <link rel="up" title="User Manual" href="usermanual.html" />
+      <link rel="next" title="4. Viewing Data and Exploring History" href="addexplore.html" />
+      <link rel="prev" title="2. Connecting to the GeoGig Server" href="connecting.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('../_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('../_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('../_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="../_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="http://boundlessgeo.com" rel="home" id="logo"><img src="../_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="../search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>GeoGig Plugin</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="../index.html">GeoGig Plugin</a>
+     &raquo; <a href="usermanual.html" accesskey="U">User Manual</a>
+  
+     &raquo; <a href="">3. UI Basics</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="ui-basics">
+<h1>3. UI Basics<a class="headerlink" href="#ui-basics" title="Permalink to this headline">¶</a></h1>
+<div class="figure" id="id3">
+<img alt="../_images/qs12.png" src="../_images/qs12.png" />
+<p class="caption"><span class="caption-text">Main GeoGig UI Components</span></p>
+</div>
+<table border="1" class="colwidths-given docutils" id="id4">
+<caption><span class="caption-text">Main GeoGig UI Components</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Navigator</td>
+<td>Provides a hierarchical view of several GeoGig servers and all their components (repositories, layers, and pull requests).  Good for exploring repositories and provides full functionality.</td>
+</tr>
+<tr class="row-even"><td>Constellation</td>
+<td>Provides a graphical view of a single set of related repositories.  Good for understanding connections between repositories and doing workflow related tasks.</td>
+</tr>
+<tr class="row-odd"><td>Right-Click Layer Menu</td>
+<td>Provides access to layer specific information and tools.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="the-navigator">
+<h2>3.1. The Navigator<a class="headerlink" href="#the-navigator" title="Permalink to this headline">¶</a></h2>
+<p>The <span class="guilabel">Navigator</span> is typically located on the right side of the main QGIS window.  You can hide/view the Navigator by selecting <span class="menuselection">Plugins ‣ GeoGig ‣ GeoGig Navigator</span>.</p>
+<div class="figure" id="id5">
+<img alt="../_images/nav1.png" src="../_images/nav1.png" />
+<p class="caption"><span class="caption-text">The Navigator panel is normally located to the right of the main QGIS window</span></p>
+</div>
+<p>The <span class="guilabel">Navigator</span> windows consists of two parts:</p>
+<ul class="simple">
+<li>a tree at the top showing a hierarchical view of GeoGig servers and their components (repositories, layers, pull requests)</li>
+<li>information and commands in the bottom panel for the selected object in the tree</li>
+</ul>
+<p>The commands shown in the bottom portion are also available by right-clicking on an item in the tree.</p>
+<div class="figure" id="id6">
+<img alt="../_images/qs13.png" src="../_images/qs13.png" />
+<p class="caption"><span class="caption-text">Overview of the Navigator</span></p>
+</div>
+<p>The <span class="guilabel">Navigator</span> tree’s hierarchy is show in the this diagram:</p>
+<div class="figure" id="id7">
+<img alt="../_images/qs14.png" src="../_images/qs14.png" />
+<p class="caption"><span class="caption-text">The Navigator Tree</span></p>
+</div>
+<p>The <span class="guilabel">My repos</span> folder shows the repositories that you (the logged in user) own.  The <span class="guilabel">Users</span> folder shows repositories that other people own.  Repositories are the basic unit in GeoGig - they contain multiple layers and workflow operations are based on them.</p>
+</div>
+<div class="section" id="repo-constellation">
+<h2>3.2. Repo Constellation<a class="headerlink" href="#repo-constellation" title="Permalink to this headline">¶</a></h2>
+<p>When working with several repositories, a helpful tool is the :guilabel:` Constellation Viewer`. It shows a global view of all the repositories that are related (forked).  It makes it easy to view difference between related repositories and move changes between them.  The :guilabel:` Constellation Viewer` shows the parent-child relationship (“fork”) between repositories, as well as highlights changes (<span class="guilabel">Status</span>) between parent-child repositories.  This makes is idea for workflow operations (moving changes between repositories).</p>
+<p>Repositories in a constellation can belong to different users.</p>
+<p>To open the :guilabel:` Constellation Viewer` with the constellation corresponding to a given repository, right-click on the repository item (in the <span class="guilabel">Navigator</span>) and select <span class="guilabel">Show repo constellation</span></p>
+<div class="figure" id="id8">
+<img alt="../_images/constellation1.png" src="../_images/constellation1.png" />
+<p class="caption"><span class="caption-text">Constellation Viewer</span></p>
+</div>
+<p>You can manipulate repositories and layers in the <span class="guilabel">Constellation Viewer</span> much like you do in the <span class="guilabel">Navigator</span>; both have similar functionality.</p>
+<p>The repository that you selected in the <span class="guilabel">Navigator</span> (the one selected when you chose <span class="guilabel">Show repo constellation</span>) is displayed with a red border. Repositories that belong to the logged user are displayed with a green border.  Repositories owned by others have a black border.</p>
+<p>Repositories belonging to the logged user have more functionality enabled than those that belong to a different user.</p>
+<div class="figure" id="id9">
+<img alt="../_images/constellation2.png" src="../_images/constellation2.png" />
+<p class="caption"><span class="caption-text">Constellation Viewer Details for a Single Repository</span></p>
+</div>
+<p>All the tools that are available in the <span class="guilabel">Navigator</span> are available in the <span class="guilabel">Constellation Viewer</span>.</p>
+</div>
+<div class="section" id="right-click-on-layer">
+<h2>3.3. Right-click on Layer<a class="headerlink" href="#right-click-on-layer" title="Permalink to this headline">¶</a></h2>
+<p>There are a few specific tools available for layers.  You can access these tools by right-clicking on the layer (in the QGIS <span class="guilabel">Layers</span> panel) and selecting the <span class="guilabel">GeoGig</span> sub-menu.</p>
+<div class="figure" id="id10">
+<img alt="../_images/rightclicklayer1.png" src="../_images/rightclicklayer1.png" />
+<p class="caption"><span class="caption-text">Layer specific GeoGig tools</span></p>
+</div>
+<table border="1" class="colwidths-given docutils" id="id11">
+<caption><span class="caption-text">Available Tools</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Show Repo Constellation</td>
+<td>Open the Constellation (selects the repository this layer is a part of)</td>
+</tr>
+<tr class="row-even"><td>Revert Local Changes</td>
+<td>Undo/delete any local changes you have (uncommited changes)</td>
+</tr>
+<tr class="row-odd"><td>Show Local Changes</td>
+<td>Show local changes you have (uncommited changes)</td>
+</tr>
+<tr class="row-even"><td>Commit Local Changes</td>
+<td>Commit (to the GeoGig repository) any local changes you have (uncommited changes)</td>
+</tr>
+<tr class="row-odd"><td>Save Layer Style as Default Style</td>
+<td>Set this layer’s style as the default style for the layer for this repository (see <a class="reference external" href="style.html">default styles</a>)</td>
+</tr>
+<tr class="row-even"><td>Change Layer Extent (GeoPKG only)</td>
+<td>Re-get a subset of data from the GeoGig server (see <a class="reference external" href="gpkgandlivelayers.html">GeoPKG Layers</a>)</td>
+</tr>
+<tr class="row-odd"><td>Update to latest revision from server (GeoPKG only)</td>
+<td>Apply changes from the GeoGig server (see <a class="reference external" href="gpkgandlivelayers.html">GeoPKG Layers</a>) to the GeoPKG</td>
+</tr>
+<tr class="row-even"><td>Change Data Optimization (Live only)</td>
+<td>Turn on/off data optimization for the Live Layers (see <a class="reference external" href="gpkgandlivelayers.html">GeoPKG Layers</a>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="connecting.html" title="previous chapter">2. Connecting to the GeoGig Server</a></div>
+          <div class="right"><strong>Next</strong>: <a href="addexplore.html" title="next chapter">4. Viewing Data and Exploring History</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2016 Boundless Spatial, Inc.
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">3. UI Basics</a><ul>
+<li><a class="reference internal" href="#the-navigator">3.1. The Navigator</a></li>
+<li><a class="reference internal" href="#repo-constellation">3.2. Repo Constellation</a></li>
+<li><a class="reference internal" href="#right-click-on-layer">3.3. Right-click on Layer</a></li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="connecting.html" title="previous chapter">2. Connecting to the GeoGig Server</a></p>
+          <p><b>Next:</b> <a href="addexplore.html" title="next chapter">4. Viewing Data and Exploring History</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="../_sources/usermanual/uioverview.rst.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="../genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="addexplore.html" title="4. Viewing Data and Exploring History"
+       accesskey="N">next</a>|</li>
+  <li>
+    <a href="connecting.html" title="2. Connecting to the GeoGig Server"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">Copyright &copy; 2016 Boundless Spatial, Inc.</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="../_static/dropdown.js"></script>-->
+
+  </body>
+</html>

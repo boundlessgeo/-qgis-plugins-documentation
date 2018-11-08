@@ -1,0 +1,291 @@
+<!--
+ (c) 2016 Boundless, http://boundlessgeo.com
+ This work is licensed under CC-BY-SA 3.0 US License. 
+-->
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Boundless : GeoGig Plugin : 6. Adding Your Own Data to GeoGig</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="stylesheet" href="../_static/opengeo.css" type="text/css"/>
+  <link rel="stylesheet" href="../_static/extra.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="index" title="Index" href="../genindex.html" />
+      <link rel="search" title="Search" href="../search.html" />
+      <link rel="top" title="GeoGig Plugin 1.0.0 documentation" href="../index.html" />
+      <link rel="up" title="User Manual" href="usermanual.html" />
+      <link rel="next" title="7. Geopackage layers and live layers" href="gpkgandlivelayers.html" />
+      <link rel="prev" title="5. Editing and Workflow" href="workflow.html" />
+<style>
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Oblique.ttf'); font-weight:oblique; }
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Bold.ttf'); font-weight:bold; }
+  @font-face { font-family: cantarell; src: url('../_static/Cantarell-Regular.ttf'); }
+  @font-face { font-family: proxima-nova-light; src: url('../_static/ProximaNova-Light.ttf'); }
+  @font-face { font-family: proxima-nova-semibold; src: url('../_static/ProximaNova-SBold.ttf'); }
+  @font-face { font-family: Source Code Pro; src: url('../_static/SourceCodePro-Regular.ttf'); }
+</style>
+
+<link rel="stylesheet" id="style-css" href="../_static/style.css" type="text/css" media="all">
+
+</head>
+<body class="page">
+
+	<div id="wrapper">
+				<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<a href="http://boundlessgeo.com" rel="home" id="logo"><img src="../_static/logo.png"></a>
+				<div class="pull-right">
+					<div class="pull-left">
+						<div class="menu-main-container">
+						</div>
+					</div>
+					<!--
+					<div class="search dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="search-icon"></i></a>
+						  <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						        <form class="search" action="../search.html" method="get">
+						          <label for="q" class="screen-reader-text">Search</label>
+						          <input type="text" class="field" name="q" placeholder="Search …" />
+						          <input type="submit" class="submit" value="Go" />
+						          <input type="hidden" name="check_keywords" value="yes" />
+						          <input type="hidden" name="area" value="default" />
+						        </form>
+						  </div>
+					</div>-->
+				</div>
+			</div><!--closes container-->
+
+		</header><div id="pageheading"><div class="contents"><h1>GeoGig Plugin</h1></div></div>
+
+  <div id="content" class="contents">
+<div id="breadcrumbs">
+  <a href="../index.html">GeoGig Plugin</a>
+     &raquo; <a href="usermanual.html" accesskey="U">User Manual</a>
+  
+     &raquo; <a href="">6. Adding Your Own Data to GeoGig</a>
+</div>
+
+  <div id="rightbar_main">
+      
+  <div class="section" id="adding-your-own-data-to-geogig">
+<h1>6. Adding Your Own Data to GeoGig<a class="headerlink" href="#adding-your-own-data-to-geogig" title="Permalink to this headline">¶</a></h1>
+<center><iframe frameborder="1" src="https://player.vimeo.com/video/298415397#t=41m35s?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<br><a href="https://vimeo.com/295261790">GeoGig Quick Start - Installation</a></center><br>
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+var iframe = document.querySelector('iframe');
+var player = new Vimeo.Player(iframe);
+player.play().then( player.pause() );
+</script><p>Using the GeoGig QGIS plugin you can add your own data (vector layers only) to a GeoGig server, and then work normally with it (editing layers, committing new versions to the repository, performing workflow operations, and exploring history).</p>
+<div class="section" id="creating-an-empty-repository">
+<h2>6.1. Creating an Empty Repository<a class="headerlink" href="#creating-an-empty-repository" title="Permalink to this headline">¶</a></h2>
+<p>You can add new layers to an existing repository which already contains other layers. However, we will start fresh and create an empty repo to contain your data.</p>
+<p>To create a new empty repository, right-click on the <span class="guilabel">My repos</span> item of the server and select <span class="guilabel">Create repository</span>. Provide a name to describe the repository, click on <span class="guilabel">OK</span>, and the repo will be added.</p>
+<p>The new repository contains no data and no commits.</p>
+</div>
+<div class="section" id="importing-a-layer">
+<h2>6.2. Importing a Layer<a class="headerlink" href="#importing-a-layer" title="Permalink to this headline">¶</a></h2>
+<p>In order to import a layer to a GeoGig repository, first load it into QGIS (<span class="guilabel">Layer -&gt; Add Layer -&gt; Add Vector Layer</span>). All data sources are supported. The GeoGig plugin will take care of sending your feature data in the correct format that is supported by GeoGig.</p>
+<p>Right-click the repository item in the <span class="guilabel">Navigator</span> and select <span class="guilabel">Add layer</span>. You will see the following dialog.</p>
+<div class="figure">
+<img alt="../_images/addlayer.png" src="../_images/addlayer.png" />
+</div>
+<p>At the top, select the layer you want to export to GeoGig, enter a commit message, and click on <span class="guilabel">OK</span>.  GeoGig will send the data to repository.</p>
+<p>The layer content is now in the repository, and you have created the first commit. The current style of the layer has also been uploaded to the repository and set as the default one for that layer (see <a class="reference external" href="style.html">Saving Styles</a>).</p>
+<p>If you look at the repository history, the log contains the commit you just made.</p>
+<p>If you want to do further work with the layer that you just added, you cannot use the original layer anymore. Instead, you have to work with a layer that is linked to the repository.</p>
+<p>Close your current QGIS project and start a new blank one, then add the layer from the repository.</p>
+</div>
+<div class="section" id="creating-the-qa-qc-workflow-repositories">
+<h2>6.3. Creating the QA/QC Workflow Repositories<a class="headerlink" href="#creating-the-qa-qc-workflow-repositories" title="Permalink to this headline">¶</a></h2>
+<p>If you want to follow the QA/QC workflow, you will not want to work directly against the repository that you just created and populated with your new layer. Instead, you need other (linked) repositories that contain the same data and support creating Pull Requests to move changes across repositories using the <a class="reference external" href="workflow.html">QA/QC workflow</a> (Work Repository -&gt; QA/QC Repository -&gt; Gold/Published Repository).</p>
+<p>To create these intermediate repositories, you have to fork the original one. Forking a repository means creating an identical copy of the repository, with the same history and data, that is linked to the original one (in the same repository constellation). Each forked repository is independent, and can have its own history and changes.</p>
+<p>To fork a repository, select the corresponding repository item in the <span class="guilabel">Navigator</span>, right-click on it and select <span class="guilabel">Fork repository</span>. You will be prompted to enter the name of the forked repository (for instance, “QA/QC repository).</p>
+<p>The forked repository will belong to the user that is logged in when performing the clone operation.</p>
+<p>The forked repository can be itself forked following the same procedure that we just described.</p>
+<ol class="arabic simple">
+<li>Login as the “administrator” user (password - administrator)</li>
+<li>Create a repository (likely named with either “GOLD” or “PUBLISHED” in the title)</li>
+<li>Add your layer(s) to this repository (see above)</li>
+<li>Login as the “QAQC” user (password - qaqaqa)</li>
+<li>Fork the repository you created in step 2:<ul>
+<li>In the <span class="guilabel">Navigator</span>, open the <span class="guilabel">Users</span> folder</li>
+<li>Open the <span class="guilabel">administator</span> folder</li>
+<li>Select the repository you created in step 2</li>
+<li>Right-Click and select <span class="guilabel">Fork repository…</span></li>
+<li>Give the repository a name (likely with “QAQC” in the name)</li>
+</ul>
+</li>
+<li>Login as the “GISAnalyst” user (password - gisgis)</li>
+<li>Fork the repository you created in step 5:<ul>
+<li>In the <span class="guilabel">Navigator</span>, open the <span class="guilabel">Users</span> folder</li>
+<li>Open the <span class="guilabel">QAQC</span> folder</li>
+<li>Select the repository you created in step 5</li>
+<li>Right-Click and select <span class="guilabel">Fork repository…</span></li>
+<li>Give the repository a name (i.e. “WorkArea1”)</li>
+</ul>
+</li>
+</ol>
+<p>At this stage, you can add the layer from the GISAnalyst’s repository and go through normal workflow operations.</p>
+<div class="figure" id="id1">
+<img alt="../_images/add1.png" src="../_images/add1.png" />
+<p class="caption"><span class="caption-text">The QA/QC Workflow repositories</span></p>
+</div>
+</div>
+</div>
+
+
+      <!-- Next/Prev -->
+      <div class="selfclear pagination-nav">
+          <div class="left"><strong>Previous</strong>: <a href="workflow.html" title="previous chapter">5. Editing and Workflow</a></div>
+          <div class="right"><strong>Next</strong>: <a href="gpkgandlivelayers.html" title="next chapter">7. Geopackage layers and live layers</a></div>
+      </div>
+
+  <!--
+    &copy; Copyright 2016 Boundless Spatial, Inc.
+  -->
+
+  </div> <!-- rightbar_main -->
+
+  <div id="rightbar_bar">
+    
+      <div id="toc" class="section">
+        <h4 class="pngfix">Table Of Contents</h4>
+        <ul>
+<li><a class="reference internal" href="#">6. Adding Your Own Data to GeoGig</a><ul>
+<li><a class="reference internal" href="#creating-an-empty-repository">6.1. Creating an Empty Repository</a></li>
+<li><a class="reference internal" href="#importing-a-layer">6.2. Importing a Layer</a></li>
+<li><a class="reference internal" href="#creating-the-qa-qc-workflow-repositories">6.3. Creating the QA/QC Workflow Repositories</a></li>
+</ul>
+</li>
+</ul>
+
+        <div class="section-footer"></div>
+      </div>
+        <div class="section">
+          <h3>Continue Reading</h3>
+          <p style="margin-top:1em"><b>Previous:</b> <a href="workflow.html" title="previous chapter">5. Editing and Workflow</a></p>
+          <p><b>Next:</b> <a href="gpkgandlivelayers.html" title="next chapter">7. Geopackage layers and live layers</a></p>
+          </ul>
+        </div>
+        <div class="section">
+        <h4>This Page</h4>
+        <ul class="this-page-menu">
+          <li><a href="../_sources/usermanual/newdata.rst.txt">Show Source</a></li>
+        </ul>
+        </div>
+
+   <h4>About Boundless</h4>
+   <p>Boundless provides <a href="http://boundlessgeo.com/solutions/">commercial open source software</a> for internet mapping and geospatial application development. We are dedicated to the growth and support of open source software.</p>
+
+    <h4>License</h4>
+    <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.  Feel free to use this material, but we ask that you please retain the Boundless branding, logos and style.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a></p>
+<!--
+<ul id="relatedlinks" class="selfclear">
+  <li class="first">
+    <a href="../genindex.html" title="General Index"
+       accesskey="I">index</a></li>
+  <li>
+    <a href="gpkgandlivelayers.html" title="7. Geopackage layers and live layers"
+       accesskey="N">next</a>|</li>
+  <li>
+    <a href="workflow.html" title="5. Editing and Workflow"
+       accesskey="P">previous</a>|</li>
+</ul> -->
+  </div> <!-- rightbar_bar -->
+
+  </div> <!-- content -->
+  <div id="footer">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+		<!--
+			<div class="row">
+				<div class="span2">
+					<h5>Solutions</h5>
+					<div class="footer-solutions-menu">
+						<ul id="menu-solutions" class="menu">
+							<li><a href="http://boundlessgeo.com/solutions/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/opengeo-suite/">OpenGeo Suite</a></li>
+							<li><a href="http://boundlessgeo.com/mapmeter/">MapMeter</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-software/">By Software</a></li>
+							<li><a href="http://boundlessgeo.com/solutions/solutions-industry/">By Industry</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>Resources</h5>
+					<div class="footer-resources-menu">
+						<ul id="menu-resources" class="menu">
+							<li><a href="http://boundlessgeo.com/resources/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/trainings/">Trainings</a></li>
+							<li><a href="http://boundlessgeo.com/resources/workshops/">Workshops</a></li>
+							<li><a href="http://boundlessgeo.com/documentation/">Documentation</a></li>
+							<li><a href="http://boundlessgeo.com/case-studies/">Case Studies</a></li>
+							<li><a href="http://boundlessgeo.com/resources/white-papers/">White Papers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/tours/">Tours</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="span2">
+					<h5>About Us</h5>
+					<div class="footer-about-menu">
+						<ul id="menu-about-menu" class="menu">
+							<li><a href="http://boundlessgeo.com/about/">Overview</a></li>
+							<li><a href="http://boundlessgeo.com/resources/contact/">Contact</a></li>
+							<li><a href="http://boundlessgeo.com/about/team/">Team</a></li>
+							<li><a href="http://boundlessgeo.com/resources/careers/">Careers</a></li>
+							<li><a href="http://boundlessgeo.com/resources/partners/">Partners</a></li>
+							<li><a href="http://boundlessgeo.com/blog/">Blog</a></li>
+							<li><a href="http://boundlessgeo.com/resources/news/">News &amp; Media</a></li>
+</ul></div>				</div>
+
+				<div class="span6 site-info">
+
+					<div class="row-fluid">
+						<div class="span6">
+							<h5>Contact</h5>
+							<p class="address">
+								<span>155 Water Street, Suite 4-10</span>
+								<span>Brooklyn, NY 11201</span>
+								<span>1-877-OPENGEO</span>
+								<span>ddubovsky@opengeo.org</span>
+							</p>
+						</div>
+						<div class="span6">
+							<span class="social"><i class="twitter"></i><a href="https://twitter.com/opengeo" target="_blank">Follow us on Twitter</a></span>
+							<span class="social"><i class="linkedIn"></i><a href="http://www.linkedin.com/company/opengeo" target="_blank">Follow us on Linkedin</a></span>
+							<span class="social"><i class="email"></i>Subscribe to our Newsletter</span>
+							<div>
+								<iframe seamless src="http://info.opengeo.org/email.html" sandbox="allow-forms" scrolling="no"></iframe>
+   							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="span12 footer-sub-menu">
+					<div class="menu-footer-menu-container">
+						<ul id="menu-footer-menu" class="menu">
+							<li>
+    <a href="http://boundlessgeo.com/">Copyright &copy; 2016 Boundless Spatial, Inc.</a>
+							</li>
+							<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  </div><!-- footer -->
+
+</div><!-- container -->
+
+<!--<script type="text/javascript" src="../_static/dropdown.js"></script>-->
+
+  </body>
+</html>

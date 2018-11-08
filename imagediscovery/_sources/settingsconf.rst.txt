@@ -1,0 +1,40 @@
+.. _imagediscovery_plugin_settings:
+
+Plugin settings
+===============
+
+The plugin can be adjusted using the following settings, to be found in its settings dialog (:menuselection:`Raster --> Image discovery --> Plugin settings...`).
+
+General
+-------
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 20 80
+   :class: non-responsive
+
+   * - Option
+     - Description
+   * - API endpoint
+     - URL of the Planet Labs API endpoint
+   * - API Key
+     - Planet Labs API key
+   * - Thumbnails location
+     - Default location of the downloaded thumbnails
+   * - Imagery location
+     - Default location of the downloaded imagery
+
+Image discovery
+---------------
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 20 80
+   :class: non-responsive
+
+   * - Option
+     - Description
+   * - Asset type
+     - Asset type to search for
