@@ -69,7 +69,7 @@
       
   <div class="section" id="usage">
 <h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
-<p>The <em>MIL-STD-2525</em> adds support for MIL-STD-2525 - a standard for joint military symbology - in QGIS. In MIL-STD-2525, marker symbols are composed of several levels of information (for example, <em>StandardIdentity1</em>, <em>Status</em>, <em>Icon</em>, and so on). Each level&#8217;s options are represented by a unique set of one or more digits. These codes are concatenated into a unique Symbol Identification Code (SIDC) that will determine the look of the final symbol.</p>
+<p>The <em>MIL-STD-2525</em> plugin adds support for MIL-STD-2525 - a standard for joint military symbology - in QGIS. In MIL-STD-2525, marker symbols are composed of several levels of information (for example, <em>StandardIdentity1</em>, <em>Status</em>, <em>Icon</em>, and so on). Each level’s options are represented by a unique set of one or more digits. These codes are concatenated into a unique Symbol Identification Code (SIDC) that will determine the look of the final symbol.</p>
 <p>̣This plugin adds two new capabilities to QGIS:</p>
 <ul class="simple">
 <li>A custom renderer for styling point vector layers with SIDC codes in one of its attributes.</li>
@@ -77,20 +77,20 @@
 </ul>
 <div class="section" id="custom-renderer">
 <h2>Custom Renderer<a class="headerlink" href="#custom-renderer" title="Permalink to this headline">¶</a></h2>
-<p>The custom renderer will allow styling vector point layers using SIDC codes from one of the layer&#8217;s attributes.</p>
+<p>The custom renderer will allow styling vector point layers using SIDC codes from one of the layer’s attributes.</p>
 <p>In the <span class="guilabel">Style</span> tab of the <span class="guilabel">Layer Properties</span> dialog, you will find a new renderer named <em>MIL-STD-2525</em>.</p>
 <div class="figure">
 <img alt="_images/rendererEntry.png" src="_images/rendererEntry.png" />
 </div>
 <p>The renderer has two configuration parameters:</p>
 <ul class="simple">
-<li><span class="guilabel">SIDC code field</span>, to set the layer&#8217;s attribute with the SIDCs (Symbol identification code) to build the markers for each point feature. The field must be of the type String, with at least 20 characters.</li>
+<li><span class="guilabel">SIDC code field</span>, to set the layer’s attribute with the SIDCs (Symbol identification code) to build the markers for each point feature. The field must be of the type String, with at least 20 characters.</li>
 <li><span class="guilabel">Symbol size</span>, to set rendering size of the markers, in pixels.</li>
 </ul>
 <div class="figure">
 <img alt="_images/symbologyDialog.png" src="_images/symbologyDialog.png" />
 </div>
-<p>Once the renderer is active, the layer&#8217;s point features are rendered as markers using the codes from the selected attribute.</p>
+<p>Once the renderer is active, the layer’s point features are rendered as markers using the codes from the selected attribute.</p>
 <div class="figure">
 <img alt="_images/renderedLayer.png" src="_images/renderedLayer.png" />
 </div>
@@ -99,7 +99,7 @@
 <div class="section" id="custom-edit-widget">
 <h2>Custom edit widget<a class="headerlink" href="#custom-edit-widget" title="Permalink to this headline">¶</a></h2>
 <p>The custom field edit widget helps to enter SIDC codes in the feature form and attribute table, with a marker preview.</p>
-<p>To set the edit widget to a layer&#8217;s field, open the <span class="guilabel">Layer Properties</span> dialog of the layer, and go to the <span class="guilabel">Fields</span> tab. In the <span class="guilabel">Fields</span> group, for the field that you want to use to store SIDC codes, click on the button in the <span class="guilabel">Edit widget</span> column. The <span class="guilabel">Edit Widget Properties</span> dialog will open. Select the <span class="guilabel">SIDC code editor</span> option from the list of widgets and click <span class="guilabel">OK</span>. Finally, close the <span class="guilabel">Layer Properties</span> dialog by clicking <span class="guilabel">OK</span>.</p>
+<p>To set the edit widget to a layer’s field, open the <span class="guilabel">Layer Properties</span> dialog of the layer, and go to the <span class="guilabel">Fields</span> tab. In the <span class="guilabel">Fields</span> group, for the field that you want to use to store SIDC codes, click on the button in the <span class="guilabel">Edit widget</span> column. The <span class="guilabel">Edit Widget Properties</span> dialog will open. Select the <span class="guilabel">SIDC code editor</span> option from the list of widgets and click <span class="guilabel">OK</span>. Finally, close the <span class="guilabel">Layer Properties</span> dialog by clicking <span class="guilabel">OK</span>.</p>
 <div class="figure">
 <img alt="_images/set_custom_widget.png" src="_images/set_custom_widget.png" />
 </div>
